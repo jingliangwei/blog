@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "Blog"
+  text: "arwell's blog"
+  tagline: maybe useful
   actions:
     - theme: brand
       text: Markdown Examples
@@ -15,11 +15,9 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Positive
+    details: Everything will end well, if it not, it doesn't end.
+  - title: Learning
+    details: The more you learn, the less you find what you know.
 ---
 
