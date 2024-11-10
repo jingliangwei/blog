@@ -8,11 +8,11 @@ hero:
   tagline: maybe useful
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Blog
+      link: /blog/
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Fortran
+      link: https://jingliangwei.github.io/a-crash-course-for-Fortran/
 
 features:
   - title: Positive
