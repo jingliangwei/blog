@@ -14,8 +14,7 @@ export default defineConfig({
       {
         text: 'arwell\'s blog',
         items: [
-          { text: 'Markdown Examples', link: '/blog/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/blog/api-examples' }
+          { text: '向量微分算符', link: '/blog/nabla_sphere' }
         ]
       }
     ],
@@ -23,5 +22,10 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/jingliangwei' }
     ]
+  },
+
+  // enable math equation in markdown.
+  markdown: {
+    math: true
   }
 })
