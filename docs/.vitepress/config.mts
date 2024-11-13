@@ -15,6 +15,12 @@ export default defineConfig({
       {
         text: 'arwell\'s blog',
         items: [
+          // { text: '首页', link: '/blog/index' }
+        ]
+      },
+      {
+        text: 'math',
+        items: [
           { text: '向量微分算符', link: '/blog/nabla_sphere' }
         ]
       }
