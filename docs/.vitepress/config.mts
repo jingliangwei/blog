@@ -21,7 +21,7 @@ export default defineConfig({
       {
         text: 'math',
         items: [
-          { text: '向量微分算符', link: '/blog/nabla_sphere' }
+          { text: '向量微分算符', link: '/blog/math/nabla_sphere' }
         ]
       }
     ],
