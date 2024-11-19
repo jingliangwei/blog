@@ -37,7 +37,7 @@ $$
 
 于是向量微分算符
 $$
-\nabla = \sum_i \frac{1}{\sqrt{g_{ii}}} \frac{\partial}{\partial e_i} \hat{e_i} = \hat{\rho} + \frac{1}{\rho}\hat{\theta}
+\nabla = \sum_i \frac{1}{\sqrt{g_{ii}}} \frac{\partial}{\partial e_i} \hat{e_i} = \frac{\partial}{\partial \rho} \hat{\rho} + \frac{1}{\rho} \frac{\partial}{\partial \theta} \hat{\theta}
 $$
 
 ## 球坐标下的向量微分算符
@@ -55,5 +55,5 @@ $$
 
 微分向量算符
 $$
-\nabla = \sum_i\frac{1}{\sqrt{g_{ii}}}\frac{\partial}{\partial e_i}\hat{e_i} = \hat{r}+\frac{1}{r}\hat{\theta}+\frac{1}{r\sin\varphi}\hat{\varphi}
+\nabla = \sum_i\frac{1}{\sqrt{g_{ii}}}\frac{\partial}{\partial e_i}\hat{e_i} = \frac{\partial}{\partial r} \hat{r}+\frac{1}{r}\frac{\partial}{\partial \theta} \hat{\theta}+\frac{1}{r\sin\varphi}\frac{\partial}{\partial \varphi} \hat{\varphi}
 $$
