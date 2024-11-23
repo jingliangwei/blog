@@ -28,6 +28,7 @@ export default defineConfig({
       {
         text: 'tools',
         items: [
+          { text: 'python数据处理', link: '/blog/tools/python'},
           { text: 'make的使用', link: '/blog/tools/make'}
         ]
       },
