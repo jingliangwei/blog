@@ -26,6 +26,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'tools',
+        items: [
+          { text: 'make的使用', link: '/blog/tools/make'}
+        ]
+      },
+      {
         text: 'os',
         items: [
           { text: '从固件到操作系统', link: '/blog/os/firmware'}
