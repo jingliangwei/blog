@@ -1,6 +1,6 @@
 # Python数据处理
 
-本文记录一些常用以及易忘的`python`字符串方法和`numpy`和`matplotlib`模块的函数。
+本文记录一些常用以及易忘的`python`字符串方法、文件操作和`random`、`numpy`、`matplotlib`和`panda`模块的函数。
 
 ## 字符串
 
@@ -236,3 +236,76 @@ print(str(a) + ' {:>10d} -> ' + f'"{a:>10d}"')
 print(str(a) + ' {:<10d} -> ' + f'"{a:<10d}"')
 print(str(a) + ' {:^10d} -> ' + f'"{a:^10d}"')
 ```
+
+## 文件操作
+
+文件的操作主要用到的三个方法：
+- `file.open(filename, mode='r')` 打开文件（参数`mode`指定打开的模式）
+- `file.read()` 返回文件内容（字符串）
+- `file.close()` 关闭文件
+
+其中参数`mode`的值如下表：
+| 值 | 含义 |
+|:--:|:------:|
+|'r' | 读取模式 |
+|'w' | 写入模式 |
+|'a' | 增写模式 |
+
+示例程序：
+```py
+odds = []
+for i in range(1, 100, 2):
+    odds.append(i)
+
+# 写入文件1
+file = open('data.txt', 'w')
+for item in odds:
+    file.write(str(item) + '\n')
+file.close()
+
+# 写入文件2
+context = '\n'.join([str(i) for i in odds])
+file = open('data1.txt', 'w')
+file.write(context)
+file.close()
+
+# 读取文件1
+data = open('data.txt', 'r')
+sum = 0
+for line in data:
+    sum += int(line)
+data.close()
+print('The sum of number in data.txt is', sum)
+
+# 读取文件2
+data = open('data1.txt', 'r')
+context = data.read()
+data.close()
+numbers = context.split('\n')
+sum = 0
+for n in numbers:
+    sum += int(n)
+print('The sum of number in data1.txt is', sum)
+```
+
+## `random`模块
+
+```py
+>>> import random
+>>> random.randint(0, 99)
+32                                  # [0, 99) 的随机整数
+>>> random.randrange(0, 101, 2)
+6                                   # [0, 101) 的随机偶数
+>>> random.random()
+0.0568923977458502                  # [0, 1) 的随机数
+>>> random.uniform(1, 10)
+2.780557626410386                   # [1, 10) 均匀分布的随机数
+>>> random.choice('!123abc$%^')
+'1'                                 # 随机字符
+>>> items = [1, 2, 3, '4', 5, 6]
+>>> random.shuffle(items)           # 乱序
+>>> items
+[5, 6, 1, '4', 3, 2]
+```
+
+## `numpy`模块

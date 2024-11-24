@@ -20,6 +20,7 @@ export default defineConfig({
       },
       {
         text: 'math',
+        collapsed: false,
         items: [
           { text: '正交曲面坐标系', link: '/blog/math/metric' },
           { text: '向量微分算符', link: '/blog/math/nabla_sphere' }
@@ -27,6 +28,7 @@ export default defineConfig({
       },
       {
         text: 'tools',
+        collapsed: false,
         items: [
           { text: 'python数据处理', link: '/blog/tools/python'},
           { text: 'make的使用', link: '/blog/tools/make'}
@@ -34,6 +36,7 @@ export default defineConfig({
       },
       {
         text: 'os',
+        collapsed: false,
         items: [
           { text: '从固件到操作系统', link: '/blog/os/firmware'}
         ]
