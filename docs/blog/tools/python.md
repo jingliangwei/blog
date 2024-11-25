@@ -509,3 +509,81 @@ array([[0, 0, 0, 1, 1, 1, 2, 2, 2],
        [3, 3, 3, 4, 4, 4, 5, 5, 5]])
 ```
 
+### 数组合并
+
+数组拼接函数在一维、二维数组情况的行为如下：
+| 函数 | 函数 | 拼接方向 | 拼接效果 |
+| :---: | :---: | ---- | :---: |
+| `np.r_[a,b]` | `np.vstack((a,b))` | 行方向(`axis=0`) | $\begin{equation}\left[\begin{array}{c} a \\ b\end{array} \right]\end{equation}$ |
+| `np.c_[a,b]` | `np.hstack((a,b))` | 列方向(`axis=1`) | [a b] |
+
+但是`np.r_[a.b]`和`np.c_[a,b]`在一维数组的情况下行为出现特殊结果，具体查看下面验证程序：
+```py
+import numpy as np
+ 
+a = np.array([[1, 2],
+              [3, 4]])
+b = np.array([[5, 6],
+              [7, 8]])
+print('第一个数组：\n', a)
+print('第二个数组：\n', b)
+ 
+print('np.r_[a, b]=\n', np.r_[a, b])
+print('np.vstack((a, b))=\n', np.vstack((a, b)))
+print('np.c_[a, b]=\n', np.c_[a, b])
+print('np.hstack((a, b))=\n', np.hstack((a, b)))
+ 
+print('\n当a,b取一维数组时：')
+a = a.ravel()
+b = b.ravel()
+print('第一个数组：\n', a)
+print('第二个数组：\n', b)
+print('np.r_[a, b]=\n', np.r_[a, b])
+print('np.vstack((a, b))=\n', np.vstack((a, b)))
+print('np.c_[a, b]=\n', np.c_[a, b])
+print('np.hstack((a, b))=\n', np.hstack((a, b)))
+```
+运行结果：
+```sh
+第一个数组：
+ [[1 2]
+ [3 4]]
+第二个数组：
+ [[5 6]
+ [7 8]]
+np.r_[a, b]=
+ [[1 2]
+ [3 4]
+ [5 6]
+ [7 8]]
+np.vstack((a, b))=
+ [[1 2]
+ [3 4]
+ [5 6]
+ [7 8]]
+np.c_[a, b]=
+ [[1 2 5 6]
+ [3 4 7 8]]
+np.hstack((a, b))=
+ [[1 2 5 6]
+ [3 4 7 8]]
+
+当a,b取一维数组时：
+第一个数组：
+ [1 2 3 4]
+第二个数组：
+ [5 6 7 8]
+np.r_[a, b]=                # 特殊情况
+ [1 2 3 4 5 6 7 8]          
+np.vstack((a, b))=
+ [[1 2 3 4]
+ [5 6 7 8]]
+np.c_[a, b]=                # 特殊情况
+ [[1 5]
+ [2 6]
+ [3 7]
+ [4 8]]
+np.hstack((a, b))=
+ [1 2 3 4 5 6 7 8]
+ ```
+
