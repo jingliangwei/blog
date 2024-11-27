@@ -1,6 +1,6 @@
 # Python数据处理
 
-本文记录一些常用以及易忘的`python`字符串方法、文件操作和`random`、`numpy`、`matplotlib`和`panda`模块的函数。
+本文记录一些常用以及易忘的`python`字符串方法、文件操作和`random`、`numpy`、`matplotlib`和`pandas`模块的函数。
 
 ## 字符串
 
@@ -240,7 +240,7 @@ print(str(a) + ' {:^10d} -> ' + f'"{a:^10d}"')
 ## 文件操作
 
 文件的操作主要用到的三个方法：
-- `file.open(filename, mode='r')` 打开文件（参数`mode`指定打开的模式）
+- `file.open(filename, mode='r', encoding='utf-8')` 打开文件（参数`mode`指定打开的模式）
 - `file.read()` 返回文件内容（字符串）
 - `file.close()` 关闭文件
 
@@ -293,7 +293,7 @@ print('The sum of number in data1.txt is', sum)
 ```py
 >>> import random
 >>> random.randint(0, 99)
-32                                  # [0, 99) 的随机整数
+32                                  # [0, 99] 的随机整数
 >>> random.randrange(0, 101, 2)
 6                                   # [0, 101) 的随机偶数
 >>> random.random()
@@ -874,4 +874,212 @@ plt.show()
 具体方式为`extent=[X[0],X[-1],Y[0],Y[-1]]`。
 :::
 ![热力图](./python_fig/imshow.png)
+
+
+## `pandas`模块
+
+### 一维数据表(Series)
+
+使用列表创建一维数据表如下：
+```py
+>>> import pandas as pd
+>>> people = [3.3, 1.3, 14, 13.5]
+>>> a = pd.Series(people)                 # 默认数字索引
+>>> a
+0     3.3
+1     1.3
+2    14.0
+3    13.5
+dtype: float64
+>>> a.values
+array([ 3.3,  1.3, 14. , 13.5])
+>>> a.index
+RangeIndex(start=0, stop=4, step=1)
+>>> a[1]
+1.3
+>>> a[:2]
+0    3.3
+1    1.3
+dtype: float64
+>>> 
+>>> country = ['USA', 'JP', 'CHN', 'IND']
+>>> b = pd.Series(people, country)        # 自定义索引
+>>> b
+USA     3.3
+JP      1.3
+CHN    14.0
+IND    13.5
+dtype: float64
+>>> b[1]
+1.3
+>>> b['USA']
+3.3
+>>> b[:'CHN']
+USA     3.3
+JP      1.3
+CHN    14.0
+dtype: float64
+```
+
+使用字典创建一维数据表如下：
+```py
+>>> data = {'USA':3.3, 'JP':1.3, 'CH':14, 'IN':13.5}
+>>> c = pd.Series(data)
+>>> c
+USA     3.3
+JP      1.3
+CH     14.0
+IN     13.5
+dtype: float64
+>>> c['CH']
+14.0
+>>> d = pd.Series(data, index=['USA', 'CH'])
+>>> d
+USA     3.3
+CH     14.0
+dtype: float64
+```
+
+可以使用不连续的数字索引：
+```py
+>>> import pandas as pd
+>>> people = [3.3, 1.3, 14, 13.5]
+>>> test = pd.Series(people, index=[5,3,10,6])
+>>> test
+5      3.3
+3      1.3
+10    14.0
+6     13.5
+dtype: float64
+>>> test[5]
+3.3
+>>> test[:2]
+5    3.3
+3    1.3
+dtype: float64
+```
+
+一维数据表有两种索引器，
+`.loc[]`使用显式索引（标签），
+`.iloc[]`使用隐式索引（位置）。
+```py
+>>> test.loc[3]
+1.3
+>>> test.loc[:3]
+5    3.3
+3    1.3
+dtype: float64
+>>> test.iloc[3]
+13.5
+>>> test.iloc[:3]
+5      3.3
+3      1.3
+10    14.0
+dtype: float64
+```
+
+### 二维数据表(DataFrame)
+
+二维数据表的创建如下：
+```py
+>>> s = pd.Series([1,2,3,4,5])
+>>> s
+0    1
+1    2
+2    3
+3    4
+4    5
+dtype: int64
+>>> df = pd.DataFrame(s, columns=['digits'])            # 用一维数据表创建
+>>> df
+   digits
+0       1
+1       2
+2       3
+3       4
+4       5
+>>> 
+>>> people = [3.3, 1.3, 14, 13.5]
+>>> country = ['USA', 'JP', 'CHN', 'IND']
+>>> df = pd.DataFrame({'COU': country, 'PEO': people})  # 用字典创建
+>>> df
+   COU   PEO
+0  USA   3.3
+1   JP   1.3
+2  CHN  14.0
+3  IND  13.5
+>>> 
+>>> dl = [{'a':1, 'b':1}, {'b':2, 'c':2}, {'c':3, 'd':3}]
+>>> df = pd.DataFrame(dl)             # 用字典创建时，不存在的值自动填充为NaN
+>>> df
+     a    b    c    d
+0  1.0  1.0  NaN  NaN
+1  NaN  2.0  2.0  NaN
+2  NaN  NaN  3.0  3.0
+>>> 
+>>> import numpy as np                                  
+>>> df = pd.DataFrame(np.zeros([5,3]),
+...                   columns=['A','B','C'],
+...                   index=['a','b','c','d','e'])      # 用二维数组创建
+>>> df
+     A    B    C
+a  0.0  0.0  0.0
+b  0.0  0.0  0.0
+c  0.0  0.0  0.0
+d  0.0  0.0  0.0
+e  0.0  0.0  0.0
+```
+二维数据表的方法和索引如下：
+```py
+>>> data = {
+...     'CHN': { 'COUNTRY': 'China',
+...              'POP': 1398,
+...              'AREA': 9597,
+...              'IND_DAY': '1949-10-01' },
+...     'IND': { 'COUNTRY': 'India',
+...              'POP': 1351,
+...              'AREA': 3287 },
+...     'USA': { 'COUNTRY': 'US',
+...              'POP': 329,
+...              'AREA': 9833,
+...              'IND_DAY': '1776-07-04' } }
+>>> df = pd.DataFrame(data)
+>>> df
+                CHN    IND         USA
+COUNTRY       China  India          US
+POP            1398   1351         329
+AREA           9597   3287        9833
+IND_DAY  1949-10-01    NaN  1776-07-04
+>>> df.dtypes                             # 表格元素类型
+CHN    object
+IND    object
+USA    object
+dtype: object
+>>> df.columns                            # 表格列名
+Index(['CHN', 'IND', 'USA'], dtype='object')
+>>> df.index                              # 表格行名
+Index(['COUNTRY', 'POP', 'AREA', 'IND_DAY'], dtype='object')
+>>> df['CHN']
+COUNTRY         China
+POP              1398
+AREA             9597
+IND_DAY    1949-10-01
+Name: CHN, dtype: object
+>>> df.loc['POP']
+CHN    1398
+IND    1351
+USA     329
+Name: POP, dtype: object
+>>> df.iloc[1:3,::2]
+       CHN   USA
+POP   1398   329
+AREA  9597  9833
+```
+:::tip
+二维数据表的索引跟二维数组的索引规则时一致的，
+只是多加一个`.iloc[]`的格式区别。
+:::
+
+
+
 

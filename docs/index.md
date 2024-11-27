@@ -11,6 +11,9 @@ hero:
       text: Blog
       link: /blog/
     - theme: alt
+      text: Python数据处理
+      link: /blog/tools/python
+    - theme: alt
       text: Fortran
       link: https://jingliangwei.github.io/a-crash-course-for-Fortran/
 
