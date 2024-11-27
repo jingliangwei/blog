@@ -628,3 +628,250 @@ array([1.05342857, 0.01028571, 0.98857143, 3.98828571, 9.00942857])
 array([  35.02162011,   99.12392816,  280.55678472,  794.07778639, 2247.52907498])
 ```
 
+### `np.random`方法
+- `np.random.rand(shape)` $[0,1)$ 均匀分布随机浮点值
+- `np.random.randn(shape)` 标准正态分布
+
+输出`shape`形状的数组。
+```py
+>>> np.random.rand(2,3)
+array([[0.02091664, 0.10860645, 0.99984676],
+       [0.19742929, 0.83246915, 0.52071977]])
+>>> np.random.randn(5,3)
+array([[-0.6027537 , -1.41548243, -1.00354529],
+       [ 0.40065497,  1.04722031, -1.03729103],
+       [-0.59072599,  1.07572819,  0.80372283],
+       [-0.02655067, -1.86793122, -0.65659361],
+       [ 0.14712546, -0.56336056, -0.10542148]])
+```
+:::tip
+更多方法和具体用法通过`dir(np.random)`和`help(np.random.方法名)`查看。
+:::
+
+## `matplotlib`模块
+
+### 绘制函数
+
+使用`plot`函数进行绘制，如下：
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 10, 1000)
+y = np.sin(x) ; z = np.cos(x ** 2)
+
+plt.figure()                                                   # 生成画布
+plt.plot(x, y, label='$sin(x)$', color='red', linewidth=2)     # 绘制 y-x 图像
+plt.plot(x, z, 'b--', label='$cos(x^2)$')                      # 绘制 z-x 图像
+plt.legend(loc=3)                                              # 生成图注
+plt.show()                                                     # 在画布上显示
+plt.close()                                                    # 关闭画布
+```
+绘制结果如下：
+![函数$sin(x)$和$cos(x^2)$的图像](./python_fig/Figure_1.png)
+
+`plot()`的更多参数如下：
+| 参数 | 值 |
+|:---:|:----:|
+|`alpha`| 透明度，$[0,1]$浮点数 |
+|`color`/`c`| 'r'/'g'/'b'/... |
+|`label`| 图注名字，字符串 |
+|`linestyle`/`ls`| '-'/'--'/'-.'/':'/... |
+|`linewidth`/`lw`| 浮点值 |
+|`marker`| '+'/','/'.'/'1'/'2'/'3'/'4'/... |
+|`markersize`/`ms`| 浮点值 |
+
+### 细节定制函数
+
+- `plt.title(str)` 图标题
+- `plt.xlabel(str)` 横轴标题
+- `plt.ylabel(str)` 竖轴标题
+- `plt.xlim([minx, maxx])` 横轴坐标范围
+- `plt.ylim([miny, maxy])` 竖轴坐标范围
+- `plt.grid('on')` 添加网格
+- `plt.text(x, y, str)` 添加文本
+- `plt.axis('equal')` 等比例坐标轴
+- `plt.axvline(x=0)` 竖直参考线
+- `plt.axhline(y=0, color='k')` 水平参考线
+
+### 多子图排版
+
+注意画布`fig`和子图`ax`的区别，如下图：
+![`fig`和`ax`的区别](./python_fig/Fig&ax.png)
+生成子图的方式：
+```py
+# 方式一
+fig = plt.figure()
+ax = fig.add_subplot(111)
+# 方式二
+ax1 = plt.subplot(211)
+ax2 = plt.subplot(212)
+```
+
+子图函数 `plt.subplot(numRows, numCols, plotNum)` 可以定义子图的位置，
+如下例：
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0,10,1000)
+y1 = np.sin(x)
+y2 = np.cos(x**2)
+y3 = np.exp(x)
+
+ax1 = plt.subplot(211)
+ax1.plot(x,y1)
+ax2 = plt.subplot(223)
+ax2.plot(x,y2)
+ax3 = plt.subplot(224)
+ax3.plot(x,y3)
+plt.show()
+```
+![排版结果图片](./python_fig/subplot.png)
+
+### 极坐标图
+
+极坐标图通过子图的`polar`参数指定。
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 3.0, 0.01)
+theta = 2 * np.pi * r
+
+ax = plt.subplot(111, polar=True)
+ax.plot(theta, r, c='r', lw=3)
+ax.set_rmax(2.0)
+ax.grid(True)
+ax.set_title('polar plot')
+plt.show()
+```
+![极坐标图](./python_fig/polar.png)
+
+:::details
+注意对于子图`ax`，其细节定制函数有所变换，
+例如`plt.title()`换成了`ax.set_title()`，
+`plt.xlim()`换成了`ax.set_xlim()`，
+更多的可以通过`dir(ax)`进行查看。
+:::
+
+### 直方图
+
+`plt.hist(x, num_bins[, edgecolor])`用于根据`x`绘制直方图，
+其中参数`num_bins`代表箱数，可选参数`edgecolor`代表边框颜色。
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+num_bins = 50
+x = np.random.randn(10000)
+
+n, bins, patches = plt.hist(x, num_bins, edgecolor='k')
+plt.show()
+```
+函数`plt.hist()`的返回值`n`是各个箱内的频数，
+`bins`是各个箱的边界。
+
+
+![直方图](./python_fig/hist.png)
+
+### 散点图
+`plt.scatter(x, y[, s=, alpha=, color=])`用于根据坐标`(x,y)`绘制散点图，
+可选参数`s`代表点的大小，`alpha`代表透明度，`color`代表颜色。
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+n = 150
+x = np.random.rand(n, 3)
+c = np.random.rand(n, 3)
+
+plt.scatter(x[:,0], x[:,1], s=x[:,2]*500, alpha=0.5, color=c)
+plt.show()
+```
+![散点图](./python_fig/scatter.png)
+
+### 三维曲面
+三维曲面图由子图的`projection`指定。
+用函数`ax.plot_surface(X, Y, Z[, cmap='jet'])`绘制，
+其中可选参数`cmap`是曲面颜色映射。
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+def bbfunc(lam, T):
+    h=6.626e-34; c=2.99792e+8; k=1.3806e-23
+    lam = lam * 1e-9
+    return 2*h*c**2/lam**5 / (np.exp(h*c/lam/k/T)-1)
+
+n = 100
+lam = np.arange(1, n+1)*2000/n
+T = np.arange(n)/(n-1)*2000+4000
+X, Y = np.meshgrid(lam, T)
+Z = bbfunc(X, Y)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='jet')
+plt.show()
+```
+:::tip
+程序用函数`np.meshgrid()`由两个一维数组`lam`、`T`作为两边，
+生成一个二维网格点坐标`X`、`Y`。
+:::
+![三维曲面图](./python_fig/3d.png)
+
+### 等高线图
+用函数`plt.contour(X, Y, Z)`绘制等高线图。
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+def bbfunc(lam, T):
+    h=6.626e-34; c=2.99792e+8; k=1.3806e-23
+    lam = lam * 1e-9
+    return 2*h*c**2/lam**5 / (np.exp(h*c/lam/k/T)-1)
+
+n = 100
+lam = np.linspace(0, 2000, n)
+T = np.linspace(4000, 6000, n)
+X, Y = np.meshgrid(lam, T)
+Z = bbfunc(X, Y)
+
+cs = plt.contour(X, Y, Z)
+plt.xlabel('Wavelength(nm)')
+plt.ylabel('T(K)')
+plt.show()
+```
+![等高线图](./python_fig/contour.png)
+
+### 热力图
+用函数`plt.imshow(Z)`绘制热力图。
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+def bbfunc(lam, T):
+    h=6.626e-34; c=2.99792e+8; k=1.3806e-23
+    lam = lam * 1e-9
+    return 2*h*c**2/lam**5 / (np.exp(h*c/lam/k/T)-1)
+
+n = 100
+lam = np.linspace(0, 2000, n)
+T = np.linspace(4000, 6000, n)
+X, Y = np.meshgrid(lam, T)
+Z = bbfunc(X, Y)
+
+plt.imshow(Z[::-1], cmap='jet', extent=[0,2000,4000,6000])
+plt.colorbar()
+plt.xlabel('Wavelength(nm)')
+plt.ylabel('T(K)')
+plt.show()
+```
+:::tip
+由于`plt.imshow()`函数默认坐标是数组`Z`的下标，
+可以通过可选参数`extent`来设置坐标值，
+具体方式为`extent=[X[0],X[-1],Y[0],Y[-1]]`。
+:::
+![热力图](./python_fig/imshow.png)
+
