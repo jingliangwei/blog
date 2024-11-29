@@ -1076,10 +1076,190 @@ POP   1398   329
 AREA  9597  9833
 ```
 :::tip
-二维数据表的索引跟二维数组的索引规则时一致的，
+二维数据表的索引跟二维数组的索引规则是一致的，
 只是多加一个`.iloc[]`的格式区别。
 :::
 
+:::info
+```py
+data = {
+     'CHN': { 'COUNTRY': 'China',
+              'POP': 1398,
+              'AREA': 9597,
+              'IND_DAY': '1949-10-01' },
+     'IND': { 'COUNTRY': 'India',
+              'POP': 1351,
+              'AREA': 3287 },
+     'USA': { 'COUNTRY': 'US',
+              'POP': 329,
+              'AREA': 9833,
+              'IND_DAY': '1776-07-04' } }
+```
+:::
+
+### 处理excel文件
+
+在工作目录下新建一个excel文件，
+命名为`file.xlsx`，
+其中sheet1内容如下：
+
+| x | y     |
+|---|-------|
+| 0 | 0.09  |
+| 1 | 2.13  |
+| 2 | 4.09  |
+| 3 | 5.98  |
+| 4 | 8.23  |
+| 5 | 9.89  |
+| 6 | 12.21 |
+
+而sheet2内容如下：
+
+| ID   | Name | Chinese | Math | English | Total |
+|------|------|---------|------|---------|-------|
+| 1001 | A    | 64      | 78   | 45      | 187   |
+| 1002 | B    | 35      | 48   | 64      | 147   |
+| 1003 | C    | 73      | 45   | 77      | 195   |
+| 1004 | D    | 60      | 48   | 58      | 166   |
+| 1005 | E    | 89      | 89   | 41      | 219   |
+| 1006 | F    | 97      | 69   | 72      | 238   |
+| 1007 | G    | 89      | 45   | 73      | 207   |
+| 1008 | H    | 64      | 97   | 78      | 239   |
+| 1009 | I    | 41      | 97   | 45      | 183   |
+| 1010 | J    | 41      | 97   | 78      | 216   |
+
+使用`pd.read_excel(filename)`读取excel文件。
+可选参数`sheet_name`、`usecols`和`index_col`的使用如下：
+
+```py
+>>> df = pd.read_excel('file.xlsx')
+>>> df
+   x      y
+0  0   0.09
+1  1   2.13
+2  2   4.09
+3  3   5.98
+4  4   8.23
+5  5   9.89
+6  6  12.21
+>>> df['x']
+0    0
+1    1
+2    2
+3    3
+4    4
+5    5
+6    6
+Name: x, dtype: int64
+>>> df['y']
+0     0.09
+1     2.13
+2     4.09
+3     5.98
+4     8.23
+5     9.89
+6    12.21
+Name: y, dtype: float64
+>>> df['y'].values
+array([ 0.09,  2.13,  4.09,  5.98,  8.23,  9.89, 12.21])
+
+>>> df = pd.read_excel('file.xlsx', sheet_name=1)
+>>> df
+     ID Name  Chinese  Math  English  Total
+0  1001    A       64    78       45    187
+1  1002    B       35    48       64    147
+2  1003    C       73    45       77    195
+3  1004    D       60    48       58    166
+4  1005    E       89    89       41    219
+5  1006    F       97    69       72    238
+6  1007    G       89    45       73    207
+7  1008    H       64    97       78    239
+8  1009    I       41    97       45    183
+9  1010    J       41    97       78    216
+>>> df = pd.read_excel('file.xlsx', sheet_name='Sheet2')
+>>> df
+     ID Name  Chinese  Math  English  Total
+0  1001    A       64    78       45    187
+1  1002    B       35    48       64    147
+2  1003    C       73    45       77    195
+3  1004    D       60    48       58    166
+4  1005    E       89    89       41    219
+5  1006    F       97    69       72    238
+6  1007    G       89    45       73    207
+7  1008    H       64    97       78    239
+8  1009    I       41    97       45    183
+9  1010    J       41    97       78    216
+
+>>> df = pd.read_excel('file.xlsx', sheet_name='Sheet2', usecols=[2])
+>>> df
+   Chinese
+0       64
+1       35
+2       73
+3       60
+4       89
+5       97
+6       89
+7       64
+8       41
+9       41
+>>> df = pd.read_excel('file.xlsx', sheet_name='Sheet2', usecols=[2, 5])
+>>> df
+   Chinese  Total
+0       64    187
+1       35    147
+2       73    195
+3       60    166
+4       89    219
+5       97    238
+6       89    207
+7       64    239
+8       41    183
+9       41    216
+>>> df = pd.read_excel('file.xlsx', sheet_name='Sheet2', index_col=1)
+>>> df
+        ID  Chinese  Math  English  Total
+Name                                     
+A     1001       64    78       45    187
+B     1002       35    48       64    147
+C     1003       73    45       77    195
+D     1004       60    48       58    166
+E     1005       89    89       41    219
+F     1006       97    69       72    238
+G     1007       89    45       73    207
+H     1008       64    97       78    239
+I     1009       41    97       45    183
+J     1010       41    97       78    216
+```
+
+使用`.to_excel()`函数保存二维数据表到excel文件，
+可选参数`sheet_name`和`index`的使用如下：
+```py
+>>> data = {
+...      'CHN': { 'COUNTRY': 'China',
+...               'POP': 1398,
+...               'AREA': 9597,
+...               'IND_DAY': '1949-10-01' },
+...      'IND': { 'COUNTRY': 'India',
+...               'POP': 1351,
+...               'AREA': 3287 },
+...      'USA': { 'COUNTRY': 'US',
+...               'POP': 329,
+...               'AREA': 9833,
+...               'IND_DAY': '1776-07-04' } }
+>>> df = pd.DataFrame(data)
+>>> df
+                CHN    IND         USA
+COUNTRY       China  India          US
+POP            1398   1351         329
+AREA           9597   3287        9833
+IND_DAY  1949-10-01    NaN  1776-07-04
+>>> df.to_excel('output.xlsx')
+>>> df.to_excel('output1.xlsx', sheet_name='country')
+>>> df.to_excel('output2.xlsx', index = False)
+```
+三个excel文件的内容如下图：
+![excel文件内容](./python_fig/excel.png)
 
 
 
