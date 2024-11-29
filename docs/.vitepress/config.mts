@@ -31,7 +31,8 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'python数据处理', link: '/blog/tools/python'},
-          { text: 'make的使用', link: '/blog/tools/make'}
+          { text: 'make的使用', link: '/blog/tools/make'},
+          { text: 'wps问题解答', link: '/blog/tools/wps'}
         ]
       },
       {
