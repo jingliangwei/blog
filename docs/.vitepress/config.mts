@@ -11,7 +11,8 @@ export default defineConfig({
       { text: 'Home', link: '/' },
     ],
 
-    sidebar: [
+    sidebar: {
+      '/blog/': [
       {
         text: 'arwell\'s blog',
         items: [
@@ -43,6 +44,16 @@ export default defineConfig({
         ]
       }
     ],
+
+    '/hw/': [
+      {
+        text: '韦境量\'s作业',
+        items: [
+          { text: '用python绘制本征函数系拟合图', link: '/hw/fit'}
+        ]
+      }
+    ]
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/jingliangwei' }
