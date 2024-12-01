@@ -72,10 +72,66 @@ ns = [1,5,20,200]    # 分别用前ns[0],ns[1],...项进行拟合
 alpha = 0.6         # 绘图曲线透明度
 
 # ---------------------------------------------------
+# 待拟合函数及其字符串
+## 待拟合函数1
+def fx1(x, l):
+    return 0 * x + 1
+str_fx1 = 'f(x)=1'
+## 待拟合函数2
+def fx2(x, l):
+    return - x * x + l * x
+str_fx2 = r'$f(x)=-x^2+lx$'
+
+# ---------------------------------------------------
 # 本征函数系字符串
 str_base1 = r'$X_n(x)=\sin\frac{n\pi}{l}x$'
 str_base2 = r'$X_n(x)=\sin\frac{2n+1}{2l}\pi x$'
 str_base3 = r'$X_n(x)=\cos\frac{n\pi}{l}x$'
+
+# ---------------------------------------------------
+# 用前n项进行拟合
+## 用本征函数系1拟合函数1
+def fit11(n, x, l):
+    y = x * 0
+    for i in range(1, n+1):
+        y += 2 / (i * np.pi) * (1 - (-1)**i) * np.sin(i * np.pi * x / l)
+    return y
+## 用本征函数系1拟合函数2
+def fit12(n, x, l):
+    y = x * 0
+    for i in range(1, n+1):
+        y += 4 * l**2 / (i**3 * np.pi**3) * (1 - (-1)**i) * np.sin(i * np.pi * x / l)
+    return y
+## 用本征函数系2拟合函数1
+def fit21(n, x, l):
+    y = x * 0
+    for i in range(0, n+1):
+        y += 4 / ((2 * i + 1) * np.pi) * np.sin((2 * i + 1) / (2 * l) * np.pi * x)
+    return y
+## 用本征函数系2拟合函数2
+def fit22(n, x, l):
+    y = x * 0
+    for i in range(0, n+1):
+        y += 8 * l**2 / ((2 * i + 1)**2 * np.pi**2) * (4 / ((2 * i + 1) * np.pi) - (-1)**i) * np.sin((2 * i + 1) / (2 * l) * np.pi * x)
+    return y
+## 用本征函数系3拟合函数1
+def fit31(n, x, l):
+    y = x * 0
+    for i in range(0, n+1):
+        if i == 0:
+            y += 1
+        else:
+            y += 0
+    return y
+## 用本征函数系3拟合函数2
+def fit32(n, x, l):
+    y = x * 0
+    for i in range(0, n+1):
+        if i == 0:
+            y += l**2 / 6
+        else:
+            y += -2 * l**2 / (i**2 * np.pi**2) * (1 + (-1)**i) * np.cos(i * np.pi / l * x)
+    return y
 
 # ---------------------------------------------------
 # 绘制用前ns=[n1,n2,...]项拟合函数f，拟合公式为fit
@@ -90,11 +146,11 @@ str_base3 = r'$X_n(x)=\cos\frac{n\pi}{l}x$'
 def ax_fit(ax, l, ns, fx, str_fx, fit, alpha, str_base):
     x = np.linspace(0, l, 1000)
     # 绘制待拟合的函数
-    f1 = fx(x)
+    f1 = fx(x, l)
     ax.plot(x, f1, label=str_fx, alpha=alpha)
     # 绘制分别用前n1项、前n2项、...拟合的函数
     for n in ns:
-        f2 = fit(n, x)
+        f2 = fit(n, x, l)
         ax.plot(x, f2, label=f'n={n}', alpha=alpha)
     # 绘制图注
     ax.set_title(str_base)
@@ -109,61 +165,6 @@ def rplot():
     for n in str_n:
         ns.append(int(n))
     alpha = float(alpha_input.get())
-    # ---------------------------------------------------
-    # 注：把函数定义放在rplot()内才能每次更新参数l的值。
-    # 待拟合函数及其字符串
-    ## 待拟合函数1
-    def fx1(x):
-        return 0 * x + 1
-    str_fx1 = 'f(x)=1'
-    ## 待拟合函数2
-    def fx2(x):
-        return - x * x + l * x
-    str_fx2 = r'$f(x)=-x^2+lx$'
-    # ---------------------------------------------------
-    # 用前n项进行拟合
-    ## 用本征函数系1拟合函数1
-    def fit11(n, x):
-        y = x * 0
-        for i in range(1, n+1):
-            y += 2 / (i * np.pi) * (1 - (-1)**i) * np.sin(i * np.pi * x / l)
-        return y
-    ## 用本征函数系1拟合函数2
-    def fit12(n, x):
-        y = x * 0
-        for i in range(1, n+1):
-            y += 4 * l**2 / (i**3 * np.pi**3) * (1 - (-1)**i) * np.sin(i * np.pi * x / l)
-        return y
-    ## 用本征函数系2拟合函数1
-    def fit21(n, x):
-        y = x * 0
-        for i in range(0, n+1):
-            y += 4 / ((2 * i + 1) * np.pi) * np.sin((2 * i + 1) / (2 * l) * np.pi * x)
-        return y
-    ## 用本征函数系2拟合函数2
-    def fit22(n, x):
-        y = x * 0
-        for i in range(0, n+1):
-            y += 8 * l**2 / ((2 * i + 1)**2 * np.pi**2) * (4 / ((2 * i + 1) * np.pi) - (-1)**i) * np.sin((2 * i + 1) / (2 * l) * np.pi * x)
-        return y
-    ## 用本征函数系3拟合函数1
-    def fit31(n, x):
-        y = x * 0
-        for i in range(0, n+1):
-            if i == 0:
-                y += 1
-            else:
-                y += 0
-        return y
-    ## 用本征函数系3拟合函数2
-    def fit32(n, x):
-        y = x * 0
-        for i in range(0, n+1):
-            if i == 0:
-                y += l**2 / 6
-            else:
-                y += -2 * l**2 / (i**2 * np.pi**2) * (1 + (-1)**i) * np.cos(i * np.pi / l * x)
-        return y
     # ---------------------------------------------------
     # 初始化画布和子图
     fig.clf()
@@ -218,6 +219,11 @@ Tk.mainloop()
 参数`alpha`是绘制函数曲线的透明度，接受的数值大小 $0<alpha\le1$，默认为`0.6` 。
 
 修改参数后点击`绘制`按键即可根据新参数重新绘图。
+:::
+
+:::info
+运行该脚本除了安装`python`运行环境之外，
+还需要安装`python`的`numpy`、`matplotlib`和`tkinter`模块才能运行。
 :::
 
 运行结果如下：
