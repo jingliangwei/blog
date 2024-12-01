@@ -224,6 +224,9 @@ Tk.mainloop()
 :::info
 运行该脚本除了安装`python`运行环境之外，
 还需要安装`python`的`numpy`、`matplotlib`和`tkinter`模块才能运行。
+
+如果不想自己折腾，
+也可以在线体验一下：[在线体验](/hw/func_fit.html)
 :::
 
 运行结果如下：
