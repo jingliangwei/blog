@@ -59,6 +59,14 @@ $$ f(x)=\frac{l^2}{6} + \sum_{n=1}^\infty \frac{-2l^2}{n^2\pi^2}\left(1+(-1)^n\r
 用`python`脚本根据参数`l`、`n`绘制出 $f(x)=\sum_n C_nX_n(x)$ 的前n项和，
 观察级数如何收敛于 $f(x)$ 。
 
+:::info
+运行该脚本除了安装`python`运行环境之外，
+还需要安装`python`的`numpy`、`matplotlib`和`tkinter`模块才能运行。
+
+如果不想自己折腾，
+也可以在线体验一下：[在线体验](https://jingliangwei.github.io/func_fit/)
+:::
+
 ```py
 import numpy as np
 import matplotlib.pyplot as plt
@@ -219,14 +227,6 @@ Tk.mainloop()
 参数`alpha`是绘制函数曲线的透明度，接受的数值大小 $0<alpha\le1$，默认为`0.6` 。
 
 修改参数后点击`绘制`按键即可根据新参数重新绘图。
-:::
-
-:::info
-运行该脚本除了安装`python`运行环境之外，
-还需要安装`python`的`numpy`、`matplotlib`和`tkinter`模块才能运行。
-
-如果不想自己折腾，
-也可以在线体验一下：[在线体验](https://jingliangwei.github.io/func_fit/)
 :::
 
 运行结果如下：
