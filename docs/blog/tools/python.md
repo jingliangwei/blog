@@ -876,6 +876,28 @@ plt.show()
 ![热力图](./python_fig/imshow.png)
 
 
+### 绘制形状
+利用`matplotlib.patches`可以绘制一些基本形状，
+比如圆形，矩形等。
+
+```py
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+
+fig, ax = plt.subplots()
+
+circle = patches.Circle((0.5, 0.5), 0.3, edgecolor='black', facecolor='blue', lw=2)
+rectangle = patches.Rectangle((0.1, 0.1), 0.1, 0.2)
+
+ax.add_patch(circle)
+ax.add_patch(rectangle)
+
+ax.set_aspect('equal')
+plt.show()
+```
+
+![圆和矩形](./python_fig/patches.png)
+
 ## `pandas`模块
 
 ### 一维数据表(Series)
