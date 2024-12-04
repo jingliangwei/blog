@@ -52,6 +52,15 @@ export default defineConfig({
           { text: '用python绘制本征函数系拟合图', link: '/hw/fit'}
         ]
       }
+    ],
+
+    '/test/': [
+      {
+        text: '韦境量',
+        items: [
+          { text: 'python期末考试', link: '/test/py_test'}
+        ]
+      }
     ]
     },
 
