@@ -7,22 +7,24 @@ $$\nabla = \left( \frac{\partial}{\partial x} \quad \frac{\partial}{\partial y} 
 ## 极坐标下的向量微分算符
 
 极坐标变换
+
 $$
 \left\{
-\begin{array}{l}
-x=\rho\cos\theta \\
-y=\rho\sin\theta
-\end{array}
+\begin{align}
+x&=\rho\cos\theta \\
+y&=\rho\sin\theta
+\end{align}
 \right.
 $$
 
 在极坐标$(\rho,\theta)$下，微元
+
 $$
-\begin{array}{rl}
-(ds)^2&= (dx)^2+(dy)^2\\
-&= (\cos\theta d\rho+\rho\sin\theta d\theta)^2+(\sin\theta d\rho-\rho\cos\theta d\theta)^2\\
+\begin{align}
+(ds)^2&= (dx)^2+(dy)^2 \\
+&= (\cos\theta d\rho+\rho\sin\theta d\theta)^2+(\sin\theta d\rho-\rho\cos\theta d\theta)^2 \\
 &=(d\rho)^2+\rho^2(d\theta)^2
-\end{array}
+\end{align}
 $$
 
 故度规张量在极坐标下的矩阵形式为
