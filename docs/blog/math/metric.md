@@ -90,7 +90,7 @@ $$
 \nabla \cdot \vec{V} = \frac{1}{h_1h_2h_3}\left[ \frac{\partial}{\partial q_1}(h_2h_3v_1) + \frac{\partial}{\partial q_2}(h_1h_3v_2) +  \frac{\partial}{\partial q_3}(h_1h_2v_3) \right]
 $$
 
-拉普拉斯算符 $\nabla^2\phi\equiv\nabla\cdot(\nabla\cdot\phi)$
+拉普拉斯算符(div grad) $\nabla^2\phi\equiv\nabla\cdot(\nabla\phi)$
 $$
 \nabla^2\phi = \frac{1}{h_1h_2h_3}\left[ \frac{\partial}{\partial q_1}\left(\frac{h_2h_3}{h_1}\frac{\partial\phi}{\partial q_1}\right) + \frac{\partial}{\partial q_2}\left(\frac{h_1h_3}{h_2}\frac{\partial\phi}{\partial q_2}\right) + \frac{\partial}{\partial q_3}\left(\frac{h_1h_2}{h_3}\frac{\partial\phi}{\partial q_3}\right) \right]
 $$

@@ -40,6 +40,12 @@ $$
 \nabla = \sum_i \frac{1}{\sqrt{g_{ii}}} \frac{\partial}{\partial e_i} \hat{e_i} = \frac{\partial}{\partial \rho} \hat{\rho} + \frac{1}{\rho} \frac{\partial}{\partial \theta} \hat{\theta}
 $$
 
+::: warning
+注意在其他坐标系下求散度(div)不是简单地将 $\nabla$ 和矢量 $\vec{V}$ 进行点乘。
+
+具体求法见[这里](/blog/math/metric)
+:::
+
 ## 球坐标下的向量微分算符
 
 同上易得度规张量在球坐标$(r,\theta,\varphi)$下的矩阵形式
