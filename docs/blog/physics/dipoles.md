@@ -114,3 +114,63 @@ $$
 &=\frac{\mu_0p_m}{4\pi r^3}(2\cos\theta\cdot\hat{e_r}+\sin\theta\cdot\hat{e_\theta})
 \end{align}
 $$
+
+## 磁偶极子在外场中受力
+
+在研究铁磁质在磁场中的受力时（例如两个条形磁铁之间的相互作用），
+可以把铁磁质视为磁偶极子进行受力分析。
+如下图，当磁偶极子的磁矩 $p_m=\pi r^2I$ ，
+在外场 $B$ 中受力为
+$$
+\vec{F}=\vec{p}_m\frac{\partial B}{\partial z}
+$$
+
+![磁偶极子受力示意图](./dipoles_fig/mag_dipoles_in_B.png)
+
+推导如下：
+
+取电流环上的微元 $dl$ ，微元所在位置外磁场为 $B$ ，
+可以分解为平行磁矩和垂直磁矩的两个分量 $B_z,B_r$ 。
+其中平行磁矩分量 $B_z$ 产生的安培力与电流环的平面平行，
+当实际问题中待分析的物体视为刚体，则电流环为刚体，该分量可以忽略。
+垂直磁矩方向的外磁场分量 $B_r$ 产生的安培力：
+$$
+d\vec{F}_i=Id\vec{l}_i\times\vec{B}_r
+$$
+记径向磁场 $B_r$ 在方向向外时为正值，则当磁矩沿 $z$ 轴正向时
+$$
+dF_i=-Ird\theta B_r(\theta)
+$$
+当磁矩沿 $z$ 轴负向时
+$$
+dF_i=Ird\theta B_r(\theta)
+$$
+可以统一写成
+$$
+dF_i=-Ird\theta B_r(\theta) \hat{p}_m
+$$
+对 $\theta$ 从 $0$ 到 $2\pi$ 积分，得到电流环在 $z$ 向上受到的合力
+$$
+F=\int_0^{2\pi}dF_i=-Ir\hat{p}_m\int_0^{2\pi}B_r(\theta)d\theta 
+$$
+
+取如上图中高斯面，由磁场的高斯定理有：
+$$
+\pi r^2[B_z(z+\Delta z)-B_z(z)]+\int_0^{2\pi}B_r(\theta)rd\theta \Delta z=0
+$$
+$$
+\pi r^2 \frac{\partial B}{\partial z}\Delta z+\int_0^{2\pi}B_r(\theta)rd\theta \Delta z=0
+$$
+故有
+$$
+\int_0^{2\pi} B_r(\theta)d\theta=-\pi r\frac{\partial B}{\partial z}
+$$
+
+带入上面得到的合力有
+$$
+F=I\pi r^2\frac{\partial B}{\partial z}\hat{p}_m
+$$
+即
+$$
+\vec{F}=\vec{p}_m\frac{\partial B}{\partial z}
+$$
