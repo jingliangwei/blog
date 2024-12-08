@@ -50,18 +50,20 @@ $$
 
 ## 球坐标下的向量微分算符
 
-同上易得度规张量在球坐标$(r,\theta,\varphi)$下的矩阵形式
+同上易得度规张量在球坐标$(r,\theta,\varphi)$下的矩阵形式，
+各个坐标如下：
+![球坐标系](./nabla_sphere_fig/sphere.png)
 $$
 G=\left[
 \begin{array}{ccc}
 1 & 0 & 0\\
 0 & r^2 & 0\\
-0 & 0 & r^2\sin^2\varphi
+0 & 0 & r^2\sin^2\theta
 \end{array}
 \right]
 $$
 
 微分向量算符
 $$
-\nabla = \sum_i\frac{1}{\sqrt{g_{ii}}}\frac{\partial}{\partial e_i}\hat{e_i} = \frac{\partial}{\partial r} \hat{r}+\frac{1}{r}\frac{\partial}{\partial \theta} \hat{\theta}+\frac{1}{r\sin\varphi}\frac{\partial}{\partial \varphi} \hat{\varphi}
+\nabla = \sum_i\frac{1}{\sqrt{g_{ii}}}\frac{\partial}{\partial e_i}\hat{e_i} = \frac{\partial}{\partial r} \hat{r}+\frac{1}{r}\frac{\partial}{\partial \theta} \hat{\theta}+\frac{1}{r\sin\theta}\frac{\partial}{\partial \varphi} \hat{\varphi}
 $$
