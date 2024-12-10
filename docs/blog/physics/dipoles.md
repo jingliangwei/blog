@@ -21,7 +21,28 @@ $$
 $$
 r_\pm=\sqrt{r^2+\frac{l^2}{4}\mp rl\cos\theta}
 $$
+
+$$
+\begin{align}
+\varphi&= \frac{q}{4\pi \varepsilon_0}\frac{1}{r}\left( \frac{1}{\sqrt{1+\frac{l^2}{4r^2}-\frac{l\cos\theta}{r}}} - \frac{1}{\sqrt{1+\frac{l^2}{4r^2}+\frac{l\cos\theta}{r}}} \right) \\
+&= \frac{q}{4\pi \varepsilon_0 r}\left( 1+\frac{l\cos\theta}{2r}-(1-\frac{l\cos\theta}{2r}) \right) \\
+&= \frac{p_e\cos\theta}{4\pi\varepsilon_0 r^2} = \frac{\vec{p}_e\cdot\vec{r}}{4\pi \varepsilon_0 r^3}
+\end{align}
+$$
+
 空间的电场分布
+
+$$
+\begin{align}
+\vec{E}(r,\theta)&=-\nabla \varphi=-\frac{\partial\varphi}{\partial r}\hat{e_r}-\frac{1}{r}\frac{\partial\varphi}{\partial\theta}\hat{e_\theta} \\
+&= -\frac{p_e\cos\theta}{4\pi\varepsilon_0}\frac{\partial}{\partial r}\left(\frac{1}{r^2}\right)\hat{e}_r - \frac{p_e}{4\pi\varepsilon_0r^3}\frac{\partial}{\partial\theta}\left(\cos\theta\right)\hat{e}_\theta \\
+&= \frac{p_e\cdot2\cos\theta}{4\pi\varepsilon_0r^3}\hat{e}_r+\frac{p_e\sin\theta}{4\pi\varepsilon_0r^3}\hat{e}_\theta
+\end{align}
+$$
+
+:::details
+也可以绕过电势的计算直接计算电场，不过计算量比较大。
+
 $$
 \vec{E}(r,\theta)=-\nabla \varphi=-\frac{\partial\varphi}{\partial r}\hat{e_r}-\frac{1}{r}\frac{\partial\varphi}{\partial\theta}\hat{e_\theta}
 $$
@@ -44,7 +65,7 @@ $$
 &=-\frac{p_e}{4\pi\varepsilon_0r^3}\sin\theta
 \end{align}
 $$
-
+:::
 
 ## 磁偶极子的磁场分布
 
