@@ -9,7 +9,7 @@
 当场点 $P$ 与电偶极子的中心距离 $r$ 满足
 $r\gg l$ 时，其电场强度
 $$
-\vec{E}(r,\theta)=\frac{p_e}{4\pi\varepsilon_0 r^3}(2\cos\theta\hat{e_r}+\sin\theta\hat{e_\theta})
+\vec{E}(r,\theta)=\frac{p_e}{4\pi\varepsilon_0 r^3}(2\cos\theta\hat{e}_r+\sin\theta\hat{e}_\theta)
 $$
 
 推导如下：
@@ -34,7 +34,7 @@ $$
 
 $$
 \begin{align}
-\vec{E}(r,\theta)&=-\nabla \varphi=-\frac{\partial\varphi}{\partial r}\hat{e_r}-\frac{1}{r}\frac{\partial\varphi}{\partial\theta}\hat{e_\theta} \\
+\vec{E}(r,\theta)&=-\nabla \varphi=-\frac{\partial\varphi}{\partial r}\hat{e}_r-\frac{1}{r}\frac{\partial\varphi}{\partial\theta}\hat{e}_\theta \\
 &= -\frac{p_e\cos\theta}{4\pi\varepsilon_0}\frac{\partial}{\partial r}\left(\frac{1}{r^2}\right)\hat{e}_r - \frac{p_e}{4\pi\varepsilon_0r^3}\frac{\partial}{\partial\theta}\left(\cos\theta\right)\hat{e}_\theta \\
 &= \frac{p_e\cdot2\cos\theta}{4\pi\varepsilon_0r^3}\hat{e}_r+\frac{p_e\sin\theta}{4\pi\varepsilon_0r^3}\hat{e}_\theta
 \end{align}
@@ -44,7 +44,7 @@ $$
 也可以绕过电势的计算直接计算电场，不过计算量比较大。
 
 $$
-\vec{E}(r,\theta)=-\nabla \varphi=-\frac{\partial\varphi}{\partial r}\hat{e_r}-\frac{1}{r}\frac{\partial\varphi}{\partial\theta}\hat{e_\theta}
+\vec{E}(r,\theta)=-\nabla \varphi=-\frac{\partial\varphi}{\partial r}\hat{e}_r-\frac{1}{r}\frac{\partial\varphi}{\partial\theta}\hat{e}_\theta
 $$
 
 其中
@@ -67,6 +67,30 @@ $$
 $$
 :::
 
+## 电偶极子在外场的受力
+
+记外电场为 $\vec{E}$ ，电偶极矩为 $\vec{p}_e$ ，则受力
+$$
+\vec{F} = (\vec{p}_e\cdot\nabla)\vec{E}
+$$
+
+推导如下：
+
+将坐标原点取在偶极子分布处，
+把外电场在原点处按位矢展开
+$$
+\vec{E}=\vec{E}|_{\vec{x}=0} + (\vec{x}\cdot\nabla)\vec{E}|_{\vec{x}=0} + ...
+$$
+则电偶极子受力
+$$
+\begin{align}
+\vec{F} &= \int_V \rho(\vec{x})\vec{E}d\vec{x} \\
+&= Q\vec{E}|_{\vec{x}=0} + \int_V (\rho(\vec{x})\vec{x}\cdot\nabla)\vec{E}|_{\vec{x}=0} d\vec{x} \\
+&= 0 + (\vec{p}_e\cdot\nabla)\vec{E}|_{\vec{x}=0} \\
+&= (\vec{p}_e\cdot\nabla)\vec{E}
+\end{align}
+$$
+
 ## 磁偶极子的磁场分布
 
 条形磁铁可以视为一个磁偶极子，
@@ -79,7 +103,7 @@ $$
 空间一点 $P$ 处的磁感应强度为
 
 $$
-\vec{B}(r,\theta)=\frac{\mu_0p_m}{4\pi r^3}(2\cos\theta\hat{e_r}+\sin\theta\hat{e_\theta})
+\vec{B}(r,\theta)=\frac{\mu_0p_m}{4\pi r^3}(2\cos\theta\hat{e}_r+\sin\theta\hat{e}_\theta)
 $$
 
 推导如下：
@@ -92,15 +116,15 @@ $$
 记 $P$ 点坐标 $(x, y, z)$ ，
 电流元坐标 $(R\cos\varphi, R\sin\varphi, 0)$，有
 $$
-\vec{r_i}=(x-R\cos\varphi)\hat{e_x}+(y-R\sin\varphi)\hat{e_y}+z\hat{e_z}
+\vec{r_i}=(x-R\cos\varphi)\hat{e}_x+(y-R\sin\varphi)\hat{e}_y+z\hat{e}_z
 $$
 
 $$
-d\vec{l}=Rd\varphi(-\sin\varphi\hat{e_x}+\cos\varphi\hat{e_y})
+d\vec{l}=Rd\varphi(-\sin\varphi\hat{e}_x+\cos\varphi\hat{e}_y)
 $$
 
 $$
-d\vec{l}\times\vec{r_i}=Rd\varphi[z\cos\varphi\hat{e_x}+z\sin\varphi\hat{e_y}+(R-x\cos\varphi-y\sin\varphi)\hat{e_z}]
+d\vec{l}\times\vec{r_i}=Rd\varphi[z\cos\varphi\hat{e}_x+z\sin\varphi\hat{e}_y+(R-x\cos\varphi-y\sin\varphi)\hat{e}_z]
 $$
 
 $$
@@ -119,7 +143,7 @@ $$
 
 $$
 \begin{align}
-\frac{d\vec{l}\times\vec{r_i}}{r_i^3}\approx&\frac{R}{r^3}[z\cos\varphi\hat{e_x}+z\sin\varphi\hat{e_y}+(R-x\cos\varphi-y\sin\varphi)\hat{e_z}]\cdot \\
+\frac{d\vec{l}\times\vec{r_i}}{r_i^3}\approx&\frac{R}{r^3}[z\cos\varphi\hat{e}_x+z\sin\varphi\hat{e}_y+(R-x\cos\varphi-y\sin\varphi)\hat{e}_z]\cdot \\
 & \left(1+\frac{3xR}{r^2}\cos\varphi+\frac{3yR}{r^2}\sin\varphi\right)d\varphi
 \end{align}
 $$
@@ -128,15 +152,17 @@ $$
 
 $$
 \begin{align}
-\vec{B}&=\frac{\mu_0IR}{4\pi r^3}\left[\frac{3zxR}{r^2}\int_0^{2\pi}\cos^2\varphi d\varphi\cdot\hat{e_x}+\frac{3zyR}{r^2}\int_0^{2\pi}\sin^2\varphi d\varphi\cdot\hat{e_y}+\int_0^{2\pi}(R-\frac{3x^2R}{r^2}\cos^2\varphi-\frac{3y^2R}{r^2}\sin^2\varphi)d\varphi\cdot\hat{e_z}\right] \\
-&=\frac{\mu_0I\pi R^2}{4\pi r^3}\left[\frac{3zx}{r^2}\hat{e_x}+\frac{3zy}{r^2}\hat{e_y}+(2-\frac{3x^2}{r^2}-\frac{3y^2}{r^2})\hat{e_z}\right] \\
-&=\frac{\mu_0p_m}{4\pi r^3}\left[\frac{3zx}{r^2}\hat{e_x}+\frac{3zy}{r^2}\hat{e_y}+(2-\frac{3x^2}{r^2}-\frac{3y^2}{r^2})\hat{e_z}\right] \\
-&=\frac{\mu_0p_m}{4\pi r^3}\left\{\left[\frac{2z}{r}(\frac{x}{r}\hat{e_x}+\frac{y}{r}\hat{e_y}+\frac{z}{r}\hat{e_z})\right]+\left[\frac{z}{r}(\frac{x}{r}\hat{e_x}+\frac{y}{r}\hat{e_y}+\frac{z}{r}\hat{e_z})-\hat{e_z}\right]\right\} \\
-&=\frac{\mu_0p_m}{4\pi r^3}(2\cos\theta\cdot\hat{e_r}+\sin\theta\cdot\hat{e_\theta})
+\vec{B}&=\frac{\mu_0IR}{4\pi r^3}\left[\frac{3zxR}{r^2}\int_0^{2\pi}\cos^2\varphi d\varphi\cdot\hat{e}_x+\frac{3zyR}{r^2}\int_0^{2\pi}\sin^2\varphi d\varphi\cdot\hat{e}_y+\int_0^{2\pi}(R-\frac{3x^2R}{r^2}\cos^2\varphi-\frac{3y^2R}{r^2}\sin^2\varphi)d\varphi\cdot\hat{e}_z\right] \\
+&=\frac{\mu_0I\pi R^2}{4\pi r^3}\left[\frac{3zx}{r^2}\hat{e}_x+\frac{3zy}{r^2}\hat{e}_y+(2-\frac{3x^2}{r^2}-\frac{3y^2}{r^2})\hat{e}_z\right] \\
+&=\frac{\mu_0p_m}{4\pi r^3}\left[\frac{3zx}{r^2}\hat{e}_x+\frac{3zy}{r^2}\hat{e}_y+(2-\frac{3x^2}{r^2}-\frac{3y^2}{r^2})\hat{e}_z\right] \\
+&=\frac{\mu_0p_m}{4\pi r^3}\left\{\left[\frac{2z}{r}(\frac{x}{r}\hat{e}_x+\frac{y}{r}\hat{e}_y+\frac{z}{r}\hat{e}_z)\right]+\left[\frac{z}{r}(\frac{x}{r}\hat{e}_x+\frac{y}{r}\hat{e}_y+\frac{z}{r}\hat{e}_z)-\hat{e}_z\right]\right\} \\
+&=\frac{\mu_0p_m}{4\pi r^3}(2\cos\theta\cdot\hat{e}_r+\sin\theta\cdot\hat{e}_\theta)
 \end{align}
 $$
 
 ## 磁偶极子在外场中受力
+
+### 磁矩与磁场方向一致
 
 在研究铁磁质在磁场中的受力时（例如两个条形磁铁之间的相互作用），
 可以把铁磁质视为磁偶极子进行受力分析。
@@ -195,3 +221,5 @@ $$
 $$
 \vec{F}=\vec{p}_m\frac{\partial B}{\partial z}
 $$
+
+
