@@ -64,7 +64,7 @@ export default defineConfig({
 
     '/test/': [
       {
-        text: '韦境量',
+        text: 'arwell',
         items: [
           { text: 'python期末考试', link: '/test/py_test'}
         ]
