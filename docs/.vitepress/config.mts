@@ -24,7 +24,8 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: '正交曲面坐标系', link: '/blog/math/metric' },
-          { text: '向量微分算符', link: '/blog/math/nabla' }
+          { text: '向量微分算符', link: '/blog/math/nabla' },
+          { text: '全反对称三秩张量', link: '/blog/math/antisymmetric_tensor'}
         ]
       },
       {
