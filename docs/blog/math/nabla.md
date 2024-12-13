@@ -1,4 +1,4 @@
-# 向量微分算符在柱坐标和球坐标下的公式
+# 向量微分算符公式
 
 利用度规简单推导出向量微分算符(Nabla算符)
 $$\nabla = \left( \frac{\partial}{\partial x} \quad \frac{\partial}{\partial y} \quad \frac{\partial}{\partial z} \right)$$
@@ -117,3 +117,41 @@ $$
 $$
 \nabla^2\psi=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial\psi}{\partial r}\right)+\frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right)+\frac{1}{r^2\sin^2\theta}\frac{\partial^2\psi}{\partial\phi^2}
 $$
+
+## 微分算符的运算法则
+
+关于向量微分算符 $\nabla$ 的相关运算法则如下：
+
+其中 $\phi,\psi$ 代表标量场，$\vec{f},\vec{g}$ 代表矢量场。
+$$
+\nabla(\phi\psi)=\phi\nabla\psi+\psi\nabla\phi
+$$
+$$
+\nabla\cdot(\phi\vec{f})=(\nabla\phi)\cdot\vec{f}+\phi\nabla\cdot\vec{f}
+$$
+$$
+\nabla\times(\phi\vec{f})=(\nabla\phi)\times\vec{f}+\phi\nabla\times\vec{f}
+$$
+$$
+\nabla\cdot(\vec{f}\times\vec{g})=(\nabla\times\vec{f})\cdot\vec{g}-\vec{f}\cdot(\nabla\times\vec{g})
+$$
+$$
+\nabla\times(\vec{f}\times\vec{g})=(\vec{g}\cdot\nabla)\vec{f}+(\nabla\cdot\vec{g})\vec{f}-(\vec{f}\cdot\nabla)\vec{g}-(\nabla\cdot\vec{f})\vec{g}
+$$
+$$
+\nabla(\vec{f}\cdot\vec{g})=\vec{f}\times(\nabla\times\vec{g})+(\vec{f}\cdot\nabla)\vec{g}+\vec{g}\times(\nabla\times\vec{f})+(\vec{g}\cdot\nabla)\vec{f}
+$$
+
+:::info
+上面的公式只需要同时考虑 $\nabla$ 同时作为一个矢量和一个微分算符即可导出。
+:::
+
+:::info
+矢量三矢积公式：
+$$
+(\vec{a}\times\vec{b})\times\vec{c}=(\vec{a}\cdot\vec{c})\vec{b}-(\vec{b}\cdot\vec{c})\vec{a}
+$$
+$$
+\vec{c}\times(\vec{a}\times\vec{b})=(\vec{b}\cdot\vec{c})\vec{a}-(\vec{a}\cdot\vec{c})\vec{b}
+$$
+:::

@@ -162,12 +162,13 @@ $$
 
 ## 磁偶极子在外场中受力
 
-### 磁矩与磁场方向一致
-
 在研究铁磁质在磁场中的受力时（例如两个条形磁铁之间的相互作用），
 可以把铁磁质视为磁偶极子进行受力分析。
-如下图，当磁偶极子的磁矩 $p_m=\pi r^2I$ ，
-在外场 $B$ 中受力为
+
+### 磁矩与磁场方向一致
+
+如下图，当磁偶极子的磁矩 $\vec{p}_m=\pi r^2I\hat{z}$ ，
+在外场 $\vec{B}$ 中受力为
 $$
 \vec{F}=\vec{p}_m\frac{\partial B}{\partial z}
 $$
@@ -222,4 +223,73 @@ $$
 \vec{F}=\vec{p}_m\frac{\partial B}{\partial z}
 $$
 
+### 一般情况
 
+记外磁场为 $\vec{B}$ ，空间自由电流分布为 $\vec{J}$ ，
+磁偶极子磁矩 $\vec{p}_m$ ，则
+$$
+\begin{align}
+\vec{F} &= (\vec{p}_m \times \nabla) \times \vec{B} \\
+&= \vec{p}_m \times (\nabla \times \vec{B}) + (\vec{p}_m\cdot\nabla)\vec{B} \\
+&= \mu_o \vec{p}_m \times \vec{J} + (\vec{p}_m\cdot\nabla)\vec{B} \\
+\end{align}
+$$
+
+:::details
+上面的矢量运算推导如下（矢量三矢积）：
+$$
+(\vec{p}_m\times\nabla)\times\vec{B}=\nabla(\vec{p}_m\cdot\vec{B})-\vec{p}_m(\nabla\cdot\vec{B})
+$$
+而 $\nabla\cdot\vec{B}=0$ ，故
+$$
+\vec{F}=\nabla(\vec{p}_m\cdot\vec{B})
+$$
+由[微分算符的运算法则](/blog/math/nabla)有
+$$
+\nabla(\vec{p}_m\cdot\vec{B})=\vec{p}_m\times(\nabla\times\vec{B})+(\vec{p}_m\cdot\nabla)\vec{B}+\vec{B}\times(\nabla\times\vec{p}_m)+(\vec{B}\cdot\nabla)\vec{p}_m
+$$
+其中 $\nabla\times\vec{B}=\mu_0\vec{J}$ ，
+由于考虑的是一个磁偶极子在外场的受力，而非被外场磁化的磁偶极子，
+故 $\vec{B}\times(\nabla\times\vec{p}_m)=0$ ， $(\vec{B}\cdot\nabla)\vec{p}_m=0$ ，
+上式化简为
+$$
+\nabla(\vec{p}_m\cdot\vec{B})=\mu_0\vec{p}_m\times\vec{J}+(\vec{p}_m\cdot\nabla)\vec{B}
+$$
+:::
+
+通常在磁偶极子处无自由电流分布，即 $\vec{J}|_{\vec{x}=0}=0$ ，故
+$$
+\vec{F} = (\vec{p}_m\cdot\nabla)\vec{B}
+$$
+
+推导如下：
+
+取坐标原点于磁偶极子处，
+把外磁场分量在原点处按位矢展开有
+$$
+B_k(\vec{x})=B_k(0)+\vec{x}\cdot\nabla B_k|_{\vec{x}=0}+\dots
+$$
+由受力
+$$
+\vec{F}=\int_V\vec{J}\times\vec{B}d\vec{x}
+$$
+则受力的分量为
+$$
+F_i = \sum_{jk}\varepsilon_{ijk}\left[B_k(0)\int_VJ_jd\vec{x}+\int_VJ_j\vec{x}\cdot\nabla B_k|_{\vec{x}=0}d\vec{x}+\dots\right]
+$$
+:::details
+上式用到了矢量矢积的全反对称三秩张量表示，具体见[全反对称三秩张量](/blog/math/antisymmetric_tensor)
+:::
+对于恒稳电流
+$$
+\int_V J_jd\vec{x}=0
+$$
+所以
+$$
+F_i = \sum_{jk}\varepsilon_{ijk} (\vec{p}_m\times\nabla)_jB_k(\vec{x})|_{\vec{x}=0}
+$$
+
+即
+$$
+\vec{F} = (\vec{p}_m \times\nabla)\times\vec{B}
+$$
