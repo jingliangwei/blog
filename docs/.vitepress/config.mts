@@ -24,7 +24,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: '正交曲面坐标系', link: '/blog/math/metric' },
-          { text: '向量微分算符', link: '/blog/math/nabla_sphere' }
+          { text: '向量微分算符', link: '/blog/math/nabla' }
         ]
       },
       {
