@@ -41,6 +41,7 @@ export default defineConfig({
         items: [
           { text: 'python数据处理', link: '/blog/tools/python'},
           { text: 'make的使用', link: '/blog/tools/make'},
+          { text: 'git命令', link: '/blog/tools/git'},
           { text: 'wps问题解答', link: '/blog/tools/wps'}
         ]
       },
