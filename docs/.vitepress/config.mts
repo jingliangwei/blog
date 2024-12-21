@@ -58,7 +58,8 @@ export default defineConfig({
       {
         text: '韦境量\'s作业',
         items: [
-          { text: '用python绘制本征函数系拟合图', link: '/hw/fit'}
+          { text: '用python绘制本征函数系拟合图', link: '/hw/fit'},
+          { text: 'delta函数展开', link: '/hw/fit_delta'}
         ]
       }
     ],
