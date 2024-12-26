@@ -73,7 +73,7 @@ print('jc of {} is {}.'.format(n, res))
 
 3. 算出$100$以内的所有质数并保存到文件中
 
-:::details
+:::details solve
 没什么好说的，按照题目要求实现即可。
 ```py
 # 判断是否是质数
@@ -102,7 +102,7 @@ file.close()
 
 4. 把二维`numpy`数组的每一列都绘制一条曲线，并添加图注
 
-:::details
+:::details solve
 先把二维数组转置，然后就可以绘制每一行了。
 ```py
 import numpy as np
@@ -120,7 +120,7 @@ plt.show()
 
 5. 创建一个奇数行都是$2$，其余都是$0$的$10\times10$矩阵
 
-:::details
+:::details solve
 本题用循环的思路也可以实现，但是太过平凡，
 可以采用如下算法。
 ```py
@@ -135,7 +135,7 @@ print(a)
 
 6. 已知平面上散落点的坐标，画出一个包含所有点的大圆
 
-:::details
+:::details solve
 本题要求比较宽松，可以考虑绘制所有点的分布矩阵范围的外接圆即可。
 ```py
 import numpy as np

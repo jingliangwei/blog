@@ -411,7 +411,7 @@ $$
 
 ### 常用抽样分布
 
-1. $\chi^2$ 分布：
+1. $\chi^2$ 分布
 
 ::: info 定义
 设 $X_1,...,X_n$ 是来自总体 $N(0,1)$ 的样本，则称统计量
@@ -419,5 +419,86 @@ $$
 \chi^2=X_1^2+X_2^2+\cdots+X_n^2
 $$
 服从自由度为 $n$ 的 $\chi^2$ 分布，记为 $\chi^2\sim\chi^2(n)$ ，其中 $n$ 表示统计量中独立随机变量的个数。
+:::
+
+::: info 性质
+1. 设 $X_1,...,X_n$ 相互独立，都服从正态分布 $N(\mu,\sigma^2)$ ，则
+$$
+\dfrac{1}{\sigma^2}\sum_{i=1}^n (X_i-\mu)^2\sim\chi^2(n)
+$$
+
+2. 设 $X_1\sim\chi^2(n_1)$ ， $X_2\sim\chi^2(n_2)$ 且 $X_1$ 和 $X_2$ 相互独立，则
+$$
+X_1+X_2\sim\chi^2(n_1+n_2)
+$$
+
+3. 设 $X\sim\chi^2(n)$ ，则 $E(X)=n,D(X)=2n$
+:::
+
+::: details 推导
+1. 有 $\dfrac{X_i-\mu}{\sigma}\sim N(0,1)$ ，故
+$$
+\dfrac{1}{\sigma^2}\sum_{i=1}^n (X_i-\mu)^2=\sum_{i=1}^n\left(\dfrac{X_i-\mu}{\sigma}\right)^2\sim\chi^2(n)
+$$
+
+2. 记 $X_1=U_1^2+U_2^2+\cdots+U_{n_1}^2$ ， $X_2=V_1^2+V_2^2+\cdots+V_{n_2}^2$
+$$
+X_1+X_2=U_1^2+U_2^2+\cdots+U_{n_1}^2+V_1^2+V_2^2+\cdots+V_{n_2}^2\sim\chi^2(n_1+n_2)
+$$
+
+3. 由 $X_i\sim N(0,1)$ 有 $E(X_i)=0,D(X_i)=1$ ，所以
+$$
+E(X_i^2)=D(X_i)+E^2(X_i)=1
+$$
+故
+$$
+E(X)=E(X_1^2)+E(X_2^2)+\cdots+E(X_n^2)=n
+$$
+$$
+E(X_i^4)=\int_{-\infty}^\infty x^4e^{-x^2/2}\mathrm{d}x/\sqrt{2\pi}=3\int_{-\infty}^\infty x^2e^{-x^2/2}\mathrm{d}x/\sqrt{2\pi}=3E(X_i^2)=3
+$$
+$$
+D(X_i^2)=E(X_i^4)-E^2(X_i^2)=3-1=2
+$$
+故
+$$
+D(X)=D(X_1^2)+D(X_2^2)+\cdots+D(X_n^2)=2n
+$$
+:::
+
+2. $t$ 分布
+
+::: info 定义
+设 $X\sim N(0,1),Y\sim\chi^2(n)$ ，且 $X$ 和 $Y$ 互相独立，则
+$$
+t=\dfrac{X}{\sqrt{Y/n}}
+$$
+服从自由度为 $n$ 的 $t$ 分布，记为 $t\sim t(n)$
+:::
+::: info 性质
+1. $t$ 分布的概率密度函数 $f(x)$ 是偶函数，且
+$$
+\lim_{|x|\rightarrow\infty}f(x)=0
+$$
+当 $n\rightarrow\infty$ 时， $t$ 分布近似标准正态分布，即
+$$
+\lim_{n\rightarrow\infty}f(x)=\dfrac{1}{\sqrt{2\pi}}e^{-x^2/2}
+$$
+
+2. 设 $X\sim t(n)$，$E(X)=0,n>1;\quad D(X)=\dfrac{n}{n-2},n>2$
+:::
+::: details 推导
+2. 当 $n=1$ 时，$t$ 分布就是柯西分布，数学期望不存在，
+当 $n>1$ 时，$t$ 分布沿 $y$ 轴对称， $E(X)=0$ 。
+
+记 $X=\dfrac{Z}{\sqrt{Y/n}}$ ，变量 $Z\sim N(0,1)\quad Y\sim\chi^2(n)$
+$$
+\begin{align}
+D(X) &= D(Z/\sqrt{Y/n}) = E[(Z/\sqrt{Y/n})^2]-E^2(Z/\sqrt{Y/n}) \\
+&= E(Z^2)E(1/(Y/n))-E^2(Z)E^2(1/\sqrt{Y/n})=nE(Z^2)E(1/Y) \\
+&= \dfrac{n}{n-2}
+\end{align}
+$$
+这里 $1/Y$ 为逆 $\chi^2$ 分布，其期望为 $\dfrac{1}{n-2}, \quad n>2$
 :::
 
