@@ -25,7 +25,9 @@ export default defineConfig({
         items: [
           { text: '正交曲面坐标系', link: '/blog/math/metric' },
           { text: '向量微分算符', link: '/blog/math/nabla' },
-          { text: '全反对称三秩张量', link: '/blog/math/antisymmetric_tensor'}
+          { text: '全反对称三秩张量', link: '/blog/math/antisymmetric_tensor'},
+          { text: '概统', link: 'blog/math/probability_and_mathematical_statistics'},
+          { text: '概率论中的特征函数', link: 'blog/math/characteristic_function'}
         ]
       },
       {
@@ -43,13 +45,6 @@ export default defineConfig({
           { text: 'make的使用', link: '/blog/tools/make'},
           { text: 'git命令', link: '/blog/tools/git'},
           { text: 'wps问题解答', link: '/blog/tools/wps'}
-        ]
-      },
-      {
-        text: 'os',
-        collapsed: false,
-        items: [
-          { text: '从固件到操作系统', link: '/blog/os/firmware'}
         ]
       }
     ],
