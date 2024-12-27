@@ -656,6 +656,67 @@ $$
 $$
 :::
 
+## 假设检验
 
+::: info 定义
+原假设 $H_0$: 需要检验的假设
 
+拒绝域 $W$: 拒绝原假设的观测值域
+
+显著性水平 $\alpha$: 控制 $P(W|H_0)\leq\alpha$
+
+第一类错误（拒真）: $P(W|H_0)$
+
+第二类错误（取伪）: $P(\overline{W}|\overline{H_0})$
+:::
+
+1. 单个正态总体 $N(\mu,\sigma^2)$ 的假设检验
+
+(1) 对均值 $\mu$ 的假设检验， $\sigma^2$ 已知， $\mu_0$ 为已知的常数
+
+|原假设$H_0$|备择假设$H_1$|检验统计量|拒绝域$W$|
+|:-----:|:--------:|:------:|:------:|
+| $\begin{align} \mu=\mu_0 \\ \mu\geq\mu_0 \\ \mu\leq\mu_0 \end{align}$ | $\begin{align} \mu\neq\mu_0 \\ \mu<\mu_0 \\ \mu>\mu_0 \end{align}$ | $Z=\dfrac{\overline{X}-\mu_0}{\sigma/\sqrt{n}}$ | $\begin{align} \|z\|&\geq z_{\alpha/2} \\ z&\leq -z_{\alpha} \\ z&\geq z_\alpha \end{align}$ |
+
+(2) 对均值 $\mu$ 的假设检验， $\sigma^2$ 未知， $\mu_0$ 为已知的常数
+
+|原假设$H_0$|备择假设$H_1$|检验统计量|拒绝域$W$|
+|:-----:|:--------:|:------:|:------:|
+| $\begin{align} \mu=\mu_0 \\ \mu\geq\mu_0 \\ \mu\leq\mu_0 \end{align}$ | $\begin{align} \mu\neq\mu_0 \\ \mu<\mu_0 \\ \mu>\mu_0 \end{align}$ | $T=\dfrac{\overline{X}-\mu_0}{S/\sqrt{n}}$ | $\begin{align} \|t\|&\geq t_{\alpha/2}(n-1) \\ t&\leq -t_{\alpha}(n-1) \\ t&\geq t_\alpha(n-1) \end{align}$ |
+
+(3) 对方差 $\sigma^2$ 的假设检验， $\mu$ 未知， $\sigma_0$ 为已知的常数
+
+|原假设$H_0$|备择假设$H_1$|检验统计量|拒绝域$W$|
+|:-----:|:--------:|:------:|:------:|
+| $\begin{align} \sigma^2=\sigma^2_0 \\ \sigma^2\geq\sigma^2_0 \\ \sigma^2\leq\sigma^2_0 \end{align}$ | $\begin{align} \sigma^2\neq\sigma^2_0 \\ \sigma^2<\sigma^2_0 \\ \sigma^2>\sigma^2_0 \end{align}$ | $\chi^2=\dfrac{(n-1)S^2}{\sigma_0^2}$ | $\begin{align} \chi^2\geq\chi^2_{\alpha/2}(n-1) &\cup \chi^2\leq\chi^2_{1-\alpha/2}(n-1) \\ \chi^2&\leq \chi^2_{1-\alpha}(n-1) \\ \chi^2&\geq \chi^2_\alpha(n-1) \end{align}$ |
+
+(4) 对方差 $\sigma^2$ 的假设检验， $\mu$ 已知， $\sigma_0$ 为已知的常数
+
+|原假设$H_0$|备择假设$H_1$|检验统计量|拒绝域$W$|
+|:-----:|:--------:|:------:|:------:|
+| $\begin{align} \sigma^2=\sigma^2_0 \\ \sigma^2\geq\sigma^2_0 \\ \sigma^2\leq\sigma^2_0 \end{align}$ | $\begin{align} \sigma^2\neq\sigma^2_0 \\ \sigma^2<\sigma^2_0 \\ \sigma^2>\sigma^2_0 \end{align}$ | $\chi^2=\dfrac{1}{\sigma_0^2}\sum_{i=1}^n(X_i-\mu)^2$ | $\begin{align} \chi^2\geq\chi^2_{\alpha/2}(n) &\cup \chi^2\leq\chi^2_{1-\alpha/2}(n) \\ \chi^2&\leq \chi^2_{1-\alpha}(n) \\ \chi^2&\geq \chi^2_\alpha(n) \end{align}$ |
+
+2. 两个正态分布总体 $N(\mu_1,\sigma_1^2),N(\mu_2,\sigma_2)$ 的假设检验
+
+(1) 对均值差 $\mu_1-\mu_2$ 的假设检验， $\sigma_1^2,\sigma_2^2$ 已知， $\delta$ 为已知的常数
+
+|原假设$H_0$|备择假设$H_1$|检验统计量|拒绝域$W$|
+|:-----:|:--------:|:------:|:------:|
+| $\begin{align} \mu_1-\mu_2=\delta \\ \mu_1-\mu_2\geq\delta \\ \mu_1-\mu_2\leq\delta \end{align}$ | $\begin{align} \mu_1-\mu_2\neq\delta \\ \mu_1-\mu_2<\delta \\ \mu_1-\mu_2>\delta \end{align}$ | $Z=\dfrac{(\overline{X}-\overline{Y})-\delta}{\sqrt{\sigma_1^2/n+\sigma_2^2/m}}$ | $\begin{align} \|z\|&\geq z_{\alpha/2} \\ z&\leq -z_{\alpha} \\ z&\geq z_\alpha \end{align}$ |
+
+(2) 对均值差 $\mu_1-\mu_2$ 的假设检验， $\sigma_1^2=\sigma_2^2$ 未知， $\delta$ 为已知的常数
+
+|原假设$H_0$|备择假设$H_1$|检验统计量|拒绝域$W$|
+|:-----:|:--------:|:------:|:------:|
+| $\begin{align} \mu_1-\mu_2=\delta \\ \mu_1-\mu_2\geq\delta \\ \mu_1-\mu_2\leq\delta \end{align}$ | $\begin{align} \mu_1-\mu_2\neq\delta \\ \mu_1-\mu_2<\delta \\ \mu_1-\mu_2>\delta \end{align}$ | $T=\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{S_w\sqrt{1/n+1/m}}$ | $\begin{align} \|t\|&\geq t_{\alpha/2}(n+m-2) \\ t&\leq -t_{\alpha}(n+m-2) \\ t&\geq t_\alpha(n+m-2) \end{align}$ |
+
+(3) 对方差比 $\dfrac{\sigma_1^2}{\sigma_2^2}$ 的假设检验， $\mu_1,\mu_2$ 未知
+
+|原假设$H_0$|备择假设$H_1$|检验统计量|拒绝域$W$|
+|:-----:|:--------:|:------:|:------:|
+| $\begin{align} \sigma_1^2=\sigma_2^2 \\ \sigma_1^2\geq\sigma_2^2 \\ \sigma_1^2\leq\sigma_2^2 \end{align}$ | $\begin{align} \sigma_1^2\neq\sigma_2^2 \\ \sigma_1^2<\sigma_2^2 \\ \sigma_1^2>\sigma_2^2 \end{align}$ | $F=\dfrac{S_1^2}{S_2^2}$ | $\begin{align} F^2\geq F^2_{\alpha/2}(n-1,m-1) &\cup F^2\leq F^2_{1-\alpha/2}(n-1,m-1) \\ F^2&\leq F^2_{1-\alpha}(n-1,m-1) \\ F^2&\geq F^2_\alpha(n-1,m-1) \end{align}$ |
+
+::: details 推导
+所有拒绝域只需要考虑对应参数的区间估计时使用的枢轴量的分布，然后控制第一类错误的概率小于显著性水平即可得到。
+:::
 
