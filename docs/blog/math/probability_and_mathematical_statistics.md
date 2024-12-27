@@ -502,3 +502,160 @@ $$
 这里 $1/Y$ 为逆 $\chi^2$ 分布，其期望为 $\dfrac{1}{n-2}, \quad n>2$
 :::
 
+3. $F$ 分布
+
+::: info 定义
+设 $X\sim \chi^2(n_1),Y\sim\chi^2(n_2)$ ，且 $X,Y$ 相互独立，则
+$$
+F=\dfrac{X/n_1}{Y/n_2}
+$$
+服从自由度为 $(n_1,n_2)$ 的 $F$ 分布，记为 $F\sim F(n_1,n_2)$ 
+:::
+
+::: info 性质
+1. 设 $X\sim F(n_1,n_2)$ ，则 $\dfrac{1}{X}\sim F(n_2,n_1)$
+
+2. 设 $t\sim t(n)$ ，则 $t^2\sim F(1,n)$ 
+
+3. 设 $X\sim F(n_1,n_2)$ ，则 $E(X)=\dfrac{n_2}{n_2-2},\quad n_2>2$
+$$
+D(X)=\dfrac{2n_2^2(n_1+n_2-2)}{n_1(n_2-2)^2(n_2-4)},\quad n_2>4
+$$
+:::
+::: details 推导
+1. 2. 显然成立
+
+3.记 $X=\dfrac{Z/n_1}{Y/n_2}\sim F(n_1,n_2)$ 
+$$
+E(X)=\dfrac{n_2}{n_1}E(Z)E\left(\dfrac{1}{Y}\right)=\dfrac{n_2}{n_2-2},\quad n_2>2
+$$
+$$
+E(Z^2)=D(Z)+E^2(Z)=2n_1+n_1^2
+$$
+$$
+E\left(\dfrac{1}{Y^2}\right)=D\left(\dfrac{1}{Y}\right)+E^2\left(\dfrac{1}{Y}\right)=\dfrac{1}{(n_2-2)(n_2-4)}
+$$
+$$
+D(X)=D\left(\dfrac{Z/n_1}{Y/n_2}\right)=E\left(\dfrac{(Z/n_1)^2}{(Y/n_2)^2}\right)-E^2\left(\dfrac{Z/n_1}{Y/n_2}\right)=\dfrac{2n_2^2(n_1+n_2-2)}{n_1(n_2-2)^2(n_2-4)}
+$$
+:::
+
+## 参数估计
+
+### 点估计
+
+1. 矩估计
+
+变量 $X\sim X(\theta)\Rightarrow$ 总体的 $k$ 阶原点矩 $\mu_K=?(\theta)\Rightarrow$ 用样本原点矩代替总体原点矩 $\hat{\theta}=?^{-1}(A_k)$
+
+2. 最大似然估计
+
+构造似然函数 $L(\theta)=\Pi_{i=1}^n f(X_i)$ ，得到使 $L(\theta)$ 取最大值时的 $\hat{\theta}$ 值 ($\dfrac{\mathrm{d}\ln L(\theta)}{\mathrm{d}\theta}|_{\theta=\hat{\theta}}=0$)
+
+### 区间估计
+
+::: info 定义
+枢轴量： $W(X_1,...,X_n;\theta)$ 分布不依赖于未知参数，一般从点估计出发构造；
+
+置信区间： $P\{\hat{\theta}_1(X_1,...,X_n)<\theta<\hat{\theta}_2(X_1,...,X_n)\}=1-\alpha$ 称 $(\hat{\theta}_1,\hat{\theta}_2)$ 为 $\theta$ 的一个置信水平为 $1-\alpha$ 的置信区间。
+:::
+
+1. 单个正态总体 $N(\mu,\sigma^2)$ 的估计
+
+| 待估计量 | 条件 | 枢轴量及分布 | 置信区间 |
+|:------:|:----:|:----------:|:-------:|
+| $\mu$ | $\sigma^2$ 已知 | $\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)$ | $\left(\overline{X}\pm\dfrac{\sigma}{\sqrt{n}}z_{\alpha/2}\right)$ |
+| $\mu$ | $\sigma^2$ 未知 | $\dfrac{\overline{X}-\mu}{S/\sqrt{n}}\sim t(n-1)$ | $\left(\overline{X}\pm\dfrac{S}{\sqrt{n}}t_{\alpha/2}(n-1)\right)$ |
+| $\sigma^2$ | $\mu$ 未知 | $\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)$ | $\left(\dfrac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)},\dfrac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)}\right)$ |
+| $\sigma^2$ | $\mu$ 已知 | $\dfrac{\sum_{i=1}^n(X_i-\mu)^2}{\sigma^2}\sim \chi^2(n)$ | $\left(\dfrac{\sum_{i=1}^n(X_i-\mu)^2}{\chi^2_{\alpha/2}(n)},\dfrac{\sum_{i=1}^n(X_i-\mu)^2}{\chi^2_{1-\alpha/2}(n)}\right)$ |
+
+::: info 注：
+$z_{\alpha/2}$ 是标准正态分布的上 $\alpha/2$ 分位点，
+$t_{\alpha/2}(n-1)$ 是 $t(n-1)$ 的上 $\alpha/2$ 分位点，
+$\chi^2_{\alpha/2}(n-1)$ 是 $\chi^2(n-1)$ 的上 $\alpha/2$ 分位点。
+:::
+
+::: details 推导
+1. 由中心极限定理有 $\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)$ $\quad\Rightarrow\quad$ 
+$P\{-z_{\alpha/2}<\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}<z_{\alpha/2}\}=1-\alpha$ $\quad\Rightarrow\quad$ 
+$P\{\overline{X}-\dfrac{\sigma}{\sqrt{n}}z_{\alpha/2}<\mu<\overline{X}+\dfrac{\sigma}{\sqrt{n}}z_{\alpha/2}\}=1-\alpha$ $\quad\Rightarrow\quad$ 
+参数 $\mu$ 的一个置信水平为 $1-\alpha$ 的置信区间为 $(\overline{X}\pm\dfrac{\sigma}{\sqrt{n}}z_{\alpha/2})$
+
+下面只推导各个枢轴量的分布，求置信区间的方法与上面相同。
+
+2. 
+$$
+\begin{align}
+\dfrac{\overline{X}-\mu}{S/\sqrt{n}}&=\dfrac{\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}}{\dfrac{S}{\sigma}}=\dfrac{\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}}{\sqrt{\dfrac{(n-1)S^2}{\sigma^2(n-1)}}} \\
+&=\dfrac{\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}}{\sqrt{\dfrac{(n-1)S^2}{\sigma^2}/(n-1)}}
+\end{align}
+$$
+下面求 $\dfrac{(n-1)S^2}{\sigma^2}$ 的分布：
+
+有恒等式
+$$
+\sum_{i=1}^n\dfrac{(X_i-\mu)^2}{\sigma^2}=\sum_{i=1}^n\dfrac{[(X_i-\overline{X})+(\overline{X}-\mu)]^2}{\sigma^2}=\dfrac{\sum_{i=1}^n(X_i-\overline{X})^2}{\sigma^2}+\dfrac{n(\overline{X}-\mu)^2}{\sigma^2}
+$$
+即
+$$
+\begin{align}
+\sum_{i=1}^n\dfrac{(X_i-\mu)^2}{\sigma^2}&=\dfrac{(n-1)S^2}{\sigma^2}+\dfrac{n(\overline{X}-\mu)^2}{\sigma^2} \\
+\chi^2(n)&=\chi^2(n-1)+\chi^2(1)
+\end{align}
+$$
+故 $\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)$ 
+
+则 $\dfrac{\overline{X}-\mu}{S/\sqrt{n}}=\dfrac{N(0,1)}{\sqrt{\chi^2(n-1)/(n-1)}}\sim t(n-1)$
+
+同1可求出 $\mu$ 的置信区间。
+
+3. 在2中已经证明： $\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1)$
+
+4. 由 $X_i\sim N(\mu,\sigma^2)$ 易证 $\dfrac{\sum_{i=1}^n(X_i-\mu)^2}{\sigma^2}\sim\chi^2(n)$
+:::
+
+2. 两个正态分布总体 $N(\mu_1,\sigma_1^2),N(\mu_2,\sigma_2)$ 的估计
+
+| 待估计量 | 条件 | 枢轴量及分布 | 置信区间 |
+|:------:|:----:|:----------:|:-------:|
+| $\mu_1-\mu_2$ | $\sigma_1^2,\sigma_2^2$ 已知 | $U=\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sqrt{\sigma_1^2/n+\sigma_2^2/m}}\sim N(0,1)$ | $\left((\overline{X}-\overline{Y})\pm z_{\alpha/2}\sqrt{\dfrac{\sigma_1^2}{n}+\dfrac{\sigma_2^2}{m}}\right)$ |
+| $\mu_1-\mu_2$ | $\sigma_1^2=\sigma_2^2$ 未知 | $T=\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{S_w\sqrt{1/n+1/m}}\sim t(n+m-2)$ | $\left((\overline{X}-\overline{Y})\pm t_{\alpha/2}S_2\sqrt{\dfrac{1}{n}+\dfrac{1}{m}}\right)$ |
+| $\dfrac{\sigma_1^2}{\sigma_2^2}$ | $\mu_1,\mu_2$ 未知 | $F=\dfrac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2}\sim F(n-1,m-1)$ | $\left(\dfrac{S_1^2}{S_2^2}\dfrac{1}{F_{\alpha/2}},\dfrac{S_1^2}{S_2^2}\dfrac{1}{F_{1-\alpha/2}}\right)$ |
+
+::: info 注：
+其中
+$$
+S_w^2=\dfrac{(n-1)S_1^2+(m-1)S_2^2}{n+m-2}
+$$
+:::
+
+::: details 推导
+1. $\overline{X}\sim N(\mu_1,\dfrac{\sigma_1^2}{n})\quad \overline{Y}\sim N(\mu_2,\dfrac{\sigma_2^2}{n})$
+$$
+\overline{X}-\overline{Y} \sim N(\mu_1-\mu_2, \dfrac{\sigma_1^2}{n}+\dfrac{\sigma_2^2}{m})
+$$
+$$
+\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sqrt{\sigma_1^2/n+\sigma_2^2/m}}\sim N(0,1)
+$$
+
+2. 令上式中 $\sigma_1=\sigma_2=\sigma$ 有
+$$
+U=\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sigma\sqrt{1/n+1/m}}\sim N(0,1)
+$$
+又由 $\dfrac{(n-1)S_1^2}{\sigma^2}\sim \chi^2(n-1)$ 和 $\dfrac{(m-1)S_2^2}{\sigma^2}\sim\chi^2(m-1)$ 有
+$$
+V=\dfrac{(n-1)S_1^2}{\sigma^2}+\dfrac{(m-1)S_2^2}{\sigma^2}\sim \chi^2(n+m-2)
+$$
+$$
+\dfrac{U}{\sqrt{V/(n+m-2)}}=\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{S_w\sqrt{1/n+1/m}}\sim t(n+m-2)
+$$
+
+3. 由 $\dfrac{(n-1)S_1^2}{\sigma^2}\sim\chi^2(n-1)$ 和 $\dfrac{(m-1)S_2^2}{\sigma^2}\sim\chi^2(m-1)$ 有
+$$
+\dfrac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2}=\dfrac{\dfrac{(n-1)S_1^2}{\sigma^2}/(n-1)}{\dfrac{(m-1)S_2^2}{\sigma^2}/(m-1)}\sim F(n-1,m-1)
+$$
+:::
+
+
+
+
