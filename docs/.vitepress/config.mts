@@ -66,6 +66,30 @@ export default defineConfig({
           { text: 'python期末考试', link: '/test/py_test'}
         ]
       }
+    ],
+
+    '/web_security/': [
+      {
+        text: 'arwell',
+        items: [
+          { text: '首页', link: '/web_security/index'}
+        ]
+      },
+      {
+        text: '基础入门',
+        collapsed: false,
+        items: [
+          { text: '网络安全导论', link: '/web_security/basic/intro' },
+          { text: '渗透测试基础', link: '/web_security/basic/penetration_testing'}
+        ]
+      },
+      {
+        text: '附录',
+        collapsed: false,
+        items: [
+          { text: 'ifconfig', link: '/web_security/appendix/ifconfig'}
+        ]
+      }
     ]
     },
 
