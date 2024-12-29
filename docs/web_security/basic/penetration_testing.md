@@ -271,3 +271,11 @@ net localgroup administrators hacker /add
 
 ![管理员组用户](./penetration_testing_fig/user_in_admin.png)
 
+---
+
+## 参考
+
+- [1] [渗透测试-[windows-MS08-067、MS10-046、MS17-010、MS12-020]](https://blog.csdn.net/m0_43405474/article/details/124589790)
+
+- [2] [ms08-067漏洞复现](https://blog.csdn.net/weixin_43901998/article/details/108490618)
+
