@@ -87,7 +87,8 @@ export default defineConfig({
         text: '附录',
         collapsed: false,
         items: [
-          { text: 'ifconfig', link: '/web_security/appendix/ifconfig'}
+          { text: 'ifconfig', link: '/web_security/appendix/ifconfig'},
+          { text: 'win靶机配置', link: '/web_security/appendix/install_win'}
         ]
       }
     ]

@@ -81,8 +81,8 @@ vmnet8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 对应的虚拟机网络设置如下图：
 
-![虚拟机网络设置](./fig/1.png)
+![虚拟机网络设置](./ifconfig_fig/1.png)
 
 在使用NAT模式时主机与虚拟机的网络结构如下图：
 
-![NAT模式](./fig/2.png)
+![NAT模式](./ifconfig_fig/2.png)
