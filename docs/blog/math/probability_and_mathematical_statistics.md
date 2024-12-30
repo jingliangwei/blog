@@ -696,7 +696,7 @@ $$
 |:-----:|:--------:|:------:|:------:|
 | $\begin{align} \sigma^2=\sigma^2_0 \\ \sigma^2\geq\sigma^2_0 \\ \sigma^2\leq\sigma^2_0 \end{align}$ | $\begin{align} \sigma^2\neq\sigma^2_0 \\ \sigma^2<\sigma^2_0 \\ \sigma^2>\sigma^2_0 \end{align}$ | $\chi^2=\dfrac{1}{\sigma_0^2}\sum_{i=1}^n(X_i-\mu)^2$ | $\begin{align} \chi^2\geq\chi^2_{\alpha/2}(n) &\cup \chi^2\leq\chi^2_{1-\alpha/2}(n) \\ \chi^2&\leq \chi^2_{1-\alpha}(n) \\ \chi^2&\geq \chi^2_\alpha(n) \end{align}$ |
 
-2. 两个正态分布总体 $N(\mu_1,\sigma_1^2),N(\mu_2,\sigma_2)$ 的假设检验
+2. 两个正态分布总体 $N(\mu_1,\sigma_1^2),N(\mu_2,\sigma_2^2)$ 的假设检验
 
 (1) 对均值差 $\mu_1-\mu_2$ 的假设检验， $\sigma_1^2,\sigma_2^2$ 已知， $\delta$ 为已知的常数
 
