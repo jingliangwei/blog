@@ -619,7 +619,7 @@ $$
 | 待估计量 | 条件 | 枢轴量及分布 | 置信区间 |
 |:------:|:----:|:----------:|:-------:|
 | $\mu_1-\mu_2$ | $\sigma_1^2,\sigma_2^2$ 已知 | $U=\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sqrt{\sigma_1^2/n+\sigma_2^2/m}}\sim N(0,1)$ | $\left((\overline{X}-\overline{Y})\pm z_{\alpha/2}\sqrt{\dfrac{\sigma_1^2}{n}+\dfrac{\sigma_2^2}{m}}\right)$ |
-| $\mu_1-\mu_2$ | $\sigma_1^2=\sigma_2^2$ 未知 | $T=\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{S_w\sqrt{1/n+1/m}}\sim t(n+m-2)$ | $\left((\overline{X}-\overline{Y})\pm t_{\alpha/2}S_2\sqrt{\dfrac{1}{n}+\dfrac{1}{m}}\right)$ |
+| $\mu_1-\mu_2$ | $\sigma_1^2=\sigma_2^2$ 未知 | $T=\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{S_w\sqrt{1/n+1/m}}\sim t(n+m-2)$ | $\left((\overline{X}-\overline{Y})\pm t_{\alpha/2}S_w\sqrt{\dfrac{1}{n}+\dfrac{1}{m}}\right)$ |
 | $\dfrac{\sigma_1^2}{\sigma_2^2}$ | $\mu_1,\mu_2$ 未知 | $F=\dfrac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2}\sim F(n-1,m-1)$ | $\left(\dfrac{S_1^2}{S_2^2}\dfrac{1}{F_{\alpha/2}},\dfrac{S_1^2}{S_2^2}\dfrac{1}{F_{1-\alpha/2}}\right)$ |
 
 ::: info 注：
