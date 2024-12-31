@@ -716,6 +716,7 @@ Stopping the keystroke sniffer...
 | 命令 | 用途 |
 |:---:|:---:|
 |`getuid`| 查看权限 |
+|`sysinfo`| 查看系统信息 |
 |`shell`| 获得目标shell |
 |`screenshot`| 屏幕截图 |
 |`upload <file>`| 上传文件 |
@@ -730,7 +731,7 @@ Stopping the keystroke sniffer...
 |`webcam_snap`| 通过摄像头拍照 |
 |`webcam_stream`| 通过摄像头拍摄视频 |
 
-
+更多渗透后利用还可以查看[Metasploit之后渗透攻击（信息收集、权限提升）](https://www.cnblogs.com/coderge/articles/13746810.html)
 
 ---
 
@@ -739,4 +740,103 @@ Stopping the keystroke sniffer...
 - [1] [渗透测试-[windows-MS08-067、MS10-046、MS17-010、MS12-020]](https://blog.csdn.net/m0_43405474/article/details/124589790)
 
 - [2] [ms08-067漏洞复现](https://blog.csdn.net/weixin_43901998/article/details/108490618)
+
+## 信息收集技术
+
+信息收集有主动收集和被动收集两种。
+
+- 被动信息收集：利用第三方的服务对目标进行访问：利用Google搜索、Shodan搜索、其他综合工具，被动信息收集是指尽可能多地收集与目标相关的信息。
+
+- 主动信息收集：通过直接扫描目标主机或网站，主动方式能获得更多信息但目标系统可能回记录操作信息。
+
+在信息收集中，需要收集的信息主要有：目标主机的DNS信息、目标IP地址、子域名、旁站和C段、CMS类型、敏感目录、端口信息、操作系统版本、网站架构、漏洞信息、服务器与中间件信息、邮箱、人员、地址等。
+
+在信息收集中，首先可以先进行被动收集，然后选择出重点渗透目标，再进行针对性的主动信息收集。
+
+### 工具
+
+1. 搜索引擎([Shodan](https://www.shodan.io/)、[fofa](https://fofa.info/))
+
+使用搜索语法高效搜索。
+
+2. Google搜索
+
+利用Google的语法规则：
+
+| 参数 | 作用 |
+|:----:|:---:|
+|`site`| 限制搜索范围内的域名 |
+|`inurl`| 将搜索范围限制在指定URL内 |
+|`intext`| 搜索网页正文内容，忽略标题和URL等文字 |
+|`intitle`| 搜索包含关键字的网页 |
+|`filetype`| 搜索文件的后缀名、扩展名 |
+|`link`| 查询所有连接到某一个特定URL的列表 |
+
+利用方式：
+
+| 语法 | 作用 |
+|:---:|:---:|
+|`site: *`<br>`inurl:login/admin/manage/member/admin_login/login_admin/system/user/main/cms/`| 查找目标系统后台地址 |
+|`site: *`<br>`intext:管理/后台/登录/用户名/密码/验证码/系统/账号/admin/login/sys/managetem/password/username`| 查找文本内容 |
+|`site: * inurl:aspx/jsp/php/asp`| 查找可注入点 |
+|`site: * inurl:file/load/editor/Files`| 查找上传漏洞 |
+|`site: * filetype:asp/aspx/php/jsp`| 查看脚本类型 |
+|`inurl:phpmyadmin/main.php`<br>`intitle:phpmyadmin`| 搜索phpmyadmin文件 |
+
+3. Maltego
+
+Maltego是一款综合信息收集工具，可以帮助获取和可视化情报收集。
+![maltego界面](./penetration_testing_fig/maltego.png)
+
+4. DNS域名信息收集
+
+5. 子域名收集
+
+6. 网站架构
+
+利用edge插件wappalyzer可以查看网站使用的CMS框架等信息。
+
+![Wappalyzer插件](./penetration_testing_fig/wappalyzer.png)
+
+7. 旁站和C段
+
+::: info 概念
+旁站： 和目标网站在同一台服务器上的网站。
+
+C段： 和目标服务器ip处于同一个小范围ip的其他服务器。
+:::
+
+[查询工具](https://c.webscan.cc/)
+![查询工具](./penetration_testing_fig/webscan.png)
+
+8. 目录扫描
+
+9. 端口扫描
+
+`nmap`
+
+10. 漏洞扫描
+
+利用各种自动扫描工具：
+
+- [渗透测试常用WEB安全漏洞扫描工具集合](https://www.freebuf.com/sectool/269476.html)
+- [【网络安全】渗透测试必备6款漏洞扫描工具](https://blog.csdn.net/logic1001/article/details/144743516)
+
+---
+
+### 参考
+
+- [1] [常用信息收集方法](https://blog.csdn.net/qq_39520157/article/details/120152615)
+- [2] [信息收集这一篇就够了](https://www.freebuf.com/articles/web/283684.html)
+
+## 漏洞利用
+
+在主机攻防部分，使用`msfconsole`工具时有一步设置`payload`，这是利用栈溢出（缓冲区溢出）特意构造输入以劫持系统的方式，该特意构造的输入称为`payload`。
+
+在前面我们直接关闭了靶机的防火墙功能，便于直接复现出漏洞，但是在实际的攻击不能忽略靶机的防火墙（WAF）和入侵检测系统（IDS）的拦截，以及一些杀毒软件的查杀，故需要进行WAF/IDS的绕过以及反病毒侦查（免杀）。
+
+## 后期利用&渗透报告
+
+详见[渗透测试指南（五）后利用及报告](https://www.freebuf.com/articles/others-articles/243229.html)
+
 
