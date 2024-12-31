@@ -708,7 +708,7 @@ $$
 
 |原假设$H_0$|备择假设$H_1$|检验统计量|拒绝域$W$|
 |:-----:|:--------:|:------:|:------:|
-| $\begin{align} \mu_1-\mu_2=\delta \\ \mu_1-\mu_2\geq\delta \\ \mu_1-\mu_2\leq\delta \end{align}$ | $\begin{align} \mu_1-\mu_2\neq\delta \\ \mu_1-\mu_2<\delta \\ \mu_1-\mu_2>\delta \end{align}$ | $T=\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{S_w\sqrt{1/n+1/m}}$ | $\begin{align} \|t\|&\geq t_{\alpha/2}(n+m-2) \\ t&\leq -t_{\alpha}(n+m-2) \\ t&\geq t_\alpha(n+m-2) \end{align}$ |
+| $\begin{align} \mu_1-\mu_2=\delta \\ \mu_1-\mu_2\geq\delta \\ \mu_1-\mu_2\leq\delta \end{align}$ | $\begin{align} \mu_1-\mu_2\neq\delta \\ \mu_1-\mu_2<\delta \\ \mu_1-\mu_2>\delta \end{align}$ | $T=\dfrac{(\overline{X}-\overline{Y})-\delta}{S_w\sqrt{1/n+1/m}}$ | $\begin{align} \|t\|&\geq t_{\alpha/2}(n+m-2) \\ t&\leq -t_{\alpha}(n+m-2) \\ t&\geq t_\alpha(n+m-2) \end{align}$ |
 
 (3) 对方差比 $\dfrac{\sigma_1^2}{\sigma_2^2}$ 的假设检验， $\mu_1,\mu_2$ 未知
 
