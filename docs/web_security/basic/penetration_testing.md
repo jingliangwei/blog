@@ -685,9 +685,56 @@ meterpreter > keyscan_stop
 Stopping the keystroke sniffer...
 ```
 
+### MS12-020[RDP]
+
+#### 漏洞描述
+
+远程桌面协议存在的一个重大漏洞，入侵者可以通过向远程桌面默认端口（3389）发一系列特定RDP包，从而获取超级管理员权限，进而入侵系统。开放远程桌面服务并使用默认的3389端口的会成为攻击目标。
+此外远程桌面协议（RDP）是一个多通道（multi-channal）的协议，可用于做DoS攻击。
+根据微软的安全公告，Windows全系列操作系统（WinXP/Vista/Win7/Win2000/ Win2003/Win2008）均存在受控威胁。
+
+这个漏洞这里不做复现，大致流程跟MS17-010类似，先扫描再攻击，但是这个漏洞是进行蓝屏攻击，不是获取权限。具体参考[远程桌面--------ms12-020 漏洞复现 （死亡蓝屏）](https://www.cnblogs.com/R-Hacker/p/9178066.html)
+
+### 小结
+
+`nmap`: 扫描目标主机的开放端口，确定可以利用的漏洞（`445`,`3389`）
+
+`msfconsole`:
+
+| 命令 | 用途 |
+|:---:|:---:|
+|`search <str>`| 查找相应漏洞模块 |
+|`use <module's name/index>`| 选择使用模块 |
+|`back`| 推出当前模块 |
+|`show options`| 查看模块需要设置的参数 |
+|`set <argv name> <argv value>`| 设置参数 |
+|`show <argv name>`| 查看参数可选值 |
+|`run`| 按照参数运行模块 |
+
+`meterpreter`:
+
+| 命令 | 用途 |
+|:---:|:---:|
+|`getuid`| 查看权限 |
+|`shell`| 获得目标shell |
+|`screenshot`| 屏幕截图 |
+|`upload <file>`| 上传文件 |
+|`download <file>`| 下载文件 |
+|`hashdump`| 获取口令哈希 |
+|`ps`| 查看目标进程 |
+|`migrate <PID>`| 迁移进程 |
+|`keyscan_start`| 开启键盘监听 |
+|`keyscan_dump`| 输出键盘监听内容 |
+|`keyscan_stop`| 停止键盘监听 |
+|`webcam_list`| 查看摄像头 |
+|`webcam_snap`| 通过摄像头拍照 |
+|`webcam_stream`| 通过摄像头拍摄视频 |
+
+
+
 ---
 
-## 参考
+### 参考
 
 - [1] [渗透测试-[windows-MS08-067、MS10-046、MS17-010、MS12-020]](https://blog.csdn.net/m0_43405474/article/details/124589790)
 
