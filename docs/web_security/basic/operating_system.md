@@ -67,6 +67,8 @@ Linux的终端命令可以通过`man <command>`或者`<command> -h/--help`来查
 :::
 
 kali-Linux操作系统集成了很多工具，比如网络抓包的BurpSuite，扫描网段的`nmap`，渗透工具`msfconsole`等。
+
+[kali工具](https://www.kali.org/tools/)
 ![kali](./operating_system_fig/kali.png)
 
 ## 操作系统安全
