@@ -80,7 +80,8 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: '网络安全导论', link: '/web_security/basic/intro' },
-          { text: '渗透测试基础', link: '/web_security/basic/penetration_testing'}
+          { text: '渗透测试基础', link: '/web_security/basic/penetration_testing'},
+          { text: '计算机网络基础', link: '/web_security/basic/network'}
         ]
       },
       {
