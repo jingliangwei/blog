@@ -84,7 +84,8 @@ export default defineConfig({
           { text: '计算机网络基础', link: '/web_security/basic/network'},
           { text: '操作系统基础', link: '/web_security/basic/operating_system'},
           { text: 'Web基础', link: '/web_security/basic/web'},
-          { text: '数据库基础', link: '/web_security/basic/databases'}
+          { text: '数据库基础', link: '/web_security/basic/databases'},
+          { text: 'php编程基础', link: '/web_security/basic/php'}
         ]
       },
       {

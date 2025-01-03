@@ -2,6 +2,8 @@
 
 ## Web前端基础
 
+### 通讯协议
+
 网络通信协议(HTTP,HTTPS,WS)和安全协议(SSL,TLS,XTLS)，详见[常见网络通信协议（http、https、ws）及安全协议(SSL、TLS、XTLS)](https://blog.csdn.net/weixin_43764974/article/details/132637211)
 
 http协议状态码：
@@ -25,7 +27,80 @@ http协议状态码：
 
 ![http状态码表](./web_fig/HTTP_Status_Codes.png)
 
+### html、css、javascript
+
 html、css、javascript是实现网页的语言，[html](https://www.runoob.com/html/html-tutorial.html)处理网页内容，[css](https://www.runoob.com/css/css-tutorial.html)处理网页排版，[javascript](https://www.runoob.com/js/js-tutorial.html)对用户操作进行响应。细节可以在[菜鸟教程](https://www.runoob.com/)查看，大致了解其语法即可。
+
+- html表格和表单：
+
+```html
+<table border="1">
+  <thead>
+    <tr>
+      <th>title 1</th>
+      <th>title 2</th>
+      <th>title 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>row1,column1</td>
+      <td>row1,column2</td>
+      <td>row1,column3</td>
+    </tr>
+    <tr>
+      <td>row2,column1</td>
+      <td>row2,column2</td>
+      <td>row2,column3</td>
+    </tr>
+  </tbody>
+</table>
+
+<form action="/" method="post">
+    <!-- 文本输入框 -->
+    <label for="name">用户名:</label>
+    <input type="text" id="name" name="name" required>
+
+    <br>
+
+    <!-- 密码输入框 -->
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password" required>
+
+    <br>
+
+    <!-- 单选按钮 -->
+    <label>性别:</label>
+    <input type="radio" id="male" name="gender" value="male" checked>
+    <label for="male">男</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">女</label>
+
+    <br>
+
+    <!-- 复选框 -->
+    <input type="checkbox" id="subscribe" name="subscribe" checked>
+    <label for="subscribe">订阅推送信息</label>
+
+    <br>
+
+    <!-- 下拉列表 -->
+    <label for="country">国家:</label>
+    <select id="country" name="country">
+        <option value="cn">CN</option>
+        <option value="usa">USA</option>
+        <option value="uk">UK</option>
+    </select>
+
+    <br>
+
+    <!-- 提交按钮 -->
+    <input type="submit" value="提交">
+</form>
+```
+
+显示效果如下：
+![html表格表单](./web_fig/html.png)
 
 ## Web安全
 
