@@ -83,7 +83,8 @@ export default defineConfig({
           { text: '渗透测试基础', link: '/web_security/basic/penetration_testing'},
           { text: '计算机网络基础', link: '/web_security/basic/network'},
           { text: '操作系统基础', link: '/web_security/basic/operating_system'},
-          { text: 'Web基础', link: '/web_security/basic/web'}
+          { text: 'Web基础', link: '/web_security/basic/web'},
+          { text: '数据库基础', link: '/web_security/basic/databases'}
         ]
       },
       {
