@@ -89,6 +89,13 @@ export default defineConfig({
         ]
       },
       {
+        text: '技术进阶',
+        collapsed: false,
+        items: [
+          { text: '弱口令与口令爆破', link: '/web_security/vulnerability/weak_password'}
+        ]
+      },
+      {
         text: '附录',
         collapsed: false,
         items: [
