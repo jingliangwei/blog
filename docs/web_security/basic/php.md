@@ -73,6 +73,19 @@ print_var(__DIR__);
 效果如下：
 ![php效果](./php_fig/php1.png)
 
+::: info 启动php服务
+在`php`文件目录运行
+```sh
+php -S localhost:8000
+```
+在浏览器访问`localhost:8000/<php-file>`即可。
+
+如果要在kali机访问，需要改为
+```sh
+php -S 0.0.0.0:8000
+```
+:::
+
 ## php验证登录
 
 在同一目录创建三个`.php`文件，内容分别如下：
