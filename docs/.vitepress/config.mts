@@ -102,7 +102,8 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'ifconfig', link: '/web_security/appendix/ifconfig'},
-          { text: 'win靶机配置', link: '/web_security/appendix/install_win'}
+          { text: 'win靶机配置', link: '/web_security/appendix/install_win'},
+          { text: 'ufw命令', link: '/web_security/appendix/ufw'}
         ]
       }
     ]
