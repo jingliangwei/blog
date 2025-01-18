@@ -95,7 +95,8 @@ export default defineConfig({
         items: [
           { text: '弱口令与口令爆破', link: '/web_security/vulnerability/weak_password'},
           { text: 'XSS漏洞', link: 'web_security/vulnerability/xss'},
-          { text: 'CSRF漏洞', link: 'web_security/vulnerability/csrf'}
+          { text: 'CSRF漏洞', link: 'web_security/vulnerability/csrf'},
+          { text: 'SSRF漏洞', link: 'web_security/vulnerability/ssrf'}
         ]
       },
       {
