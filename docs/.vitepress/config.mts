@@ -45,6 +45,7 @@ export default defineConfig({
           { text: 'python数据处理', link: '/blog/tools/python'},
           { text: 'make的使用', link: '/blog/tools/make'},
           { text: 'git命令', link: '/blog/tools/git'},
+          { text: 'docker命令', link: '/blog/tools/docker'},
           { text: 'wps问题解答', link: '/blog/tools/wps'}
         ]
       }
@@ -96,7 +97,8 @@ export default defineConfig({
           { text: '弱口令与口令爆破', link: '/web_security/vulnerability/weak_password'},
           { text: 'XSS漏洞', link: 'web_security/vulnerability/xss'},
           { text: 'CSRF漏洞', link: 'web_security/vulnerability/csrf'},
-          { text: 'SSRF漏洞', link: 'web_security/vulnerability/ssrf'}
+          { text: 'SSRF漏洞', link: 'web_security/vulnerability/ssrf'},
+          { text: 'XXE漏洞', link: 'web_security/vulnerability/xxe'}
         ]
       },
       {
