@@ -43,6 +43,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'python数据处理', link: '/blog/tools/python'},
+          { text: 'python虚拟环境', link: '/blog/tools/python-venv'},
           { text: 'make的使用', link: '/blog/tools/make'},
           { text: 'git命令', link: '/blog/tools/git'},
           { text: 'docker命令', link: '/blog/tools/docker'},
