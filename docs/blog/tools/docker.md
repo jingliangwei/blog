@@ -46,7 +46,10 @@ docker pull php:5.6-cli
 2. 在宿主机工作目录运行容器
 
 ```sh
-docker -it --rm --name php-5.6-server -p 8000:8000 -v $(pwd):/var/www/html php:5.6-cli bash
+docker -it --rm \
+       --name php-5.6-server \
+       -p 8000:8000 \
+       -v $(pwd):/var/www/html php:5.6-cli bash
 ```
 
 此时会进入容器的终端，容器内有 php5.6 的环境，并且宿主机的当前路径已经挂载在容器内的 `/var/www/html` 路径，通过 `cd /var/www/html` 然后 `php -S 0.0.0.0:8000` 即可。
