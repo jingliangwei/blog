@@ -62,11 +62,11 @@ export default defineConfig({
       }
     ],
 
-    '/test/': [
+    '/exam/': [
       {
         text: 'arwell',
         items: [
-          { text: 'python期末考试', link: '/test/py_test'}
+          { text: 'python期末考试', link: '/exam/py_exam'}
         ]
       }
     ],
