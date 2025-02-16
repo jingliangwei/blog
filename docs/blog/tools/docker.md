@@ -22,6 +22,8 @@ docker stop <container-name>
 docker exec -it <container-name> bash
 docker rm <container-name>
 docker cp <local-file-path> <container-id>:<file-path>
+docker build -f <Dockerfile-name> -t <image-name>:<image-label> .
+docker tag <old-image>:<old-image-label> <new-image>:<new-image-label>
 ```
 
 其中 `docker run` 的参数如下：

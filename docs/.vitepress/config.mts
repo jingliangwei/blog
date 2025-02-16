@@ -108,7 +108,8 @@ export default defineConfig({
         items: [
           { text: 'ifconfig', link: '/web_security/appendix/ifconfig'},
           { text: 'win靶机配置', link: '/web_security/appendix/install_win'},
-          { text: 'ufw命令', link: '/web_security/appendix/ufw'}
+          { text: 'ufw命令', link: '/web_security/appendix/ufw'},
+          { text: 'docker安装kali', link: 'web_security/appendix/docker_kali'}
         ]
       }
     ]
