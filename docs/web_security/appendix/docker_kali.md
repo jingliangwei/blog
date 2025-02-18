@@ -22,6 +22,10 @@ linux 系统的 tty 可以简单理解为没有图形化窗口的终端。
 
 ## Docker 安装 kali
 
+::: info 代码地址
+具体文件详见 [https://github.com/jingliangwei/kali-desktop](https://github.com/jingliangwei/kali-desktop)
+:::
+
 使用 `kalilinux/kali-rolling` 作为基础镜像进行构建。
 
 保持工作目录的文件结构如下：
