@@ -48,6 +48,7 @@ export default defineConfig({
           { text: 'git命令', link: '/blog/tools/git'},
           { text: 'docker命令', link: '/blog/tools/docker'},
           { text: 'yazi的使用', link: '/blog/tools/yazi'},
+          { text: 'vimium的使用', link: '/blog/tools/vimium'},
           { text: 'wps问题解答', link: '/blog/tools/wps'}
         ]
       }
