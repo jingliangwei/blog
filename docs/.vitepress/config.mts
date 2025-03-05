@@ -41,6 +41,13 @@ export default defineConfig({
         ]
       },
       {
+        text: 'astronomy',
+        collapsed: false,
+        items: [
+          { text: '天文测量基础', link: '/blog/astronomy/measurement'}
+        ]
+      },
+      {
         text: 'tools',
         collapsed: false,
         items: [
