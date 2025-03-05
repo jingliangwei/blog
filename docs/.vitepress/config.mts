@@ -36,7 +36,8 @@ export default defineConfig({
         items: [
           { text: '电偶极子和磁偶极子', link: '/blog/physics/dipoles' },
           { text: '接地问题', link: '/blog/physics/earthing'},
-          { text: '光学', link: '/blog/physics/optics'}
+          { text: '光学', link: '/blog/physics/optics'},
+          { text: '理论力学', link: '/blog/physics/analytial_mechanics'}
         ]
       },
       {
