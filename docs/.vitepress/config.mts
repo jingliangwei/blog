@@ -110,7 +110,8 @@ export default defineConfig({
           { text: 'XSS漏洞', link: 'web_security/vulnerability/xss'},
           { text: 'CSRF漏洞', link: 'web_security/vulnerability/csrf'},
           { text: 'SSRF漏洞', link: 'web_security/vulnerability/ssrf'},
-          { text: 'XXE漏洞', link: 'web_security/vulnerability/xxe'}
+          { text: 'XXE漏洞', link: 'web_security/vulnerability/xxe'},
+          { text: 'Python', link: 'web_security/vulnerability/python'}
         ]
       },
       {
