@@ -12,6 +12,16 @@ $$
 其中里德伯常数 $R_H=1.097\times10^7m^{-1}$ ，
 波数 $\tilde{\nu}=\dfrac{1}{\lambda}$
 
+各线系如下表：
+
+| 线系名字   |     |
+|:---------------:|:---------------:|
+| 赖曼系   | $m=1$ |
+| 巴尔末系   | $m=2$ |
+| 帕邢系   | $m=3$ |
+| 布喇开系   | $m=4$ |
+| 普丰德系   | $m=5$ |
+
 ### 玻尔模型基本假设
 
 1. 定态假设
@@ -72,14 +82,18 @@ $R_H=1.9677\times10^7m^{-1}$ 符合的很好
 
 ### 玻尔模型的结论
 
+对于电子与微观粒子核两体绕转问题，记核为 $X$ ，核电荷数为 $Z$
+
+该系统的里德伯常数 $R_X=R_\infty\dfrac{1}{1+m_e/M_X}$
+
 1. 电子轨道半径
 $$
-r_n=\frac{1}{4\pi\varepsilon_0}\frac{n^2e^2}{2hcR_H}=\frac{4\pi\varepsilon_0\hbar^2}{\mu e^2}n^2
+r_n=\frac{1}{4\pi\varepsilon_0}\frac{n^2e^2}{2hcZR_X}=\frac{4\pi\varepsilon_0\hbar^2}{\mu Ze^2}n^2
 $$
 
 2. 原子能量
 $$
-E_n=-\frac{R_Hhc}{n^2}=-\frac{e^4\mu}{2(4\pi\varepsilon_0)^2\hbar^2}\frac{1}{n^2}
+E_n=-\frac{Z^2R_Xhc}{n^2}=-\frac{Z^2e^4\mu}{2(4\pi\varepsilon_0)^2\hbar^2}\frac{1}{n^2}
 $$
 
 ### 玻尔理论的实验验证
