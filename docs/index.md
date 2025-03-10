@@ -6,8 +6,6 @@ hero:
   name: "Blog"
   text: "arwell's blog"
   tagline: maybe useful
-  image:
-    src: /logo.svg
   actions:
     - theme: brand
       text: Blog
