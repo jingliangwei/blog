@@ -132,7 +132,15 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/jingliangwei' }
     ],
     
-    outline: 'deep'
+    outline: {
+      level: 'deep',
+      label: '页面导航',
+    },
+
+    // enable local search
+    search: {
+      provider: 'local'
+    }
   },
 
   // enable math equation in markdown.

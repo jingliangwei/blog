@@ -87,3 +87,33 @@ E=E'+\dfrac{1}{2}MV^2 \\
 \right.
 $$
 
+### 相似性
+
+对于一个系统， $T\propto v^2,U\propto r^k$
+
+当系统的位矢 $\vec{r}\rightarrow a\vec{r}$ ，时间 $t\rightarrow bt$
+
+可以由拉格朗日方程性质得到： $b=a^{1-k/2}$ 
+
+即
+
+$$
+\frac{t'}{t}=\left(\frac{l'}{l}\right)^{1-k/2}
+$$
+
+::: info example
+| k值 | 实例 |
+|:---:|:---:|
+|$U\propto r^{-1}\Rightarrow t'/t=(l'/l)^{3/2}$|开普勒第三定律|
+|$U\propto r\Rightarrow t'/t=(l'/l)^{1/2}$|自由落体 $h=\dfrac{1}{2}gt^2$|
+|$U\propto x^2\Rightarrow t'/t=(l'/l)^0$|弹簧振子周期独立于振幅|
+:::
+
+### 位力定理
+
+记系统的动能 $T\propto v^2$ 势能 $U\propto r^k$
+
+有 $2\langle T\rangle=kU$
+
+其中按时间平均 $\displaystyle\langle f\rangle=\lim_{\tau\rightarrow\infty}\frac{1}{\tau}\int_0^\tau f\mathrm{d}t$
+
