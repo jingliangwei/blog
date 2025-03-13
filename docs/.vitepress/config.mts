@@ -31,6 +31,7 @@ export default defineConfig({
 
   // enable math equation in markdown.
   markdown: {
-    math: true
+    math: true,
+    lineNumbers: true
   }
 })
