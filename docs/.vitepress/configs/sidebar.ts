@@ -102,7 +102,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: 'CSRF漏洞', link: 'web_security/vulnerability/csrf'},
       { text: 'SSRF漏洞', link: 'web_security/vulnerability/ssrf'},
       { text: 'XXE漏洞', link: 'web_security/vulnerability/xxe'},
-      { text: 'Python', link: 'web_security/vulnerability/python'}
+      { text: 'Python', link: 'web_security/vulnerability/python'},
+      { text: 'sql注入', link: 'web_security/vulnerability/sql'}
     ]
   },
   {
@@ -112,7 +113,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: 'ifconfig', link: '/web_security/appendix/ifconfig'},
       { text: 'win靶机配置', link: '/web_security/appendix/install_win'},
       { text: 'ufw命令', link: '/web_security/appendix/ufw'},
-      { text: 'docker安装kali', link: 'web_security/appendix/docker_kali'}
+      { text: 'docker安装kali', link: 'web_security/appendix/docker_kali'},
+      { text: 'docker安装mysql', link: 'web_security/appendix/docker_mysql'}
     ]
   }
 ]

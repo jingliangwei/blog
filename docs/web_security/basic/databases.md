@@ -23,7 +23,7 @@
 
 ## MySQL的使用
 
-在`Ubuntu`上安装使用`mysql`
+在`Ubuntu`上安装使用`mysql` (参考[docker安装mysql](/web_security/appendix/docker_mysql))
 
 | 命令 | 用途 |
 |:---:|:---:|
