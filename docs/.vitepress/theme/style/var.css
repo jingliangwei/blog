@@ -61,3 +61,12 @@
 .vp-doc a {
     text-decoration: none;
 }
+
+/* 图片缩放时隐藏侧边栏 */
+.medium-zoom-overlay {
+  z-index: 30;
+}
+
+.medium-zoom-image {
+  z-index: 9999 !important;/* 给的值是21，但是实测盖不住，直接999 */
+}
