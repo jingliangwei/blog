@@ -4,7 +4,7 @@ import type { DefaultTheme } from 'vitepress'
 export const sidebar: DefaultTheme.Config['sidebar'] = {
   '/blog/': [
   {
-    text: 'arwell\'s blog',
+    text: 'arwell\'s notes',
     items: [
       // { text: '首页', link: '/blog/index' }
     ]

@@ -4,11 +4,11 @@ layout: home
 
 hero:
   name: "Blog"
-  text: "arwell's blog"
-  tagline: maybe useful
+  text: "arwell's notes"
+  tagline: 向来如此，便对吗？
   actions:
     - theme: brand
-      text: Blog
+      text: Notes
       link: /blog/
     - theme: alt
       text: Python数据处理
