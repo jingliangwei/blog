@@ -32,7 +32,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     text: 'astronomy',
     collapsed: false,
     items: [
-      { text: '天文测量基础', link: '/blog/astronomy/measurement'}
+      { text: '天文测量基础', link: '/blog/astronomy/measurement'},
+      { text: 'JPL星表', link: '/blog/astronomy/jpl'}
     ]
   },
   {
