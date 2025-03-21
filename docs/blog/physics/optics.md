@@ -165,3 +165,60 @@ $$
 \left(\begin{array}{cc} 1 & 0 \\ \dfrac{n_2-n_1}{n_2R} & \dfrac{n_1}{n_2} \end{array}\right)
 \left(\begin{array}{c} x_1 \\ \theta_1 \end{array}\right)
 $$
+
+## 波动光学
+
+### 定态光波和复振幅描述
+
+- 定态光波 $U(P,t)=A(P)\cos[\omega t-\varphi(P)]$
+
+1. 平面波
+- $A(P)=const$
+- $\varphi(P)=\vec{k}\cdot\vec{r}+\varphi_0$
+2. 球面波
+- $A(P)=\dfrac{a}{r}$
+- $\varphi(P)=kr+\varphi_0$
+
+- 复振幅描述 $\widetilde U(P,t)=A(P)e^{i\varphi(P)}$
+- 光强 $I=\widetilde U\widetilde U^*$
+
+### 波前
+
+- 波面：相位相等曲面
+- 波前：光波场中任意曲面
+- 共轭波：复振幅共轭的波
+
+![傍轴条件和远场条件](./optics_fig/2-1.png)
+
+- $\widetilde U(x',y')=\dfrac{a}{z(1+\rho^2/2z^2)}exp[ik(z+\dfrac{\rho^2}{2z})]$
+- 傍轴条件（振幅） $\dfrac{\rho^2}{z^2}\ll 1\Leftrightarrow z^2\gg\rho^2$
+- 远场条件（相位） $\dfrac{1}{2}k\dfrac{\rho^2}{z}\ll\pi\Leftrightarrow z\gg\dfrac{\rho^2}{\lambda}$
+
+### 波的叠加和干涉
+
+- 波的干涉 $I(P)=I_1(P)+I_2(P)+2\sqrt{I_1(P)I_2(P)}\cos\delta(P)$
+- 相干条件：
+1. 频率相同
+2. 存在相互平行的振动分量
+3. 相位差稳定
+- 干涉条纹的反衬度 $\gamma=\dfrac{I_{max}-I_{min}}{I_{max}+I_{min}}$
+- 双光干涉光强分布
+$$
+\begin{align}
+I=A_1^2+A_2^2+2A_1A_2\cos\delta \\
+=(A_1^2+A_2^2)(1+\gamma\cos\delta)
+\end{align}
+$$
+
+### 两个点源的干涉
+
+1. 两列球面波的干涉
+
+杨氏双缝干涉实验
+
+![双缝干涉](./optics_fig/2-2.png)
+
+2. 两列平面波的干涉
+
+![两平行光干涉](./optics_fig/2-3.png)
+
