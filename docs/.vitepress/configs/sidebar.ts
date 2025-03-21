@@ -5,9 +5,6 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
   '/blog/': [
   {
     text: 'arwell\'s notes',
-    items: [
-      // { text: '首页', link: '/blog/index' }
-    ]
   },
   {
     text: 'math',
@@ -57,9 +54,17 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
 '/hw/': [
   {
     text: '韦境量\'s作业',
+  },
+  {
+    text: '数学物理方法',
     items: [
       { text: '用python绘制本征函数系拟合图', link: '/hw/fit'},
       { text: 'delta函数展开', link: '/hw/fit_delta'}
+    ]
+  },
+  {
+    text: '天文测量基础',
+    items: [
     ]
   }
 ],
