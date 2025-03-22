@@ -81,6 +81,10 @@ $$
 J1989.0 对应1989年1月0.75日TDB
 - 贝塞尔历元 (Besselian Epoch) B1984.0 对应光行差改正后由平春分点起算的平太阳赤经等于 $18^h40^m$ 的瞬间。
 
+::: info 儒略日和公历
+详见[儒略日和公历](/blog/astronomy/jd)
+:::
+
 ## 参考系
 
 - 参考系 (reference system) (R.S.) : a theoretical concept
@@ -100,6 +104,10 @@ J1989.0 对应1989年1月0.75日TDB
 - DE 美国 DE40X,DE42X,DE42X
 - EPM 俄罗斯 EPM2008,EPM2010
 - INPOP 法国 06,08,10a
+
+::: info DE405星表的使用
+具体查看[JPL历表](/blog/astronomy/jpl)
+:::
 
 半解析历表：
 
