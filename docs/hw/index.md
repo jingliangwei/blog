@@ -4,8 +4,8 @@
 
 ## 数学物理方法
 
-- [用python绘制本征函数系拟合图](/hw/fit)
-- [delta函数展开](/hw/fit_delta)
+- [用python绘制本征函数系拟合图](/hw/math/fit)
+- [delta函数展开](/hw/math/fit_delta)
 
 ## 天文数据处理
 
