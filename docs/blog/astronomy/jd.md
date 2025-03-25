@@ -69,3 +69,42 @@
 2. 由于从旧历到新历还直接空了10天，故 `B2=-10`
 3. 综上，修正项 `B=B1+B2=2-int(y/100)+int(y/400)`
 
+## 儒略日转公历
+
+参考：
+[公元纪年法（儒略历-格里高历）转儒略日](https://blog.csdn.net/qq_24172609/article/details/112244135)
+
+## 转换代码
+
+`jd.py`
+```py
+def ymd2jd(y,m,d):
+    if m in [1,2]:
+        y = y - 1
+        m = m + 12
+    jd = int(365.25*(y+4712))+int(30.61*(m+1))+d-63.5
+    b = 0
+    if y > 1582 or (y == 1582 and m > 10) or (y == 1582 and m == 10 and d > 14):
+        b = 2 - int(y/100) + int(y/400)
+    return jd + b
+
+def jd2ymd(jd):
+	re, jd = math.modf(jd + 0.5)
+	if jd >= 2299161:  # 大于1582年10月15日
+		jd = jd + 10
+		a = int((jd - 2268993) / 36524.25)  # 2268993为1500年3月1日的儒略日+0.5
+		jd = jd + a - int((a+3) / 4)
+	y = int(jd / 365.25) - 4712
+	Y = y
+	while True:
+		muYD = jd - int((y + 4712) * 365.25) - 1  # 除去年积日
+		if muYD >= 59:
+			m = int((muYD + 1 + 63) / 30.61) - 1
+			M = m - 12 if m > 12 else m
+			break
+		else:
+			y = y - 1
+	D = muYD - int(30.61 * (m + 1)) + 63 + 1
+	return Y, M, D + re
+```
+

@@ -6,7 +6,7 @@ import {sidebar} from './configs'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: "/blog/",
-  title: "Blog",
+  title: "韦境量",
   description: "arwell's blog",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

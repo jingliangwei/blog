@@ -1,5 +1,7 @@
 ---
 sidebar: false
+prev: false
+next: false
 ---
 
 # $\delta$ 函数展开

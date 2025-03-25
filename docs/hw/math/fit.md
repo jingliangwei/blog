@@ -1,5 +1,7 @@
 ---
 sidebar: false
+prev: false
+next: false
 ---
 
 # 用python绘制本征函数系拟合图

@@ -60,8 +60,14 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
   {
     text: '数学物理方法',
     items: [
-      { text: '用python绘制本征函数系拟合图', link: '/hw/fit'},
-      { text: 'delta函数展开', link: '/hw/fit_delta'}
+      { text: '用python绘制本征函数系拟合图', link: '/hw/math/fit'},
+      { text: 'delta函数展开', link: '/hw/math/fit_delta'}
+    ]
+  },
+  {
+    text: '天文数据处理',
+    items: [
+      { text: '作业1', link: '/hw/data_process/hw1'}
     ]
   },
   {
