@@ -20,7 +20,7 @@ export default defineConfig({
     
     outline: {
       level: 'deep',
-      label: '页面导航',
+      label: '页面目录',
     },
 
     // enable local search
