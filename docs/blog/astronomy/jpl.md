@@ -25,7 +25,7 @@ DE405文件夹包含头文件 `header.405` 和系数文件 `ascp****.405` ， `*
 
 通过命令直接下载
 ```sh
-git clone git@github.com:jingliangwei/jpl-fortran.git
+git clone https://github.com/jingliangwei/jpl-fortran.git
 ```
 :::
 

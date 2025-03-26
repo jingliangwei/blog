@@ -9,7 +9,9 @@
 
 ## 天文数据处理
 
-- [作业1](/hw/data_process/hw1)
+- [作业1(绝对数，相对数，特征分析)](/hw/data_process/hw1)
 
 ## 天文测量基础
+
+- [作业1(星表使用，金星凌日)](/hw/astro_meansure/hw1)
 
