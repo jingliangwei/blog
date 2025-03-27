@@ -24,7 +24,7 @@ DE405文件夹包含头文件 `header.405` 和系数文件 `ascp****.405` ， `*
 可以使用我在github上的备份[jpl-fortran](https://github.com/jingliangwei/jpl-fortran)
 
 通过命令直接下载
-```sh
+```sh:no-line-numbers
 git clone https://github.com/jingliangwei/jpl-fortran.git
 ```
 :::
@@ -32,26 +32,26 @@ git clone https://github.com/jingliangwei/jpl-fortran.git
 ### 制作历表
 
 1. 终端进入文件夹 `de405`
-```sh
+```sh:no-line-numbers
 cd de405
 ```
 2. 合并2000年到2040年数据
-```sh
+```sh:no-line-numbers
 cat header.405 ascp2000.405 ascp2020.405 > jpleph00-40
 ```
 3. 配置文件 `fortran/asc2eph.f` 生成历表制作程序 `asc2eph` ：
 - 查看文件 `asc2eph.f` 的第74、75行，设置 `NRECL` 值（取消注释即可）
 ![程序](./jpl_fig/1.png)
 - 编译生成程序
-```sh
+```sh:no-line-numbers
 gfortran fortran/asc2eph.f -o asc2eph
 ```
 4. 运行程序 `asc2eph`
-```sh
+```sh:no-line-numbers
 ./asc2eph < de405/jpleph00-40
 ```
 ::: details 输出结果
-```sh
+```sh:no-line-numbers
   JPL ASCII-TO-DIRECT-I/O program.  Last modified 15-Aug-2013.
 
 KSIZE =  2036
@@ -170,15 +170,15 @@ STOP  OK
 2. 把 `testeph.f` 主程序后的所有子程序单独拆出来另存为 `jplsubs.f`
 - 将原 `testeph.f` 第219行之后的所有代码剪切保存到新文件 `jplsubs.f`
 3. 编译生成测试程序 `test`：
-```sh
+```sh:no-line-numbers
 gfortran fortran/testeph.f fortran/jplsubs.f -o test
 ```
 4. 运行测试程序：
-```sh
+```sh:no-line-numbers
 ./test < de405/testpo.405
 ```
 ::: details 输出结果
-```sh
+```sh:no-line-numbers
   JPL TEST-EPHEMERIS program.  Last modified March 2013.
 
     2451536.50    2466160.50         32.00
