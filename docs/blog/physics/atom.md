@@ -222,3 +222,84 @@ $$
 
 ![实验](./atom_fig/2-5.png)
 
+### 量子力学第一假设
+
+#### 波函数及物理意义
+
+$$
+\Psi(\vec{r},t)=Ae^{-i(\omega t-\vec{k}\cdot\vec{r})}=Ae^{-i(Et-\vec{p}\cdot\vec{r})/\hbar}
+$$
+
+微观粒子的波动性反映了其运动的统计规律： $|\Psi|^2$ 代表概率（量子力学第一假设）
+
+#### 波函数性质
+
+1. 标准条件： $\Psi$ 必须有限、单值和连续
+2. 归一化条件： $\displaystyle \iiint_{-\infty}^{+\infty}|\Psi(\vec{r}, t)|^2\mathrm{d}V=1$
+3. 常数因子不定： $\Psi$ 和 $c\Psi$ 描述的概率波完全一致， $c$ 为非零常数
+4. 相干叠加性：若 $\Psi_1(\vec{r}, t)$ 和 $\Psi_2(\vec{r}, t)$ 是系统可能的量子态，
+那么它们的线性叠加态
+$$
+\Psi(\vec{r}, t)=c_1\Psi_1(\vec{r}, t)+c_2\Psi_2(\vec{r}, t)\quad c_1,c_2\neq 0
+$$
+也是这个系统的一个可能的量子态。
+
+（波函数的态叠加原理，量子力学第一原理）
+
+### 量子力学第二假设
+
+#### 薛定谔方程
+
+对于一个静质量为 $m$ ，动量为 $p$ ，能量为 $E$ 的粒子在势场 $V(\vec{r},t)$ 中的三维非相对论运动，有
+$$
+i\hbar\frac{\partial\Psi(\vec{r},t)}{\partial t}=-\frac{\hbar^2}{2m}\nabla^2\Psi(\vec{r},t)+V(\vec{r},t)\Psi(\vec{r},t)
+$$
+称为薛定谔方程。
+
+#### 定态薛定谔方程
+
+当势场与时间无关，即 $V=V(\vec{r})$ ，有
+
+- 定态波函数 $\Psi(\vec{r},t)=u(\vec{r})e^{-iEt/\hbar}$
+- 定态的薛定谔方程 
+$$
+-\frac{\hbar^2}{2m}\nabla^2 u(\vec{r})+V(\vec{r})u(\vec{r})=Eu(\vec{r})
+$$
+
+### 量子力学第三假设
+
+#### 可观测量的平均值
+
+$$
+<\vec{r}>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot\vec{r}\cdot\Psi(\vec{r},t)\mathrm{d}\tau
+$$
+$$
+<V(\vec{r})>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot V(\vec{r})\cdot\Psi(\vec{r},t)\mathrm{d}\tau
+$$
+$$
+<\vec{p}>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot(-i\hbar\nabla)\cdot\Psi(\vec{r},t)\mathrm{d}\tau
+$$
+$$
+<E_k>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot(-\frac{\hbar^2}{2m}\nabla^2)\cdot\Psi(\vec{r},t)\mathrm{d}\tau
+$$
+$$
+<E>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot[-\frac{\hbar^2}{2m}\nabla^2+V(\vec{r})]\cdot\Psi(\vec{r},t)\mathrm{d}\tau
+$$
+
+#### 可观测量算符表示
+
+对任何一个可观测量 $A$ 的平均值
+$$
+<A>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot[\hat{A}\cdot\Psi(\vec{r},t)]\mathrm{d}\tau
+$$
+其中 $\mathrm{d}\tau=\mathrm{d}x\mathrm{d}y\mathrm{d}z$ ，$\hat{A}$ 称为可观测量 $A$ 的算符。
+
+- 量子力学第三假设：量子力学系统每个可观测量都对应着一个算符，可观测量可由相应的算符表示。
+
+- 常见算符：
+1. $\widehat{\vec{r}}=\vec{r}$
+2. $\widehat{V(\vec{r})}=V(\vec{r})$
+3. $\widehat{\vec{p}}=-i\hbar\nabla$
+4. $\widehat{E_k}=-\dfrac{\hbar^2}{2m}\nabla^2$
+5. $\widehat{H}=-\dfrac{\hbar^2}{2m}\nabla^2+V(\vec{r})$ 定态能量（哈密顿算符）
+6. $\widehat{\vec{L}}=-i\hbar(\vec{r}\times\nabla)$ 角动量算符

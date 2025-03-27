@@ -32,7 +32,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     text: 'astronomy',
     collapsed: false,
     items: [
-      { text: '天文测量基础', link: '/blog/astronomy/measurement'},
+      { text: '天体测量基础', link: '/blog/astronomy/measurement'},
       { text: 'JPL星表', link: '/blog/astronomy/jpl'},
       { text: '儒略日和公历', link: '/blog/astronomy/jd'}
     ]
@@ -71,7 +71,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     ]
   },
   {
-    text: '天文测量基础',
+    text: '天体测量基础',
     items: [
       { text: '作业1', link: '/hw/astro_meansure/hw1'}
     ]
