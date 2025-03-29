@@ -222,3 +222,58 @@ $$
 
 ![两平行光干涉](./optics_fig/2-3.png)
 
+### 衍射和惠更斯-菲涅耳原理
+
+- 惠更斯-菲涅耳原理：波前 $\Sigma$ 上的每个面元 $\mathrm{d}\Sigma$ 都可以看成是新的振动中心，它们发出次波，在空间某一点 $P$ 的振动是所有这些次波在该点的相干叠加。
+
+![惠更斯-菲涅耳原理](./optics_fig/2-4.png)
+
+- 菲涅耳-基尔霍夫衍射公式：
+$$
+\widetilde U(P)=\frac{-i}{2\lambda}\iint_{\Sigma_0}(\cos\theta_0+\cos\theta)\widetilde U_0(Q)\frac{e^{ikr}}{r}\mathrm{d}\Sigma
+$$
+
+![衍射公式](./optics_fig/2-5.png)
+
+- 巴比涅原理：互补屏造成的衍射场中复振幅之和等于自由波场的复振幅。
+- 衍射分类：
+
+![衍射分类](./optics_fig/2-6.png)
+
+### 菲涅耳圆孔/圆屏衍射
+
+- 现象：
+![圆孔衍射](./optics_fig/2-7.png)
+![圆屏衍射](./optics_fig/2-8.png)
+
+- 解释：(只能解释轴上光强)
+1. 半波带法
+2. 矢量图法
+
+- 菲涅耳波带片
+![波带片](./optics_fig/2-9.png)
+
+### 夫琅和费单缝/矩孔衍射
+
+- 现象：
+![夫琅和费衍射](./optics_fig/2-10.png)
+
+- 单缝衍射强度公式：
+$$
+I_\theta=I_0\left(\frac{\sin\alpha}{\alpha}\right)^2,\quad \alpha=\frac{\pi a\sin\theta}{\lambda}
+$$
+![单缝衍射](./optics_fig/2-11.png)
+
+- 矩孔衍射强度公式：
+$$
+I_\theta=I_0\left(\frac{\sin\alpha}{\alpha}\right)^2\left(\frac{\sin\beta}{\beta}\right)^2,\quad \alpha=\frac{\pi a\sin\theta_1}{\lambda},\beta=\frac{\pi b\sin\theta_2}{\lambda}
+$$
+![矩孔衍射](./optics_fig/2-12.png)
+
+- 单缝衍射因子特点：
+![单缝衍射因子](./optics_fig/2-13.png)
+1. 主极强——零级衍射斑 $\alpha=0$
+2. 次极强——高级衍射斑 $\dfrac{\mathrm{d}}{\mathrm{d}\alpha}\left(\dfrac{\sin\alpha}{\alpha}\right)=0$
+3. 暗斑 $\sin\alpha=0$
+4. 半角宽度 $\Delta\theta=\dfrac{\lambda}{a}$
+
