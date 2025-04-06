@@ -73,7 +73,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
   {
     text: '天体测量基础',
     items: [
-      { text: '作业1', link: '/hw/astro_meansure/hw1'}
+      { text: '作业1', link: '/hw/astro_meansure/hw1'},
+      { text: '作业2', link: '/hw/astro_meansure/hw2'}
     ]
   }
 ],

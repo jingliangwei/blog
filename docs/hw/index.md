@@ -14,4 +14,5 @@
 ## 天体测量基础
 
 - [作业1(星表使用，金星凌日)](/hw/astro_meansure/hw1)
+- [作业2(岁差估算)](/hw/astro_meansure/hw2)
 
