@@ -67,7 +67,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
   {
     text: '天文数据处理',
     items: [
-      { text: '作业1', link: '/hw/data_process/hw1'}
+      { text: '作业1', link: '/hw/data_process/hw1'},
+      { text: '作业2', link: '/hw/data_process/hw2'}
     ]
   },
   {
