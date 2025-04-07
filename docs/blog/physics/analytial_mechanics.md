@@ -216,3 +216,67 @@ $$
 
 轨迹 $\displaystyle t(r)=\sqrt{\frac{mp^3}{k}}\frac{1}{2}\eta(1+\frac{1}{3}\eta^3),\quad \sqrt{2r-p}=\eta\sqrt{p}$
 
+### 比内公式
+
+之前通过运动积分推导出开普勒问题的轨迹形状，现在用拉格朗日运动方程导出：
+
+拉格朗日量 $L=\dfrac{1}{2}m(\dot{r}^2+r^2\dot{\varphi}^2)-U(r)$
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\partial L}{\partial\dot{r}}\right)=\frac{\partial L}{\partial r}\Leftrightarrow m(\ddot{r}-r\dot{\varphi}^2)=-\frac{\mathrm{d}U}{\mathrm{d}r}=-\frac{k}{r^2}
+$$
+
+该方程为非线性方程，做变换 $w=\dfrac{1}{r}$ ，有
+
+$$
+\frac{\mathrm{d}^2w}{\mathrm{d}\varphi^2}+w=\frac{mk}{M^2}
+$$
+
+现在方程为线性常微分方程，称为比内公式。
+
+可解出 $w=C\cos(\varphi+\varphi_0)+\dfrac{mk}{M^2}$ 即
+$$
+r=\frac{\frac{M^2}{mk}}{1+\sqrt{1+\frac{2EM^2}{mk^2}}\cos(\varphi+\varphi_0)}
+$$
+
+### 第三个守恒量
+
+拉普拉斯-楞次-龙格守恒量（Laplace-Lentz-Runge）$\vec{B}=\vec{v}\times\vec{M}-\dfrac{k\vec{r}}{r}$
+
+$\vec{B}$ 位于轨道平面，在近日点算得 $\vec{B}=ke\hat{e}_r$ ，$\vec{B}$ 是和偏心率有关的守恒量。
+
+### 圆轨道的稳定性
+
+1. 能量法（有效势能 $U_{eff}$ ）
+
+2. 微扰法
+
+有心立场的运动方程
+$$
+\left\{
+\begin{array}{l}
+\displaystyle m(\ddot{r}-r\dot{\varphi}^2)=-\frac{\mathrm{d}U}{\mathrm{d}r}=-\frac{k}{r^2} \\
+mr^2\dot{\varphi}=M
+\end{array}
+\right.
+$$
+对于圆轨道 $r=r_0,\dot{\varphi}=\dot{\varphi}_0$
+有
+$$
+\left\{
+\begin{array}{l}
+\displaystyle -mr_0\dot{\varphi}_0^2=-\frac{k}{r_0^2} \\
+mr_0^2\dot{\varphi}_0=M
+\end{array}
+\right.
+$$
+取微扰 $r=r_0+\delta r\ (|\delta r|\ll r_0),\dot{\varphi}=\dot{\varphi}_0+\delta\dot{\varphi}\ (|\delta\dot{\varphi}|\ll \dot{\varphi}_0)$
+
+代回上面方程可得：
+$$
+\delta\ddot{r}+\left(3\dot{\varphi}_0^2-\frac{2k}{mr_0^3}\right)\delta r=0
+$$
+由于 $\displaystyle 3\dot{\varphi}_0^2-\frac{2k}{mr_0^3}=\frac{k}{mr_0^3}>0$ 故圆轨道稳定。
+
+- 扰动频率(kepler frequency) $\displaystyle\omega=\sqrt{\frac{k}{mr_0^3}}$
+
