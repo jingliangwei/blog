@@ -277,3 +277,99 @@ $$
 3. 暗斑 $\sin\alpha=0$
 4. 半角宽度 $\Delta\theta=\dfrac{\lambda}{a}$
 
+### 光学仪器的像分辨本领
+
+- 夫琅和费圆孔衍射光强分布：
+$$
+I(\theta)=I_0\left(\frac{2J_1(x)}{x}\right)^2,\quad x=\frac{2\pi a}{\lambda}\sin\theta
+$$
+其中 $a$ 是圆孔的半径，$\theta$ 是衍射角，$J_1(x)$是一阶贝塞尔函数。
+
+下图演示圆孔衍射因子和衍射图样
+![圆孔衍射](./optics_fig/2-14.png)
+
+- 艾里斑：第一暗环的角半径 $\Delta\theta$
+$$
+\Delta\theta=0.61\frac{\lambda}{a}=1.22\frac{\lambda}{D}
+$$
+
+- 望远镜的最小分辨角：$\delta\theta_m=1.22\dfrac{\lambda}{D}$
+
+### 光的横波性和偏振态
+
+- 光的横波性：以电矢量作为光波中振动矢量的代表
+![电磁波](./optics_fig/2-15.png)
+
+- 五种偏振态：
+1. 自然光
+2. 线偏振光
+- 马吕斯定律
+3. 部分偏振光
+- 偏振度 $P=\dfrac{I_{max}-I_{min}}{I_{max}+I_{min}}$
+4. 圆偏振光
+5. 椭圆偏振光
+
+### 菲涅耳公式
+
+- 菲涅耳反射折射公式
+
+![坐标系](./optics_fig/2-16.png)
+
+$$
+\left\{
+\begin{array}{l}
+E_{1p}'=\dfrac{n_2\cos i_1-n_1\cos i_2}{n_2\cos i_1+n_1\cos i_2}E_{1p}=\dfrac{\tan(i_1-i_2)}{\tan(i_1+i_2)}E_{1p} \\
+E_{2p}=\dfrac{2n_1\cos i_1}{n_2\cos i_1+n_1\cos i_2}E_{1p} \\
+E_{1s}'=\dfrac{n_1\cos i_1-n_2\cos i_2}{n_1\cos i_1+n_2\cos i_2}E_{1s}=\dfrac{\sin(i_2-i_1)}{\sin(i_2+i_1)}E_{1s} \\
+E_{2s}=\dfrac{2n_1\cos i_1}{n_1\cos i_1+n_2\cos i_2}E_{1s}=\dfrac{2\cos i_1\sin i_2}{\sin(i_2+i_1)}E_{1s}
+\end{array}
+\right.
+$$
+
+- 反射率和透射率
+
+| | p分量 | s分量 |
+|:--:|:--:|:--:|
+|振幅反射率| $r_p=\dfrac{E_{1p}'}{E_{1p}}$ | $r_s=\dfrac{E_{1s}'}{E_{1s}}$ |
+|光强反射率| $R_p=\dfrac{I_{1p}'}{I_{1p}}=\|r_p\|^2$ | $R_s=\dfrac{I_{1s}'}{I_{1s}}=\|r_s\|^2$ |
+|能流反射率| $\mathcal{R}_p=\dfrac{W_{1p}'}{W_{1p}}=R_p$ | $\mathcal{R}_s=\dfrac{W_{1s}'}{W_{1s}}=R_s$ |
+|振幅反射率| $t_p=\dfrac{E_{2p}}{E_{1p}}$ | $t_s=\dfrac{E_{2s}}{E_{1s}}$ |
+|光强反射率| $T_p=\dfrac{I_{2p}}{I_{1p}}=\dfrac{n_2}{n_1}\|t_p\|^2$ | $T_s=\dfrac{I_{2s}}{I_{1s}}=\dfrac{n_2}{n_1}\|t_s\|^2$ |
+|能流反射率| $\mathcal{T}_p=\dfrac{W_{2p}}{W_{1p}}=\dfrac{\cos i_2}{\cos i_1}T_p$ | $\mathcal{T}_s=\dfrac{W_{2s}}{W_{1s}}=\dfrac{\cos i_2}{\cos i_1}T_s$ |
+
+将菲涅耳公式带入有：
+$$
+\left\{
+\begin{array}{l}
+r_p=\dfrac{n_2\cos i_1-n_1\cos i_2}{n_2\cos i_1+n_1\cos i_2}=\dfrac{\tan(i_1-i_2)}{\tan(i_1+i_2)} \\
+r_s=\dfrac{n_1\cos i_1-n_2\cos i_2}{n_1\cos i_1+n_2\cos i_2}=\dfrac{\sin(i_2-i_1)}{\sin(i_2+i_1)}
+\end{array}
+\right.
+$$
+$$
+\left\{
+\begin{array}{l}
+t_p=\dfrac{2n_1\cos i_1}{n_2\cos i_1+n_1\cos i_2} \\
+t_s=\dfrac{2n_1\cos i_1}{n_1\cos i_1+n_2\cos i_2}
+\end{array}
+\right.
+$$
+
+- 斯托克斯倒逆关系
+
+$$
+\left\{
+\begin{array}{l}
+r^2+tt'=1 \\
+r'=-r
+\end{array}
+\right.
+$$
+
+![示意图](./optics_fig/2-17.png)
+
+- 相位关系和半波损
+
+![外反射](./optics_fig/2-18.png)
+![内反射](./optics_fig/2-19.png)
+
