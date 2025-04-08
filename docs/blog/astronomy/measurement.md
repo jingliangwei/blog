@@ -177,3 +177,24 @@ J1989.0 对应1989年1月0.75日TDB
 
 $\Upsilon_0$ 沿黄道西移 $\psi'$ 到 $\Upsilon'$ ，再沿赤道东移 $\lambda'$ 到 $\Upsilon$
 
+### 两种坐标系
+
+- GCRS(geocentric celestial reference system) 固定于天球，指向春分点
+![GCRS](./measurement_fig/6.png)
+- ITRS(international terrestrial reference system) 固定于地球，如WGS-84
+![ITRS](./measurement_fig/7.png)
+
+### 利用春分点进行转换
+
+![流程](./measurement_fig/8.png)
+
+$$
+[\mathrm{GCRS}]=\mathbf{Q}_e(t)\mathbf{R}_z(-GST)\mathbf{W}(t)[\mathrm{ITRS}]
+$$
+
+其中 $\mathbf{W}(t)$ 为极移矩阵
+
+$\mathbf{R}_z(-GST)$ 为地球自转矩阵
+
+$\mathbf{Q}_e(t)=\mathbf{B}\mathbf{P}(t)\mathbf{N}(t)$ 由历元偏置矩阵 $\mathbf{B}$ ，岁差矩阵 $\mathbf{P}(t)$ 和章动矩阵 $\mathbf{N}(t)$ 组成。
+
