@@ -13,6 +13,9 @@ hero:
     - theme: alt
       text: Python数据处理
       link: /blog/tools/python
+    - theme: alt
+      text: JPL星表
+      link: /blog/astronomy/jpl
     - theme: brand
       text: 作业
       link: /hw/

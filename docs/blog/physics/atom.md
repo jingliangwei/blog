@@ -303,3 +303,161 @@ $$
 4. $\widehat{E_k}=-\dfrac{\hbar^2}{2m}\nabla^2$
 5. $\widehat{H}=-\dfrac{\hbar^2}{2m}\nabla^2+V(\vec{r})$ 定态能量（哈密顿算符）
 6. $\widehat{\vec{L}}=-i\hbar(\vec{r}\times\nabla)$ 角动量算符
+
+- 本征方程：
+
+定态薛定谔方程
+
+$$
+-\frac{\hbar^2}{2m}\nabla^2 u(\vec{r})+V(\vec{r})u(\vec{r})=Eu(\vec{r})
+$$
+
+是哈密顿算符 $\hat{H}$ 的本征方程。
+
+### 量子力学第四假设
+
+#### 算符的对易关系
+
+- 量子力学第四假设：表示微观体系力学量的算符之间有确定的对易关系。（量子条件）
+
+$$
+\begin{array}{l}
+\left[\widehat{x_i},\widehat{p_j}\right]=i\hbar\delta_{ij} \\
+\left[\widehat{L_x},\widehat{L_y}\right]=i\hbar\widehat{L_z} \\
+\left[\widehat{L^2},\widehat{L_z}\right]=0
+\end{array}
+$$
+
+- 广义不确定关系：
+若两个力学量 $p$ 与 $q$ 不对易，则 $p$ 与 $q$ 不能同时具有确定的值。
+设 $p$ 与 $q$ 的不确定度（标准差或均方根）为 $\Delta p$ 与 $\Delta q$ ，则它们满足
+$$
+\Delta p\cdot\Delta q\ge\frac{1}{2}|<[\hat{p},\hat{q}]>|
+$$
+
+#### 位置动量不确定关系
+
+- 微观粒子的同一方向的位置和动量的不确定度的乘积有下限，称为位置和动量的不确定关系（海森伯不确定关系）。
+
+直角坐标系
+$$
+\left\{
+\begin{array}{l}
+\Delta p_x\Delta x\ge\hbar/2 \\
+\Delta p_y\Delta y\ge\hbar/2 \\
+\Delta p_z\Delta z\ge\hbar/2
+\end{array}
+\right.
+$$
+极坐标系
+$$
+\left\{
+\begin{array}{l}
+\Delta p_r\Delta r\ge\hbar/2 \\
+\Delta p_\theta\Delta \theta\ge\hbar/2 \\
+\Delta p_\varphi\Delta \varphi\ge\hbar/2
+\end{array}
+\right.
+$$
+
+#### 能量时间不确定关系
+
+$$\Delta E\cdot\Delta t\ge\hbar/2$$
+
+这里 $\Delta t$ 是特征时间尺度，而非测量时间的标准差，对应的 $\Delta E$ 代表在 $\Delta t$ 这段时间内，体系能量的确定程度。
+
+### 典型一维定态问题
+
+#### 一维无限深势阱
+
+![一维无限深势阱](./atom_fig/2-6.png)
+
+通过定态薛定谔方程求出波函数
+$$
+\Psi(x, t)=\left\{
+\begin{array}{ll}
+0 & x\in (-\infty,0)\cup(d,\infty) \\
+\displaystyle \sqrt{\frac{2}{d}}\sin(\frac{n\pi x}{d})e^{-iE_nt/\hbar} & x\in [0,d]
+\end{array}
+\right.
+$$
+其中 $\displaystyle E_n=\frac{\pi^2\hbar^2}{2md^2}n^2\quad(n=1,2,3...)$
+
+#### 势垒和势垒贯穿
+
+![一维方势垒](./atom_fig/2-7.png)
+
+当 $E<V_0$ 时，解出定态薛定谔方程的解为
+$$
+u(x)=\left\{
+\begin{array}{ll}
+A_1e^{ik_1x}+B_1e^{-ik_1x} & x<0 \\
+A_2e^{k_2x}+B_2e^{-k_2x} & 0<x<a \\
+A_3e^{ik_1x}+B_3e^{-ik_1x} & x>a
+\end{array}
+\right.
+$$
+其中 $\displaystyle k_1=\sqrt{\frac{2mE}{\hbar^2}},k_2=\sqrt{\frac{2m(V_0-E)}{\hbar^2}}$
+
+![波函数](./atom_fig/2-8.png)
+![概率](./atom_fig/2-9.png)
+
+- 势垒贯穿： $E<V_0$ 的粒子有一定概率穿过势垒到达 $\mathrm{III}$ 区，这种现象称为势垒贯穿，也叫量子隧道效应。
+- 透射系数：
+$$
+T=\frac{|A_3|^2}{|A_1|^2}=\frac{16k_1^2k_2^2}{(k_1^2+k_2^2)^2(e^{-k_2a}-e^{k_2a})^2+16k_1^2k_2^2}
+$$
+当 $k_2a\gg 1$ 时（即势垒足够高足够厚时），有
+$$
+T\approx16(\frac{k_1k_2}{k_1^2+k_2^2})^2e^{-2k_2a}=\frac{16E(V_0-E)}{v_0^2}e^{\textstyle -\frac{2a}{\hbar}\sqrt{2m(V_0-E)}}
+$$
+
+## 氢原子与碱金属原子
+
+### 氢原子
+
+- 求解波函数
+
+核：电荷 $+Ze$ （以适用整个类氢体系），质量 $M$
+
+电子：电荷 $-e$ ，质量 $m_e$
+
+势函数： $\displaystyle V(r)=-\frac{Ze^2}{4\pi\varepsilon_0 r}$
+
+质心系下氢原子的定态薛定谔方程为
+$$
+(-\frac{\hbar^2}{2\mu}\nabla^2-\frac{Ze^2}{4\pi\varepsilon_0 r})u(r,\theta,\varphi)=Eu(r,\theta,\varphi)
+$$
+
+分离变量进行求解得：
+$$
+u(r,\theta,\varphi)=R(r)\Theta(\theta)\Phi(\varphi)
+$$
+$$
+\begin{array}{l}
+\displaystyle\Phi(\varphi)=\Phi_{m_l}(\varphi)=\frac{1}{\sqrt{2\pi}}e^{im_l\varphi} \\
+\displaystyle\Theta(\theta)=\Theta_{l,m_l}(\theta)=BP_l^{m_l}(\cos\theta) \\
+\displaystyle R(r)=R_{n,l}(r)=C\rho^le^{-\rho/2}L_{n+1}^{2l+1}(\rho),\quad \rho=\frac{2Z}{na_B}r
+\end{array}
+$$
+$$
+n=1,2,3...;\quad l=0,1,2,...,n-1;\quad m_l=0,\pm1,\pm2,...,\pm l
+$$
+
+其中主量子数 $\displaystyle n=\frac{Ze^2}{4\pi\varepsilon_0\hbar}\sqrt{\frac{\mu}{2|E|}}$
+
+故 $\displaystyle E_n=-\frac{1}{n^2}\frac{\mu}{2}(\frac{Ze^2}{4\pi\varepsilon_0\hbar})^2$
+
+| $n$ | $l$ | $m_l$ | $u_{n,l,m_l}(r,\theta,\varphi)$ |
+|:--:|:--:|:--:|:--:|
+| $1$ | $0$ | $0$ | $\displaystyle\frac{1}{\sqrt{\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\exp\left(-\frac{Zr}{a_0}\right)$ |
+| $2$ | $0$ | $0$ | $\displaystyle\frac{1}{4\sqrt{2\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\left(2-\frac{Zr}{a_0}\right)\exp\left(-\frac{Zr}{2a_0}\right)$ |
+| $2$ | $1$ | $0$ | $\displaystyle\frac{1}{4\sqrt{2\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\frac{Zr}{a_0}\cos\theta\exp\left(-\frac{Zr}{2a_0}\right)$ |
+| $2$ | $1$ | $\pm1$ | $\displaystyle\frac{1}{8\sqrt{\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\frac{Zr}{a_0}\sin\theta\exp\left(-\frac{Zr}{2a_0}\right)e^{\pm i\varphi}$ |
+| $3$ | $0$ | $0$ | $\displaystyle\frac{1}{81\sqrt{3\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\left(27-18\frac{Zr}{a_0}+2\frac{Z^2r^2}{a_o^2}\right)\exp\left(-\frac{Zr}{3a_0}\right)$ |
+| $3$ | $1$ | $0$ | $\displaystyle\frac{\sqrt{2}}{81\sqrt{\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\left(6-\frac{Zr}{a_0}\right)\frac{Zr}{a_0}\cos\theta\exp\left(-\frac{Zr}{3a_0}\right)$ |
+| $3$ | $1$ | $\pm1$ | $\displaystyle\frac{1}{81\sqrt{\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\left(6-\frac{Zr}{a_0}\right)\frac{Zr}{a_0}\sin\theta\exp\left(-\frac{Zr}{3a_0}\right)e^{\pm i\varphi}$ |
+| $3$ | $2$ | $0$ | $\displaystyle\frac{1}{81\sqrt{6\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\left(\frac{Zr}{a_0}\right)^2(3\cos^2\theta-1)\exp\left(-\frac{Zr}{3a_0}\right)$ |
+| $3$ | $2$ | $\pm1$ | $\displaystyle\frac{1}{81\sqrt{\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\left(\frac{Zr}{a_0}\right)^2\sin\theta\cos\theta\exp\left(-\frac{Zr}{3a_0}\right)e^{\pm i\varphi}$ |
+| $3$ | $2$ | $\pm2$ | $\displaystyle\frac{1}{162\sqrt{\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\left(\frac{Zr}{a_0}\right)^2\sin^2\theta\exp\left(-\frac{Zr}{3a_0}\right)e^{\pm 2i\varphi}$ |
+
