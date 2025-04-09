@@ -37,24 +37,88 @@ $$
 \right.
 $$
 
-## 时间历法
+## 时标
 
 确定时间需要两个量：
 1. 时间间隔 $\Delta T$
 2. 起算时刻 $T_0$
 
-### 时间尺度
+### 坐标时
 
-- 恒星时：春分点的时角 $S=t_\Upsilon$
-- 真太阳时：真太阳周日视运动 $m_\odot=t_\odot+12^h$
-- 平太阳时：平太阳周日视运动 $m=t_m+12^h$
-- 时差：真太阳和平太阳的时角差 $\eta=t_\odot-t_m$
-![时差](./measurement_fig/1.png)
+在太阳系内有两个重要的惯性参考系：
+- 质心天球参考系 (barycentric celestial reference system, BCRS)
+- 地心天球参考系 (geocentric celestial reference system, GCRS)
 
-$1$ 回归年 $= 365.2422$ 平太阳日 $= 366.2422$ 恒星日
+分别对应两个时间系统（快慢与局部引力场有关）：
+- 质心坐标时 (barycentric coordinate time, TCB)
+- 地心坐标时 (geocentric coordinate time, TCG)
 
-- 地方时 $(s,m_\odot,m)$
-- 世界时 $(S,M_\odot,M)$
+二者的变换是四维变换（《IERS规范2010》）：
+$$
+\mathrm{TCB}-\mathrm{TCG}=\frac{L_C(\mathrm{TT}-T_0)+P(\mathrm{TT})-P(T_0)}{1-L_B}+\frac{1}{c^2}\mathbf{v}_e\cdot(\mathbf{x}-\mathbf{x}_e)
+$$
+式中，$\mathbf{x}_e$和$\mathbf{v}_e$ 是地球质心关于质心参考系的位置和速度，定义常数：
+$$
+\begin{array}{l}
+L_B=1.550519768\times10^{-8} \\
+L_C=1.48082686741\times10^{-8} \\
+T_0=2443144.5003725
+\end{array}
+$$
+$P(\mathrm{TT})-P(T_0)$ 由 IERS 以文件 TE405 的形式提供。
+
+### 质心力学时、地球时和原子时
+
+天球参考系中用于历表和动力学方程的时间自变量基准为（《IERS规范2010》）：
+- 质心力学时 (barycentric dynamical time, TDB)
+$$
+x_{\mathrm{TDB}}=x_{\mathrm{TCB}}\times(1-L_B)
+$$
+$$
+\mathrm{TDB}=\mathrm{TCB}-L_B\times(\mathrm{JD}_{\mathrm{TCB}}-T_0)\times86400 s+\mathrm{TDB}_0
+$$
+其中 $\mathrm{TDB}_0=-6.55\times10^{-5}s$
+- 地球时 (terrestrial time, TT)
+$$
+x_{\mathrm{TT}}=x_{\mathrm{TCG}}\times(1-L_G)
+$$
+$$
+L_G=6.969290134\times10^{-10}
+$$
+$$
+\mathrm{TCG}-\mathrm{TT}=\left(\frac{L_G}{1-L_G}\right)\times(\mathrm{JD}_{\mathrm{TT}}-T_0)\times86400s
+$$
+![4种时间基准的转换](./measurement_fig/2-1.png)
+
+TDB 和 TT 分别是质心天球参考系和地心天球参考系中历表和动力学方程的时间变量，二者的转换有如下近似公式：
+$$
+\mathrm{TDB}\approx\mathrm{TT}+0.001657^s\sin g+0.000022^s\sin(L-L_J)
+$$
+式中，
+$$
+\begin{array}{l}
+g=357.53^s+0.98560028^s(t-\mathrm{J}2000.0) \\
+L-L_J=246.00^s+0.90251792^s(t-\mathrm{J}2000.0)
+\end{array}
+$$
+分别为地球平近点角，以及太阳平黄经与木星平黄经之差。
+
+TDB 和 TT 时标的前身是历书时 ET ，1952年为 IAU 采用，1970年由 TDB 和 TT 取代。
+
+- 国际原子时 (TAI) ：以国际制秒为单位，1958年1月1日世界时0时为原点的连续计时系统。
+$$
+\mathrm{TT}=\mathrm{TAI}+32^s.184
+$$
+
+### 世界时
+
+- 世界时 (universal time, UT) ：根据地球自转速度变换调节日的长度。以格林尼治平太阳时作为标准时间。
+- UT0 ：根据各天文台恒星中天观测直接确定
+- UT1 ：消除极移影响
+- UT2 ：消除地球自转速度季节变化的影响
+- 协调世界时 (UTC) ：通过闰秒保持与 TAI 的秒差为整数，与 UT1 的秒差在 $0.9s$ 内。
+
+![各种时间系统与TAI之差](./measurement_fig/2-2.png)
 
 ### 时间系统
 
@@ -90,53 +154,41 @@ J1989.0 对应1989年1月0.75日TDB
 - 参考系 (reference system) (R.S.) : a theoretical concept
 - 参考架 (reference frame) (R.F.) : a practical realization of a R.S.
 
-### 恒星参考系
+确定一个三维空间参考系需要三个要素：
+1. 原点
+2. 基本平面（$xy$平面）
+3. 基本方向（$x$方向）
 
-恒星参考系：以恒星作为基准点，通过岁差的绝对旋转运动可以过渡到惯性参考系
+### 天球中间赤道
 
-- 旧恒星参考系（基于FK5星表）：以太阳系质心为中心，J2000.0的平赤道和平春分点为基准的天球平赤道坐标系。包含 $l1535$ 颗均匀分布在天空中的目视星等亮于 $7.5$ 等的恒星（基本星）。
-- 新恒星参考系（基于依巴谷星表）
+由于地球进动，地球自转轴在天球参考系 CRS 中具有瞬时性，天极和天赤道也一样。《IERS规范2003》称具有瞬时性的天极和天赤道为：
+- 中间赤道
+- 天球中间极 (celestial intermediate pole, CIP)
 
-### 动力学参考系/架
+- 天球中间零点 (celestial intermediate origin, CIO) ：相对天球参考系没有转动
+- 地球中间零点 (terrestrial intermediate origin, TIO) ：相对地球参考系没有转动
 
-太阳系历表（数值历表）：
+在天球参考系中观察，中间赤道与 CIO 固结，称为天球中间赤道，TIO 沿着赤道逆时针方向运动，周期为一恒星日。反之，在地球参考系中观察时，中间赤道与 TIO 固结，称为地球中间赤道，CIO 以同样周期沿赤道顺时针方向运动。
+- 地球自转角 (earth rotating angle, ERA) ：CIO 和 TIO 之间的夹角。
+- 格林尼治恒星时 (Greenwich sidereal time, GST) ：春分点和 TIO 之间的夹角。
 
-- DE 美国 DE40X,DE42X,DE42X
-- EPM 俄罗斯 EPM2008,EPM2010
-- INPOP 法国 06,08,10a
+![中间赤道](./measurement_fig/2-3.png)
 
-::: info DE405星表的使用
-具体查看[JPL历表](/blog/astronomy/jpl)
-:::
-
-半解析历表：
-
-- VSOP (VSOP87,VSOP2000,VSOP2010)
-
-### 协议准惯性参考系
-
-协议准惯性参考系 CCRS(conventional celestial reference system) ：
-
-- 原点位于太阳系质心
-- 轴向相对遥远的河外射电源固定
-- 主平面尽可能靠近J2000.0的平赤道
-- 主平面原点尽可能靠近J2000.0的动力学分点
-
-实现：
-1. 天球基本参考系：FK5，依巴谷
-2. 动力学参考系（太阳系天体）：JPL历表 DE405/LE405和DE421/LE421行星月球历表
-3. 射电参考系（河外射电源）VLBI：ICRF
+- 真赤道系： 以真春分点为基本方向，与之一同转动的赤道就是真赤道
+- 天球中间参考系 (celestial intermediate reference system, CIRS) ：以 CIO 为基本方向
+- 地球中间参考系 (terrestrial intermediate reference system, TIRS) ：以 TIO 为基本方向
+- 平赤道系： 只考虑岁差不考虑章动的情况，相当于真赤道坐标系在一段时期内的平均位置，相应的基本平面和基本点为平赤道和平春分点
 
 ### 天球参考系
 
 1. 国际天球参考系 ICRS(international celestial reference system) ：基于ICRF实现
 
-- 与J2000.0动力学参考系相差在 $0.02arcsec$ 内，二者可以通过一个常矩阵 $\mathbf{B}$ 来相互转换。
+- 与J2000.0动力学参考系相差在 $0.02arcsec$ 内，二者可以通过一个常矩阵 $\mathbf{B}$ 来相互转换（历元偏置变换）。
 
-- J2000.0动力学参考系即J2000.0时的赤道坐标系。
+- J2000.0动力学参考系即J2000.0时的平赤道坐标系。
 
 2. 太阳系质心天球参考系 BCRS(barycentric celestial reference system)
-3. 地球质心天球参考系 GCRS(geocentric celestial reference system)
+3. 地球质心天球参考系 GCRS(geocentric celestial reference system) ：把坐标原点平移到地球质心（在广义相对论下要考虑测地岁差的微小转动）
 
 ### 地球参考系
 
@@ -152,13 +204,13 @@ J1989.0 对应1989年1月0.75日TDB
 
 ![坐标](./measurement_fig/2.png)
 
-::: info 维度
-- 地心维度 $\varphi'$ ：M点与地心连线和赤道的夹角
-- 测地维度 $\varphi$ ：参考椭球在M点的法线和赤道的夹角
-- 天文维度：通过台站的铅垂线和赤道的夹角
-- 垂线偏差：M点处天文维度与测地维度之差（最大$3''$）
+::: info 纬度
+- 地心纬度 $\varphi'$ ：M点与地心连线和赤道的夹角
+- 测地纬度 $\varphi$ ：参考椭球在M点的法线和赤道的夹角
+- 天文纬度：通过台站的铅垂线和赤道的夹角
+- 垂线偏差：M点处天文纬度与测地纬度之差（最大$3''$）
 
-![维度](./measurement_fig/3.png)
+![纬度](./measurement_fig/3.png)
 :::
 
 ## 从GCRS到ITRS
@@ -177,12 +229,9 @@ J1989.0 对应1989年1月0.75日TDB
 
 $\Upsilon_0$ 沿黄道西移 $\psi'$ 到 $\Upsilon'$ ，再沿赤道东移 $\lambda'$ 到 $\Upsilon$
 
-### 两种坐标系
+### 两个坐标系
 
-- GCRS(geocentric celestial reference system) 固定于天球，指向春分点
-![GCRS](./measurement_fig/6.png)
-- ITRS(international terrestrial reference system) 固定于地球，如WGS-84
-![ITRS](./measurement_fig/7.png)
+![坐标系](./measurement_fig/4-1.png)
 
 ### 利用春分点进行转换
 
@@ -197,4 +246,18 @@ $$
 $\mathbf{R}_z(-GST)$ 为地球自转矩阵
 
 $\mathbf{Q}_e(t)=\mathbf{B}\mathbf{P}(t)\mathbf{N}(t)$ 由历元偏置矩阵 $\mathbf{B}$ ，岁差矩阵 $\mathbf{P}(t)$ 和章动矩阵 $\mathbf{N}(t)$ 组成。
+
+### 利用 CIO 变换
+
+![流程](./measurement_fig/4-2.png)
+
+$$
+[\mathrm{GCRS}]=\mathbf{Q}(t)\mathbf{R}_z(-ERA)\mathbf{W}(t)[\mathrm{ITRS}]
+$$
+
+其中 $\mathbf{W}(t)$ 为极移矩阵
+
+$\mathbf{R}_z(-ERA)$ 为地球自转矩阵
+
+$\mathbf{Q}(t)$ 为天球中间系-天球参考系(CIRS-GCRS)变换。
 
