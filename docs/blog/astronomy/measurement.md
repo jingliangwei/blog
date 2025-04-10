@@ -55,9 +55,9 @@ $$
 
 二者的变换是四维变换（《IERS规范2010》）：
 $$
-\mathrm{TCB}-\mathrm{TCG}=\frac{L_C(\mathrm{TT}-T_0)+P(\mathrm{TT})-P(T_0)}{1-L_B}+\frac{1}{c^2}\mathbf{v}_e\cdot(\mathbf{x}-\mathbf{x}_e)
+\mathrm{TCB}-\mathrm{TCG}=\frac{L_C(\mathrm{TT}-T_0)+P(\mathrm{TT})-P(T_0)}{1-L_B}+\frac{1}{c^2}\boldsymbol{v}_e\cdot(\boldsymbol{x}-\boldsymbol{x}_e)
 $$
-式中，$\mathbf{x}_e$和$\mathbf{v}_e$ 是地球质心关于质心参考系的位置和速度，定义常数：
+式中，$\boldsymbol{x}_e$和$\boldsymbol{v}_e$ 是地球质心关于质心参考系的位置和速度，定义常数：
 $$
 \begin{array}{l}
 L_B=1.550519768\times10^{-8} \\
@@ -159,7 +159,7 @@ J1989.0 对应1989年1月0.75日TDB
 2. 基本平面（$xy$平面）
 3. 基本方向（$x$方向）
 
-### 天球中间赤道
+### 中间参考系
 
 由于地球进动，地球自转轴在天球参考系 CRS 中具有瞬时性，天极和天赤道也一样。《IERS规范2003》称具有瞬时性的天极和天赤道为：
 - 中间赤道
@@ -183,7 +183,7 @@ J1989.0 对应1989年1月0.75日TDB
 
 1. 国际天球参考系 ICRS(international celestial reference system) ：基于ICRF实现
 
-- 与J2000.0动力学参考系相差在 $0.02arcsec$ 内，二者可以通过一个常矩阵 $\mathbf{B}$ 来相互转换（历元偏置变换）。
+- 与J2000.0动力学参考系相差在 $0.02arcsec$ 内，二者可以通过一个常矩阵 $\boldsymbol{B}$ 来相互转换（历元偏置变换）。
 
 - J2000.0动力学参考系即J2000.0时的平赤道坐标系。
 
@@ -236,28 +236,34 @@ $\Upsilon_0$ 沿黄道西移 $\psi'$ 到 $\Upsilon'$ ，再沿赤道东移 $\lam
 ### 利用春分点进行转换
 
 ![流程](./measurement_fig/8.png)
+![图示](./measurement_fig/4-3.png)
 
 $$
-[\mathrm{GCRS}]=\mathbf{Q}_e(t)\mathbf{R}_z(-GST)\mathbf{W}(t)[\mathrm{ITRS}]
+[\mathrm{GCRS}]=\boldsymbol{Q}_e(t)\boldsymbol{R}_z(-GST)\boldsymbol{W}(t)[\mathrm{ITRS}]
 $$
 
-其中 $\mathbf{W}(t)$ 为极移矩阵
+其中 $\boldsymbol{W}(t)$ 为极移矩阵
 
-$\mathbf{R}_z(-GST)$ 为地球自转矩阵
+$\boldsymbol{R}_z(-GST)$ 为地球自转矩阵
 
-$\mathbf{Q}_e(t)=\mathbf{B}\mathbf{P}(t)\mathbf{N}(t)$ 由历元偏置矩阵 $\mathbf{B}$ ，岁差矩阵 $\mathbf{P}(t)$ 和章动矩阵 $\mathbf{N}(t)$ 组成。
+$\boldsymbol{Q}_e(t)=\boldsymbol{B}\boldsymbol{P}(t)\boldsymbol{N}(t)$ 由历元偏置矩阵 $\boldsymbol{B}$ ，岁差矩阵 $\boldsymbol{P}(t)$ 和章动矩阵 $\boldsymbol{N}(t)$ 组成。
 
 ### 利用 CIO 变换
 
 ![流程](./measurement_fig/4-2.png)
+![图示](./measurement_fig/4-4.png)
 
 $$
-[\mathrm{GCRS}]=\mathbf{Q}(t)\mathbf{R}_z(-ERA)\mathbf{W}(t)[\mathrm{ITRS}]
+[\mathrm{GCRS}]=\boldsymbol{Q}(t)\boldsymbol{R}_z(-ERA)\boldsymbol{W}(t)[\mathrm{ITRS}]
 $$
 
-其中 $\mathbf{W}(t)$ 为极移矩阵
+其中 $\boldsymbol{W}(t)$ 为极移矩阵
 
-$\mathbf{R}_z(-ERA)$ 为地球自转矩阵
+$\boldsymbol{R}_z(-ERA)$ 为地球自转矩阵
 
-$\mathbf{Q}(t)$ 为天球中间系-天球参考系(CIRS-GCRS)变换。
+$\boldsymbol{Q}(t)$ 为天球中间系-天球参考系(CIRS-GCRS)变换。
+
+::: info 更详细的介绍
+查看[利用 CIO 进行 ITRS-GCRS 变换](/lecture/cio)
+:::
 

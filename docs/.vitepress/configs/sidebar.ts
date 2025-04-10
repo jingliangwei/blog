@@ -39,7 +39,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
   },
   {
     text: 'tools',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'python数据处理', link: '/blog/tools/python'},
       { text: 'python虚拟环境', link: '/blog/tools/python-venv'},
