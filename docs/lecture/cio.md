@@ -148,8 +148,5 @@ $$
 
 链接：
 
-[演示slide](/lecture/cio/slide.html#/)
-::: info 注
-点击链接后若出现404刷新一下即可。
-:::
+[演示slide](https://jingliangwei.github.io/blog/lecture/cio/slide.html#/)
 
