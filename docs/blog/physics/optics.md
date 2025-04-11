@@ -333,9 +333,9 @@ $$
 |振幅反射率| $r_p=\dfrac{E_{1p}'}{E_{1p}}$ | $r_s=\dfrac{E_{1s}'}{E_{1s}}$ |
 |光强反射率| $R_p=\dfrac{I_{1p}'}{I_{1p}}=\|r_p\|^2$ | $R_s=\dfrac{I_{1s}'}{I_{1s}}=\|r_s\|^2$ |
 |能流反射率| $\mathcal{R}_p=\dfrac{W_{1p}'}{W_{1p}}=R_p$ | $\mathcal{R}_s=\dfrac{W_{1s}'}{W_{1s}}=R_s$ |
-|振幅反射率| $t_p=\dfrac{E_{2p}}{E_{1p}}$ | $t_s=\dfrac{E_{2s}}{E_{1s}}$ |
-|光强反射率| $T_p=\dfrac{I_{2p}}{I_{1p}}=\dfrac{n_2}{n_1}\|t_p\|^2$ | $T_s=\dfrac{I_{2s}}{I_{1s}}=\dfrac{n_2}{n_1}\|t_s\|^2$ |
-|能流反射率| $\mathcal{T}_p=\dfrac{W_{2p}}{W_{1p}}=\dfrac{\cos i_2}{\cos i_1}T_p$ | $\mathcal{T}_s=\dfrac{W_{2s}}{W_{1s}}=\dfrac{\cos i_2}{\cos i_1}T_s$ |
+|振幅透射率| $t_p=\dfrac{E_{2p}}{E_{1p}}$ | $t_s=\dfrac{E_{2s}}{E_{1s}}$ |
+|光强透射率| $T_p=\dfrac{I_{2p}}{I_{1p}}=\dfrac{n_2}{n_1}\|t_p\|^2$ | $T_s=\dfrac{I_{2s}}{I_{1s}}=\dfrac{n_2}{n_1}\|t_s\|^2$ |
+|能流透射率| $\mathcal{T}_p=\dfrac{W_{2p}}{W_{1p}}=\dfrac{\cos i_2}{\cos i_1}T_p$ | $\mathcal{T}_s=\dfrac{W_{2s}}{W_{1s}}=\dfrac{\cos i_2}{\cos i_1}T_s$ |
 
 将菲涅耳公式带入有：
 $$
@@ -372,4 +372,148 @@ $$
 
 ![外反射](./optics_fig/2-18.png)
 ![内反射](./optics_fig/2-19.png)
+
+## 干涉装置 光场时空相干性
+
+### 分波前干涉装置
+
+1. 分波前干涉装置
+
+- 菲涅耳双面镜
+![双面镜](./optics_fig/3-1.png)
+
+- 菲涅耳双棱镜
+![双棱镜](./optics_fig/3-2.png)
+
+- 劳埃德镜
+![劳埃德镜](./optics_fig/3-3.png)
+
+2. 条纹形状与间距
+
+$$
+\Delta x=\frac{D\lambda}{d}
+$$
+
+其中 $D$ 是 $S_1,S_2$ 所在平面到幕的距离， $d$ 是 $S_1,S_2$ 之间的距离。
+
+3. 光源宽度对干涉条纹衬比度的影响
+
+![光源宽度对干涉条纹衬比度的影响](./optics_fig/3-4.png)
+
+$$
+b=\frac{R}{d}\lambda
+$$
+
+![参数](./optics_fig/3-5.png)
+
+4. 光场的空间相干性
+
+![空间相干性](./optics_fig/3-6.png)
+
+相干范围的孔径角 $\Delta\theta_0$ 有
+$$
+b\Delta\theta_0=\lambda
+$$
+
+### 薄膜干涉-等厚条纹
+
+1. 楔形薄膜的等厚条纹
+
+![楔形薄膜的等厚条纹](./optics_fig/3-7.png)
+
+$$
+\Delta x=\frac{\lambda}{2\alpha}
+$$
+
+2. 牛顿圈
+
+![牛顿圈](./optics_fig/3-8.png)
+
+$$
+R=\frac{r_{k+m}^2-r_k^2}{m\lambda}
+$$
+
+### 薄膜干涉-等倾条纹
+
+1. 无穷远的等倾干涉条纹
+
+![光程差](./optics_fig/3-9.png)
+
+$$
+\Delta L=2nh\cos i
+$$
+
+![观察装置](./optics_fig/3-10.png)
+
+### 迈克尔孙干涉仪
+
+1. 迈克尔孙干涉仪结构
+
+![迈克尔孙干涉仪结构](./optics_fig/3-11.png)
+
+2. 干涉条纹
+
+![条纹](./optics_fig/3-12.png)
+![相应位置](./optics_fig/3-13.png)
+
+3. 精密测长
+
+![干涉比长](./optics_fig/3-14.png)
+
+4. 时间相干性
+
+相干长度 $L_0$ ，相干时间 $\tau_0$ 与谱线宽度 $\Delta \lambda$ 成反比
+
+$$
+L_0\frac{\Delta\lambda}{\lambda}\approx\lambda,\quad \tau_0\Delta\nu\approx 1
+$$
+
+### 多光束干涉
+
+1. 多光束干涉
+
+![多次反射折射](./optics_fig/3-15.png)
+
+透射光强
+$$
+I_T=\frac{I_0}{1+\dfrac{4R\sin^2(\delta/2)}{(1-R)^2}}
+$$
+反射光强
+$$
+I_R=I_0-I_R=\frac{I_0}{1+\dfrac{(1-R)^2}{4R\sin^2(\delta/2)}}
+$$
+其中 $\delta=\dfrac{2\pi}{\lambda}\Delta L=\dfrac{4\pi nh\cos i}{\lambda}$ ，$R=r^2$ 为光强反射率。
+
+2. 干涉条纹的半值宽度
+
+![半值宽度](./optics_fig/3-16.png)
+
+$$
+\varepsilon=\frac{2(1-R)}{\sqrt{R}}
+$$
+单色光第 $k$ 级亮纹角宽度
+$$
+\Delta i_k=\frac{\lambda\varepsilon}{4\pi nh\sin i_k}=\frac{\lambda}{2\pi nh\sin i_k}\frac{1-R}{\sqrt{R}}
+$$
+
+3. 法布里-珀罗干涉仪
+
+![光路](./optics_fig/3-17.png)
+
+法-珀腔 $h$ 作用：
+
+![法-珀腔](./optics_fig/3-18.png)
+
+4. 光谱的精细结构
+
+对于双谱线 $\lambda$ 和 $\lambda+\delta\lambda$
+
+![双谱线条纹](./optics_fig/3-19.png)
+
+可分辨最小波长间距
+$$
+\delta\lambda=\frac{\lambda}{\pi k}\frac{1-R}{\sqrt{R}}
+$$
+
+其中 $k=\dfrac{2h}{\lambda}$ 为中央区域干涉级。
 
