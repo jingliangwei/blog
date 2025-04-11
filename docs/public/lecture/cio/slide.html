@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./static/css/base.css" rel="stylesheet">
+    <link href="./static/css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
+        type="text/css">
+    <title> cio </title>
+    <!-- browser favicon -->
+    <link rel="shortcut icon" href="./static/img/favicon.png">
+    <style>
+        .font-sans {
+            font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        }
+
+        .font-serif {
+            font-family: 'Source Serif Pro', 'Songti SC', 'SimSun', 'Serif', serif;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://jyywiki.cn/static/katex/katex.min.css">
+    <script defer src="https://jyywiki.cn/static/katex/katex.min.js"></script> -->
+    <link rel="stylesheet" href="./static/katex/katex.min.css">
+    <script defer src="./static/katex/katex.min.js"></script>
+    <!-- <script defer src="https://jyywiki.cn/static/katex/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script> -->
+    <script defer src="./static/katex/auto-render.min.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // &#8226; auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // &#8226; rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="./static/reveal/reveal.css">
+    <link rel="stylesheet" href="./static/reveal/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./static/jyy/jyy.css">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <div class="reveal">
+        <div class="slides">
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="cio-itrs-gcrs" class="text-2xl mt-2 font-sans">利用 CIO 进行 ITRS-GCRS 变换</h1>
+<hr/>
+
+<blockquote>
+<p class="font-serif my-1"><a href="https://jingliangwei.github.io/blog/">韦境量</a></p>
+</blockquote></div></div></div></section></section><section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">天体测量变换链</h2>
+<p class="font-serif my-1"><img alt="天体测量变换链" class="center" src="./static/img/8855537ebaf84e71bed724e0edded019.png"/></p></div></section></section><section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">参考系</h2>
+<p class="font-serif my-1">确定一个三维空间参考系需要三个要素：</p>
+<ol>
+<li class="ml-8">
+<p class="font-serif my-1">原点</p>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">基本平面（$xy$平面）</p>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">基本方向（$x$方向）</p>
+</li>
+</ol></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">两个目标参考系</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">地心天球参考系 (geocentric celestial reference system, GCRS)</li>
+<li class="ml-8">国际地球参考系 (international terrestial reference system, ITRS)</li>
+</ul>
+<p class="font-serif my-1"><img alt="参考系" class="center" src="./static/img/ab3e8d167e1f4252a5a30c06e3e54439.png"/></p></div></section></section><section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">“中间参考系”</h2>
+<p class="font-serif my-1">由于地球进动，地球自转轴在天球参考系 CRS 中具有瞬时性，天极和天赤道也一样。《IERS规范2003》称具有瞬时性的天极和天赤道为：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1">中间赤道</p>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">天球中间极 (celestial intermediate pole, CIP)</p>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">天球中间零点 (celestial intermediate origin, CIO) ：相对天球参考系没有转动</p>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">地球中间零点 (terrestrial intermediate origin, TIO) ：相对地球参考系没有转动</p>
+</li>
+</ul></div></section><section><div><p class="font-serif my-1">在天球参考系中观察，中间赤道与 CIO 固结，称为天球中间赤道，TIO 沿着赤道逆时针方向运动，周期为一恒星日。反之，在地球参考系中观察时，中间赤道与 TIO 固结，称为地球中间赤道，CIO 以同样周期沿赤道顺时针方向运动。</p>
+<p class="font-serif my-1"><img alt="中间赤道" class="center" src="./static/img/a6f738195e714b1693b1674d50fcd4d5.png"/></p></div></section><section><div><p class="font-serif my-1"><img alt="中间赤道" class="center" src="./static/img/e08151395581433ca3bdde780c681130.png"/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1">地球自转角 (earth rotating angle, ERA) ：CIO 和 TIO 之间的夹角。</p>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">格林尼治恒星时 (Greenwich sidereal time, GST) ：春分点和 TIO 之间的夹角。</p>
+</li>
+</ul></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">“中间参考系”</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">真赤道系： 以真春分点为基本方向，与之一同转动的赤道就是真赤道</li>
+<li class="ml-8">天球中间参考系 (celestial intermediate reference system, CIRS) ：以 CIO 为基本方向</li>
+<li class="ml-8">地球中间参考系 (terrestrial intermediate reference system, TIRS) ：以 TIO 为基本方向</li>
+<li class="ml-8">平赤道系： 只考虑岁差不考虑章动的情况，相当于真赤道坐标系在一段时期内的平均位置，相应的基本平面和基本点为平赤道和平春分点</li>
+</ul></div></section></section><section><section><div><h2 id="cio" class="text-xl mt-2 pb-2 font-sans">确定 CIO</h2>
+<p class="font-serif my-1">通过分析中间极和中间赤道在 GCRS 中的运动来确定天球无转动零点 CIO </p>
+<p class="font-serif my-1"><img alt="CIO" class="center" src="./static/img/63b592f9d17e449599f70165199bc75c.png"/></p></div></section><section><div><p class="font-serif my-1"><img alt="CIO" class="center" src="./static/img/8c6b9b5b50264dce8a6fafe469bc119a.png"/></p>
+<p class="font-serif my-1">图中 $(\boldsymbol{e}_1,\boldsymbol{e}_2,\boldsymbol{e}_3)$ 为 GCRS， $(\boldsymbol{e}_1',\boldsymbol{e}_2',\boldsymbol{e}_3')$ 为 CIRS 。$\boldsymbol{u},\boldsymbol{v},\boldsymbol{v}'$ 分别为交线和投影线向量， CIP 向量 $\boldsymbol{e}_3'$ 的空间位置由经角 $E=&lt;\boldsymbol{e}_1,\boldsymbol{v}&gt;$ 和余纬角 $d=&lt;\boldsymbol{e}_3,\boldsymbol{e}_3'&gt;$ 确定，有
+$$
+\boldsymbol{e}_3=\cos d\boldsymbol{e}_3'-\sin d\boldsymbol{v}'
+$$</p></div></section><section><div><p class="font-serif my-1"><img alt="CIO" class="center" src="./static/img/123a33a7a4574e1dbca395f863c3015f.png"/></p>
+<p class="font-serif my-1">故中间系绕原点的转动总角速度向量为
+$$
+\boldsymbol{\omega}=\dot{E}\boldsymbol{e}_3+\dot{d}\boldsymbol{u}
+$$
+可以分解为
+$$
+\boldsymbol{\omega}=\dot{E}\cos d\boldsymbol{e}_3'+(-\dot{E}\sin d\boldsymbol{v}'+\dot{d}\boldsymbol{u})
+$$</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">天球中间零点定位角</h2>
+<p class="font-serif my-1">在历元 $t_0$ 时，$\boldsymbol{v}'$ 与 $\boldsymbol{e}_1',\boldsymbol{e}_1$ 重合，随后以角速度 $\dot{E}\cos d$ 沿中间赤道运动。故</p>
+<p class="font-serif my-1"><img alt="formula1" class="center" src="./static/img/d4c697a4d9e946108c47c3c8be0a0dbf.png"/></p>
+<p class="font-serif my-1">记天球中间零点定位角</p>
+<p class="font-serif my-1"><img alt="formula2" class="center" src="./static/img/d76db66b23624b94aab139d5b563737c.png"/></p>
+<p class="font-serif my-1">则 $&lt;\boldsymbol{e}_1',\boldsymbol{v}'&gt;=E+s$ </p>
+<p class="font-serif my-1">式中，常数 $s_0$ 取决于初值，如果忽略历元偏置和章动则为零。</p></div></section></section><section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">参考系变换</h2>
+<p class="font-serif my-1"><img alt="流程" class="center" src="./static/img/5d3e03c2ef7c43fd87578269a8364d17.png"/></p></div></section><section><div><h2 id="itrs-tirs" class="text-xl mt-2 pb-2 font-sans">ITRS-TIRS</h2>
+<p class="font-serif my-1"><img alt="图示ITRS-TIRS" class="center" src="./static/img/7835b451cd1545cc91c9327e400caa49.png"/></p>
+<p class="font-serif my-1">$$
+[\mathrm{TIRS}]=\boldsymbol{W}(t)[\mathrm{ITRS}]
+$$</p></div></section><section><div><h2 id="tirs-cirs" class="text-xl mt-2 pb-2 font-sans">TIRS-CIRS</h2>
+<p class="font-serif my-1"><img alt="图示TIRS-CIRS" class="center" src="./static/img/6fa4c2ca89ec42c7b1cc863422f6b559.png"/></p>
+<p class="font-serif my-1">$$
+[\mathrm{CIRS}]=\boldsymbol{R}_z(-ERA)[\mathrm{TIRS}] 
+$$</p></div></section><section><div><h2 id="cirs-gcrs-cio" class="text-xl mt-2 pb-2 font-sans">CIRS-GCRS (CIO变换)</h2>
+<p class="font-serif my-1"><img alt="CIRS-GCRS" class="center" src="./static/img/d8ff7837bdd24ec9ac04c4d3172bb234.png"/></p>
+<p class="font-serif my-1">$$
+\boldsymbol{Q}(t)=\boldsymbol{R}_3(-E)\boldsymbol{R}_2(-d)\boldsymbol{R}_3(E)\boldsymbol{R}_3(s)
+$$
+$$
+[\mathrm{GCRS}]=\boldsymbol{Q}(t)[\mathrm{CIRS}]
+$$</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">综合</h2>
+<p class="font-serif my-1"><img alt="图示ITRS-GCRS" src="./static/img/0936fe0bd10641cb9a0a5cfcd24604a6.png"/></p>
+<p class="font-serif my-1">$$
+[\mathrm{GCRS}]=\boldsymbol{Q}(t)\boldsymbol{R}_z(-ERA)\boldsymbol{W}(t)[\mathrm{ITRS}]
+$$</p></div></section></section><section><section><div><h2 id="cio" class="text-xl mt-2 pb-2 font-sans">对比利用春分点和 CIO 两种变换方法</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">春分点</th>
+<th style="text-align: center;">CIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img class="center" src="./static/img/d3762469ef65417282f7e601324081ba.png"/></td>
+<td style="text-align: center;"><img class="center" src="./static/img/cbb51fb9ebc94bdfbf863e76fa5dd625.png"/></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img class="center" src="./static/img/3c26a1f42c3a4a50907c8602f7c9a7f2.png"/></td>
+<td style="text-align: center;"><img class="center" src="./static/img/9b0a9eeb219b4933b3f9ef9d8cc3d5ce.png"/></td>
+</tr>
+<tr>
+<td style="text-align: center;">$[\mathrm{GCRS}]=\boldsymbol{Q}_e(t)\boldsymbol{R}_z(-GST)\boldsymbol{W}(t)[\mathrm{ITRS}]$</td>
+<td style="text-align: center;">$[\mathrm{GCRS}]=\boldsymbol{Q}(t)\boldsymbol{R}_z(-ERA)\boldsymbol{W}(t)[\mathrm{ITRS}]$</td>
+</tr>
+</tbody>
+</table></div></section></section><section><section><div><p class="font-serif my-1">参考：</p>
+<p class="font-serif my-1">[1] 李广宇. 天体测量和天体力学基础[M]. 北京: 科学出版社, 2015. </p>
+<p class="font-serif my-1">链接：</p>
+<p class="font-serif my-1"><a href="https://jingliangwei.github.io/blog/lecture/cio.html">讲义</a></p></div></section></section>
+        </div>
+    </div>
+
+    <script src="./static/reveal/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+
+            width: 1024, height: 768,
+
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+            progress: false,
+            hash: true,
+            center: false,
+            autoAnimateUnmatched: true,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.3,
+            transitionSpeed: 'fast'
+        });
+    </script>
+</body>
+
+</html>
