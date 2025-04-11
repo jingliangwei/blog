@@ -145,6 +145,10 @@ $$
 
 约化质量（reduced mass） $m=\dfrac{m_1m_2}{m_1+m_2}$
 
+::: info [example1](#example1)
+对于一个质量 $m_s$ 的恒星和 $n$ 个相同质量 $m_p$ 的行星 $(\alpha=1,...,n)$ ，求 $L(\vec{R}_\alpha,\dot{\vec{R}}_\alpha)$
+:::
+
 ### 中心力场的运动
 
 对于中心力场 $L=\dfrac{1}{2}m(\dot{r}^2+r^2\dot{\varphi}^2)-U(r)$
@@ -168,6 +172,12 @@ $$
 \Delta\varphi=2\pi\frac{n_1}{n_2}\ (n_1,n_2\in\mathbb{Z})
 $$
 Bertrand定理：仅当 $U\propto r^{-1}$ 或 $U\propto r^2$ 时轨道闭合
+
+::: info [example2](#example2) 水星进动 precession
+考虑相对论修正后，势能项 $U=-k/r+\delta U$ 其中 $\delta U=\alpha/r^3$
+
+求 $\Delta\varphi$ 从 $r_{min}$ 到 $r_{max}$ 再回到 $r_{min}$ 的变化 $\delta(\Delta\varphi)$
+:::
 
 ### 开普勒问题
 
@@ -197,6 +207,12 @@ $$
 半长轴 $a=\dfrac{p}{1-e^2}=-\dfrac{k}{2E}$
 
 半短轴 $b=\dfrac{p}{\sqrt{1-e^2}}=\dfrac{M}{\sqrt{-2mE}}$
+
+::: info 轨道能量，角动量
+$E=-\dfrac{k}{2a}=-\dfrac{Gm_1m_2}{2a}$
+
+$M=m\sqrt{G(m_1+m_2)a(1-e^2)}$
+:::
 
 周期 $T^2=4\pi^2\dfrac{m}{k}a^3=\dfrac{4\pi^2}{G(m_1+m_2)}a^3$
 
@@ -279,4 +295,215 @@ $$
 由于 $\displaystyle 3\dot{\varphi}_0^2-\frac{2k}{mr_0^3}=\frac{k}{mr_0^3}>0$ 故圆轨道稳定。
 
 - 扰动频率(kepler frequency) $\displaystyle\omega=\sqrt{\frac{k}{mr_0^3}}$
+
+### 潮汐 tidal
+
+1. phase lag & tidal force
+
+![figure of tidal](./analytial_mechanics_fig/3-3.png)
+
+- tidal phase lag: $\alpha$ (the tidal friction in primary)
+- tidal force: $f\simeq\dfrac{GM_2R_1}{a^3}$ (difference of gravitational forces)
+- Roche limit: $a\simeq\left(\dfrac{M_2}{M_1}\right)^{1/3}R_1$
+- Hill radius: $R_1\simeq\left(\dfrac{M_1}{M_2}\right)^{1/3}a$
+
+2. tidal evolution
+
+- total energy: $E=E_0+E_1+E_2=-\dfrac{GM_1M_2}{2a}+\dfrac{1}{2}I_1\Omega_1^2+\dfrac{1}{2}I_2\Omega_2^2$
+- total angular momentum: $h=h_0+h_1+h_2=\mu\sqrt{GMa(1-e^2)}\hat{\Omega}_0+I_1\vec{\Omega}_1+I_2\vec{\Omega}_2$
+$$
+\mu=\frac{M_1M_2}{M_1+M_2},\quad M=M_1+M_2
+$$
+
+- tidal evolution: h conserves but E reduce.
+
+- final state: E minimum
+$$
+\Rightarrow e=0,\ i=0,\ \Omega_0=\Omega_1=\Omega_2
+$$
+
+e.g. pluto-charon
+
+3. Earth-Moon
+
+- tidal evolution equation:
+$$
+\left\{\begin{array}{l}
+\dot{h}_0=\Gamma,\ \dot{h}_1=-\Gamma,\\
+\dot{E}_0=\Omega_0\Gamma,\ \dot{E}_1=-\Omega_1\Gamma\\
+\end{array}\right.
+$$
+
+- for Earth-Moon:
+$$
+\begin{array}{l}
+M_1\simeq6\times10^{27}g,\ M_2\simeq7.4\times10^{25}g,\ a=3.8\times10^{10}cm \\
+\Omega_0=(GM/a^3)^{1/2}\simeq2.7\times10^{-6}s^{-1},\ e\simeq0,\ \Omega_1\simeq7.3\times10^{-5}s^{-1} \\
+\dot{a}=3.8cm/yr \Rightarrow
+\end{array}
+$$
+$$
+\begin{array}{l}
+\dot{E}_0=-\dfrac{\dot{a}}{a}E_0=\dfrac{GM_1M_2\dot{a}}{2a}\simeq1.2\times10^{18}erg/s \\
+\Gamma=\dfrac{\dot{E}_0}{\Omega_0}\simeq4.5\times10^{23}erg \\
+\dot{E}_1=-\Omega_1\Gamma\simeq-3.2\times10^{19}erg/s \\
+\dot{E}_0+\dot{E}_1\simeq-3\times10^{19}erg/s
+\end{array}
+$$
+
+4. equilibrium tide
+
+let $\xi$ be the equilibrium tide.
+
+- hydrostotic balance $p_1\simeq\rho\Psi$
+- $p_1\simeq\rho g\xi\Rightarrow \xi\simeq\Psi/g$
+- $\Psi\simeq\dfrac{GM_2R_1^2}{a^3},\ g\simeq\dfrac{GM_1}{R_1^2}$
+
+so we have
+$$
+\xi\simeq\frac{M_2}{M_1}\frac{R_1^4}{a^3} \quad\text{or}\quad \xi/R_1\simeq\frac{M_2}{M_1}\frac{R_1^3}{a^3}
+$$
+
+::: info e.g.
+for a Sun-like star and a Jupiter-like planet, $a=0.04AU\simeq10R_\odot\simeq10^2R_J$
+
+on star $\xi/R_1\simeq10^{-6}$
+
+on planet $\xi/R_1\simeq10^{-3}$
+:::
+
+5. tidal friction
+
+- stored energy in tidal deformation
+$$
+E_t=M_1f\xi\simeq\frac{GM_1M_2R_1}{a^3}\left(\frac{M_2}{M_1}\right)\left(\frac{R_1^4}{a^3}\right)\simeq\frac{GM_2^2R_1^5}{a^6}
+$$
+
+- tidal dissipation rate
+$$
+D=|\dot{E}_0+\dot{E}_1|=\omega E_t/Q\simeq\frac{GM_2^2R_1^5}{a^6}\omega\frac{1}{Q}
+$$
+here $\omega=|\Omega_0-\Omega_1|$ is called tidal frequency, and $Q$ is called tidal quality factor.
+
+- tidal torque
+$$
+\Gamma=M_1f\xi\sin\alpha\simeq\frac{GM_2^2R_1^5}{a^6}\frac{1}{Q}
+$$
+
+Given $Q$, we can calculate orbital evolution 
+::: info ref [Goldreich and Soter 1966 Icarus 5:375](https://www.sciencedirect.com/science/article/abs/pii/0019103566900510)
+Earth $Q\simeq 12$ , Jupiter $Q\simeq10^5$
+:::
+
+now we calculate the tidal dissipation rate directly from primary star.
+$$
+\begin{array}{rl}
+D & =\mu\left(\dfrac{U}{R_1}\right)^2V_1=\rho_1\nu\left(\dfrac{\xi\omega}{R_1}\right)^2V_1 \\
+& =\nu\dfrac{M_2^2}{M_1}\left(\dfrac{R_1}{a}\right)^6\omega^2
+\end{array}
+$$
+
+so we have
+$$
+Q=\omega E_t/D=\frac{1}{\nu\omega}\frac{GM_1}{R_1}=\tau_\nu\omega_d^2\omega^{-1}
+$$
+here $\omega_d=(GM_1/R_1^3)^{1/2}$ is called dynamical frequency, and $\tau_\nu=R_1^2/\nu$
+$$
+\frac{1}{Q}=\tau\omega
+$$
+
+- tidal lag time: $\tau=\tau_\nu^{-1}\omega_d^{-2}$ only depends on internal structure of primary star.
+
+finally, 
+$$
+1/Q\simeq\alpha\simeq\tau\omega
+$$
+
+---
+
+## 习题
+
+### example1
+
+::: info example1
+对于一个质量 $m_s$ 的恒星和 $n$ 个相同质量 $m_p$ 的行星 $(\alpha=1,...,n)$ ，求 $L(\vec{R}_\alpha,\dot{\vec{R}}_\alpha)$
+:::
+
+::: details solve
+$$
+\left\{\begin{array}{l}
+\displaystyle m_s\vec{r}_s+\sum_\alpha m_p\vec{r}_\alpha=0 \\
+\displaystyle \vec{R}_\alpha=\vec{r}_\alpha-\vec{r}_s
+\end{array}\right.
+$$
+$$
+\left\{\begin{array}{l}
+\displaystyle \vec{r}_s=-\frac{m_p}{\mu}\sum_\alpha\vec{R}_\alpha \\
+\displaystyle \vec{r}_\alpha=\vec{R}_\alpha-\frac{m_p}{\mu}\sum_\alpha\vec{R}_\alpha
+\end{array}\right.\quad, \mu=m_s+nm_p
+$$
+$$
+\begin{array}{rcl}
+L & = & \displaystyle \frac{1}{2}m_s|\dot{\vec{r}}_s|^2+\frac{1}{2}m_p\sum_\alpha|\dot{\vec{r}}_\alpha|^2-U \\
+& = & \displaystyle \frac{1}{2}m_s(-\frac{m_p}{\mu}\sum_\alpha\vec{R}_\alpha)\cdot(-\frac{m_p}{\mu}\sum_\alpha\vec{R}_\alpha) \\
+& & \displaystyle +\frac{1}{2}m_p\sum_\alpha\left[(\vec{R}_\alpha-\frac{m_p}{\mu}\sum_\alpha\vec{R}_\alpha)\cdot(\vec{R}_\alpha-\frac{m_p}{\mu}\sum_\alpha\vec{R}_\alpha)\right]-U \\
+& = & \displaystyle \frac{1}{2}m_s\frac{m_p^2}{\mu^2}\left|\sum_\alpha\dot{\vec{R}}_\alpha\right|^2+\frac{1}{2}m_p\sum_\alpha\left|\dot{\vec{R}}_\alpha\right|^2 \\
+& & \displaystyle -\frac{m_p^2}{\mu}\left|\sum_\alpha\dot{\vec{R}}_\alpha\right|^2+\frac{1}{2}\frac{m_p^2}{\mu^2}(\mu-m_s)\left|\sum_\alpha\dot{\vec{R}}_\alpha\right|^2-U \\
+& = & \displaystyle \frac{1}{2}m_p\sum_\alpha\left|\dot{\vec{R}}_\alpha\right|^2-\frac{1}{2}\frac{m_p^2}{\mu}\left|\sum_\alpha\dot{\vec{R}}_\alpha\right|^2-U
+\end{array}
+$$
+:::
+
+### example2
+
+::: info example2 水星进动 precession
+考虑相对论修正后，势能项 $U=-k/r+\delta U$ 其中 $\delta U=\alpha/r^3$
+
+求 $\Delta\varphi$ 从 $r_{min}$ 到 $r_{max}$ 再回到 $r_{min}$ 的变化 $\delta(\Delta\varphi)$
+:::
+
+::: details solve
+$$
+\Delta\varphi=2\int_{r_{min}}^{r_{max}}\frac{M}{r^2}\left[2m(E-U)-\frac{M^2}{r^2}\right]^{-1/2}\mathrm{d}r
+$$
+在 $r_{min}$ 和 $r_{max}$ ， $E=U_{eff}$ 分母为零，有奇性。做变换
+$$
+\Delta\varphi=-2\frac{\partial}{\partial M}\int_{r_{min}}^{r_{max}}\left[2m(E-U)-\frac{M^2}{r^2}\right]^{1/2}\mathrm{d}r
+$$
+$$
+U=-k/r+\delta U=U_0+\delta U=U_0\left(1+\frac{\delta U}{U_0}\right)
+$$
+对 $\delta U/U_0$ 做 Taylor 展开
+$$
+\delta(\Delta\varphi)=\frac{\partial}{\partial M}\int_{r_{min}}^{r_{max}}\left[2m(E-U_0)-\frac{M^2}{r^2}\right]^{-1/2}2m\delta U\mathrm{d}r
+$$
+由有心力场的轨迹形状
+$$
+\mathrm{d}\varphi=\frac{M}{r^2}\left[2m(E-U_0)-\frac{M^2}{r^2}\right]^{-1/2}\mathrm{d}r
+$$
+则
+$$
+\delta(\Delta\varphi)=\frac{\partial}{\partial M}\left(\int_0^\pi\frac{2mr^2}{M}\delta U\mathrm{d}\varphi\right)
+$$
+由势能的相对论修正
+$$
+\delta U=\alpha/r^3
+$$
+有
+$$
+\begin{align}
+\delta(\Delta\varphi)&=2m\alpha\frac{\partial}{\partial M}\left(\frac{1}{M}\int_0^\pi\frac{1}{r}\mathrm{d}r\right) \\
+&=2m\alpha\frac{\partial}{\partial M}\left(\frac{1}{M}\int_0^\pi\frac{1+e\cos\varphi}{p}\mathrm{d}\varphi\right) \\
+&=2m\alpha\pi\frac{\partial}{\partial M}\left(\frac{1}{Mp}\right)
+\end{align}
+$$
+由半通径与角动量关系
+$$
+p=\frac{M^2}{G\mu m^2},\quad \mu=m_1+m_2
+$$
+故
+$$
+\delta(\Delta\varphi)=2m\alpha\pi\frac{\partial}{\partial M}\left(\frac{G\mu m^2}{M^3}\right)=-6\pi G\alpha\mu m^3M^{-4}
+$$
+:::
 

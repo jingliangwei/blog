@@ -236,7 +236,7 @@ $\Upsilon_0$ 沿黄道西移 $\psi'$ 到 $\Upsilon'$ ，再沿赤道东移 $\lam
 ### 利用春分点进行转换
 
 ![流程](./measurement_fig/8.png)
-![图示](./measurement_fig/4-3.png)
+![图示](./measurement_fig/4-4.png)
 
 $$
 [\mathrm{GCRS}]=\boldsymbol{Q}_e(t)\boldsymbol{R}_z(-GST)\boldsymbol{W}(t)[\mathrm{ITRS}]
@@ -251,7 +251,7 @@ $\boldsymbol{Q}_e(t)=\boldsymbol{B}\boldsymbol{P}(t)\boldsymbol{N}(t)$ 由历元
 ### 利用 CIO 变换
 
 ![流程](./measurement_fig/4-2.png)
-![图示](./measurement_fig/4-4.png)
+![图示](./measurement_fig/4-3.png)
 
 $$
 [\mathrm{GCRS}]=\boldsymbol{Q}(t)\boldsymbol{R}_z(-ERA)\boldsymbol{W}(t)[\mathrm{ITRS}]
