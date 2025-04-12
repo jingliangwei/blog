@@ -424,6 +424,8 @@ $$
 
 ### 氢原子
 
+#### 波函数
+
 - 求解波函数
 
 核：电荷 $+Ze$ （以适用整个类氢体系），质量 $M$
@@ -468,4 +470,146 @@ $$
 | $3$ | $2$ | $0$ | $\displaystyle\frac{1}{81\sqrt{6\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\left(\frac{Zr}{a_0}\right)^2(3\cos^2\theta-1)\exp\left(-\frac{Zr}{3a_0}\right)$ |
 | $3$ | $2$ | $\pm1$ | $\displaystyle\frac{1}{81\sqrt{\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\left(\frac{Zr}{a_0}\right)^2\sin\theta\cos\theta\exp\left(-\frac{Zr}{3a_0}\right)e^{\pm i\varphi}$ |
 | $3$ | $2$ | $\pm2$ | $\displaystyle\frac{1}{162\sqrt{\pi}}\left(\frac{Z}{a_0}\right)^{3/2}\left(\frac{Zr}{a_0}\right)^2\sin^2\theta\exp\left(-\frac{Zr}{3a_0}\right)e^{\pm 2i\varphi}$ |
+
+#### 概率密度
+
+1. $(\varphi,\varphi+\mathrm{d}\varphi)$ 区间：
+$$
+P(\varphi)\mathrm{d}\varphi=\frac{1}{2\pi}\mathrm{d}\varphi
+$$
+
+2. $(\theta,\theta+\mathrm{d}\theta)$ 区间：
+$$
+P_{l,m_l}(\theta)\mathrm{d}\theta=|\Theta_{l,m_l}(\theta)|^2\sin\theta\mathrm{d}\theta
+$$
+
+3. 角向分布：
+$$
+P_{l,m_l}(\theta,\varphi)\mathrm{d}\Omega=|Y_l^{m_l}(\theta,\varphi)|^2\mathrm{d}\Omega,\quad\mathrm{d}\Omega=\sin\theta\mathrm{d}\theta\mathrm{d}\varphi
+$$
+
+4. 径向分布 $(r,r+\mathrm{d}r)$ 区间：
+$$
+P_{n,l}(r)\mathrm{d}r=|R_{n,l}(r)|^2r^2\mathrm{d}r
+$$
+
+- 玻尔理论中的轨道半径 $r_n=n^2a_B$ 对应 $l=n-1$ 时，电子径向概率分布最大的半径（最概然半径，最可几半径，电子云密度最大处半径）
+- $\displaystyle<r>=<r_{n,l}>=\int_0^\infty R^*(r)rR(r)r^2\mathrm{d}r=\frac{1}{2}[3n^2-l(l+1)]a_B$
+
+5. 电子云图 $|\Psi|^2$
+
+![电子云图](./atom_fig/3-1.png)
+
+#### 角动量
+
+1. 轨道角动量大小
+
+角动量平方算符 $\widehat{L^2}$ 满足本征方程
+$$
+\widehat{L^2}Y_l^{m_l}(\theta,\varphi)=l(l+1)\hbar^2Y_l^{m_l}(\theta,\varphi)
+$$
+本征值 $\widehat{L^2}=l(l+1)\hbar^2$
+
+则角动量大小 $L_l=\sqrt{l(l+1)}\hbar$
+
+（ $l$ 称为轨道角动量量子数，简称轨道角量子数）
+
+2. 轨道角动量方向
+
+- 角动量 $z$ 向分量： $L_{lz}=m_l\hbar$
+- 轨道磁量子数： $m_l$
+- $x,y$ 向分量： $<L_{lx}>=0,<L_{ly}>=0$
+$$
+\left\{\begin{array}{l}
+[\widehat{L}_{lx},\widehat{L}_{ly}]=ih\widehat{L}_z\neq0 \\
+[\widehat{L}_{ly},\widehat{L}_{lz}]\neq0 \\
+[\widehat{L}_{lx},\widehat{L}_{lz}]\neq0
+\end{array}\right.
+$$
+
+3. 角动量定义：
+
+若一个算符包含三个分量
+$$
+\hat{j}=(\hat{j}_x,\hat{j}_y,\hat{j}_z)
+$$
+且它的三个分量满足如下基本对易关系
+$$
+\begin{array}{l}
+[\hat{j}_x,\hat{j}_y]=i\hbar\hat{j}_z \\
+[\hat{j}_y,\hat{j}_z]=i\hbar\hat{j}_x \\
+[\hat{j}_z,\hat{j}_x]=i\hbar\hat{j}_y
+\end{array}
+$$
+无论其物理意义如何，均可称为角动量算符。
+
+4. 角动量守恒：
+
+在量子力学中，设力学量 $F$ 对应算符 $\widehat{F}$ ，若
+$$
+\frac{\mathrm{d}\widehat{F}}{\mathrm{d}t}=0
+$$
+则该力学量守恒。
+
+#### 量子数
+
+1. 轨道角量子数 $l$
+- $L_l=\sqrt{l(l+1)}\hbar,\quad l=0,1,2,...,n-1$
+- 其值习惯上用光谱学标记表示，$l=0,1,2,3,4,5,6,7...$ 分别对应小写字母：s,p,d,f,g,h,i,k...
+
+2. 轨道磁量子数 $m_l$
+- $L_{lz}=m_l\hbar,\quad m_l=-l,-l+1,...,l$
+
+3. 主量子数 $n$
+- $\displaystyle E_n=-\frac{1}{n^2}\cdot\frac{1}{2}\mu\left(\frac{Ze^2}{4\pi\varepsilon_0\hbar}\right)^2$
+
+4. 简并（degeneracy）：不同的本征函数对应相同的本征值
+
+能级 $E_n$ 是 $n^2$ 重简并的。
+
+::: info 简并的本质是系统的对称性
+1. “球对称” 能量大小与 $z$ 轴取向无关（对应磁量子数 $m_l$）
+2. “势函数 $V$ 与 $r$ 简单成反比” 能量对 $l$ 简并
+:::
+
+### 原子的辐射跃迁与选择定则
+
+#### 辐射跃迁
+
+- 辐射跃迁：光子形式传递能量
+- 碰撞跃迁：动能形式传递能量
+
+- 谱线强弱因素：
+1. 相应能量的光子数
+2. 相应能级的跃迁原子数目
+3. 能级 $E_i$ 的原子布居数（atom population，即单位体积内的原子数）和跃迁概率
+
+#### 跃迁的选择定则
+
+- 选择定则：电偶极跃迁概率 $\displaystyle\lambda_{21}=\frac{16\pi^3\nu_{21}^3}{3\varepsilon_0hc^3}|D_{21}|^2$ 不为零。
+即
+$$
+\left\{\begin{array}{l}
+\Delta n \text{任意} \\
+\Delta l=l_2-l_1=\pm1 \\
+\Delta m_l=m_{l2}-m_{l1}=0,\pm1
+\end{array}\right.
+$$
+
+1.
+- 允许跃迁（容许跃迁，allowed transition）
+- 稳态（stable state）
+- 允许线
+
+2.
+- 禁戒跃迁（forbidden transition）
+- 亚稳态（metastable state）
+- 禁线（forbidden line），半禁线（semi-forbidden line）
+
+3. 宇称（parity）：对波函数作空间反演
+$$
+\widehat{P}u(\vec{r})=u(-\vec{r})=\pm u(\vec{r})
+$$
+- 偶宇称：本征值 $\eta=+1$ （当 $l$ 为偶数）
+- 奇宇称：本征值 $\eta=-1$ （当 $l$ 为奇数）
 
