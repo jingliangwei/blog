@@ -1,3 +1,9 @@
+---
+sidebar: false
+prev: false
+next: false
+---
+
 # 我的作业
 
 此处存放我的作业。

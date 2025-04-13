@@ -9,7 +9,8 @@ export const nav: DefaultTheme.Config['nav'] = [
       // { text: 'blog', link: '/'},
       { text: '笔记', link: '/blog/'},
       { text: '作业', link: '/hw/'},
-      { text: '考试', link: '/exam/'}
+      { text: '考试', link: '/exam/'},
+      { text: '报告', link: '/lecture/'}
     ]
   }
 ]

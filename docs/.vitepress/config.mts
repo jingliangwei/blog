@@ -8,8 +8,13 @@ export default defineConfig({
   base: "/blog/",
   title: "韦境量",
   description: "arwell's blog",
+  head: [
+    ['link', { rel: 'icon', href: '/blog/icon.jpg'}],
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: '/icon.jpg',
+
     nav,
 
     sidebar,

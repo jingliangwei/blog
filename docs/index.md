@@ -6,6 +6,8 @@ hero:
   name: "Blog"
   text: "arwell's blog"
   tagline: 向来如此，便对吗？
+  image: 
+    src: /icon.jpg
   actions:
     - theme: brand
       text: 笔记
@@ -22,6 +24,9 @@ hero:
     - theme: alt
       text: Fortran
       link: https://jingliangwei.github.io/a-crash-course-for-Fortran/
+    - theme: brand
+      text: 演示
+      link: /lecture/
 
 features:
   - title: Positive
