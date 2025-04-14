@@ -17,6 +17,7 @@ next: false
 
 - [作业1(绝对数，相对数，特征分析)](/hw/data_process/hw1)
 - [作业2(构造时间序列，最小二乘法，曲线拟合)](/hw/data_process/hw2)
+- [作业3(曲线拟合，滑动平均)](/hw/data_process/hw3)
 
 ## 天体测量基础
 
