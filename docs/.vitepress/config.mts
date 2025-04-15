@@ -31,7 +31,9 @@ export default defineConfig({
     // enable local search
     search: {
       provider: 'local'
-    }
+    },
+
+    externalLinkIcon: true,
   },
 
   // enable math equation in markdown.

@@ -25,7 +25,7 @@ hero:
       text: Fortran
       link: https://jingliangwei.github.io/a-crash-course-for-Fortran/
     - theme: brand
-      text: 演示
+      text: 报告
       link: /lecture/
 
 features:

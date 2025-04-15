@@ -34,7 +34,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     items: [
       { text: '天体测量基础', link: '/blog/astronomy/measurement'},
       { text: 'JPL星表', link: '/blog/astronomy/jpl'},
-      { text: '儒略日和公历', link: '/blog/astronomy/jd'}
+      { text: '儒略日和公历', link: '/blog/astronomy/jd'},
+      { text: '天文数据处理', link: '/blog/astronomy/data_processing'}
     ]
   },
   {
