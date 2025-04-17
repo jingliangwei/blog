@@ -419,6 +419,111 @@ $$
 1/Q\simeq\alpha\simeq\tau\omega
 $$
 
+## 微振动
+
+### 一维自由振动
+
+对于一个质量为 $m$ ，弹簧弹性系数为 $k$ 的弹簧振子，由拉格朗日方程有
+$$
+\ddot{x}+\omega^2x=0
+$$
+
+- 本征频率 $\omega=\sqrt{k/m}$
+
+$$
+x=a\cos(\omega t+\alpha)
+$$
+
+- 振幅(amplitude) $a$
+- 相位(phase) $\omega t+\alpha$
+- 初相位 $\alpha$
+- 简谐振动(harmonic oscillation)
+- 能量 $\displaystyle E=\frac{1}{2}ma^2\omega^2$
+
+$$
+x=a\cos(\omega t+\alpha)=\mathrm{Re}(Ae^{i\omega t})
+$$
+
+- 复振幅(complex amplitude) $A=ae^{i\alpha}$
+
+### 受迫振动
+
+受外力 $F(t)$ 的弹簧振子，由拉格朗日方程有
+$$
+\ddot{x}+\omega^2x=\frac{F(t)}{m}
+$$
+
+#### 周期外力
+
+当 $F(t)=f\cos(\gamma t+\beta)$ 时
+
+$$
+x=a\cos(\omega t+\alpha)+\frac{f}{m(\omega^2-\gamma^2)}\cos(\gamma t+\beta)
+$$
+
+1. 共振(resonance)
+
+当 $\gamma=\omega$ 时，有
+$$
+x=a'\cos(\omega t+\alpha)+\frac{f}{2m\omega}t\sin(\omega t+\beta)
+$$
+
+![函数图像](./analytial_mechanics_fig/4-1.png)
+
+共振时，振幅随时间线性增长，直到小扰动条件失效，引入非线性项。
+
+2. 共振附近
+
+当 $\gamma\approx\omega$ 时，记 $\gamma=\omega+\varepsilon$ 有
+$$
+x=(A+Be^{i\varepsilon t})e^{i\omega t}
+$$
+
+![函数图像](./analytial_mechanics_fig/4-2.png)
+
+#### 一般情况
+
+对任意的 $F(t)$ 记
+
+$$
+\xi=\left(\int_0^t\frac{F(s)}{m}e^{-i\omega s}\mathrm{d}s+A_0\right)e^{i\omega t}
+$$
+$$
+x=\frac{\mathrm{Im}(\xi)}{\omega}
+$$
+
+### 阻尼振动
+
+阻力 $-\alpha\dot{x}$ $(\alpha>0)$ ，由拉格朗日方程有
+$$
+\ddot{x}+2\mu\dot{x}+\omega^2 x=0
+$$
+
+- 阻尼频率 $\displaystyle\mu=\frac{\alpha}{2m}$
+
+1. 阻尼大 $\mu>\omega$
+
+$$
+x=c_1e^{\lambda_1 t}+c_2e^{\lambda_2 t}
+$$
+$$
+\lambda_{1,2}=-\mu\pm\sqrt{\mu^2-\omega^2}
+$$
+
+2. 阻尼小 $\mu<\omega$
+
+$$
+x=Ce^{-\mu t}\cos(\sqrt{\omega^2-\mu^2}t+\varphi)
+$$
+
+![函数图像](./analytial_mechanics_fig/4-3.png)
+
+3. 临界阻尼 $\mu=\omega$
+
+$$
+x=(c_1+c_2t)e^{-\mu t}
+$$
+
 ---
 
 ## 习题
