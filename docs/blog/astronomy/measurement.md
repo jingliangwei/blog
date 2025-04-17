@@ -267,3 +267,241 @@ $\boldsymbol{Q}(t)$ 为天球中间系-天球参考系(CIRS-GCRS)变换。
 查看[利用 CIO 进行 ITRS-GCRS 变换](/lecture/cio)
 :::
 
+## 天体位置和方向的计算
+
+![影响因素](./measurement_fig/5-1.png)
+
+<table>
+  <tbody>
+  <tr>
+    <th colspan=2>影响因素</th>
+  </tr>
+  <tr>
+    <td rowspan=3>观测地点及观测者本身的原因</td>
+    <td>大气折射</td>
+  </tr>
+  <tr>
+    <td>视差（观测地点改变）</td>
+  </tr>
+  <tr>
+    <td>光行差（观测者运动）</td>
+  </tr>
+  <tr>
+    <td rowspan=2>度量天体位置的坐标系本身的原因</td>
+    <td>岁差</td>
+  </tr>
+  <tr>
+    <td>章动</td>
+  </tr>
+  <tr>
+    <td>观测天体本身的原因</td>
+    <td>自行</td>
+  </tr>
+  <tr>
+    <td>其他原因</td>
+    <td>光线引力弯曲效应</td>
+  </tr>
+  </tbody>
+</table>
+
+### 各种天体位置
+
+- 观测位置(observation position)： 由天文仪器直接测定的天体位置，坐标系为观测瞬时的真赤道坐标系。
+
+- 站心位置(topocentric position)： 位于站心的观测者在无大气情况下所见的天体位置。
+
+- 视位置(apparent position)： 修正大气折射、周日光行差和周日视差后的天体地心坐标，坐标系为观测瞬间的地心赤道坐标系。
+
+- 真位置(true position)： 视位置修正周年光行差和周年视差以及光线引力弯曲效应后的天体日心坐标，坐标系为观测瞬间的日心（质心）赤道坐标系。
+
+- 观测瞬间平位置(mean position)： 真位置修正了章动影响后得到的天体日心坐标，坐标系为观测瞬间的日心（质心）平赤道坐标系。
+
+- 年首平位置（星表位置）： 星表或天文年历刊载的位置，是星表历元或当年年首的平位置，坐标系为星表历元或当年年首的日心（质心）平赤道坐标系。
+
+### 大气折射
+
+atmospheric refraction
+
+![图示](./measurement_fig/5-2.png)
+
+即天体实际天顶距 $z_0=z+\rho$
+
+当温度为 $0^\circ C$，气压为 $760mm$ 水银柱时有 $\rho\approx60''.2\tan z$
+
+### 视差
+
+parallax
+
+![图示](./measurement_fig/5-3.png)
+
+在两个不同观测地点 $O,O'$ ，天体 $\sigma$ 对两个空间位置所成的张角 $P$ 称为视差
+
+<table>
+  <tbody>
+  <tr>
+    <td>周日视差</td>
+    <td>地面 -> 地心</td>
+    <td>地球自转</td>
+  </tr>
+  <tr>
+    <td>周年视差</td>
+    <td>地心 -> 日心（质心）</td>
+    <td>地球公转</td>
+  </tr>
+  </tbody>
+</table>
+
+#### 周日视差
+
+![周日视差](./measurement_fig/5-4.png)
+
+$O$ 为地心，$z$ 轴指向天极，$x$ 轴指向春分点，$(x,y,z)$ 为地心赤道坐标系。
+
+记测站 $M$ 点的地心纬度为 $\varphi'$，向径 $OM=\rho$，$S$ 为春分点时角（地方恒星时）
+
+$$
+\vec{r}=\left[\begin{array}{c}
+x \\
+y \\
+z
+\end{array}\right]_{\alpha,\delta}=\left[\begin{array}{c}
+\Delta\cos\delta\cos\alpha \\
+\Delta\cos\delta\sin\alpha \\
+\Delta\sin\delta
+\end{array}\right]
+$$
+
+$$
+\vec{r}'=\left[\begin{array}{c}
+x \\
+y \\
+z
+\end{array}\right]_{\alpha',\delta'}=\left[\begin{array}{c}
+\Delta'\cos\delta'\cos\alpha' \\
+\Delta'\cos\delta'\sin\alpha' \\
+\Delta'\sin\delta'
+\end{array}\right]
+$$
+
+$$
+\vec{r}_\rho=\left[\begin{array}{c}
+x \\
+y \\
+z
+\end{array}\right]_{\rho}=\left[\begin{array}{c}
+\rho\cos\varphi'\cos S \\
+\rho\cos\varphi'\sin S \\
+\rho\sin\varphi'
+\end{array}\right]
+$$
+
+$$
+\vec{r}_\rho+\vec{r}'=\vec{r}
+$$
+
+#### 周年视差
+
+![周年视差](./measurement_fig/5-5.png)
+
+地球在日心赤道坐标系中位矢 $\vec{r}_\oplus$
+
+恒星在日心赤道坐标系中位矢 $\vec{r}$
+
+恒星在地心赤道坐标系中位矢 $\vec{r}'$
+
+$$
+\vec{r}_\oplus+\vec{r}'=\vec{r}
+$$
+
+### 恒星在天球上的位移公式
+
+![图示](./measurement_fig/5-6.png)
+
+当恒星 $\sigma$ 沿着 $A\sigma$ 位移到 $\sigma'$
+
+记 $\sigma\sigma'=k\sin(A\sigma)$
+
+记从原点指向 $A(\alpha_0,\delta_0),\sigma(\alpha,\delta),\sigma'(\alpha',\delta')$ 的单位向量分别为 $\boldsymbol{S}_0,\boldsymbol{S},\boldsymbol{S}'$
+
+有
+$$
+\boldsymbol{S}'-\boldsymbol{S}=\frac{\mathrm{d}\theta}{\sin\theta}[\cos\theta\boldsymbol{S}-\boldsymbol{S}_0]=k\boldsymbol{S}\times(\boldsymbol{S}\times\boldsymbol{S}_0)
+$$
+
+进而有
+
+$$
+\left\{\begin{array}{l}
+\alpha'-\alpha=k\sec\delta\cos\delta_0\sin(\alpha-\alpha_0) \\
+\delta'-\delta=k[\cos\delta_0\sin\delta\cos(\alpha-\alpha_0)-\sin\delta_0\cos\delta]
+\end{array}\right.
+$$
+
+### 光行差
+
+aberration
+
+![光行差](./measurement_fig/5-7.png)
+
+$M$ 点观测者具有速度 $v$ ，$A$ 点为向点，$S$ 点为真方向，$S'$ 点为视方向
+
+$MS$ 和 $MS'$ 的方向差 $a$ 就是光行差：
+
+$$
+a\approx \sin a=\frac{v}{c}\sin\mu
+$$
+
+<table>
+  <tbody>
+  <tr>
+    <td>周日光行差</td>
+    <td>地球自转</td>
+  </tr>
+  <tr>
+    <td>周年光行差</td>
+    <td>地球公转</td>
+  </tr>
+  <tr>
+    <td>长期光行差</td>
+    <td>太阳系在星际空间的运动</td>
+  </tr>
+  </tbody>
+</table>
+
+- 光行时：天体在 $t$ 时刻发出的光线要经过 $\tau=\Delta/c$ 时间到达观测者，其中 $\Delta$ 为天体距离。在 $(t+\tau)$ 时刻观测到的是 $t$ 时刻天体的位置。
+
+#### 周日光行差
+
+![周日光行差向点](./measurement_fig/5-8.png)
+
+向点为东点 $E$
+
+赤道上观测者的线速度 $\displaystyle v_0=\frac{2\pi R_e}{T}$
+
+周日光行差常数 $\displaystyle K''=206265''\frac{v_0}{c}=0''.32$
+
+非赤道观测者的线速度 $v=v_0\cos\varphi'$
+
+周日光行差导致天体在地平坐标系中由 $\sigma$ 移动到 $\sigma'$ ，位移量 $\overset{\frown}{\sigma\sigma'}=K''\sin\overset{\frown}{\sigma E}$
+![周日光行差](./measurement_fig/5-9.png)
+
+#### 周年光行差
+
+![周年光行差向点](./measurement_fig/5-10.png)
+
+向点 $A$ 的黄经 $\lambda_A=\lambda_\odot-90^\circ$
+
+![地球绕日速度](./measurement_fig/5-11.png)
+
+地球绕日速度可以分解为
+
+1. 沿 $EL$ 方向的分量 $\displaystyle v_1=\frac{na}{\sqrt{1-e^2}}$
+2. 沿 $EQ$ 方向的分量 $\displaystyle v_2=ev_1$
+
+周年光行差常数 $\displaystyle K''=206265''\frac{v_1}{c}=206265''\frac{na}{c\sqrt{1-e^2}}=206265''\frac{2\pi A_0}{cT_s\sqrt{1-e^2}}$
+
+其中 $c$ 为光速，$A_0$ 为一天文单位，$e$ 为地球轨道偏心率，$T_s$ 为恒星年长度。
+
+周年光行差导致天体沿 $\overset{\frown}{\sigma A}$ 大圆朝点 $A$ 位移，位移量为 $\overset{\frown}{\sigma\sigma'}=K''\sin\overset{\frown}{\sigma A}$
+![周年光行差](./measurement_fig/5-12.png)
+
