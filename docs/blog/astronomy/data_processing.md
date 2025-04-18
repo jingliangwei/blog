@@ -291,7 +291,13 @@ plt.show()
 ```
 :::
 
-## 离散傅里叶变换
+## 傅里叶变换
+
+### 理论
+
+查看 [傅里叶变换](/blog/math/fourier_transform)
+
+### 实践
 
 使用 `python` 中 `scipy` 模块里的 `fftpack.fft` 进行傅里叶变换：
 
