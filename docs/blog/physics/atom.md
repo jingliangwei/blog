@@ -27,6 +27,7 @@ $$
 1. 定态假设
 2. 频率条件（辐射条件或玻尔准则）：
 电子跃迁释放光子 $h\nu=|E_n-E_m|$
+![氢原子能级](./atom_fig/1-4.jpg)
 3. 角动量量子化
 
 ### 玻尔模型
@@ -59,7 +60,7 @@ $$
 :::
 
 4. more:
-- 玻尔半径 $a_B=r_1$
+- 玻尔半径 $a_B=r_1\approx0.53\times10^{-10}m$
 - 精细结构常数 $\alpha=\dfrac{e^2}{4\pi\varepsilon_0\hbar c}$
 - 电子轨道速度量子化 $v_n=\dfrac{e^2}{4\pi\varepsilon_0\hbar}\dfrac{1}{n}=\dfrac{\alpha}{n}c$
 
@@ -84,7 +85,7 @@ $R_H=1.9677\times10^7m^{-1}$ 符合的很好
 
 对于电子与微观粒子核两体绕转问题，记核为 $X$ ，核电荷数为 $Z$
 
-该系统的里德伯常数 $R_X=R_\infty\dfrac{1}{1+m_e/M_X}$
+该系统的里德伯常数 $R_X=R_\infty\dfrac{1}{1+m_e/M_X}$ （仅修正了质量，应用时还要修正电荷数）
 
 1. 电子轨道半径
 $$
@@ -95,6 +96,21 @@ $$
 $$
 E_n=-\frac{Z^2R_Xhc}{n^2}=-\frac{Z^2e^4\mu}{2(4\pi\varepsilon_0)^2\hbar^2}\frac{1}{n^2}
 $$
+
+::: info 常用的组合常数
+$$
+\hbar c=197.3eV\cdot nm=197.3MeV\cdot fm
+$$
+$$
+hc=1240MeV\cdot fm=1240eV\cdot nm
+$$
+$$
+m_ec^2=0.511MeV
+$$
+$$
+m_pc^2=938.3MeV
+$$
+:::
 
 ### 玻尔理论的实验验证
 
@@ -121,7 +137,7 @@ $$
 ![实验装置](./atom_fig/1-1.png)
 
 控制 $KG$ 间电压使从 $K$ 处释放的自由电子加速到 $G$ ，然后在 $GA$ 减速，通过电流表观察能够到达 $A$ 的电子数。
-控制汞蒸汽的温度压强使其平均自由程 $\bar{\lambda}$ 满足 $D_{GA}<\bar\lambda<D_{AK}$ ，则自由电子只在 $GA$ 段
+控制汞蒸汽的温度压强使其平均自由程 $\bar{\lambda}$ 满足 $D_{GA}<\bar\lambda<D_{KG}$ ，则自由电子只在 $KG$ 段
 会与汞原子发生碰撞。
 实验结果如下：
 
@@ -420,7 +436,7 @@ T=\frac{|A_3|^2}{|A_1|^2}=\frac{16k_1^2k_2^2}{(k_1^2+k_2^2)^2(e^{-k_2a}-e^{k_2a}
 $$
 当 $k_2a\gg 1$ 时（即势垒足够高足够厚时），有
 $$
-T\approx16(\frac{k_1k_2}{k_1^2+k_2^2})^2e^{-2k_2a}=\frac{16E(V_0-E)}{v_0^2}e^{\textstyle -\frac{2a}{\hbar}\sqrt{2m(V_0-E)}}
+T\approx16(\frac{k_1k_2}{k_1^2+k_2^2})^2e^{-2k_2a}=\frac{16E(V_0-E)}{V_0^2}e^{\textstyle -\frac{2a}{\hbar}\sqrt{2m(V_0-E)}}
 $$
 
 ## 氢原子与碱金属原子
@@ -668,7 +684,7 @@ $\tilde{\nu}=T_m-T_n$
 
 - 固定光谱项 $T_m$
 - 跑动光谱项 $T_n$
-- 碱金属光谱项 $\displaystyle T_{n,l}=-\frac{E_{n,l}}{hc}=\frac{Z^{*2}R}{n^2}=\frac{R}{(n-\Delta_{n,l})}$
+- 碱金属光谱项 $\displaystyle T_{n,l}=-\frac{E_{n,l}}{hc}=\frac{Z^{*2}R}{n^2}=\frac{R}{(n-\Delta_{n,l})^2}$
 - 线系限： $n=\infty$ 时，即各线系的最短波长
 - 共振线： np->ns 的光谱线
 
