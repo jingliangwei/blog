@@ -199,6 +199,9 @@ $$
 $$
 p=\sqrt{E_k^2/c^2+2m_0E_k}
 $$
+$$
+E_k=E-m_0c^2=\sqrt{p^2c^2+m_0^2c^4}-m_0c^2
+$$
 :::
 
 #### 实物粒子波动性
@@ -612,4 +615,103 @@ $$
 $$
 - 偶宇称：本征值 $\eta=+1$ （当 $l$ 为偶数）
 - 奇宇称：本征值 $\eta=-1$ （当 $l$ 为奇数）
+
+### 碱金属原子
+
+#### 光谱特点
+
+锂原子的光谱：
+
+- 主线系：波长范围最宽，第一条在可见光的红光区，其余均位于紫外；
+- 第一辅线系：位于可见光区域，也叫漫线系，边缘模糊；
+- 第二辅线系：位于可见光和红外区域，第一辅线系和第二辅线系的线系限相同，也叫锐线系，边缘清晰；
+- 柏格曼系：位于红外区域，也叫基线系，频率最低。
+
+![线系](./atom_fig/3-2.png)
+
+#### 能级结构和允许跃迁
+
+![能级结构](./atom_fig/3-3.png)
+
+- 主线系：np->2s (principal 主)
+- 一辅系：nd->2p (diffuse 漫)
+- 二辅系：ns->2p (sharp 锐)
+- 柏格曼系：nf->3d (fundamental 基)
+
+#### 光谱的理论解释
+
+1. 能级公式：
+
+$$
+E_{n,l}=-Z^{*2}\frac{Rhc}{n^2}
+$$
+
+其中 $Z^{*}\neq 1$ 为原子实的有效电荷数。
+
+- 原子实极化 & 贯穿效应
+![图示](./atom_fig/3-4.png)
+
+$$
+\begin{align}
+E_{n,l}&=-Z^{*2}\frac{Rhc}{n^2}=-\frac{Rhc}{(n/Z^*)^2}=-\frac{Rhc}{n^{*2}} \\
+&=-\frac{Rhc}{(n-\Delta_{n,l})^2}=-\frac{(Z-\sigma)^2Rhc}{n^2}
+\end{align}
+$$
+
+- 有效主量子数 $n^*=n/Z^*$
+- 量子数亏损（量子数修正） $\Delta_{n,l}=n-n^*$
+- 屏蔽常数 $\sigma=Z-Z^*$
+
+2. 波数公式
+
+$\tilde{\nu}=T_m-T_n$
+
+- 固定光谱项 $T_m$
+- 跑动光谱项 $T_n$
+- 碱金属光谱项 $\displaystyle T_{n,l}=-\frac{E_{n,l}}{hc}=\frac{Z^{*2}R}{n^2}=\frac{R}{(n-\Delta_{n,l})}$
+- 线系限： $n=\infty$ 时，即各线系的最短波长
+- 共振线： np->ns 的光谱线
+
+则锂原子的波数公式如下：
+
+- 主线系 $\displaystyle \tilde{\nu}=\frac{R}{(2-\Delta_{2s})^2}-\frac{R}{(n-\Delta_{np})^2},\ n=2,3,4,...$
+- 第一辅线系 $\displaystyle \tilde{\nu}=\frac{R}{(2-\Delta_{2p})^2}-\frac{R}{(n-\Delta_{nd})^2},\ n=3,4,5,...$
+- 第二辅线系 $\displaystyle \tilde{\nu}=\frac{R}{(2-\Delta_{2p})^2}-\frac{R}{(n-\Delta_{ns})^2},\ n=3,4,5,...$
+- 柏格曼系 $\displaystyle \tilde{\nu}=\frac{R}{(2-\Delta_{3d})^2}-\frac{R}{(n-\Delta_{nf})^2},\ n=4,5,6,...$
+
+### 电子的磁矩
+
+#### 电子的轨道磁矩
+
+- 电子轨道磁矩 $\displaystyle \vec{\mu}=-\frac{e}{2m_e}\vec{p}_l$ 与轨道角动量 $\vec{p}_l$ 反向
+- 旋磁比(gyromagnetic ratio，或磁旋比 magnetogyric ratio) $\displaystyle \gamma=\frac{|\vec\mu|}{|\vec p_l|}=\frac{e}{2m_e}$
+
+$$
+\mu_l=-\frac{e}{2m_e}\sqrt{l(l+1)}\hbar\triangleq-\sqrt{l(l+1)}\mu_B
+$$
+
+- 电子的玻尔磁子 $\displaystyle \mu_B=\frac{e\hbar}{2m_e}=9.273\times10^{-24}J/T=0.5788\times10^{-4}eV/T$
+
+$$
+\mu_{lz}=-\frac{e}{2m_e}p_{lz}=-m_l\mu_B,\ (m_l=l,l-1,...,-l)
+$$
+
+#### 磁场中的电子轨道磁矩
+
+1. 磁矩与磁场的相互作用使系统具有磁势能 $\Delta E$
+$$
+\Delta E=m_l\mu_BB,\quad m_l=0,\pm1,\pm2,...,\pm l
+$$
+原子能量对磁量子数 $m_l$ 不再简并，进一步分裂。
+
+2. 在匀强磁场中，电子轨道磁矩 $\mu_l$ 以角速度 $\omega$ 绕 $\vec B$ 做拉莫尔进动。
+$$
+\vec{\omega}=\gamma\vec{B}
+$$
+
+3. 非匀强磁场中，一束原子垂直磁场方向入射，当 $l$ 相同，$m_l$ 不同，原子受到的平移力 $F_z$ 将有 $(2l+1)$ 各不同大小，相应的原子束会分裂成 $(2l+1)$ 束。
+
+#### 施特恩-格拉赫实验
+
+![实验](./atom_fig/3-5.png)
 
