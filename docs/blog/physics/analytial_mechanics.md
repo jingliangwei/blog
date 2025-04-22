@@ -154,7 +154,7 @@ $$
 对于中心力场 $L=\dfrac{1}{2}m(\dot{r}^2+r^2\dot{\varphi}^2)-U(r)$
 
 ::: info 注：
-上式中 $m$ 是运动天体的质量，位矢 $\vec{r}=(r,\varphi)$ 的坐标原点是中心天体中心，而非二者的质心。
+上式中 $m=\dfrac{m_1m_2}{m_1+m_2}$ 为约化质量，位矢 $\vec{r}=(r,\varphi)$ 的坐标原点是中心天体中心，而非二者的质心。
 :::
 
 - 角动量守恒 $M=mr^2\dot{\varphi}=const$
@@ -209,11 +209,9 @@ $$
 半短轴 $b=\dfrac{p}{\sqrt{1-e^2}}=\dfrac{M}{\sqrt{-2mE}}$
 
 ::: info 轨道能量，角动量
-记中心天体的质量为 $m_0$
+$E=-\dfrac{k}{2a}=-\dfrac{Gm_1m_2}{2a}$
 
-$E=-\dfrac{k}{2a}=-\dfrac{Gm_0m}{2a}$
-
-$M=m\sqrt{Gm_0a(1-e^2)}$
+$M=m\sqrt{G(m_1+m_2)a(1-e^2)}$
 :::
 
 周期 $T^2=4\pi^2\dfrac{m}{k}a^3=\dfrac{4\pi^2}{G(m_1+m_2)}a^3$
