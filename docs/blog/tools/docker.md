@@ -48,7 +48,7 @@ docker pull php:5.6-cli
 2. 在宿主机工作目录运行容器
 
 ```sh
-docker -it --rm \
+docker run -it --rm \
        --name php-5.6-server \
        -p 8000:8000 \
        -v $(pwd):/var/www/html php:5.6-cli bash
