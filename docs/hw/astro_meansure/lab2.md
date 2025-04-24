@@ -6,10 +6,6 @@ next: false
 
 # 实践2
 
-::: danger 注意
-尚未完工，需等待 IERS 网站给出 2025 年 5 月 1 日的 EOP 数据。
-:::
-
 使用 NOVAS 程序包计算天体坐标。
 
 ## NOVAS 程序
@@ -134,9 +130,14 @@ subroutine deg_to_dms(dec_deg, deg, min, sec)
 end subroutine deg_to_dms
 ```
 
-从[IERS](https://www.iers.org/IERS/EN/DataProducts/EarthOrientationData/eop.html)上查询得到观测时刻的闰秒和极移数据：
+从[IERS](https://www.iers.org/IERS/EN/DataProducts/EarthOrientationData/eop.html)上提供的 [Leap second announcements in UTC](https://datacenter.iers.org/data/latestVersion/bulletinC.txt) 和 Daily EOP data files: finals.daily(IAU2000) 查询得到观测时刻的闰秒和极移数据：
 
-todo
+| 参数 | 值 |
+|:--:|:--:|
+|`leaps`|`37 s`|
+|`UT1-UTC`|`0.0298409 s`|
+|`PM-x`|`0.085858 arcsec`|
+|`PM-y`|`0.414835 arcsec`|
 
 然后编写 `fortran` 脚本调用 NOVAS 程序计算天体的地心视坐标，站心坐标和地平坐标：`t1.f90`
 ```f90
@@ -157,10 +158,10 @@ program t1
     month = 5
     day = 1
     call dms_to_deg(23, 15, 43.55D0, hour)
-    leaps = 0
-    UT1UTC = 0
-    XP = 0
-    YP = 0
+    leaps = 37
+    UT1UTC = 0.0298409
+    XP = 0.085858
+    YP = 0.414835
 
     ! set up
     call HIACC
@@ -256,16 +257,16 @@ $ ./t1
  the horizontal coordinate
  (zenith distance, azimuth):
  ZD(deg)          | AZ(deg)
- 75.595088        | 96.431846
+ 75.595002        | 96.431802
  -------------------------------------
 ```
 
 ::: info 结论
-1. 该天体的地心视位置（赤经，赤纬）为 $()$
+1. 该天体的地心视位置（赤经，赤纬）为 $(14^h35^m40^s.065,-12^\circ37'43''.386)$
 
-2. 该天体的站心位置（赤经，赤纬）为 $()$
+2. 该天体的站心位置（赤经，赤纬）为 $(14^h35^m40^s.068,-12^\circ37'43''.326)$
 
-地平坐标（天顶距，方位角）为 $()$
+地平坐标（天顶距，方位角）为 $(75^\circ.595002,96^\circ.431802)$
 
 3. 若利用 CSST 观测，还需要知道 CSST 在真赤道系下的坐标 `(X,Y,Z)` 和速度 `(X-dot,Y-dot,Z-dot)`
 :::
@@ -308,10 +309,10 @@ program t2
     month = 5
     day = 1
     call dms_to_deg(23, 15, 43.55D0, hour)
-    leaps = 0
-    UT1UTC = 0
-    xp = 0
-    yp = 0
+    leaps = 37
+    UT1UTC = 0.0298409
+    XP = 0.085858
+    YP = 0.414835
 
     ! set up
     call HIACC
@@ -406,14 +407,14 @@ $ ./t2
  -------------------------------------------------
  the apparent place:
  Object    | RA               | Dec
- MOON      |   6h 42m 25.818s |  28deg  6' 49.517"
- MERCURY   |   1h  6m 31.216s |   3deg 58'  7.692"
- VENUS     |   0h  1m  6.570s |   1deg  8' 39.238"
- MARS      |   8h 35m 44.907s |  20deg 40' 36.079"
- JUPITER   |   5h 23m 20.270s |  22deg 56'  5.121"
- SATURN    |  23h 55m 39.098s |  -2deg 39' 19.141"
- URANUS    |   3h 36m 27.529s |  19deg  7' 55.563"
- NEPTUNE   |   0h  6m  9.785s |   0deg-43'-27.540"
+ MOON      |   6h 42m 27.439s |  28deg  6' 47.500"
+ MERCURY   |   1h  6m 31.348s |   3deg 58'  8.533"
+ VENUS     |   0h  1m  6.631s |   1deg  8' 39.369"
+ MARS      |   8h 35m 44.956s |  20deg 40' 35.872"
+ JUPITER   |   5h 23m 20.292s |  22deg 56'  5.144"
+ SATURN    |  23h 55m 39.108s |  -2deg 39' 19.084"
+ URANUS    |   3h 36m 27.535s |  19deg  7' 55.584"
+ NEPTUNE   |   0h  6m  9.788s |   0deg-43'-27.522"
  -------------------------------------------------
  -------------------------------------------------
  Q2: the topocentric place and the
@@ -421,26 +422,26 @@ $ ./t2
  -------------------------------------------------
  the topocentric place:
  Object    | RA               | Dec
- MOON      |   6h 42m 37.888s |  27deg 13' 23.016"
- MERCURY   |   1h  6m 31.673s |   3deg 58'  2.278"
- VENUS     |   0h  1m  7.538s |   1deg  8' 27.616"
- MARS      |   8h 35m 44.745s |  20deg 40' 31.020"
- JUPITER   |   5h 23m 20.287s |  22deg 56'  3.806"
- SATURN    |  23h 55m 39.146s |  -2deg 39' 19.665"
- URANUS    |   3h 36m 27.536s |  19deg  7' 55.179"
- NEPTUNE   |   0h  6m  9.803s |   0deg-43'-27.715"
+ MOON      |   6h 42m 39.485s |  27deg 13' 21.027"
+ MERCURY   |   1h  6m 31.805s |   3deg 58'  3.118"
+ VENUS     |   0h  1m  7.600s |   1deg  8' 27.747"
+ MARS      |   8h 35m 44.794s |  20deg 40' 30.813"
+ JUPITER   |   5h 23m 20.309s |  22deg 56'  3.829"
+ SATURN    |  23h 55m 39.155s |  -2deg 39' 19.607"
+ URANUS    |   3h 36m 27.542s |  19deg  7' 55.200"
+ NEPTUNE   |   0h  6m  9.806s |   0deg-43'-27.697"
  -------------------------------------------------
  the horizontal coordinate
  (zenith distance, azimuth):
  Object    | ZD(deg)       | AZ(deg)
- MOON      | 114.374308    |   3.224415
- MERCURY   |  89.353450    |  85.232680
- VENUS     |  78.541909    |  97.681073
- MARS      | 116.508547    | 333.803576
- JUPITER   | 115.006312    |  23.523540
- SATURN    |  79.883993    | 101.552501
- URANUS    | 105.940974    |  48.675129
- NEPTUNE   |  80.684485    |  98.347956
+ MOON      | 114.375251    |   3.218055
+ MERCURY   |  89.353599    |  85.232191
+ VENUS     |  78.541941    |  97.680899
+ MARS      | 116.508683    | 333.803427
+ JUPITER   | 115.006380    |  23.523559
+ SATURN    |  79.883865    | 101.552485
+ URANUS    | 105.940956    |  48.675189
+ NEPTUNE   |  80.684348    |  98.347967
  -------------------------------------------------
 ```
 
@@ -449,15 +450,17 @@ $ ./t2
 
 |天体|地心视位置|站心坐标|地平坐标|
 |:--:|:--:|:--:|:--:|
-|月球|
-|水星|
-|金星|
-|火星|
-|木星|
-|土星|
-|天王星|
-|海王星|
+|月球|$(6^h42^m27^s.439,$<br>$28^\circ6'47''.500)$|$(6^h42^m39^s.485,$<br>$27^\circ13'21''.027)$|$(114.375251^\circ,3.218055^\circ)$|
+|水星|$(1^h6^m31^s.348,$<br>$3^\circ58'8''.533)$|$(1^h6^m31^s.805,$<br>$3^\circ58'3''.118)$|$(89.353599^\circ,85.232191^\circ)$|
+|金星|$(0^h1^m6^s.631,$<br>$1^\circ8'39''.369)$|$(0^h1^m7^s.600,$<br>$1^\circ8'27''.747)$|$(78.541941^\circ,97.680899^\circ)$|
+|火星|$(8^h35^m44^s.956,$<br>$20^\circ40'35''.872)$|$(8^h35^m44^s.794,$<br>$20^\circ40'30''.813)$|$(116.508683^\circ,333.803427^\circ)$|
+|木星|$(5^h23^m20^s.292,$<br>$22^\circ56'5''.144)$|$(5^h23^m20^s.309,$<br>$22^\circ56'3''.829)$|$(115.006380^\circ,23.523559^\circ)$|
+|土星|$(23^h55^m39^s.108,$<br>$-2^\circ39'19''.084)$|$(23^h55^m39^s.155,$<br>$-2^\circ39'19''.607)$|$(79.883865^\circ,101.552485^\circ)$|
+|天王星|$(3^h36^m27^s.535,$<br>$19^\circ7'55''.584)$|$(3^h36^m27^s.542,$<br>$19^\circ7'55''.200)$|$(105.940956^\circ,48.675189^\circ)$|
+|海王星|$(0^h6^m9^s.788,$<br>$-0^\circ43'27''.522)$|$(0^h6^m9^s.806,$<br>$-0^\circ43'27''.697)$|$(80.684348^\circ,98.347967^\circ)$|
 
 只有天顶距 $\mathrm{ZD}<90^\circ$ 的天体才能观测到，即只有以下天体可观测：
+
+水星、金星、土星和海王星。
 :::
 

@@ -505,3 +505,16 @@ $$
 周年光行差导致天体沿 $\overset{\frown}{\sigma A}$ 大圆朝点 $A$ 位移，位移量为 $\overset{\frown}{\sigma\sigma'}=K''\sin\overset{\frown}{\sigma A}$
 ![周年光行差](./measurement_fig/5-12.png)
 
+### 恒星自行
+
+赤经自行 $\mu_\alpha$
+
+赤纬自行 $\mu_\delta$
+
+## 从星表到视位置的计算
+
+天体测量变换链：
+![天体测量变换链](./measurement_fig/6-1.png)
+
+具体的坐标变换有现成的程序包 NOVAS 可供使用，可查看[实践2](/hw/astro_meansure/lab2)
+
