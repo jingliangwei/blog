@@ -30,7 +30,7 @@ https://ascl.net/assets/codes/NOVAS/novasf3.1.zip)
 2. 设置时间参数并计算各个时标下的时间
 ```f90
     call JULDAT(year, month, day, hour, UTCJD)
-    TTJD = UTCJD + ( LEAPS + 32.184D0 ) / 86400.D0
+    TTJD = UTCJD + ( leaps + 32.184D0 ) / 86400.D0
     UT1JD = UTCJD + UT1UTC / 86400.D0
     DeltaT = 32.184D0 + leaps - UT1UTC
     call SETDT(DeltaT)
@@ -233,11 +233,11 @@ end program
 ### 结论
 
 在终端编译
-```sh
+```sh:no-line-numbers
 gfortran t1.f90 deg-dmg.f90 jplsubs.f NOVAS_F3.1.f NOVAS_F3.1_solsys2.f -o t1
 ```
 运行得到结果如下
-```sh
+```sh:no-line-numbers
 $ ./t1
  -------------------------------------
  Q1: the apparent place of star
@@ -396,11 +396,11 @@ end program
 ### 结论
 
 在终端编译
-```sh
+```sh:no-line-numbers
 gfortran t2.f90 deg-dmg.f90 jplsubs.f NOVAS_F3.1.f NOVAS_F3.1_solsys2.f -o t2
 ```
 运行得到结果如下
-```sh
+```sh:no-line-numbers
 $ ./t2
  -------------------------------------------------
  Q1: the apparent place of objects.
