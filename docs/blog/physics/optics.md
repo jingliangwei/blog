@@ -517,3 +517,104 @@ $$
 
 其中 $k=\dfrac{2h}{\lambda}$ 为中央区域干涉级。
 
+## 衍射光栅
+
+光栅：有周期性的空间结构或光学性能的衍射屏。
+
+![光栅](./optics_fig/4-1.png)
+
+### 多缝夫琅和费衍射
+
+1. 实验装置和现象
+
+![实验装置](./optics_fig/4-2.png)
+
+![光强分布](./optics_fig/4-3.png)
+
+2. $N$ 缝衍射的光强分布
+
+$$
+I_\theta=a_0^2\left(\frac{\sin\alpha}{\alpha}\right)^2\left(\frac{\sin N\beta}{\sin\beta}\right)^2,\quad\alpha=\frac{\pi a}{\lambda}\sin\theta,\beta=\frac{\pi d}{\lambda}\sin\theta
+$$
+
+- 单缝衍射因子 $\sin\alpha/\alpha$
+- 缝间干涉因子 $\sin N\beta/\sin\beta$
+
+![参数](./optics_fig/4-4.png)
+
+3. 缝间干涉因子
+
+- 主极强
+
+$$
+\sin\theta=k\frac{\lambda}{d}
+$$
+
+- 零点位置
+
+$$
+\sin\theta=\left(k+\frac{m}{N}\right)\frac{\lambda}{d}
+$$
+其中，$k=0,\pm1,\pm2,...;m=1,...,N-1$
+
+- 主极强半角宽度
+
+$$
+\Delta\theta=\frac{\lambda}{Nd\cdot\cos\theta_k}
+$$
+
+![缝间干涉因子](./optics_fig/4-5.png)
+
+4. 单缝衍射因子
+
+![单缝衍射因子作用](./optics_fig/4-6.png)
+
+### 光栅光谱仪
+
+1. 分光原理
+
+光栅公式： $\sin\theta=k\dfrac{\lambda}{d}$
+
+![分光原理](./optics_fig/4-7.png)
+
+2. 光栅的色散本领和色分辨本领
+
+- 色散本领：
+
+角色散本领 $D_\theta\equiv\dfrac{\delta\theta}{\delta\lambda}$
+
+线色散本领 $D_l\equiv\dfrac{\delta l}{\delta\lambda}$
+
+记光栅后凸透镜的焦距为 $f$ ，则有关系 $D_l=fD_\theta$
+
+对于光栅常数 $d$ 的光栅有：
+$$
+D_\theta=\frac{k}{d\cdot\cos\theta_k},\quad D_l=\frac{kf}{d\cdot\cos\theta_k}
+$$
+
+- 色分辨本领：
+
+瑞利判据 $\Delta\theta=\delta\theta$
+
+![瑞利判据](./optics_fig/4-8.png)
+
+色分辨本领 $R\equiv\dfrac{\lambda}{\delta\lambda}=kN$
+
+3. 量程与自由光谱范围
+
+量程 $\lambda_{max}<d$
+
+自由光谱范围 $\lambda_{min}>\lambda_{max}/2$ （对一级光谱来说）
+
+4. 闪耀光栅
+
+闪耀角 $\theta_b=<\boldsymbol{n},\boldsymbol{N}>$
+
+![闪耀光栅](./optics_fig/4-9.png)
+
+取 1 级闪耀波长 $\lambda_{1b}=2d\sin\theta_b$ 有：
+
+![1级闪耀](./optics_fig/4-10.png)
+
+同样的，取 2 级闪耀波长 $2\lambda_{2b}=2d\sin\theta_b$
+
