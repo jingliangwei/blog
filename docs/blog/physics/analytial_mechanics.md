@@ -524,6 +524,66 @@ $$
 x=(c_1+c_2t)e^{-\mu t}
 $$
 
+### 受迫阻尼振动
+
+受外力 $F(t)$ 和阻尼的弹簧振子，由拉格朗日方程有
+
+$$
+\ddot{x}+2\mu\dot{x}+\omega^2 x=\frac{F}{m}
+$$
+
+当 $F=f\cos(\gamma t+\beta)$ 时其解为
+
+$$
+x=Ce^{-\mu t}\cos(\sqrt{\omega^2-\mu^2}t+\varphi)+b\cos(\gamma t+\beta+\delta)
+$$
+其中
+$$
+b=\frac{f/m}{\sqrt{(\omega^2-\gamma^2)^2+4\mu^2\gamma^2}}
+$$
+
+1. 当 $\gamma=\sqrt{\omega^2-2\mu^2}$ 时，$b_{max}=\dfrac{f/m}{2\mu\sqrt{\omega^2-\mu^2}}$
+
+2. 当 $\gamma=\omega$ 时，$b=\dfrac{f/m}{2\mu\gamma}\neq+\infty$
+
+3. 当 $\gamma\approx\omega$ 时，记 $\gamma=\omega+\varepsilon(\varepsilon\ll\omega)$ ，$b=\dfrac{f/m}{2\omega\sqrt{\mu^2+\varepsilon^2}}$
+
+### 快速变化力场中的运动
+
+质点在势场 $U(x)$ 中做平缓运动，受到一个变化快的外力 $F(x,t)$
+
+当外力 $F(x,t)=f(x)\cos(\gamma t)$ ，由拉格朗日方程有
+
+$$
+m\ddot{x}=-\frac{\mathrm{d}U}{\mathrm{d}x}+f(x)\cos(\gamma t)
+$$
+
+把质点的运动分解为平缓项和快速项 $x(t)=X(t)+\xi(t)$
+
+解得
+$$
+\xi=-\frac{f(x)}{m\gamma^2}\cos\gamma t
+$$
+$$
+m\ddot{X}=-\frac{\mathrm{d}U_{eff}}{\mathrm{d}X}
+$$
+其中 $U_{eff}=U+\langle\frac{1}{2}m\dot{\xi}^2\rangle$
+
+## 刚体运动
+
+### 基本概念
+
+运动速度分解：质心平动+相对质心转动
+$$
+\vec{v}=\vec{V}+\vec{\Omega}\times\vec{r}
+$$
+
+### 角动量和转动惯量
+
+- 角动量 $\displaystyle\vec{M}=\int \vec{r}\times(\rho\mathrm{d}V\cdot\vec{v}) = [\boldsymbol{I}]\vec{\Omega}$
+
+- 转动惯量 $\displaystyle[\boldsymbol{I}]=I_{ij}=\int\rho(r^2\delta_{ij}-x_ix_j)\mathrm{d}V=\int\rho\left[\begin{array}{ccc}y^2+z^2&-xy&-xz \\ -xy&x^2+z^2&-yz \\ -xz&-yz&x^2+y^2 \end{array}\right]\mathrm{d}V$
+
 ---
 
 ## 习题

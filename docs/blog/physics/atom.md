@@ -298,26 +298,26 @@ $$
 #### 可观测量的平均值
 
 $$
-<\vec{r}>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot\vec{r}\cdot\Psi(\vec{r},t)\mathrm{d}\tau
+\langle \vec{r}\rangle =\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot\vec{r}\cdot\Psi(\vec{r},t)\mathrm{d}\tau
 $$
 $$
-<V(\vec{r})>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot V(\vec{r})\cdot\Psi(\vec{r},t)\mathrm{d}\tau
+\langle V(\vec{r})\rangle =\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot V(\vec{r})\cdot\Psi(\vec{r},t)\mathrm{d}\tau
 $$
 $$
-<\vec{p}>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot(-i\hbar\nabla)\cdot\Psi(\vec{r},t)\mathrm{d}\tau
+\langle \vec{p}\rangle =\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot(-i\hbar\nabla)\cdot\Psi(\vec{r},t)\mathrm{d}\tau
 $$
 $$
-<E_k>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot(-\frac{\hbar^2}{2m}\nabla^2)\cdot\Psi(\vec{r},t)\mathrm{d}\tau
+\langle E_k\rangle =\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot(-\frac{\hbar^2}{2m}\nabla^2)\cdot\Psi(\vec{r},t)\mathrm{d}\tau
 $$
 $$
-<E>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot[-\frac{\hbar^2}{2m}\nabla^2+V(\vec{r})]\cdot\Psi(\vec{r},t)\mathrm{d}\tau
+\langle E\rangle =\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot[-\frac{\hbar^2}{2m}\nabla^2+V(\vec{r})]\cdot\Psi(\vec{r},t)\mathrm{d}\tau
 $$
 
 #### 可观测量算符表示
 
 对任何一个可观测量 $A$ 的平均值
 $$
-<A>=\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot[\hat{A}\cdot\Psi(\vec{r},t)]\mathrm{d}\tau
+\langle A\rangle =\iiint_{-\infty}^{+\infty}\Psi^*(\vec{r},t)\cdot[\hat{A}\cdot\Psi(\vec{r},t)]\mathrm{d}\tau
 $$
 其中 $\mathrm{d}\tau=\mathrm{d}x\mathrm{d}y\mathrm{d}z$ ，$\hat{A}$ 称为可观测量 $A$ 的算符。
 
@@ -359,7 +359,7 @@ $$
 若两个力学量 $p$ 与 $q$ 不对易，则 $p$ 与 $q$ 不能同时具有确定的值。
 设 $p$ 与 $q$ 的不确定度（标准差或均方根）为 $\Delta p$ 与 $\Delta q$ ，则它们满足
 $$
-\Delta p\cdot\Delta q\ge\frac{1}{2}|<[\hat{p},\hat{q}]>|
+\Delta p\cdot\Delta q\ge\frac{1}{2}|\langle[\hat{p},\hat{q}]\rangle|
 $$
 
 #### 位置动量不确定关系
