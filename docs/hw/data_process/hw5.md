@@ -12,7 +12,7 @@ next: false
 对自己选取的数据序列通过傅里叶变化进行频谱分析，并结合第一次作业讨论
 :::
 
-在 [作业一](/hw/data-process/hw1) 中，我
+在 [作业一](/hw/data_process/hw1) 中，我
 从 [aavso](https://www.aavso.org/data-download) 下载第一颗已知的周期变星 Mira(OMI CET) 的数据`aavsodata_67e13c77f382d.txt`。
 
 并编写了脚本 `read_preprocessing.py` 进行读取数据，预处理：
