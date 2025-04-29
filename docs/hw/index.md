@@ -19,6 +19,7 @@ next: false
 - [作业2(构造时间序列，最小二乘法，曲线拟合)](/hw/data_process/hw2)
 - [作业3(曲线拟合，滑动平均)](/hw/data_process/hw3)
 - [作业4(指数平滑，傅里叶变换)](/hw/data_process/hw4)
+- [作业5(频谱分析，功率谱估计)](/hw/data_process/hw5)
 
 ## 天体测量基础
 
