@@ -584,6 +584,76 @@ $$
 
 - 转动惯量 $\displaystyle[\boldsymbol{I}]=I_{ij}=\int\rho(r^2\delta_{ij}-x_ix_j)\mathrm{d}V=\int\rho\left[\begin{array}{ccc}y^2+z^2&-xy&-xz \\ -xy&x^2+z^2&-yz \\ -xz&-yz&x^2+y^2 \end{array}\right]\mathrm{d}V$
 
+### 动能和转动惯量
+
+- 动能 (刚体质量 $\mu$、平动速度 $\vec{V}$、转动角速度 $\vec{\Omega}$、转动惯量 $\boldsymbol{I}$)
+$$
+\begin{align}
+T&=\frac{1}{2}\mu|\vec{V}|^2+\frac{1}{2}\vec{\Omega}\cdot[\boldsymbol{I}]\cdot\vec{\Omega} \\
+&=\frac{1}{2}\mu|\vec{V}|^2+\frac{1}{2}\sum_{i}\sum_{j}I_{ij}\Omega_i\Omega_j
+\end{align}
+$$
+
+### 惯量主轴和主转动惯量
+
+将转动惯量 $\boldsymbol{I}$ 对角化，其三个特征值 $I_1,I_2,I_3$ 及其对应的特征向量 $\boldsymbol{X}_1,\boldsymbol{X}_2,\boldsymbol{X}_3$
+
+- 惯量主轴 $\boldsymbol{X}_1,\boldsymbol{X}_2,\boldsymbol{X}_3$
+- 主转动惯量 $I_1,I_2,I_3$
+
+刚体角动量 $\vec{M}=[\boldsymbol{I}]\vec{\Omega}=\left[\begin{array}{c}I_1\Omega_1 \\I_2\Omega_2 \\I_3\Omega_3\end{array}\right]$
+只有在 $I_1=I_2=I_3$ 或者 $\vec{\Omega}$ 在主轴上时， $\vec{M}$ 与 $\vec{\Omega}$ 平行。
+
+记质心 $O$ 对应转动惯量 $\boldsymbol{I}$ ，在质心外一点 $O'$ ($\overrightarrow{OO'}=\vec{a}$) 对应转动惯量 $\boldsymbol{I}'$
+$$
+I_{ij}'=I_{ij}+\mu(a^2\delta_{ij}-a_ia_j)
+$$
+
+### 刚体运动方程
+
+刚体拉格朗日量 $\displaystyle L=\frac{1}{2}\mu|\vec{V}|^2+\frac{1}{2}\sum_i\sum_jI_{ij}\Omega_i\Omega_j-U$
+
+势能 $U=U(\vec{R},\vec{\varphi})$
+
+平动方程：
+$$
+\frac{\partial L}{\partial \vec{V}}=\vec{p}
+$$
+$$
+\frac{\partial U}{\partial \vec{R}}=-\vec{F}
+$$
+$$
+\dot{\vec{p}}=\vec{F}
+$$
+转动方程：
+$$
+\frac{\partial L}{\partial \vec{\Omega}}=\vec{M}
+$$
+$$
+\frac{\partial U}{\partial \vec{\varphi}}=-\vec{K}\quad (torque)
+$$
+$$
+\dot{\vec{M}}=\vec{K}
+$$
+
+### 刚体运动欧拉方程
+
+在刚体系中，取惯量主轴为坐标轴，有欧拉方程：
+$$
+\begin{array}{l}
+\left\{\begin{array}{l}
+\displaystyle\mu\left(\frac{\mathrm{d}V_1}{\mathrm{d}t}+\Omega_2V_3-\Omega_3V_2\right)=F_1 \\
+\displaystyle\mu\left(\frac{\mathrm{d}V_2}{\mathrm{d}t}+\Omega_3V_1-\Omega_1V_3\right)=F_2 \\
+\displaystyle\mu\left(\frac{\mathrm{d}V_3}{\mathrm{d}t}+\Omega_1V_2-\Omega_2V_1\right)=F_3
+\end{array}\right. \\
+\left\{\begin{array}{l}
+\displaystyle I_1\frac{\mathrm{d}\Omega_1}{\mathrm{d}t}+(I_3-I_2)\Omega_2\Omega_3=K_1 \\
+\displaystyle I_2\frac{\mathrm{d}\Omega_2}{\mathrm{d}t}+(I_1-I_3)\Omega_1\Omega_3=K_2 \\
+\displaystyle I_3\frac{\mathrm{d}\Omega_3}{\mathrm{d}t}+(I_2-I_1)\Omega_1\Omega_2=K_3 \\
+\end{array}\right.
+\end{array}
+$$
+
 ---
 
 ## 习题
