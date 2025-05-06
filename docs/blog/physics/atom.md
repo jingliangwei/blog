@@ -731,3 +731,68 @@ $$
 
 ![实验](./atom_fig/3-5.png)
 
+### 电子的自旋
+
+- 自旋角动量量子数 $s=1/2$
+- 自旋角动量 $\vec{p}_z=\sqrt{s(s+1)}\hbar=\dfrac{\sqrt{3}}{2}\hbar$
+- 自旋角动量 $z$ 向分量 $p_{sz}=m_s\hbar,m_s=s,s-1,...,-s$ 即 $p_{sz}=\pm\dfrac{1}{2}\hbar$
+
+![自旋角动量](./atom_fig/3-6.png)
+
+- 自旋磁矩 $\mu_s=-2\cdot\dfrac{e}{2m_e}p_s=-\sqrt{3}\hbar$
+- 自旋磁矩 $z$ 向分量 $\mu_{sz}=-2m_s\mu_B=\pm\mu_B$
+
+为了使同一粒子的各种角动量对应的磁矩在形式上一致，引入 g 因子（ g-factor ）
+$$
+\left\{\begin{array}{l}
+\displaystyle \vec{\mu}_j=-g_j\frac{e}{2m_e}\vec{p}_j=-g_j\frac{\mu_B}{\hbar}\vec{p}_j \\
+\displaystyle \mu_j=-g_j\sqrt{j(j+1)}\mu_B \\
+\displaystyle \mu_{jz}=-g_jm_j\mu_B
+\end{array}\right.
+$$
+其中，$j$ 是角动量 $\vec{p}_j$ 的量子数，可以为整数或半整数； $m_j$ 是其磁量子数， $m_j=j,j-1,...,-j$
+
+完全确定电子的状态需要 4 个量子数 $(n,l,m_l,m_s)$
+
+### 自旋-轨道相互作用
+
+- 角动量合成：
+
+对于两个角动量
+$$
+\begin{array}{c}
+\left\{\begin{array}{l}
+p_{j1}=\sqrt{j_1(j_1+1)}\hbar \\
+p_{j1z}=m_{j1}\hbar
+\end{array}\right.,\quad\left\{\begin{array}{l}
+p_{j2}=\sqrt{j_2(j_2+1)}\hbar \\
+p_{j2z}=m_{j2}\hbar
+\end{array}\right. \\
+m_{j1}=j_1,j_1-1,...,-j_1;\quad m_{j2}=j_2,j_2-1,...,-j_2 \\
+\end{array}
+$$
+合成的角动量 $\vec{p}_j$ 为
+$$
+\left\{\begin{array}{l}
+p_j=\sqrt{j(j+1)}\hbar \\
+p_{jz}=m_j\hbar
+\end{array}\right.,\quad \begin{array}{l}
+j=j_1+j_2,j_1+j_2-1,...,|j_1-j_2| \\
+m_j=j,j-1,...,-j
+\end{array}
+$$
+
+其中 $j$ 有 $2min(j_1,j_2)+1$ 种取值，当 $j=j_1+j_2$ 时，称角动量 $\vec{p}_{j1},\vec{p}_{j2}$ 平行；当 $j=|j_1-j_2|$ 时，称角动量 $\vec{p}_{j1},\vec{p}_{j2}$ 反平行。
+
+- 单电子原子的总角动量就是其价电子的总角动量
+$$
+p_j=\sqrt{j(j+1)}\hbar,\quad p_{jz}=m_j\hbar
+$$
+$$
+j=l+\frac{1}{2},|l-\frac{1}{2}|;\quad m_j=j,j-1,...,-j
+$$
+
+- 好量子数：在量子力学中，量子数是标记力学量本征值的指标。若该力学量是守恒量，那么对应的量子数就称为好量子数。
+
+考虑自旋-轨道相互作用后的单电子原子，有 7 个量子数 $(n,l,m_l,s,m_s,j,m_j)$ ，其中好量子数 $(n,l,j,m_j)$
+
