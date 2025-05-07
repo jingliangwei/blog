@@ -120,6 +120,8 @@ $$
 
 ![各种时间系统与TAI之差](./measurement_fig/2-2.png)
 
+其中闰秒的具体值可以在 [IERS(International Earth Rotation and Reference Systems Service)](https://www.iers.org/IERS/EN/Home/home_node.html) 上查到。
+
 ### 时间系统
 
 | 符号 | 秒长 | 时刻 | 用途 |
@@ -190,6 +192,12 @@ J1989.0 对应1989年1月0.75日TDB
 2. 太阳系质心天球参考系 BCRS(barycentric celestial reference system)
 3. 地球质心天球参考系 GCRS(geocentric celestial reference system) ：把坐标原点平移到地球质心（在广义相对论下要考虑测地岁差的微小转动）
 
+::: info 行星历表
+- 美国 DE40X,DE42X,DE43X
+- 俄罗斯 EPM2008,EPM2010
+- 法国 INPOP(06,08,10a)
+:::
+
 ### 地球参考系
 
 1. 国际地球参考系 ITRS(international terrestrial reference system) ：基于ITRF实现
@@ -199,7 +207,7 @@ J1989.0 对应1989年1月0.75日TDB
 - 参心地固坐标系
 - 地心地固坐标系
 
-3. WGS-84大地坐标系 （以地球质心为原点的地固坐标系）
+3. WGS-84大地坐标系 (World Geodetic System -- 1984 Coordinate System) （以地球质心为原点的地固坐标系）
 - 坐标参数：测地经纬度 $L,B$ 和大地高 $H$
 
 ![坐标](./measurement_fig/2.png)
@@ -228,6 +236,23 @@ J1989.0 对应1989年1月0.75日TDB
 ![总岁差](./measurement_fig/5.png)
 
 $\Upsilon_0$ 沿黄道西移 $\psi'$ 到 $\Upsilon'$ ，再沿赤道东移 $\lambda'$ 到 $\Upsilon$
+
+- 经典岁差章动变换
+
+![岁差变换](./measurement_fig/9.png)
+
+$$
+\left[\begin{array}{c} x\\ y\\ z\end{array}\right]_{\alpha\delta}=\boldsymbol{R}_z(-Z_A)\boldsymbol{R}_y(\theta_A)\boldsymbol{R}_z(-\zeta_A)\left[\begin{array}{c} x\\ y\\ z\end{array}\right]_{\alpha_0\delta_0}
+$$
+
+岁差矩阵 $\displaystyle\boldsymbol{P}(t)=\boldsymbol{R}_z(-Z_A)\boldsymbol{R}_y(\theta_A)\boldsymbol{R}_z(-\zeta_A)$
+
+![章动变换](./measurement_fig/10.png)
+
+章动矩阵
+$$
+\boldsymbol{N}(t)=\boldsymbol{R}_1(-\varepsilon_A)\boldsymbol{R}_3(\Delta\psi)\boldsymbol{R}_1(\varepsilon_A+\Delta\varepsilon)
+$$
 
 ### 两个坐标系
 
@@ -517,4 +542,23 @@ $$
 ![天体测量变换链](./measurement_fig/6-1.png)
 
 具体的坐标变换有现成的程序包 NOVAS 可供使用，可查看[实践2](/hw/astro_meansure/lab2)
+
+## 附录：部分名词中英文对照
+
+| 中文 | 英文 |
+|:---:|:---:|
+|国际地球自转和参考系服务|IERS(International Eatrh Rotation and Reference Systems Service)|
+|地球定向参数|EOP(Earth Orientation Parameters)|
+|国际天球参考系|ICRS(International Celestial Reference System)|
+|太阳系质心天球参考系|BCRS(Barycentric Celestial Reference System)|
+|地球质心天球参考系|GCRS(Geocentric Celestial Reference System)|
+|国际地球参考系|ITRS(International Terrestrial Reference System)|
+|1984年世界大地坐标系|WGS-84(World Geodetic System - 1984 Coordinate System)|
+|站心位置|topocentric position|
+|视位置|apparent position|
+|大气折射|atmospheric refraction|
+|周日视差|diurnal parallax|
+|周年视差|annual parallax|
+|光行差|aberration|
+|自行|proper motion|
 
