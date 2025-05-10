@@ -756,7 +756,7 @@ $$
 
 ### 自旋-轨道相互作用
 
-- 角动量合成：
+#### 角动量合成
 
 对于两个角动量
 $$
@@ -784,6 +784,8 @@ $$
 
 其中 $j$ 有 $2min(j_1,j_2)+1$ 种取值，当 $j=j_1+j_2$ 时，称角动量 $\vec{p}_{j1},\vec{p}_{j2}$ 平行；当 $j=|j_1-j_2|$ 时，称角动量 $\vec{p}_{j1},\vec{p}_{j2}$ 反平行。
 
+#### 单电子原子的总角动量
+
 - 单电子原子的总角动量就是其价电子的总角动量
 $$
 p_j=\sqrt{j(j+1)}\hbar,\quad p_{jz}=m_j\hbar
@@ -795,4 +797,50 @@ $$
 - 好量子数：在量子力学中，量子数是标记力学量本征值的指标。若该力学量是守恒量，那么对应的量子数就称为好量子数。
 
 考虑自旋-轨道相互作用后的单电子原子，有 7 个量子数 $(n,l,m_l,s,m_s,j,m_j)$ ，其中好量子数 $(n,l,j,m_j)$
+
+#### 单电子原子的总磁矩和有效磁矩
+
+- 单电子原子的总磁矩是电子轨道磁矩和自旋磁矩的矢量和
+$$
+\vec{\mu}=-\frac{\mu_B}{\hbar}(g_l\vec{p}_l+g_s\vec{p}_s)
+$$
+其中 $g_l=1,\ g_s=2$
+
+- 单电子原子有效磁矩是 $\vec{\mu}$ 在 $\vec{p}_j$ 上的分量 $\vec{\mu}_j$
+$$
+\left\{\begin{array}{l}
+\displaystyle \vec{\mu}_j=-g_j\frac{e}{2m_e}\vec{p}_j=-g_j\frac{\mu_B}{\hbar}\vec{p}_j \\
+\displaystyle \mu_j=-g_j\sqrt{j(j+1)}\mu_B \\
+\displaystyle \mu_{jz}=-g_jm_j\mu_B
+\end{array}\right.
+$$
+
+其中 $\displaystyle j=l+\frac{1}{2},|l-\frac{1}{2}|;$ $m_j=j,j-1,...,-j;$ $g_j=1+\dfrac{j(j+1)+s(s+1)-l(l+1)}{2j(j+1)}$
+
+#### 自旋-轨道耦合能
+
+$$
+\Delta E_{l,s}=\frac{1}{4\pi\varepsilon_0}\frac{Z^*e^2}{2m_e^2c^2r^3}\vec{p}_s\vec{p}_l
+$$
+
+$$
+\langle\Delta E_{l,s}\rangle=-E_{n,l}\alpha^2\frac{Z^{*2}}{n}\frac{j(j+1)-s(s+1)-l(l+1)}{2l(l+\dfrac{1}{2})(l+1)}
+$$
+
+### 光谱的精细结构
+
+1. 粗结构 (gross structure) ：只考虑电相互作用，忽略磁作用和相对论效应
+2. 精细结构 (fine structure) ：考虑自旋-轨道相互作用
+3. 超精细结构 (hyperfine structure) ：核自旋-电子耦合
+
+#### 碱金属原子光谱精细结构
+
+1. 粗结构 $E_{n,l}=-\dfrac{RhcZ^{*2}}{n^2}=-\dfrac{Rhc}{(n-\Delta_{n,l})^2}=...$
+
+2. 精细结构 $\displaystyle\langle\Delta E_{l,s}\rangle=-E_{n,l}\alpha^2\frac{Z^{*2}}{n}\frac{j(j+1)-s(s+1)-l(l+1)}{2l(l+\dfrac{1}{2})(l+1)}$
+
+- 精细结构的裂距 $\delta E=\Delta E_{j=l+1/2}+|\Delta E_{j=l-1/2}|=\dfrac{Rhc\alpha^2Z^{*4}}{n^3l(l+1)}$
+
+- 电子态符号 $nl_j$ 或 $n^{2s+1}l_j$
+- 原子态符号 $^{2S+1}L_J$
 
