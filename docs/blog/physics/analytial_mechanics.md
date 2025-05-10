@@ -654,6 +654,125 @@ $$
 \end{array}
 $$
 
+### 定轴/定点转动、欧拉角
+
+1. 定轴转动
+
+![定轴转动](./analytial_mechanics_fig/5-1.png)
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}(I\vec{\Omega})=\vec{K}
+$$
+
+2. 定点转动
+
+![定点转动](./analytial_mechanics_fig/5-2.png)
+
+等价于 3 次定轴转动
+$$
+\left\{\begin{array}{cc}
+\varphi & \text{进动角} \\
+\theta & \text{章动角} \\
+\psi & \text{自转角}
+\end{array}\right.
+$$
+
+在刚体系中 $\vec{\Omega}=(\Omega_1,\Omega_2,\Omega_3)$
+$$
+\left\{\begin{array}{l}
+\Omega_1=\dot{\varphi}\sin\theta\sin\psi+\dot{\theta}\cos\psi \\
+\Omega_2=\dot{\varphi}\sin\theta\cos\psi-\dot{\theta}\sin\psi \\
+\Omega_3=\dot{\varphi}\cos\theta+\dot{\psi}
+\end{array}\right.
+$$
+
+动能
+$$
+\begin{align}
+\displaystyle T&=\frac{1}{2}I_1\Omega_1^2+\frac{1}{2}I_2\Omega_2^2+\frac{1}{2}I_3\Omega_3^2 \\
+&=\frac{1}{2}I_1(\dot{\varphi}^2\sin^2\theta+\dot{\theta}^2)+\frac{1}{2}I_3(\dot{\varphi}\cos\theta+\dot{\psi})^2
+\end{align}
+$$
+
+3. 陀螺进动
+
+![陀螺进动](./analytial_mechanics_fig/5-3.png)
+
+陀螺角动量的 $z$ 向分量 $M_z=I_3\dot{\psi}\cos\theta$
+
+由于重力矩作用，章动角 $\theta\rightarrow(\theta+\mathrm{d}\theta)$ ，角动量分量 $\mathrm{d}M_z=-I_3\dot{\psi}\sin\theta\mathrm{d}\theta$
+
+由于 $z$ 向角动量守恒，需要陀螺整体绕 $z$ 轴转动提供 $I_3\dot{\psi}\sin\theta\mathrm{d}\theta$ 的角动量。
+
+### 非惯性系中的运动
+
+1. 平动
+
+记非惯性系 $(x',y',z')$ 相对惯性系 $(x,y,z)$ 有平动速度 $\vec{V}(t)$
+
+$$
+m\frac{\mathrm{d}\vec{v}'}{\mathrm{d}t}=-m\frac{\mathrm{d}\vec{V}}{\mathrm{d}t}-\frac{\partial U}{\partial \vec{r}'}
+$$
+
+其中 $\displaystyle -m\frac{\mathrm{d}\vec{V}}{\mathrm{d}t}$ 为惯性力。
+
+2. 转动
+
+记非惯性系 $(x',y',z')$ 相对惯性系 $(x,y,z)$ 有转动速度 $\vec{\Omega}$
+
+$$
+m\frac{\mathrm{d}\vec{v}'}{\mathrm{d}t}=m\vec{r}'\times\dot{\vec{\Omega}}+2m\vec{v}'\times\vec{\Omega}+m(\vec{\Omega}\times\vec{r}')\times\vec{\Omega}-\frac{\partial U}{\partial\vec{r}'}
+$$
+
+其中惯性力有 3 项：
+- $\displaystyle m\vec{r}'\times\dot{\vec{\Omega}}$ 欧拉力
+- $\displaystyle 2m\vec{r}'\times\vec{\Omega}$ 科里奥利力
+- $\displaystyle m(\vec{\Omega}\times\vec{r}')\times\vec{\Omega}$ 离心力
+
+3. 既有平动又有转动
+
+$$
+m\frac{\mathrm{d}\vec{v}'}{\mathrm{d}t}=-m\frac{\mathrm{d}\vec{V}}{\mathrm{d}t}+m\vec{r}'\times\dot{\vec{\Omega}}+2m\vec{v}'\times\vec{\Omega}+m(\vec{\Omega}\times\vec{r}')\times\vec{\Omega}-\frac{\partial U}{\partial\vec{r}'}
+$$
+
+4. 特殊情况：无平动，均匀转动
+
+$$
+m\frac{\mathrm{d}\vec{v}'}{\mathrm{d}t}=2m\vec{v}'\times\vec{\Omega}+m(\vec{\Omega}\times\vec{r}')\times\vec{\Omega}-\frac{\partial U}{\partial\vec{r}'}
+$$
+
+记惯性系下动量 $\vec{p}$ 、角动量 $\vec{M}$ 、能量 $E$ ，非惯性系下动量 $\vec{p}'$ 、角动量 $\vec{M}'$ 、能量 $E'$
+
+有
+$$
+\vec{p}=\vec{p}',\quad\vec{M}=\vec{M}',\quad E-E'=\vec{M}\cdot\vec{\Omega}
+$$
+
+5. 傅科摆
+
+![傅科摆](./analytial_mechanics_fig/5-4.png)
+
+我们不考虑离心力，不考虑 $z$ 方向 ($\theta\ll1$)，只考虑 $xy$ 平面时有
+$$
+m\frac{\mathrm{d}\vec{v}}{\mathrm{d}t}=2m\vec{v}\times\vec{\Omega}_z-\frac{\partial U}{\partial \vec{r}}
+$$
+
+其中 $\Omega_z=\Omega\sin\varphi$ ，$U=mgz\approx\dfrac{1}{2}mgl\theta^2\approx\dfrac{1}{2}mgl\sin^2\theta=\dfrac{1}{2}mgl\dfrac{x^2+y^2}{l^2}$
+
+进而有
+$$
+\left\{\begin{array}{l}
+\ddot{x}+\omega^2x=2\Omega_z\dot{y} \\
+\ddot{y}+\omega^2y=-2\Omega_z\dot{x}
+\end{array}\right.\quad(\omega^2=\frac{g}{l})
+$$
+
+记 $\xi=x+iy$ 有 $\ddot{\xi}+2i\Omega_z\dot{\xi}+\omega^2\xi=0$ 解得
+
+$$
+x+iy=\xi=e^{-i\Omega_zt}(x_0+iy_0)
+$$
+
 ---
 
 ## 习题
