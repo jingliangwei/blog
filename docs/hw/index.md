@@ -20,6 +20,7 @@ next: false
 - [作业3(曲线拟合，滑动平均)](/hw/data_process/hw3)
 - [作业4(指数平滑，傅里叶变换)](/hw/data_process/hw4)
 - [作业5(频谱分析，功率谱估计)](/hw/data_process/hw5)
+- [作业6(合作频谱分析)](/hw/data_process/hw6)
 
 ## 天体测量基础
 
