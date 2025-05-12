@@ -50,6 +50,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: 'docker命令', link: '/blog/tools/docker'},
       { text: 'yazi的使用', link: '/blog/tools/yazi'},
       { text: 'vimium的使用', link: '/blog/tools/vimium'},
+      { text: 'vscode的使用', link: '/blog/tools/vscode'},
       { text: 'wps问题解答', link: '/blog/tools/wps'}
     ]
   }

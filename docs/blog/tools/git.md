@@ -15,6 +15,10 @@ git branch <branch-name>
 git checkout <branch-name>
 git branch -d <branch-name>
 git merge <branch-name>
+
+git config --list
+git config --global user.name 'name'
+git config --global user.email 'email'
 ```
 
 版本控制详见[reset三种模式](https://zhuanlan.zhihu.com/p/647893961)
