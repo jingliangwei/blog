@@ -37,6 +37,29 @@ $$
 \right.
 $$
 
+## 天文坐标
+
+1. 地平坐标系
+![地平坐标系](./measurement_fig/11.png)
+- 方位角 $A$
+- 地平高度 $h$
+- 天顶距 $z$
+
+2. 时角坐标系
+![时角坐标系](./measurement_fig/12.png)
+- 时角 $t$
+- 赤纬 $\sigma$
+
+3. 赤道坐标系
+![赤道坐标系](./measurement_fig/13.png)
+- 赤经 $\alpha$
+- 赤纬 $\delta$
+
+4. 黄道坐标系
+![黄道坐标系](./measurement_fig/14.png)
+- 黄经 $\lambda$
+- 黄纬 $\beta$
+
 ## 时标
 
 确定时间需要两个量：
@@ -121,6 +144,12 @@ $$
 ![各种时间系统与TAI之差](./measurement_fig/2-2.png)
 
 其中闰秒的具体值可以在 [IERS(International Earth Rotation and Reference Systems Service)](https://www.iers.org/IERS/EN/Home/home_node.html) 上查到。
+
+### 地方时
+
+- 恒星时：数值上等于春分点的时角 $t_\Upsilon$ ，起算点春分点上中天
+- 真太阳时：真太阳下中天起算， $m_\odot=t_\odot+12^h$
+- 恒星时与平太阳时秋分相差 $0h$ ，春分相差 $12h$
 
 ### 时间系统
 
