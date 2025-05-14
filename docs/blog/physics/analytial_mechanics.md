@@ -35,7 +35,7 @@ $$
 \frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{\partial L}{\partial \dot{q}}\dot{q}-L \right) = 0
 $$
 
-能量 $E = \dfrac{\partial L}{\partial \dot{q}}\dot{q}-L$ 守恒
+能量 $E = \dfrac{\partial L}{\partial \dot{q}}\dot{q}-L$ 守恒（勒让德变换）
 
 ### 动量守恒
 
@@ -772,6 +772,34 @@ $$
 $$
 x+iy=\xi=e^{-i\Omega_zt}(x_0+iy_0)
 $$
+
+## 哈密顿力学
+
+### 哈密顿方程
+
+- 哈密顿量 (Hamiltonian) $H(\boldsymbol{p},\boldsymbol{q},t)=E$
+- 哈密顿方程 (Hamilton's equations) / 正则方程 (canonical equations)
+$$
+\frac{\partial H}{\partial p_i}=\dot{q}_i,\quad\frac{\partial H}{\partial q_i}=-\dot{p}_i\quad(i=1,...,s)
+$$
+
+### 泊松括号
+
+记泊松括号 (Poisson bracket)
+$$
+[f,g]=\sum_i\left(\frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q_i}-\frac{\partial f}{\partial q_i}\frac{\partial g}{\partial p_i}\right)
+$$
+
+对于函数 $f(\boldsymbol{p},\boldsymbol{q},t)$ 有 $\displaystyle\frac{\mathrm{d}f}{\mathrm{d}t}=\frac{\partial f}{\partial t}+[H,f]$
+
+性质：
+1. $[f,g]=-[g,f]$
+2. $[f,C]=0$
+3. $[f_1+f_2,g]=[f_1,g]+[f_2,g]$
+4. $\displaystyle\frac{\partial}{\partial t}[f,g]=[\frac{\partial f}{\partial t},g]+[f,\frac{\partial g}{\partial t}]$
+
+- 泊松定理：两个运动积分的泊松括号仍是运动积分
+- 哈密顿方程： $\dot{q}_i=[H,q_i],\ \dot{p}_i=[H,p_i]$
 
 ---
 
