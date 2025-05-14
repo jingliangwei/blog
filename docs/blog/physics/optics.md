@@ -618,3 +618,100 @@ $$
 
 同样的，取 2 级闪耀波长 $2\lambda_{2b}=2d\sin\theta_b$
 
+## 光在晶体中的传播
+
+### 双折射
+
+![双折射](./optics_fig/5-1.png)
+
+1. 概念
+- o光：寻常光(ordinary)
+- e光：非常光(extraordinary)
+- 光轴：o光和e光不分开的方向
+- 主截面：界面法线和光轴所成平面
+
+2. 单轴晶体中的波面
+
+![波面](./optics_fig/5-2.png)
+
+3. 惠更斯作图法
+
+![惠更斯波面](./optics_fig/5-3.png)
+
+### 晶体光学器件
+
+1. 晶体偏振器
+
+![1](./optics_fig/5-4.png)
+![2](./optics_fig/5-5.png)
+![3](./optics_fig/5-6.png)
+
+2. 波晶片——相位延迟片
+
+![波晶片](./optics_fig/5-7.png)
+
+o光相位相对e光延迟了
+$$
+\Delta=\frac{2\pi}{\lambda}(n_o-n_e)d
+$$
+
+- 四分之一波长片（ $\lambda/4$ 片） $\Delta=\pm\pi/2$
+- 二分之一波长片（ $\lambda/2$ 片） $\Delta=\pm\pi$
+- 全波片 $\Delta=2\pi$
+
+### (椭)圆偏振光的获得和检验
+
+1. 振动合成
+
+$$
+\left\{\begin{array}{l}
+E_x=A_x\cos\omega t \\
+E_y=A_y\cos(\omega t+\delta)
+\end{array}\right.
+$$
+
+![合成](./optics_fig/5-8.png)
+
+2. (椭)圆偏振光的获得
+
+![获得](./optics_fig/5-9.png)
+
+3. 偏振光的检验
+
+![检验](./optics_fig/5-10.png)
+
+### 偏振光干涉及其应用
+
+1. 偏振光干涉
+![干涉](./optics_fig/5-11.png)
+
+2. 光测弹性
+![应用](./optics_fig/5-12.png)
+
+3. 克尔效应与泡克尔斯效应
+- 克尔效应（二次电光效应） $\Delta n\propto E^2$
+- 泡克尔斯效应（线性电光效应） $\Delta n\propto E$
+
+### 旋光
+
+1. 石英的旋光效应
+
+![旋光效应](./optics_fig/5-13.png)
+
+振动面旋转角度 $\psi$ 与石英晶片的厚度 $d$ 成正比：
+$$
+\psi=\alpha d
+$$
+比例系数 $\alpha$ 称为石英的旋光率。
+
+2. 磁致旋光——法拉第旋转
+
+- 对于给定的介质，振动面的转角 $\psi$ 与样品的长度 $l$ 和磁感应强度 $B$ 成正比
+$$
+\psi=VlB
+$$
+比例系数 $V$ 称为维尔德 (Verdet) 常数。
+
+- 自然旋光与磁致旋光
+
+![自然旋光与磁致旋光](./optics_fig/5-14.png)
