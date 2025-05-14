@@ -389,6 +389,41 @@ plt.show()
 上面绘图结果 $2000Hz$ 处的振幅比 $5$ 小，是由于快速傅里叶变化时补充到 2 的幂次项数据较多。可以将采样时长 `T` 改为 3 秒，这样得到的结果更好。
 :::
 
+::: details `matlab` 脚本
+```matlab
+T = 2;
+fs = 5000;
+f1 = 404;
+f2 = 2000;
+f3 = 1234;
+
+t = linspace(0, T, fs*T);
+
+base = 2;
+component1 = 2*sin(2*pi*f1*t);
+component2 = 5*sin(2*pi*f2*t+1);
+component3 = 3*sin(2*pi*f3*t+4);
+noise = randn(1, fs*T);
+y1 = base + component1 + component2 + component3;
+y2 = component1 + component2 + component3 + noise;
+
+% fft
+ffty1 = fft(y1);
+ffty1_abs = abs(ffty1) * 2 / length(y1);
+fre1 = (0:length(y1)-1)*fs/length(y1);
+ffty2 = fft(y2);
+ffty2_abs = abs(ffty2) * 2 / length(y2);
+fre2 = (0:length(y2)-1)*fs/length(y2);
+
+% plot
+figure;
+ax1 = subplot(2, 1, 1);
+ax2 = subplot(2, 1, 2);
+plot(ax1, fre1, ffty1_abs);
+plot(ax2, fre2, ffty2_abs);
+```
+:::
+
 ### 逆傅里叶变换
 
 #### 理论
@@ -403,7 +438,8 @@ plt.show()
 
 实例：
 
-```py
+::: code-group
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.fftpack import fft, ifft
@@ -439,6 +475,38 @@ ax2.set_ylabel('signal')
 ax2.legend()
 plt.show()
 ```
+```matlab
+% generate signal
+T = 2;
+fs = 100;
+L = T * fs;
+t = linspace(0, T, L);
+signal = 5 + 3 * cos(2 * pi * 7 * t) + 2 * sin(2 * pi * 10 * t);
+
+% fft
+fft_y = fft(signal);
+fft_y_abs = abs(fft_y) * 2 / L;
+fre = (0:L-1) / T;
+
+% ifft
+signal_rebuild = ifft(fft_y);
+
+% plot
+figure;
+subplot(2, 1, 1);
+plot(fre, fft_y_abs);
+xlabel('f/Hz');
+ylabel('A');
+subplot(2, 1, 2);
+plot(t, signal, 'DisplayName', 'raw signal');
+hold on;
+plot(t, signal_rebuild, 'r--', 'DisplayName', 'rebuild signal');
+xlabel('t/s');
+ylabel('signal');
+legend('show');
+hold off;
+```
+:::
 
 ![ifft](./data_processing_fig/6.png)
 
@@ -451,7 +519,8 @@ plt.show()
 #### 实践
 
 实例：把上一节使用的信号中 $10Hz$ 部分滤掉。
-```py
+::: code-group
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.fftpack import fft, ifft
@@ -497,6 +566,48 @@ ax2.set_ylabel('signal')
 ax2.legend()
 plt.show()
 ```
+```matlab
+% generate signal
+T = 2;
+fs = 100;
+L = T * fs;
+t = linspace(0, T, L);
+signal = 5 + 3 * cos(2 * pi * 7 * t) + 2 * sin(2 * pi * 10 * t);
+signal_rm10 = 5 + 3 * cos(2 * pi * 7 * t);
+
+% fft
+fft_y = fft(signal);
+fre = (0:L-1) / T;
+
+% filtering
+fre_remove = [9, 11] * T + 1;
+fre_rm_1 = floor(fre_remove(1));
+fre_rm_2 = ceil(fre_remove(2));
+fre_rm_3 = L - fre_rm_2;
+fre_rm_4 = L - fre_rm_1;
+fft_y(fre_rm_1:fre_rm_2) = 0;
+fft_y(fre_rm_3:fre_rm_4) = 0;
+fft_y_abs = abs(fft_y) * 2 / L;
+
+% ifft
+signal_filtering = ifft(fft_y);
+
+% plot
+figure;
+subplot(2, 1, 1);
+plot(fre, fft_y_abs);
+xlabel('f/Hz');
+ylabel('A');
+subplot(2, 1, 2);
+plot(t, signal_rm10, 'DisplayName', 'raw signal remove 10Hz part');
+hold on;
+plot(t, signal_filtering, 'r--', 'DisplayName', 'signal after filtering');
+xlabel('t/s');
+ylabel('signal');
+legend('show');
+hold off;
+```
+:::
 
 ![filtering](./data_processing_fig/7.png)
 
@@ -721,7 +832,8 @@ $$
 $$
 \hat{S}(f)=\frac{1}{N}\left|\sum_{n=0}^{N-1}x(n)e^{-j2\pi fn}\right|^2
 $$
-```py
+::: code-group
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import periodogram
@@ -738,6 +850,27 @@ plt.ylabel('PSD [V²/Hz]')
 plt.title('Periodogram')
 plt.show()
 ```
+```matlab
+fs = 1000;
+t = 0:1/fs:1-1/fs; % 确保与 Python 的 np.arange(0, 1, 1/fs) 对齐
+x = sin(2 * pi * 100 * t) + 0.5 * randn(1, length(t));
+
+% 周期图法
+n = length(x);
+xdft = fft(x); % 计算 FFT
+xdft = xdft(1:floor(n/2)+1); % 取一半频率
+psdx = (1/(fs*n)) * abs(xdft).^2; % 计算功率谱密度
+psdx(2:end-1) = 2*psdx(2:end-1); % 调整功率
+f = 0:fs/length(x):fs/2; % 频率向量
+
+% 绘制功率谱密度
+semilogy(f, psdx);
+xlabel('Frequency [Hz]');
+ylabel('PSD [V^2/Hz]');
+title('Periodogram');
+grid on;
+```
+:::
 ![psd](./data_processing_fig/11.png)
 
 2. 多段平均周期图法 (Bartlett)
@@ -746,7 +879,8 @@ plt.show()
 $$
 \hat{S}(f)=\frac{1}{K}\sum_{i=1}^K \hat{S}_i(f)
 $$
-```py
+::: code-group
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import periodogram
@@ -773,6 +907,36 @@ plt.ylabel('PSD [V²/Hz]')
 plt.title('Bartlett Method')
 plt.show()
 ```
+```matlab
+% MATLAB 实现 Bartlett 方法
+fs = 1000;
+t = 0:1/fs:1-1/fs; % 确保与 Python 的 np.arange(0, 1, 1/fs) 对齐
+x = sin(2 * pi * 100 * t) + 0.5 * randn(1, length(t));
+
+% Bartlett 方法实现
+nperseg = 256; % 每段的长度
+K = floor(length(x) / nperseg); % 分段数
+Pxx = zeros(1, nperseg/2+1); % 初始化功率谱密度
+
+for i = 1:K
+    seg = x((i-1)*nperseg+1:i*nperseg); % 提取每段数据
+    xdft = fft(seg); % 计算 FFT
+    xdft = xdft(1:nperseg/2+1); % 取一半频率
+    Pxx_seg = (1/(fs*nperseg)) * abs(xdft).^2; % 计算功率谱密度
+    Pxx_seg(2:end-1) = 2*Pxx_seg(2:end-1); % 调整功率
+    Pxx = Pxx + Pxx_seg; % 累加每段的功率谱密度
+end
+Pxx = Pxx / K; % 取平均值
+f = 0:fs/nperseg:fs/2; % 频率向量
+
+% 绘制功率谱密度
+semilogy(f, Pxx);
+xlabel('Frequency [Hz]');
+ylabel('PSD [V^2/Hz]');
+title('Bartlett Method');
+grid on;
+```
+:::
 ![psd](./data_processing_fig/12.png)
 
 3. Welch 法
@@ -782,7 +946,8 @@ $$
 \hat{S}(f)=\frac{1}{KU}\sum_{i=1}^K |X_i(f)|^2
 $$
 其中 $U$ 是窗函数的功率归一化因子。
-```py
+::: code-group
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import welch
@@ -799,12 +964,36 @@ plt.ylabel('PSD [V²/Hz]')
 plt.title('Welch Method')
 plt.show()
 ```
+```matlab
+% MATLAB 实现 Welch 方法
+fs = 1000;
+t = 0:1/fs:1-1/fs; % 确保与 Python 的 np.arange(0, 1, 1/fs) 对齐
+x = sin(2 * pi * 100 * t) + 0.5 * randn(1, length(t));
+
+% Welch 方法（50% 重叠，汉宁窗）
+nperseg = 256; % 每段的长度
+noverlap = 128; % 重叠部分的长度
+window = hann(nperseg); % 汉宁窗
+
+[Pxx, f] = pwelch(x, window, noverlap, nperseg, fs);
+
+% 绘制功率谱密度
+semilogy(f, Pxx);
+xlabel('Frequency [Hz]');
+ylabel('PSD [V^2/Hz]');
+title('Welch Method');
+grid on;
+```
+:::
 ![psd](./data_processing_fig/13.png)
 
 4. 多窗口法 (Multitaper Method, MTM)
 
-使用多个正交的Slepian窗口（DPSS序列）分别计算功率谱后平均，平衡方差和分辨率。
-```py
+`python`:使用多个正交的Slepian窗口（DPSS序列）分别计算功率谱后平均，平衡方差和分辨率。
+
+`matlab`:调用函数 `pmtm(x, Nw, Nfft, fs)`
+::: code-group
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import windows, csd, periodogram
@@ -831,5 +1020,48 @@ plt.ylabel('PSD [V²/Hz]')
 plt.title('Multitaper Method (MTM)')
 plt.show()
 ```
+```matlab
+fs = 1000;
+t = 0:1/fs:1-1/fs; % 确保与 Python 的 np.arange(0, 1, 1/fs) 对齐
+x = sin(2 * pi * 100 * t) + 0.5 * randn(1, length(t));
+% multitaper method
+[pxx, f] = pmtm(x, 4, 256, fs);
+% plot
+semilogy(f, pxx);
+xlabel('Frequency [Hz]');
+ylabel('PSD [V^2/Hz]');
+title('Multitaper Method');
+grid on;
+```
+:::
 ![psd](./data_processing_fig/14.png)
 
+5. 多信号分类法( MUSIC 法 )(Multiple Signal Classification)
+
+调用`matlab`函数`pmusic(x, [P, thresh], Nfft, fs, window, Noverlap)`
+```matlab
+fs = 1000; N = 1024; Nfft = 256; n = 0:N-1;
+t = n/fs;
+randn('state',0);
+window = hanning(256);
+xn = sin(2*pi*50*t) + 2*sin(2*pi*120*t) + randn(1,N);
+[pxx, f] = pmusic(xn, [7, 1.1], Nfft, fs, window, 128);
+plot(f, pxx);
+```
+![music](./data_processing_fig/16.png)
+
+6. 最大熵功率估计( MEM 法 )(Maximum Entropy Method)
+
+调用`matlab`函数`pmem(x, p, Nfft, fs)`
+```matlab
+fs = 1000; N = 1024; Nfft = 256; n = 0:N-1;
+t = n/fs;
+randn('state',0);
+xn = sin(2*pi*50*t) + 2*sin(2*pi*120*t) + randn(1,N);
+[pxx, f] = pmem(xn, 14, Nfft, fs);
+semilogy(f, pxx);
+xlabel('Frequency [Hz]');
+ylabel('Power Spectrum');
+title('Max Entropy Method(MEM) order=14');
+```
+![mem](./data_processing_fig/17.png)
