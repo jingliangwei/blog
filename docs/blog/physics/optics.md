@@ -715,3 +715,89 @@ $$
 - 自然旋光与磁致旋光
 
 ![自然旋光与磁致旋光](./optics_fig/5-14.png)
+
+## 光的吸收、色散和散射
+
+### 光的吸收
+
+光在介质传播会被吸收或消耗。分为真吸收和散射，前者把光能转换成热能，后者只是向各个方向散射。
+
+1. 吸收的线性规律
+$$
+-\mathrm{d}I=\alpha I\mathrm{d}x
+$$
+$$
+I=I_0e^{-\alpha l}
+$$
+
+其中 $\alpha$ 为吸收系数。
+
+2. 复数折射率
+
+对于平面波 $E(z, t)=A\exp[i(kz-\omega t)]$
+
+引入复数折射率 $\tilde{n}=n_r+in_i$ ，波矢 $k=\dfrac{2\pi(n_r+in_i)}{\lambda}$ ，光强 $I\propto|E|^2=I_0e^{-\alpha z}$
+
+吸收系数 $\alpha=\dfrac{4\pi n_i}{\lambda}$
+
+3. 
+- 普遍吸收：吸收系数 $\alpha$ 与波长 $\lambda$ 无关。
+- 选择吸收
+
+### 光的色散
+
+色散：光的传播速度 $v$ （折射率 $n=c/v$ ）随波长 $\lambda$ 而异。
+
+1. 正常色散
+
+![正常色散](./optics_fig/5-15.png)
+
+柯西公式 $n=A+\dfrac{B}{\lambda^2}+\dfrac{C}{\lambda^4}$
+
+2. 反常色散
+
+![反常色散](./optics_fig/5-16.png)
+
+### 群速
+
+两列波
+$$
+\left\{\begin{array}{l}
+U_1(x, t)=A\cos(\omega_1t-k_1x), \\
+U_2(x, t)=A\cos(\omega_2t-k_2x), 
+\end{array}\right.
+$$
+令
+$$
+\begin{array}{l}
+\Delta\omega=(\omega_1-\omega_2)/2,\ \omega_0=(\omega_1+\omega_2)/2;\\
+\Delta k=(k_1-k_2)/2,\ k_0=(k_1+k_2)/2.
+\end{array}
+$$
+设 $|\Delta\omega|\ll\omega_0,|\Delta k|\ll k_0$
+
+合成波列
+$$
+\begin{align}
+U(x, t)&=U_1(x,t)+U_2(x,t) \\
+&=2A\cos(\Delta\omega t-\Delta kx)\cos(\omega_0 t-k_0x)
+\end{align}
+$$
+
+- 群速 $v_g=\dfrac{\mathrm{d}\omega}{\mathrm{d}k}$
+- 相速 $v_p=\dfrac{\omega_0}{k_0}$
+
+![群速](./optics_fig/5-17.png)
+
+### 光的散射
+
+1. 瑞利散射定律： $\lambda^4$ 反比律
+![散射](./optics_fig/5-18.png)
+
+以无量纲物理量 $ka=2\pi a/\lambda$ 来划分散射种类：
+- $ka<0.3$ 瑞利散射 ($\omega^4$)
+- $ka>1$ 米氏散射 ($\omega^2$)
+- $ka>10$ 非选择性散射
+- $ka>100$ 光学区域，折反定律
+
+2. 拉曼散射：非弹性散射现象，散射光频率相对入射光偏移。
