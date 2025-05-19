@@ -1,5 +1,7 @@
 ---
 sidebar: false
+prev: false
+next: false
 ---
 
 # Python 期末考试
