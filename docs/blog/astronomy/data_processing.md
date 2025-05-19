@@ -20,9 +20,12 @@
 | `cubic` | 三阶样条插值 |
 | `previous`,`next` | 阶梯插值 |
 
+对应 `matlab` 中的 `interp1(t, y, t_uniform, kind)` 
+
 ![图示](./data_processing_fig/1.png)
 
-::: details `python` 脚本
+::: details 脚本
+::: code-group
 ```py
 import numpy as np
 import matplotlib.pyplot as plt
@@ -35,9 +38,6 @@ t_new = np.arange(1, 9, 0.1)
 kinds = ['linear', 'nearest', 'nearest-up',
          'zero', 'slinear', 'quadratic', 'cubic',
          'previous', 'next']
-
-f = interpolate.interp1d(t, y, kind='cubic')
-y_new = f(t_new)
 
 ax1 = plt.subplot(311)
 ax2 = plt.subplot(312)
@@ -71,6 +71,39 @@ ax3.set_ylabel('y')
 ax3.legend()
 
 plt.show()
+```
+```matlab
+t = [1, 2, 4, 7, 8, 9];
+y = [1, 3, 5, 3, 1, 3];
+
+t_new = 1:0.1:9;
+kinds = {'linear', 'nearest', 'next', 'previous', 'pchip', 'spline', 'makima', 'nearest', 'next'};
+
+subplot(3,1,1);
+scatter(t, y, 36, 'b', 'filled', 'MarkerFaceAlpha', 0.6); hold on;
+for i = 1:3
+    y_new = interp1(t, y, t_new, kinds{i});
+    plot(t_new, y_new, 'DisplayName', kinds{i}, 'LineWidth', 1.2, 'LineStyle', '-');
+end
+legend;
+
+subplot(3,1,2);
+scatter(t, y, 36, 'b', 'filled', 'MarkerFaceAlpha', 0.6); hold on;
+for i = 4:6
+    y_new = interp1(t, y, t_new, kinds{i});
+    plot(t_new, y_new, 'DisplayName', kinds{i}, 'LineWidth', 1.2, 'LineStyle', '-');
+end
+legend;
+
+subplot(3,1,3);
+scatter(t, y, 36, 'b', 'filled', 'MarkerFaceAlpha', 0.6); hold on;
+for i = 7:8
+    y_new = interp1(t, y, t_new, kinds{i});
+    plot(t_new, y_new, 'DisplayName', kinds{i}, 'LineWidth', 1.2, 'LineStyle', '-');
+end
+legend;
+
+hold off;
 ```
 :::
 
