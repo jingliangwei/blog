@@ -58,8 +58,8 @@ $$
 \right)
 \left(
   \begin{array}{c}
-    x_2 \\
-    \theta_2
+    x_1 \\
+    \theta_1
   \end{array}
 \right)
 $$

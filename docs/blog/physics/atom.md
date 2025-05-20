@@ -61,7 +61,7 @@ $$
 
 4. more:
 - 玻尔半径 $a_B=r_1\approx0.53\times10^{-10}m$
-- 精细结构常数 $\alpha=\dfrac{e^2}{4\pi\varepsilon_0\hbar c}$
+- 精细结构常数 $\alpha=\dfrac{e^2}{4\pi\varepsilon_0\hbar c}\approx7.297\times10^{-3}$
 - 电子轨道速度量子化 $v_n=\dfrac{e^2}{4\pi\varepsilon_0\hbar}\dfrac{1}{n}=\dfrac{\alpha}{n}c$
 
 ### 玻尔理论的修正
