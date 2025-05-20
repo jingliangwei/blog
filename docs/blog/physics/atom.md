@@ -839,8 +839,89 @@ $$
 
 2. 精细结构 $\displaystyle\langle\Delta E_{l,s}\rangle=-E_{n,l}\alpha^2\frac{Z^{*2}}{n}\frac{j(j+1)-s(s+1)-l(l+1)}{2l(l+\dfrac{1}{2})(l+1)}$
 
-- 精细结构的裂距 $\delta E=\Delta E_{j=l+1/2}+|\Delta E_{j=l-1/2}|=\dfrac{Rhc\alpha^2Z^{*4}}{n^3l(l+1)}$
+- 精细结构的裂距 $\delta E=\Delta E_{j=l+1/2}+|\Delta E_{j=l-1/2}|=\dfrac{Rhc\alpha^2Z^{*4}}{n^3l(l+1)}\quad = 2\mu_BB_{\text{内}}$
 
-- 电子态符号 $nl_j$ 或 $n^{2s+1}l_j$
-- 原子态符号 $^{2S+1}L_J$
+- 电子组态 (electron configuration) ：基态钠原子 $1s^22s^22p^63s$
+- 电子态符号 (electronic term symbol) $nl_j$ 或 $n^{2s+1}l_j$
+- 原子态符号 (term symbol) $^{2S+1}L_J$ 更完整的 $n_il_i\ ^{2S+1}L_J$ （对于单电子原子简化为 $n^{2S+1}L_J$ ）
 
+3. 结构特点及实验验证
+
+- 精细结构的多重线特征：
+
+双重线： 主线系 $np\rightarrow n's$ 二辅系 $ns\rightarrow n'p$
+
+三重线： 一辅系 $nd\rightarrow n'p$ 柏格曼系 $nf\rightarrow n'd$
+
+- 选择定则：
+$$
+\left\{\begin{array}{l}
+\Delta n \text{任意} \\
+\Delta l=\pm1 \\
+\Delta j=0,\pm1
+\end{array}\right.
+$$
+
+#### 氢原子光谱精细结构
+
+1. 粗结构 
+$$
+\begin{align}
+E_n&=-\dfrac{1}{n}\dfrac{1}{2}m_e\left(\dfrac{e^2}{4\pi\varepsilon_0\hbar}\right)^2=-\dfrac{1}{2}\alpha^2c^2\dfrac{m_e}{n^2}Z^2 \\
+&=-\frac{RhcZ^2}{n^2}=\left(\frac{Z^2}{n^2}\right)E_1
+\end{align}
+$$
+
+2. 精细结构
+
+- 电子自旋-轨道相互作用能
+$$
+\begin{align}
+\Delta E_{l,s}&=-\vec{\mu}_s\cdot\vec{B}_{\text{内}}=\langle\Delta E_{l,s}\rangle \\
+&=\left\{\begin{array}{ll}
+-E_n\dfrac{\alpha^2Z^2}{n}\cdot\dfrac{[j(j+1)-s(s+1)-l(l+1)]}{2l(l+\frac{1}{2})(l+1)} & l\neq 0 \\
+0 & l=0
+\end{array}\right.
+\end{align}
+$$
+
+- 电子绕核运动动能的相对论修正
+$$
+\Delta E_r=-E_n\frac{\alpha^2Z^2}{n^2}\left(\frac{3}{4}-\frac{n}{l+\frac{1}{2}}\right)
+$$
+
+- 库仑势的相对论修正（达尔文项）
+$$
+\Delta E_V=\frac{\pi\hbar}{2m_e^2c^2}\frac{Ze^2}{4\pi\varepsilon_0r^2}|\Psi(0)|^2
+$$
+
+- 氢原子的精细结构项 (fine structure)
+$$
+\Delta E_{FS}=-E_n\frac{\alpha^2Z^2}{n^2}\left(\frac{3}{4}-\frac{n}{j+\frac{1}{2}}\right)
+$$
+
+- 一级近似下，氢原子的能量公式
+$$
+E=E_n+\Delta E_{FS}=E_n\left[1-\frac{\alpha^2Z^2}{n^2}\left(\frac{3}{4}-\frac{n}{j+\frac{1}{2}}\right)\right]
+$$
+
+3. 实验观测
+
+对 $\mathrm{H}_\alpha$ 光谱的观测结果与理论明显不符
+
+![H_a](./atom_fig/3-7.png)
+
+4. 兰姆位移 (Lamb shift)
+
+![lamb shift](./atom_fig/3-8.png)
+
+5. 氢原子的超精细结构 (hyperfine structure)
+
+考虑核磁矩
+$$
+E_{\text{总}}=E_{nl}+\Delta E_1[\propto\alpha^2E_{nl}]+\Delta E_2[\propto\frac{m_e}{m_p}\alpha^2E_{nl}]
+$$
+
+$\vec{p}_F=\vec{p}_J+\vec{p}_I$ 量子数 $F=J+I,J+I-1,...,|J-I|$
+
+![hyperfine structure](./atom_fig/3-9.png)
