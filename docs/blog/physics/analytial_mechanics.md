@@ -101,7 +101,7 @@ $$
 \frac{t'}{t}=\left(\frac{l'}{l}\right)^{1-k/2}
 $$
 
-::: info example
+::: info e.g.
 | k值 | 实例 |
 |:---:|:---:|
 |$U\propto r^{-1}\Rightarrow t'/t=(l'/l)^{3/2}$|开普勒第三定律|
@@ -800,6 +800,140 @@ $$
 
 - 泊松定理：两个运动积分的泊松括号仍是运动积分
 - 哈密顿方程： $\dot{q}_i=[H,q_i],\ \dot{p}_i=[H,p_i]$
+
+### 关于作用量
+
+- $\dfrac{\partial S}{\partial q_i}=p_i$
+- $\dfrac{\partial S}{\partial t}=L$
+- $\mathrm{d}S=\sum_ip_i\mathrm{d}q_i-H\mathrm{d}t$
+
+### 正则变换
+
+- 正则变换 (canonical transformation) ：
+
+$(p,q)\rightarrow(p',q')$ , $H(p,q,t)\rightarrow H'(p',q',t)$
+$$
+\left\{\begin{array}{l}
+\dfrac{\partial H}{\partial p}=\dot{q} \\
+\dfrac{\partial H}{\partial q}=-\dot{p}
+\end{array}\right.\rightarrow\left\{\begin{array}{l}
+\dfrac{\partial H'}{\partial p'}=\dot{q'} \\
+\dfrac{\partial H'}{\partial q'}=-\dot{p'}
+\end{array}\right.
+$$
+哈密顿方程的形式不变。
+
+- 生成函数 (generating function) ：
+
+第一类生成函数 $F(q,q',t)$
+$$
+\frac{\partial F}{\partial q}=p,\ \frac{\partial F}{\partial q'}=-p',\ \frac{\partial F}{\partial t}=H'-H
+$$
+
+::: info e.g.
+例如有生成函数 $F(q,q',t)=qq'$
+
+有 $\dfrac{\partial F}{\partial t}=0\Rightarrow H'=H$
+$$
+\left.\begin{array}{lcl}
+\dfrac{\partial F}{\partial q}=p & \Rightarrow & q'=p \\
+\dfrac{\partial F}{\partial q'}=-p' & \Rightarrow & q=-p'
+\end{array}\right\}\Rightarrow (p,q)\rightarrow(-q,p)=(p',q')
+$$
+
+假设 $H=p^2+q$ 则 $H'=q'^2-p'$
+
+比较两组正则方程
+$$
+\left\{\begin{array}{l}
+\dfrac{\partial H}{\partial p}=2p=\dot{q} \\
+\dfrac{\partial H}{\partial q}=1=-\dot{p}
+\end{array}\right.\quad\left\{\begin{array}{l}
+\dfrac{\partial H'}{\partial p'}=-1=\dot{q}'\\
+\dfrac{\partial H'}{\partial q'}=2q'=-\dot{p}'
+\end{array}\right.
+$$
+
+两组正则方程一致，说明 $p$ 和 $q$ 地位对等，称为共轭量。
+:::
+
+除了第一类生成函数 $F(q,q',t)$ 还有第二类生成函数 $\Phi(q,p',t)$
+$$
+\frac{\partial \Phi}{\partial q}=p,\ \frac{\partial \Phi}{\partial p'}=q',\ \frac{\partial\Phi}{\partial t}=H'-H
+$$
+
+4类生成函数：
+$$
+\begin{array}{c}
+F(q,q',t),\Phi(q,p',t) \\
+G(p,q',t),\Psi(p,p',t)
+\end{array}
+$$
+
+- 运动过程可以看成一系列正则变换，其生成函数 $F=-S$
+
+### 刘维尔定理
+
+- 相空间 (phase space) ： $(p,q)$ 2s个变量
+
+- 刘维尔定理：正则变换下/运动过程中，相空间体积守恒
+$$
+\int\mathrm{d}q_1\cdots\mathrm{d}q_s\mathrm{d}p_1\cdots\mathrm{d}p_s=\int\mathrm{d}q'_1\cdots\mathrm{d}q'_s\mathrm{d}p'_1\cdots\mathrm{d}p'_s
+$$
+
+### 哈密顿-雅可比方程
+
+- 哈密顿-雅可比方程 (Hamilton-Jacobi)
+$$
+\frac{\partial S}{\partial t}+H(q,\frac{\partial S}{\partial q},t)=0
+$$
+
+解的形式 $S=f(q_1,\cdots,q_s,\alpha_1,\cdots,\alpha_s,t)+A$
+
+将解 $f$ 看作第二类生成函数，做正则变换
+$$
+\begin{array}{|c|c|}
+\hline
+\Phi(q,p',t) & f(q_i,\alpha_i,t) \\
+\hline
+\dfrac{\partial\Phi}{\partial q}=p & \dfrac{\partial f}{\partial q_i}=p_i \\
+\dfrac{\partial\Phi}{\partial p'}=q' & \dfrac{\partial f}{\partial\alpha_i}=q_i'=\beta_i \\
+\dfrac{\partial\Phi}{\partial t}=H'-H & \dfrac{\partial f}{\partial t}=H'-H \\
+\hline
+\end{array}
+$$
+
+$$
+\frac{\partial f}{\partial t}+H=0\Rightarrow H'=0
+$$
+
+由 $\dot{\alpha}_i=-\dfrac{\partial H'}{\partial q_i'},\ \dot{\beta}_i=\dfrac{\partial H'}{\partial p_i'}$
+
+$\alpha_i,\beta_i$ 是守恒量。
+
+H-J方程的解是正则变换 $H'=0$ 的第二类生成函数，新动量、新坐标都是运动积分。
+
+::: info e.g. 用 Hamilton-Jacobi 方程计算自由落体
+哈密顿量 $H=\dfrac{p^2}{2m}+mgz$
+
+H-J方程 $\dfrac{\partial S}{\partial t}+H=\dfrac{\partial S}{\partial t}+\dfrac{1}{2m}\left(\dfrac{\partial S}{\partial z}\right)^2+mgz=0$
+
+由于 $\dfrac{\partial H}{\partial t}=0$ 猜 $S=S_0(z)-Et+A$ （引入参数 $E,A$ ）
+
+解得 $S=\int\sqrt{2m(E-mgz)}\mathrm{d}z-Et+A$
+
+将 $S(z,E,t)$ 看作第二类生成函数，即 $E$ 是正则变换的新动量， $\dfrac{\partial S}{\partial E}$ 是新坐标，是运动积分。
+
+$$
+\begin{align}
+\displaystyle\frac{\partial S}{\partial E}=e&\Rightarrow\int\frac{m\mathrm{d}z}{\sqrt{2m(E-mgz)}}-t=e \\
+\displaystyle&\Rightarrow-\frac{1}{mg}\sqrt{2m(E-mgz)}=t+e \\
+\displaystyle&\Rightarrow z(t)=\frac{E}{mg}-\frac{1}{2}g(t+e)^2
+\end{align}
+$$
+
+参数 $E$ 是能量，$e$ 是初始时刻。
+:::
 
 ---
 
