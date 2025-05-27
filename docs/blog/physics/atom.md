@@ -925,3 +925,91 @@ $$
 $\vec{p}_F=\vec{p}_J+\vec{p}_I$ 量子数 $F=J+I,J+I-1,...,|J-I|$
 
 ![hyperfine structure](./atom_fig/3-9.png)
+
+## 多电子原子
+
+### 中心力场近似
+
+- 中心力场近似 (central field approximation) ：
+
+假设原子中某电子 $i$ 在原子核的库仑势场 $-\dfrac{Ze^2}{4\pi\varepsilon_0 r_i}$ 和其他 $(N-1)$ 个电子产生的平均化的中心势场 $U_i(r_i)$ 中运动。
+
+包含了两个假设：1. 独立电子模型；2. 中心力场近似。
+
+- 剩余库仑相互作用 $\displaystyle\hat{H}_1\triangleq\sum_{i>j,j=1}^N\frac{e^2}{4\pi\varepsilon_0r_{ij}}-\sum_{i=1}^NU_i(r_i)$
+
+哈密顿算符 $\displaystyle\hat{H}=\left[\sum_{i=1}^N(-\frac{\hbar^2}{2m_i}\nabla_i^2-\frac{Ze^2}{4\pi\varepsilon_0r_i})+\sum_{i=1}^NU_i(r_i)\right]+\hat{H}_1\triangleq\hat{H}_0+\hat{H}_1$
+
+- 零级近似的哈密顿量 $\displaystyle\hat{H}_0=\sum_{i=1}^N(-\frac{\hbar^2}{2m_i}\nabla_i^2-\frac{Ze^2}{4\pi\varepsilon_0r_i})+\sum_{i=1}^NU_i(r_i)$
+
+- 原子总能量为 $N$ 个电子能量和
+$$
+E_0=\sum_{i=1}^N E_{n_i,l_i},\quad E_{n_i,l_i}=-Z_{n_i,l_i}^*\frac{Rhc}{n^2}
+$$
+
+### 泡利不相容原理
+
+- 泡利不相容原理 (Pauli Exclusion Principle) ：
+
+在原子中，要完全确定一个电子的状态，需要四个量子数。原子中任意两个电子的这四个量子数不能完全相同。或者说，每个量子态只能容纳一个电子。
+
+- 全同粒子 (identical particles) ：内禀性质完全相同的粒子。
+
+- 量子力学第五基本假设：在全同粒子组成的多粒子体系中，全同粒子具有不可分辨性；交换任意两个粒子不会引起体系物理状态的变换；体系的波函数具有交换对称或反对称性。（微观粒子的全同性原理）
+
+考虑一个双粒子全同粒子体系（如氦原子），记两个粒子分别为 $a,b$ ，体系波函数为 $\Psi(q_1,q_2,t)$ ，全同性原理要求 $|\Psi(q_2,q_1)|^2=|\Psi(q_1,q_2)|^2$
+$$
+\Rightarrow\left\{\begin{array}{lr}
+\Psi(q_2,q_1)=\Psi(q_1,q_2) & (1) \\
+\Psi(q_2,q_1)=-\Psi(q_1,q_2) & (2)
+\end{array}\right.
+$$
+1. 满足 (1) 式的波函数称为交换对称波函数。如光子、胶子、声子、引力子、氦原子等自旋量子数为整数的全同粒子体系波函数。在统计物理中，这些粒子遵从玻色-爱因斯坦统计，称为玻色子 (bosons)
+2. 满足 (2) 式的波函数称为交换反对称波函数。如电子、质子、中子、中微子、夸克等自旋量子数为半奇数的全同粒子体系波函数。在统计物理中，这些粒子遵从费米-狄拉克统计，称为费米子 (fermions)
+
+- 不相容原理更普遍的表述：费米子组成的全同粒子体系的波函数一定是交换反对称的。这种全同费米子体系的每个量子态只能容纳一个费米子。
+
+### 原子的粗结构能级和壳层结构
+
+#### 原子的壳层结构
+
+- 主壳层 (shell) 主量子数 $n$ 相同
+$$
+\begin{array}{cccccccc}
+n= & 1, & 2, & 3, & 4, & 5, & 6, & \dots \\
+\text{壳层名} & K, & L, & M, & N, & O, & P, & \dots
+\end{array}
+$$
+
+- 支壳层 (subshell) 相同 $(n,l)$
+$$
+\begin{array}{cccccc}
+l= & 0, & 1, & 2, & 3, & \dots \\
+\text{支壳层} & s, & p, & d, & f, & \dots
+\end{array}
+$$
+
+- 同一支壳层最多容纳电子数 $N_l=2(2l+1)$ 
+- 同一壳层最多容纳电子数 $N_n=2n^2$
+- 闭合壳层 (closed shell) （满壳层）：被电子填满的壳层。
+- 闭合壳层特点：1. 电子电荷分布球对称；2. 总角动量和总磁矩均为零。
+
+#### 原子的电子组态
+
+- 电子组态 (electron configuration) （电子构型、电子排布） e.g. 氧原子 $1s^22s^22p^4$
+- 基组态：原子能量最低电子组态
+- 激发组态：非基组态
+
+#### 元素周期表与电子基组态
+
+决定原子的电子基组态原则：
+1. 泡利不相容原理
+2. 能量最小原理
+
+- 第一周期：对应主壳层 $K$ ，一个支壳层 $1s$ ， $1s\rightarrow1s^2$ 2个元素；
+- 第二周期：主壳层 $L$ ，两个支壳层 $2s,2p$ ， $1s^22s\rightarrow1s^22s^22p^6$ 8个元素；
+- 第三周期：主壳层 $M$ ，两个支壳层 $3s,3p$ ， $1s^22s^22p^63s\rightarrow1s^22s^22p^63s^23p^6$ 8个元素；
+- 第四周期：主壳层 $M,N$ ，三个支壳层 $3d,4s,4p$ ， $4s\rightarrow4s^2\rightarrow3d^14s^2\rightarrow3d^{10}4s^2\rightarrow3d^{10}4s^24p^6$ 18个元素 （其中有两个特例： $Cr(Z=24):3d^54s^1$ 和 $Cu(Z=29):3d^{10}4s^1$ ）
+- 第五周期： $5s\rightarrow4d\rightarrow5p$ 18个元素；
+- 第六周期： $6s\rightarrow4f\rightarrow5d\rightarrow6p$ 32个元素；
+- 第七周期： $7s\rightarrow5d\rightarrow6d\rightarrow7p$ 
