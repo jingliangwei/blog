@@ -26,7 +26,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: '接地问题', link: '/blog/physics/earthing'},
       { text: '光学', link: '/blog/physics/optics'},
       { text: '原子物理', link: '/blog/physics/atom'},
-      { text: '理论力学', link: '/blog/physics/analytial_mechanics'}
+      { text: '理论力学', link: '/blog/physics/analytial_mechanics'},
+      { text: '流体力学', link: '/blog/physics/fluid'}
     ]
   },
   {
