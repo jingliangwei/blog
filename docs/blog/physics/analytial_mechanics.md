@@ -725,7 +725,7 @@ m\frac{\mathrm{d}\vec{v}'}{\mathrm{d}t}=m\vec{r}'\times\dot{\vec{\Omega}}+2m\vec
 $$
 
 其中惯性力有 3 项：
-- $\displaystyle m\vec{r}'\times\dot{\vec{\Omega}}$ 欧拉力
+- $\displaystyle m\vec{r}'\times\dot{\vec{\Omega}}$ 庞加莱力
 - $\displaystyle 2m\vec{r}'\times\vec{\Omega}$ 科里奥利力
 - $\displaystyle m(\vec{\Omega}\times\vec{r}')\times\vec{\Omega}$ 离心力
 
@@ -804,7 +804,7 @@ $$
 ### 关于作用量
 
 - $\dfrac{\partial S}{\partial q_i}=p_i$
-- $\dfrac{\partial S}{\partial t}=L$
+- $\dfrac{\partial S}{\partial t}=-H$
 - $\mathrm{d}S=\sum_ip_i\mathrm{d}q_i-H\mathrm{d}t$
 
 ### 正则变换
