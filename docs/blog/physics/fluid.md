@@ -355,3 +355,44 @@ when $\gamma=5/3$: $M^{1/3}R\simeq\mathrm{const}$, $R\propto M^{-1/3}$
 
 when $\gamma=4/3$: $M=\mathrm{const}$
 :::
+
+## Gas dynamics
+
+### sound wave (acoustic wave)
+
+for air, we have equations:
+$$
+\left\{\begin{array}{l}
+\displaystyle\frac{\partial\rho}{\partial t}+\nabla(\rho\boldsymbol{u})=0 \\
+\displaystyle\frac{\partial\boldsymbol{u}}{\partial t}+\boldsymbol{u}\cdot\nabla\boldsymbol{u}=-\frac{1}{\rho}\nabla p
+\end{array}\right.
+$$
+
+now sound wave generate, we let $\rho=\rho_0+\rho_1,$ $p=p_0+p_1,$ $\boldsymbol{u}=\boldsymbol{0}+\boldsymbol{u}_1$
+
+$$
+\left\{\begin{array}{l}
+\displaystyle\frac{\partial\rho_1}{\partial t}+\rho_0\nabla\boldsymbol{u}_1=0 \\
+\displaystyle\frac{\partial\boldsymbol{u}_1}{\partial t}=-\frac{1}{\rho_0}\nabla p_1
+\end{array}\right.
+$$
+
+$$
+\Rightarrow\frac{\partial^2\rho_1}{\partial t^2}-\nabla^2 p_1=0
+$$
+
+we know $p(\rho)$ , $p_1=\dfrac{\mathrm{d}p}{\mathrm{d}\rho}\rho_1$, let $\dfrac{\mathrm{d}p}{\mathrm{d}\rho}=c_s^2$ yields,
+
+$$
+\frac{\partial^2\rho_1}{\partial t^2}-c_s^2\nabla^2\rho_1=0
+$$
+
+assume that $\rho_1=\hat{\rho}\mathrm{e}^{i(\boldsymbol{k}\cdot\boldsymbol{x}-\omega t)},$ $p_1=\hat{p}\mathrm{e}^{i(\boldsymbol{k}\cdot\boldsymbol{x}-\omega t)},$ $\boldsymbol{u}_1=\hat{\boldsymbol{u}}\mathrm{e}^{i(\boldsymbol{k}\cdot\boldsymbol{x}-\omega t)}$
+
+$$
+\Rightarrow-\omega^2+c_s^2k^2=0\Rightarrow\omega=\pm c_sk
+$$
+
+so we have
+- phase velosity $\boldsymbol{c}_p=\dfrac{\omega}{k}\hat{\boldsymbol{k}}=\pm c_s\hat{\boldsymbol{k}}$
+- group velosity $\boldsymbol{c}_g=\nabla_k\omega=\pm c_s\hat{\boldsymbol{k}}$
