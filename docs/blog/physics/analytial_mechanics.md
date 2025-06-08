@@ -16,6 +16,44 @@ $$
 \frac{\partial L}{\partial q} - \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{q}} = 0
 $$
 
+::: details 最小作用量原理推导拉格朗日方程
+$$
+\begin{align}
+\delta S & =\int_{t_1}^{t_2}\delta L\mathrm{d}t \\
+& =\int_{t_1}^{t_2}\left(\frac{\partial L}{\partial q}\delta q+\frac{\partial L}{\partial \dot{q}}\delta\dot{q}\right)\mathrm{d}t \\
+& =\int_{t_1}^{t_2}\left(\frac{\partial L}{\partial q}\delta q\mathrm{d}t+\frac{\partial L}{\partial\dot{q}}\mathrm{d}(\delta q)\right) \\
+& =\int_{t_1}^{t_2}\frac{\partial L}{\partial q}\delta q\mathrm{d}t+\underbrace{\left[\frac{\partial L}{\partial \dot{q}}\delta q\right]_{t_1}^{t_2}}_{=0}-\int_{t_1}^{t_2}\delta q\mathrm{d}\left(\frac{\partial L}{\partial\dot{q}}\right) \\
+& =\int_{t_1}^{t_2}\left(\frac{\partial L}{\partial q}\delta q\mathrm{d}t-\delta q\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\partial L}{\partial\dot{q}}\right)\mathrm{d}t\right) \\
+& =\int_{t_1}^{t_2}\left(\frac{\partial L}{\partial q}-\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\partial L}{\partial\dot{q}}\right)\right)\delta q\mathrm{d}t =0
+\end{align}
+$$
+$$
+\Rightarrow \frac{\partial L}{\partial q}-\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{q}}=0
+$$
+:::
+
+### 拉格朗日量的性质
+
+1. $L\rightarrow cL$ $(c=\mathrm{const})$ 单位制
+2. $L\rightarrow L+\dfrac{\mathrm{d}}{\mathrm{d}t}f(q,t)$ 规范变换
+
+::: details 验证
+1. 显然满足方程 $\dfrac{\partial L}{\partial q}-\dfrac{\mathrm{d}}{\mathrm{d}t}\dfrac{\partial L}{\partial \dot{q}}=0$
+2. 记
+   $$
+   \begin{align}
+   S_2&=\int_{t_1}^{t_2}L_2\mathrm{d}t=S_1+\int_{t_1}^{t_2}\frac{\mathrm{d}}{\mathrm{d}t}f(q,t)\mathrm{d}t \\
+   &=S_1+f|_{t_1}^{t_2}
+   \end{align}
+   $$
+   $$
+   \begin{align}
+   \delta S_2&=\delta S_1+\delta f|_{t_1}^{t_2} \\
+   &=\delta S_1+\frac{\partial f}{\partial q}\delta q|_{t_1}^{t_2}=\delta S_1
+   \end{align}
+   $$
+:::
+
 ### 拉格朗日量的形式
 
 将拉格朗日方程 $\dfrac{\partial L}{\partial q} = \dfrac{\mathrm{d}}{\mathrm{d}t}\dfrac{\partial L}{\partial \dot{q}}$ 与牛顿第二定律 $\vec{F} = \dfrac{\mathrm{d}}{\mathrm{d}t} \vec{p}$
@@ -23,6 +61,18 @@ $$
 可以发现：广义力 $\dfrac{\partial L}{\partial q}$ ，广义动量 $\dfrac{\partial L}{\partial \dot{q}}$
 
 系统的拉格朗日量 $L=T-U$ （其中 $T$ 为动能，$U$ 为势能）
+
+::: details 猜测拉格朗日的形式
+以一维自由落日运动为例，取 $z$ 轴正方向竖直向上，有
+
+|牛顿力学|拉格朗日力学|
+|:---:|:---:|
+| $F=\dfrac{\mathrm{d}}{\mathrm{d}t}p$ | $\displaystyle\frac{\partial L}{\partial z}=\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{z}}$ |
+| 力 $F=-mg$ | $\dfrac{\partial L}{\partial z}=-mg\Rightarrow L=-mgz+C=-U+C$ $(C=\mathrm{const})$ |
+| 动量 $p=m\dot{z}$ | $\dfrac{\partial L}{\partial \dot{z}}=m\dot{z}\Rightarrow L=\dfrac{1}{2}m\dot{z}^2+C=T+C$ $(C=\mathrm{const})$ |
+
+所以我们得到拉格朗日量为 $L=T-U$ （其中常数 $C$ 可以通过选取合适的零势能面去掉）
+:::
 
 ## 守恒律
 
@@ -37,6 +87,17 @@ $$
 
 能量 $E = \dfrac{\partial L}{\partial \dot{q}}\dot{q}-L$ 守恒（勒让德变换）
 
+::: details 推导能量守恒
+由于 $\dfrac{\partial L}{\partial t}=0$ ，记 $L(q,\dot{q})$
+$$
+\begin{align}
+\frac{\mathrm{d}L}{\mathrm{d}t}&=\frac{\partial L}{\partial q}\dot{q}+\frac{\partial L}{\partial\dot{q}}\ddot{q} \\
+&=\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\partial L}{\partial \dot{q}}\right)\dot{q}+\frac{\partial L}{\partial\dot{q}}\ddot{q} \\
+&=\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\partial L}{\partial\dot{q}}\dot{q}\right)
+\end{align}
+$$
+:::
+
 ### 动量守恒
 
 当空间具有空间平移对称性 $\dfrac{\partial L}{\partial \vec{r}} = 0$
@@ -48,6 +109,10 @@ $$
 
 动量 $\vec{p} = \dfrac{\partial L}{\partial \dot{q}}$ 守恒
 
+::: details 推导动量守恒
+由拉格朗日方程直接得到。
+:::
+
 ### 角动量守恒
 
 当空间具有空间旋转对称性 (旋转 $\delta\varphi\Rightarrow\delta L=0$)
@@ -58,6 +123,30 @@ $$
 $$
 
 角动量 $\vec{r}\times\vec{p}$ 守恒
+
+::: details 推导角动量守恒
+![p1](./analytial_mechanics_fig/p1.png)
+从图中可见有
+$$
+\delta\boldsymbol{r}=\delta\boldsymbol{\varphi}\times\boldsymbol{r}
+$$
+$$
+\delta\dot{\boldsymbol{r}}=\delta\boldsymbol{\varphi}\times\dot{\boldsymbol{r}}
+$$
+$$
+\begin{align}
+\delta L&=\frac{\partial L}{\partial \boldsymbol{r}}\delta\boldsymbol{r}+\frac{\partial L}{\partial \dot{\boldsymbol{r}}}\delta\dot{\boldsymbol{r}} \\
+&=\dot{\boldsymbol{p}}\cdot\delta\boldsymbol{r}+\boldsymbol{p}\cdot\delta\dot{\boldsymbol{r}} \\
+&=\dot{\boldsymbol{p}}\cdot(\delta\boldsymbol{\varphi}\times\boldsymbol{r})+\boldsymbol{p}\cdot(\delta\boldsymbol{\varphi}\times\dot{\boldsymbol{r}}) \\
+&=\delta\boldsymbol{\varphi}\cdot(\boldsymbol{r}\times\dot{\boldsymbol{p}})+\delta\boldsymbol{\varphi}\cdot(\dot{\boldsymbol{r}}\times\boldsymbol{p}) \\
+&=\delta\boldsymbol{\varphi}\cdot(\boldsymbol{r}\times\dot{\boldsymbol{p}}+\dot{\boldsymbol{r}}\times\boldsymbol{p}) \\
+&=\delta\boldsymbol{\varphi}\cdot\frac{\mathrm{d}}{\mathrm{d}t}(\boldsymbol{r}\times\boldsymbol{p})
+\end{align}
+$$
+$$
+\delta L=0\Rightarrow\frac{\mathrm{d}}{\mathrm{d}t}(\boldsymbol{r}\times\boldsymbol{p})=0
+$$
+:::
 
 ### 参考系
 
