@@ -150,9 +150,20 @@ $$
 
 ### 参考系
 
-质心 $\displaystyle\vec{R}=\frac{1}{M}\sum_\alpha m_\alpha \vec{r}_\alpha$
+质心 $\displaystyle\vec{R}=\frac{1}{M}\sum_\alpha m_\alpha \vec{r}_\alpha$ $(\displaystyle M=\sum_{\alpha} m_\alpha)$
 
 质心系中系统动量 $\vec{p}'=0$
+
+::: details 推导质心系中系统动量为零
+$$
+\begin{align}
+\vec{p}'&=\sum_\alpha m_\alpha(\dot{\vec{r}}_\alpha-\dot{\vec{R}}) \\
+&=\sum_\alpha m_\alpha\dot{\vec{r}}_\alpha-M\dot{\vec{R}} \\
+&=\sum_\alpha m_\alpha\dot{\vec{r}}_\alpha-M\frac{1}{M}\sum_\alpha m_\alpha\dot{\vec{r}}_\alpha \\
+&=0
+\end{align}
+$$
+:::
 
 从参考系 $K$ 到参考系 $K'$ 有关系
 $$
@@ -176,19 +187,68 @@ E=E'+\dfrac{1}{2}MV^2 \\
 \right.
 $$
 
+::: details 推导
+我们记参考系 $K'$ 相对参考系 $K$ 的运动速度为 $\vec{V}$ ，则
+$$
+\vec{r}=\vec{r}'+\vec{V}t
+$$
+$$
+\Rightarrow \vec{v}=\vec{v}'+\vec{V}
+$$
+动量
+$$
+\Rightarrow \vec{p}=\vec{p}'+M\vec{V}
+$$
+动能
+$$
+\begin{align}
+E&=\frac{1}{2}\sum_\alpha m_\alpha \vec{v}_\alpha^2 \\
+&=\frac{1}{2}\sum_\alpha m_\alpha (\vec{v}_\alpha'+\vec{V})^2 \\
+&=\frac{1}{2}\sum_\alpha m_\alpha \vec{v}_\alpha'^2+\sum_\alpha m_\alpha\vec{v}_\alpha'\vec{V}+\frac{1}{2}\sum_\alpha m_\alpha\vec{V}^2 \\
+&=E'+\vec{V}\cdot\vec{p}'+\frac{1}{2}M\vec{V}^2
+\end{align}
+$$
+角动量
+$$
+\begin{align}
+\vec{J}&=\sum_\alpha m_\alpha\vec{r}_\alpha\times\vec{v}_\alpha \\
+&=\sum_\alpha m_\alpha\vec{r}_\alpha\times(\vec{v}'_\alpha+\vec{V}) \\
+&=\sum_\alpha m_\alpha\vec{r}\times\vec{v}'+\sum_\alpha m_\alpha\vec{r}_\alpha\times\vec{V} \\
+&=\vec{J}'+M\vec{R}\times\vec{V}
+\end{align}
+$$
+:::
+
 ### 相似性
 
 对于一个系统， $T\propto v^2,U\propto r^k$
 
 当系统的位矢 $\vec{r}\rightarrow a\vec{r}$ ，时间 $t\rightarrow bt$
 
-可以由拉格朗日方程性质得到： $b=a^{1-k/2}$ 
+可以由拉格朗日量性质得到： $b=a^{1-k/2}$ 
 
 即
 
 $$
 \frac{t'}{t}=\left(\frac{l'}{l}\right)^{1-k/2}
 $$
+
+::: details 推导
+由于拉格朗日量可以放缩倍数而保持拉格朗日方程成立，当
+$$
+q\rightarrow aq,\quad t\rightarrow bt
+$$
+$$
+\dot{q}=\frac{\mathrm{d}q}{\mathrm{d}t}\rightarrow \frac{a}{b}\dot{q}
+$$
+拉格朗日量
+$$
+L=T(\dot{q}^2)-U(q^k)\rightarrow \left(\frac{a}{b}\right)^2T-a^k U
+$$
+$$
+\Rightarrow \left(\frac{a}{b}\right)^2=a^k\Rightarrow b=a^{1-k/2}
+$$
+:::
 
 ::: info e.g.
 | k值 | 实例 |
@@ -206,6 +266,25 @@ $$
 
 其中按时间平均 $\displaystyle\langle f\rangle=\lim_{\tau\rightarrow\infty}\frac{1}{\tau}\int_0^\tau f\mathrm{d}t$
 
+::: details 推导位力定理
+$$
+\begin{align}
+2T&=\sum_\alpha\vec{v}_\alpha\frac{\partial T}{\partial \vec{v}_\alpha} \\
+&=\frac{\mathrm{d}}{\mathrm{d}t}\left(\sum_\alpha\vec{r}_\alpha\cdot{\vec{p}}_\alpha\right)-\sum_\alpha\vec{r}_\alpha\cdot\dot{\vec{p}}_\alpha \\
+&=\frac{\mathrm{d}}{\mathrm{d}t}\left(\sum_\alpha\vec{r}_\alpha\cdot{\vec{p}}_\alpha\right)-\sum_\alpha\vec{r}_\alpha\cdot\frac{\partial L}{\partial \vec{r}_\alpha} \\
+&=\frac{\mathrm{d}}{\mathrm{d}t}\left(\sum_\alpha\vec{r}_\alpha\cdot{\vec{p}}_\alpha\right)+\sum_\alpha\vec{r}_\alpha\cdot\frac{\partial U}{\partial \vec{r}_\alpha}
+\end{align}
+$$
+上式对时间取平均，由于 $\sum_\alpha \vec{r}_\alpha\cdot\vec{p}_\alpha$ 有界（当 $\tau\rightarrow\infty$ ）
+$$
+2\langle T\rangle=\underbrace{\langle\frac{\mathrm{d}}{\mathrm{d}t}\left(\sum_\alpha\vec{r}_\alpha\cdot\vec{p}_\alpha\right)\rangle}_{=0}+\sum_\alpha\vec{r}_\alpha\cdot\frac{\partial U}{\partial \vec{r}_\alpha}
+$$
+当 $U\propto r_\alpha^k$ 有
+$$
+2\langle T\rangle=kU
+$$
+:::
+
 ## 中心力场
 
 ### 一维运动
@@ -213,6 +292,16 @@ $$
 对于一维运动 $L=\dfrac{1}{2}m\dot{x}^2-U(x)$
 
 其轨迹（path）$\displaystyle t=\sqrt{\frac{m}{2}}\int\frac{\mathrm{d}x}{\sqrt{E-U}}$
+
+::: details 推导
+记系统总能量为 $E$ ，有
+$$
+\frac{1}{2}m\left(\frac{\mathrm{d}x}{\mathrm{d}t}\right)^2+U=E
+$$
+$$
+\Rightarrow \mathrm{d}t=\sqrt{\frac{m}{2}}\frac{\mathrm{d}x}{\sqrt{E-U}}
+$$
+:::
 
 ![势能曲线](./analytial_mechanics_fig/3-1.png)
 
@@ -226,13 +315,26 @@ $$
 
 ### 约化质量
 
-对于两体问题 $L=\dfrac{1}{2}m_1\left|\dot{\vec{r}}_1\right|^2+\dfrac{1}{2}m_1\left|\dot{\vec{r}}_2\right|^2-U(\left|\vec{r}_1-\vec{r}_2\right|)$
+对于两体问题 $L=\dfrac{1}{2}m_1\left|\dot{\vec{r}}_1\right|^2+\dfrac{1}{2}m_2\left|\dot{\vec{r}}_2\right|^2-U(\left|\vec{r}_1-\vec{r}_2\right|)$
 
 $$
 L=\frac{1}{2}\frac{m_1m_2}{m_1+m_2}\left|\dot{\vec{r}}\right|^2-U(r)
 $$
 
 约化质量（reduced mass） $m=\dfrac{m_1m_2}{m_1+m_2}$
+
+::: details 推导
+在质心系中，记 $\vec{r}=\vec{r}_1-\vec{r}_2$, $m_1\vec{r}_1+m_2\vec{r}_2=0$ 有
+$$
+\vec{r}_1=\frac{m_2\vec{r}}{m_1+m_2},\quad\vec{r}_2=\frac{-m_1\vec{r}}{m_1+m_2}
+$$
+$$
+\begin{align}
+L&=\frac{1}{2}m_1\left(\frac{m_2}{m_1+m_2}\left|\dot{\vec{r}}\right|\right)^2+\frac{1}{2}m_2\left(\frac{m_1}{m_1+m_2}\left|\dot{\vec{r}}\right|\right)^2-U(r) \\
+&=\frac{1}{2}\frac{m_1m_2}{m_1+m_2}\left|\dot{\vec{r}}\right|^2-U(r)
+\end{align}
+$$
+:::
 
 ::: info [example1](#example1)
 对于一个质量 $m_s$ 的恒星和 $n$ 个相同质量 $m_p$ 的行星 $(\alpha=1,...,n)$ ，求 $L(\vec{R}_\alpha,\dot{\vec{R}}_\alpha)$
@@ -247,6 +349,19 @@ $$
 :::
 
 - 角动量守恒 $M=mr^2\dot{\varphi}=const$
+::: details 为什么角动量是 $mr^2\dot{\varphi}$ 而非 $m_2r^2\dot{\varphi}$?
+如图
+![p2](./analytial_mechanics_fig/p2.png)
+天体1和天体2都有角动量，总角动量
+$$
+\begin{align}
+M&=m_1r_1v_1+m_2r_2v_2 \\
+&=m_1r_1^2\dot{\varphi}+m_2r_2^2\dot{\varphi} \\
+&=m_1\left(\frac{m_2}{m_1+m_2}r\right)^2\dot{\varphi}+m_2\left(\frac{m_1}{m_1+m_2}r\right)^2\dot{\varphi} \\
+&=\frac{m_1m_2}{m_1+m_2}r^2\dot{\varphi}
+\end{align}
+$$
+:::
 - $E=\dfrac{1}{2}m\dot{r}^2+\dfrac{M^2}{2mr^2}+U(r),E=const$
 - 轨迹（path） $\displaystyle t=\int\left(\frac{2}{m}(E-U)-\frac{M^2}{m^2r^2}\right)^{-1/2}\mathrm{d}r$
 - 轨迹的形状（shape） $\displaystyle \varphi=\int\frac{M}{mr^2}\left(\frac{2}{m}(E-U)-\frac{M^2}{m^2r^2}\right)^{-1/2}\mathrm{d}r$
@@ -279,7 +394,7 @@ $$
 
 轨迹的形状
 $$
-r(\varphi)=\frac{M^2}{mk}\left(\sqrt{1+\frac{2mEM^2}{m^2k^2}}\cos\varphi+1\right)^{-1}
+r(\varphi)=\frac{M^2}{mk}\left(\sqrt{1+\frac{2EM^2}{mk^2}}\cos\varphi+1\right)^{-1}
 $$
 
 偏心率（eccentricity） $\displaystyle e=\sqrt{1+\frac{2EM^2}{mk^2}}$
@@ -290,6 +405,28 @@ $$
 $$
 r(\varphi)=\frac{p}{1+e\cos\varphi}
 $$
+
+::: details 推导
+从轨迹的形状方程出发
+$$
+\varphi=\int\frac{M}{mr^2}\left[\frac{2E}{m}+\frac{k^2}{M^2}-\left(\frac{k}{M}-\frac{M}{mr}\right)^2\right]^{-1/2}\mathrm{d}r
+$$ 
+作三角换元 $\displaystyle\frac{k}{M}-\frac{M}{mr}=\sqrt{\frac{2E}{m}+\frac{k^2}{M^2}}\cos\theta$
+$$
+\frac{M}{mr^2}\mathrm{d}r=-\sqrt{\frac{2E}{m}+\frac{k^2}{M^2}}\sin\theta\mathrm{d}\theta
+$$
+则
+$$
+\varphi=\int-\mathrm{d}\theta=-\theta+C
+$$
+选择合适的初值条件使常数 $C=0$
+$$
+\varphi=-\arccos\frac{\frac{k}{M}-\frac{M}{mr}}{\sqrt{\frac{2E}{m}+\frac{k^2}{M^2}}}
+$$
+$$
+\Rightarrow r=\frac{M^2}{mk}\left(\sqrt{1+\frac{2EM^2}{mk^2}}\cos\varphi+1\right)^{-1}
+$$
+:::
 
 #### 椭圆
 
@@ -337,7 +474,42 @@ $$
 \frac{\mathrm{d}^2w}{\mathrm{d}\varphi^2}+w=\frac{mk}{M^2}
 $$
 
-现在方程为线性常微分方程，称为比内公式。
+::: details 推导
+令 $w=1/r$ ， $r=1/w$ ， $w=w(\varphi)$
+$$
+\dot{r}=\frac{\mathrm{d}r}{\mathrm{d}w}\frac{\mathrm{d}w}{\mathrm{d}\varphi}\dot{\varphi}=-\frac{1}{w^2}\frac{\mathrm{d}w}{\mathrm{d}\varphi}\dot{\varphi}=-r^2\dot{\varphi}\frac{\mathrm{d}w}{\mathrm{d}\varphi}
+$$
+由于 $M=mr^2\dot{\varphi}$ ，有 $\dot{r}=-\dfrac{M}{m}\dfrac{\mathrm{d}w}{\mathrm{d}\varphi}$
+$$
+\begin{align}
+\ddot{r}&=-\frac{M}{m}\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\mathrm{d}w}{\mathrm{d}\varphi}\right)=-\frac{M}{m}\frac{\mathrm{d}^2w}{\mathrm{d}\varphi^2}\dot{\varphi} \\
+&=-\frac{M}{m}\frac{\mathrm{d}^2w}{\mathrm{d}\varphi^2}\frac{M}{mr^2}=-\frac{M^2}{m^2r^2}\frac{\mathrm{d}^2w}{\mathrm{d}\varphi^2} \\
+&=-\frac{M^2}{m^2}w^2\frac{\mathrm{d}^2w}{\mathrm{d}\varphi^2}
+\end{align}
+$$
+$$
+r\dot{\varphi}^2=\frac{r^4\dot{\varphi}^2}{r^3}=\frac{M^2}{m^2}w^3
+$$
+$$
+\frac{\mathrm{d}U}{\mathrm{d}r}=\frac{\mathrm{d}U}{\mathrm{d}w}\frac{\mathrm{d}w}{\mathrm{d}r}=-w^2\frac{\mathrm{d}U}{\mathrm{d}w}
+$$
+其中 $U=-k/r=-kw$ $\Rightarrow\dfrac{\mathrm{d}U}{\mathrm{d}w}=-k$
+$$
+\frac{\mathrm{d}U}{\mathrm{d}r}=kw^2
+$$
+所以原方程
+$$
+m(\ddot{r}-r\dot{\varphi}^2)=-\frac{\mathrm{d}U}{\mathrm{d}r}
+$$
+$$
+\Rightarrow -\frac{M^2}{m}w^2\frac{\mathrm{d}^2w}{\mathrm{d}\varphi^2}-\frac{M^2}{m}w^3=-kw^2
+$$
+$$
+\Rightarrow\frac{\mathrm{d}^2w}{\mathrm{d}\varphi^2}+w=\frac{mk}{M^2}
+$$
+:::
+
+现在方程为线性常微分方程，称为比内 (Binet) 公式。
 
 可解出 $w=C\cos(\varphi+\varphi_0)+\dfrac{mk}{M^2}$ 即
 $$
@@ -347,6 +519,36 @@ $$
 ### 第三个守恒量
 
 拉普拉斯-楞次-龙格守恒量（Laplace-Lentz-Runge）$\vec{B}=\vec{v}\times\vec{M}-\dfrac{k\vec{r}}{r}$
+
+::: details 推导
+由角动量守恒 $\dfrac{\mathrm{d}\vec{M}}{\mathrm{d}t}=0$
+$$
+\begin{align}
+\frac{\mathrm{d}}{\mathrm{d}t}(\vec{v}\times\vec{M})&=\frac{\mathrm{d}\vec{v}}{\mathrm{d}t}\times\vec{M}+\vec{v}\times\frac{\mathrm{d}\vec{M}}{\mathrm{d}t} \\
+&=\frac{\mathrm{d}\vec{v}}{\mathrm{d}t}\times\vec{M} \\
+&=-\frac{1}{m}\frac{\mathrm{d}U}{\mathrm{d}\vec{r}}\times\vec{M} \\
+&=-\frac{1}{m}\frac{\mathrm{d}U}{\mathrm{d}r}\hat{e}_r\times\vec{M} \\
+&=-\frac{1}{m}\frac{\mathrm{d}U}{\mathrm{d}r}\hat{e}_r\times(\vec{r}\times\vec{p}) \\
+&=-\frac{1}{m}\frac{\mathrm{d}U}{\mathrm{d}r}((\hat{e}_r\cdot\vec{p})\vec{r}-(\hat{e}_r\cdot\vec{r})\vec{p}) \\
+&=-\frac{\mathrm{d}U}{\mathrm{d}r}(v_r\vec{r}-r\vec{v}) \\
+&=-\frac{\mathrm{d}U}{\mathrm{d}r}(\frac{\mathrm{d}r}{\mathrm{d}t}\vec{r}-r\frac{\mathrm{d}\vec{r}}{\mathrm{d}t})
+\end{align}
+$$
+我们有
+$$
+\begin{align}
+\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\vec{r}}{r}\right)&=\frac{\mathrm{d}\vec{r}}{\mathrm{d}t}\frac{1}{r}+\vec{r}\left(-\frac{1}{r^2}\right)\frac{\mathrm{d}r}{\mathrm{d}t} \\
+&=-\frac{1}{r^2}\left(\frac{\mathrm{d}r}{\mathrm{d}t}\vec{r}-r\frac{\mathrm{d}\vec{r}}{\mathrm{d}t}\right)
+\end{align}
+$$
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}(\vec{v}\times\vec{M})=-\frac{\mathrm{d}U}{\mathrm{d}r}(-r^2)\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\vec{r}}{r}\right)
+$$
+当 $U=-k/r$ 时，有 $\dfrac{\mathrm{d}}{\mathrm{d}t}(\vec{v}\times\vec{M})=k\dfrac{\mathrm{d}}{\mathrm{d}t}\left(\dfrac{\vec{r}}{r}\right)$ 即
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}(\vec{v}\times\vec{M}-k\frac{\vec{r}}{r})=0
+$$
+:::
 
 $\vec{B}$ 位于轨道平面，在近日点算得 $\vec{B}=ke\hat{e}_r$ ，$\vec{B}$ 是和偏心率有关的守恒量。
 
@@ -381,6 +583,29 @@ $$
 $$
 \delta\ddot{r}+\left(3\dot{\varphi}_0^2-\frac{2k}{mr_0^3}\right)\delta r=0
 $$
+
+::: details 具体计算过程
+将 $-\dfrac{k}{r^2}$ 项泰勒展开
+$$
+\left\{\begin{array}{l}
+\displaystyle m(\delta\ddot{r}-(r_0+\delta r)(\dot{\varphi}_0+\delta\dot{\varphi})^2)=-\frac{k}{r_0^2}+\frac{2k}{r_0^3}\delta r+O(\delta r) \\
+\displaystyle m(r_0+\delta r)^2(\dot{\varphi}_0+\delta\dot{\varphi})=M
+\end{array}\right.
+$$
+忽略二阶小量，并把圆轨道满足关系式代入
+$$
+\left\{\begin{array}{lr}
+\displaystyle m\delta\ddot{r}-mr_02\dot{\varphi}_0\delta\dot{\varphi}-m\delta r\dot{\varphi}_0^2=\frac{2k}{r_0^3}\delta r & (1) \\
+\displaystyle mr_0^2\delta\dot{\varphi}+m2r_0\delta r\dot{\varphi}_0=0 & (2)
+\end{array}\right.
+$$
+由 $(2)$ 式有
+$$
+\delta\dot{\varphi}=-\frac{2\delta r\dot{\varphi}_0}{r_0}
+$$
+再代回 $(1)$ 式即可。
+:::
+
 由于 $\displaystyle 3\dot{\varphi}_0^2-\frac{2k}{mr_0^3}=\frac{k}{mr_0^3}>0$ 故圆轨道稳定。
 
 - 扰动频率(kepler frequency) $\displaystyle\omega=\sqrt{\frac{k}{mr_0^3}}$
@@ -550,12 +775,42 @@ $$
 x=a\cos(\omega t+\alpha)+\frac{f}{m(\omega^2-\gamma^2)}\cos(\gamma t+\beta)
 $$
 
+::: details 求解
+对于非齐次方程，其解的结构为对应齐次方程的解加上一个特解，假定 $x=x_0+x_1$ ，其中 $x_0$ 为自由振动解
+$$
+x_0=a\cos(\omega t+\alpha)
+$$
+假定特解 $x_1=b\cos(\gamma t+\beta)$ 代入方程有
+$$
+-\gamma^2b\cos(\gamma t+\beta)+\omega^2b\cos(\gamma t+\beta)=\frac{f\cos(\gamma t+\beta)}{m}
+$$
+$$
+\Rightarrow b=\frac{f}{m(\omega^2-\gamma^2)}
+$$
+:::
+
 1. 共振(resonance)
 
 当 $\gamma=\omega$ 时，有
 $$
 x=a'\cos(\omega t+\alpha)+\frac{f}{2m\omega}t\sin(\omega t+\beta)
 $$
+
+::: details 求解
+假定通解为
+$$
+x=a'\cos(\omega t+\alpha)+\frac{f}{m(\omega^2-\gamma^2)}[\cos(\gamma t+\beta)-\cos(\omega t+\beta)]
+$$
+其中第二项
+$$
+\begin{align}
+&\lim_{\gamma\rightarrow\omega}\frac{f}{m(\omega^2-\gamma^2)}[\cos(\gamma t+\beta)-\cos(\omega t+\beta)] \\
+=&\lim_{\gamma\rightarrow\omega}\frac{f}{m(\omega^2-\gamma^2)}[-\sin(\omega t+\beta)(\gamma-\omega)t] \\
+=&\frac{f}{m(-2\omega)}[-\sin(\omega t+\beta)t] \\
+=&\frac{ft}{2m\omega}\sin(\omega t+\beta)
+\end{align}
+$$
+:::
 
 ![函数图像](./analytial_mechanics_fig/4-1.png)
 
@@ -567,6 +822,26 @@ $$
 $$
 x=(A+Be^{i\varepsilon t})e^{i\omega t}
 $$
+
+::: details 求解
+记 $\gamma=\omega+\varepsilon$
+$$
+\begin{align}
+x&=a\cos(\omega t+\alpha)+\frac{f}{m(\omega^2-\gamma^2)}\cos(\gamma t+\beta) \\
+&=\mathrm{Re}(A\mathrm{e}^{i\omega t})+\mathrm{Re}(B\mathrm{e}^{i\gamma t}) \\
+&=A\mathrm{e}^{i\omega t}+B\mathrm{e}^{i\gamma t}
+\end{align}
+$$
+$$
+A=a\mathrm{e}^{i\alpha},\quad B=b\mathrm{e}^{i\beta},\quad b=\frac{f}{m(\omega^2-\gamma^2)}
+$$
+$$
+\begin{align}
+x&=A\mathrm{e}^{i\omega t}+B\mathrm{e}^{i(\omega+\varepsilon)t} \\
+&=(A+B\mathrm{e}^{i\varepsilon t})\mathrm{e}^{i\omega t}
+\end{align}
+$$
+:::
 
 ![函数图像](./analytial_mechanics_fig/4-2.png)
 
@@ -580,6 +855,35 @@ $$
 $$
 x=\frac{\mathrm{Im}(\xi)}{\omega}
 $$
+
+::: details 求解
+将方程降阶
+$$
+\ddot{x}+\omega^2 x=\frac{F(t)}{m}
+$$
+$$
+\Leftrightarrow\frac{\mathrm{d}}{\mathrm{d}t}(\dot{x}+i\omega x)-i\omega(\dot{x}+i\omega x)=\frac{F}{m}
+$$
+令 $\xi=\dot{x}+i\omega x$
+$$
+\frac{\mathrm{d}\xi}{\mathrm{d}t}-i\omega \xi=\frac{F}{m}
+$$
+使用常数变易法，假定 $\xi=A(t)\mathrm{e}^{i\omega t}$ 代入方程有
+$$
+\frac{\mathrm{d}A}{\mathrm{d}t}=\frac{F}{m}\mathrm{e}^{-i\omega t}
+$$
+$$
+\Rightarrow A=\int_0^t\frac{F(s)}{m}\mathrm{e}^{-i\omega s}\mathrm{d}s+A_0
+$$
+故
+$$
+\xi=\left(\int_0^t\frac{F(s)}{m}\mathrm{e}^{-i\omega s}\mathrm{d}s+A_0\right)\mathrm{e}^{i\omega t}
+$$
+其中常数 $A_0$ 由初值条件确定，原方程的解
+$$
+x=\frac{\mathrm{Im}(\xi)}{\omega}
+$$
+:::
 
 ### 阻尼振动
 
@@ -631,6 +935,12 @@ $$
 b=\frac{f/m}{\sqrt{(\omega^2-\gamma^2)^2+4\mu^2\gamma^2}}
 $$
 
+::: details 求解
+同前面受迫振动，通过齐次方程解加特解得到。
+
+猜测特解的形式与外力保持一致，代入方程求出振幅即可。
+:::
+
 1. 当 $\gamma=\sqrt{\omega^2-2\mu^2}$ 时，$b_{max}=\dfrac{f/m}{2\mu\sqrt{\omega^2-\mu^2}}$
 
 2. 当 $\gamma=\omega$ 时，$b=\dfrac{f/m}{2\mu\gamma}\neq+\infty$
@@ -657,6 +967,60 @@ $$
 m\ddot{X}=-\frac{\mathrm{d}U_{eff}}{\mathrm{d}X}
 $$
 其中 $U_{eff}=U+\langle\frac{1}{2}m\dot{\xi}^2\rangle$
+
+::: details 求解
+将运动分解为平缓项和快速项 $x=X+\xi$
+
+势能
+$$
+U(x)=U(X+\xi)\Rightarrow\frac{\mathrm{d}U}{\mathrm{d}x}=\frac{\mathrm{d}U}{\mathrm{d}X}+\left(\frac{\mathrm{d}^2U}{\mathrm{d}X^2}\right)\xi
+$$
+
+外力
+$$
+F(x,t)=F(X+\xi,t)=F(X,t)+\frac{\partial F}{\partial X}\xi
+$$
+
+原方程拆解为
+$$
+\left\{\begin{array}{lr}
+m\ddot{\xi}=F(X,t) & (1) \\
+\displaystyle m\ddot{X}=-\frac{\mathrm{d}U}{\mathrm{d}X}-\xi\frac{\mathrm{d}^2U}{\mathrm{d}X^2}+\xi\frac{\partial F}{\partial X} & (2)
+\end{array}\right.
+$$
+
+方程 $(1)$ 的解为
+$$
+\xi=-\frac{f(x)}{m\gamma^2}\cos\gamma t
+$$
+
+记取平均操作 $\langle y\rangle=\dfrac{1}{T}\int_0^T y\mathrm{d}t\quad(T=\dfrac{2\pi}{\gamma})$
+$$
+\langle\xi\frac{\mathrm{d}^2U}{\mathrm{d}X^2}\rangle=\langle\xi\rangle\frac{\mathrm{d}^2U}{\mathrm{d}X^2}=0
+$$
+$$
+\langle\xi\frac{\partial F}{\partial X}\rangle=\langle-\frac{f}{m\gamma^2}\cos\gamma t\frac{\mathrm{d}f}{\mathrm{d}X}\cos\gamma t\rangle=-\frac{1}{2}\frac{1}{m\gamma^2}f\frac{\mathrm{d}f}{\mathrm{d}X}
+$$
+对方程 $(2)$ 取时间平均
+$$
+\begin{align}
+m\ddot{X}&=-\frac{\mathrm{d}U}{\mathrm{d}X}-\frac{1}{2m\gamma^2}f\frac{\mathrm{d}f}{\mathrm{d}X} \\
+&=-\frac{\mathrm{d}}{\mathrm{d}X}(U+\frac{1}{4m\gamma^2}f^2)
+\end{align}
+$$
+由于
+$$
+\begin{align}
+\langle\dot{\xi}^2\rangle&=\langle\left(-\frac{f}{m\gamma^2}(-\sin\gamma t)\gamma\right)^2\rangle \\
+&=\langle\frac{f^2}{m^2\gamma^2}\sin^2\gamma t\rangle \\
+&=\frac{f^2}{2m^2\gamma^2}
+\end{align}
+$$
+有
+$$
+m\ddot{X}=-\frac{\mathrm{d}}{\mathrm{d}X}(U+\langle\frac{1}{2}m\dot{\xi}^2\rangle)
+$$
+:::
 
 ## 刚体运动
 
