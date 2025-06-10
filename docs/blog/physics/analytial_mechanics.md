@@ -1037,6 +1037,48 @@ $$
 
 - 转动惯量 $\displaystyle[\boldsymbol{I}]=I_{ij}=\int\rho(r^2\delta_{ij}-x_ix_j)\mathrm{d}V=\int\rho\left[\begin{array}{ccc}y^2+z^2&-xy&-xz \\ -xy&x^2+z^2&-yz \\ -xz&-yz&x^2+y^2 \end{array}\right]\mathrm{d}V$
 
+::: details 转动惯量推导
+$$
+\begin{align}
+\vec{M}&=\int\vec{r}\times(\rho\mathrm{d}V\vec{v}) \\
+&=\int\rho\vec{r}\times(\vec{\Omega}\times\vec{r})\mathrm{d}V \\
+&=\int\rho(r^2\vec{\Omega}-(\vec{r}\cdot\vec{\Omega})\vec{r})\mathrm{d}V \\
+&\equiv\int\rho\boldsymbol{A}\vec{\Omega}\mathrm{d}V=\boldsymbol{I}\vec{\Omega}
+\end{align}
+$$
+先在分量形式下猜测张量 $\boldsymbol{A}$ 的各分量
+$$
+r^2\vec{\Omega}-(\vec{r}\cdot\vec{\Omega})\vec{r}=\boldsymbol{A}\vec{\Omega}
+$$
+$$
+\left[\begin{array}{c}
+(x^2+y^2+z^2)\Omega_x-(x\Omega_x+y\Omega_y+z\Omega_z)x \\
+(x^2+y^2+z^2)\Omega_y-(x\Omega_x+y\Omega_y+z\Omega_z)y \\
+(x^2+y^2+z^2)\Omega_z-(x\Omega_x+y\Omega_y+z\Omega_z)z
+\end{array}\right]=\left[\begin{array}{ccc}
+y^2+z^2 & -xy & -xz \\
+-xy & x^2+z^2 & -yz \\
+-xz & -yz & x^2+y^2
+\end{array}\right]\left[\begin{array}{c}
+\Omega_x \\
+\Omega_y \\
+\Omega_z
+\end{array}\right]
+$$
+可见张量
+$$
+\boldsymbol{A}=\left[\begin{array}{ccc}
+y^2+z^2 & -xy & -xz \\
+-xy & x^2+z^2 & -yz \\
+-xz & -yz & x^2+y^2
+\end{array}\right]=[r^2\delta_{ij}-x_ix_j]
+$$
+故转动惯量
+$$
+\boldsymbol{I}_{ij}=\int\rho(r^2\delta_{ij}-x_ix_j)\mathrm{d}V
+$$
+:::
+
 ### 动能和转动惯量
 
 - 动能 (刚体质量 $\mu$、平动速度 $\vec{V}$、转动角速度 $\vec{\Omega}$、转动惯量 $\boldsymbol{I}$)
@@ -1046,6 +1088,51 @@ T&=\frac{1}{2}\mu|\vec{V}|^2+\frac{1}{2}\vec{\Omega}\cdot[\boldsymbol{I}]\cdot\v
 &=\frac{1}{2}\mu|\vec{V}|^2+\frac{1}{2}\sum_{i}\sum_{j}I_{ij}\Omega_i\Omega_j
 \end{align}
 $$
+
+::: details 动能推导
+固定坐标系中，动能
+$$
+\begin{align}
+T&=\int\frac{1}{2}\rho\left|\vec{V}+\vec{\Omega}\times\vec{r}\right|^2\mathrm{d}V \\
+&=\int\frac{1}{2}\rho(|\vec{V}|^2+2\vec{V}\cdot(\vec{\Omega}\times\vec{r})+|\vec{\Omega}\times\vec{r}|^2)\mathrm{d}V \\
+&=\underbrace{\int\frac{1}{2}\rho|\vec{V}|^2\mathrm{d}V}_{①}+\underbrace{\int\rho\vec{V}\cdot(\vec{\Omega}\times\vec{r})\mathrm{d}V}_{②}+\underbrace{\int\frac{1}{2}\rho|\vec{\Omega}\times\vec{r}|^2\mathrm{d}V}_{③}
+\end{align}
+$$
+$$
+①=\frac{1}{2}\mu|\vec{V}|^2
+$$
+$$
+②=\int\rho\vec{r}\cdot(\vec{V}\times\vec{\Omega})\mathrm{d}V=(\vec{V}\times\vec{\Omega})\cdot\int\rho\vec{r}\mathrm{d}V=0
+$$
+对于 $③$
+$$
+\begin{align}
+|\vec{\Omega}\times\vec{r}|^2&=(\Omega r\sin\theta)^2 \\
+&=\Omega^2r^2(1-\cos^2\theta) \\
+&=\Omega^2r^2-(\vec{\Omega}\cdot\vec{r})^2
+\end{align}
+$$
+$$
+r^2\vec{\Omega}-(\vec{r}\cdot\vec{\Omega})\vec{r}=\boldsymbol{A}\vec{\Omega}
+$$
+$$
+\Rightarrow|\vec{\Omega}\times\vec{r}|^2=\vec{\Omega}\boldsymbol{A}\vec{\Omega}
+$$
+$$
+\begin{align}
+③&=\frac{1}{2}\int\rho|\vec{\Omega}\times\vec{r}|^2\mathrm{d}V \\
+&=\frac{1}{2}\int\rho\vec{\Omega}\boldsymbol{A}\vec{\Omega}\mathrm{d}V \\
+&=\frac{1}{2}\vec{\Omega}\boldsymbol{I}\vec{\Omega}
+\end{align}
+$$
+故动能
+$$
+\begin{align}
+T&=\overbrace{\frac{1}{2}\mu|\vec{V}|^2}^{\text{平动动能}}+\overbrace{\frac{1}{2}\vec{\Omega}\boldsymbol{I}\vec{\Omega}}^{\text{转动动能}} \\
+&=\frac{1}{2}\mu|\vec{V}|^2+\frac{1}{2}\sum_i\sum_j\boldsymbol{I}_{ij}\Omega_i\Omega_j
+\end{align}
+$$
+:::
 
 ### 惯量主轴和主转动惯量
 
@@ -1061,6 +1148,20 @@ $$
 $$
 I_{ij}'=I_{ij}+\mu(a^2\delta_{ij}-a_ia_j)
 $$
+
+::: details 推导
+记 $\overrightarrow{OO'}=\vec{a}$ ，则 $\vec{r}=\vec{r}'+\vec{a},$ $x_i=x_i'+a_i\ (i=1,2,3)$
+$$
+\begin{align}
+\boldsymbol{I}'_{ij}&=\int\rho(r'^2\delta_{ij}-x_i'x_j')\mathrm{d}V \\
+&=\int\rho\left[((x_1-a_1)^2+(x_2-a_2)^2+(x_3-a_3)^2)\delta_{ij}-(x_i-a_i)(x_j-a_j)\right]\mathrm{d}V \\
+&=\int\rho\left[(x_1^2+x_2^2+x_3^2)\delta_{ij}-x_ix_j\right]\mathrm{d}V \\
+&+\int\rho\left[(-2a_1x_1-2a_2x_2-2a_3x_3+a_1^2+a_2^2+a_3^2)\delta_{ij}+a_ix_j+a_jx_i-a_ia_j\right]\mathrm{d}V \\
+&=\boldsymbol{I}_{ij}+\int\rho(a^2\delta_{ij}-a_ia_j)\mathrm{d}V \\
+&=\boldsymbol{I}_{ij}+\mu(a^2\delta_{ij}-a_ia_j)
+\end{align}
+$$
+:::
 
 ### 刚体运动方程
 
@@ -1106,6 +1207,27 @@ $$
 \end{array}\right.
 \end{array}
 $$
+
+::: details 推导
+取随刚体转动的转动惯量主轴为坐标系，对于任意向量 $\vec{A}$ 由于旋转产生的增量
+$$
+\mathrm{d}\vec{A}=\mathrm{d}\vec{\varphi}\times\vec{A}
+$$
+$$
+\Rightarrow\frac{\mathrm{d}\vec{A}}{\mathrm{d}t}=\vec{\Omega}\times\vec{A}
+$$
+考虑向量 $\vec{A}$ 在刚体系中本身随时间变化 $\mathrm{d}'\vec{A}$
+$$
+\frac{\mathrm{d}\vec{A}}{\mathrm{d}t}=\frac{\mathrm{d}'\vec{A}}{\mathrm{d}t}+\vec{\Omega}\times\vec{A}
+$$
+故刚体运动方程在惯量主轴坐标系中为
+$$
+\frac{\mathrm{d}'\vec{p}}{\mathrm{d}t}+\vec{\Omega}\times\vec{p}=\vec{F}
+$$
+$$
+\frac{\mathrm{d}'\vec{M}}{\mathrm{d}t}+\vec{\Omega}\times\vec{M}=\vec{K}
+$$
+:::
 
 ### 定轴/定点转动、欧拉角
 
@@ -1169,6 +1291,33 @@ $$
 
 其中 $\displaystyle -m\frac{\mathrm{d}\vec{V}}{\mathrm{d}t}$ 为惯性力。
 
+::: details 推导
+$\vec{v}=\vec{v}'+\vec{V}(t)$
+非惯性系中拉格朗日量为
+$$
+\begin{align}
+L'&=\frac{1}{2}m|\vec{v}|^2-U \\
+&=\frac{1}{2}m|\vec{v}'+\vec{V}|^2-U \\
+&=\frac{1}{2}m|\vec{v}'|^2+\frac{1}{2}m|\vec{V}|^2+m\vec{v}'\cdot\vec{V}-U
+\end{align}
+$$
+其中 $\dfrac{1}{2}m|\vec{V}|^2$ 是时间的函数，
+$$
+m\vec{v}'\cdot\vec{V}=m\frac{\mathrm{d}\vec{r}'}{\mathrm{d}t}\cdot\vec{V}=\frac{\mathrm{d}}{\mathrm{d}t}(m\vec{r}'\cdot\vec{V})-m\vec{r}'\cdot\frac{\mathrm{d}\vec{V}}{\mathrm{d}t}
+$$
+其中 $\dfrac{\mathrm{d}}{\mathrm{d}t}(m\vec{r}'\cdot\vec{V})$ 是时间的全微分。
+$$
+L'=\frac{1}{2}m|\vec{v}'|^2-m\vec{r}'\cdot\frac{\mathrm{d}\vec{V}}{\mathrm{d}t}-U
+$$
+其拉格朗日方程
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L'}{\partial\vec{v}'}=\frac{\partial L'}{\partial \vec{r}'}\Rightarrow
+$$
+$$
+m\frac{\mathrm{d}\vec{v}'}{\mathrm{d}t}=-m\frac{\mathrm{d}\vec{V}}{\mathrm{d}t}-\frac{\partial U}{\partial \vec{r}'}
+$$
+:::
+
 2. 转动
 
 记非惯性系 $(x',y',z')$ 相对惯性系 $(x,y,z)$ 有转动速度 $\vec{\Omega}$
@@ -1181,6 +1330,39 @@ $$
 - $\displaystyle m\vec{r}'\times\dot{\vec{\Omega}}$ 庞加莱力
 - $\displaystyle 2m\vec{r}'\times\vec{\Omega}$ 科里奥利力
 - $\displaystyle m(\vec{\Omega}\times\vec{r}')\times\vec{\Omega}$ 离心力
+
+::: details 推导
+$\vec{v}=\vec{v}'+\vec{\Omega}\times\vec{r}'$
+$$
+\begin{align}
+L'&=\frac{1}{2}m|\vec{v}'+\vec{\Omega}\times\vec{r}'|^2-U \\
+&=\frac{1}{2}m\left(v'^2+|\vec{\Omega}\times\vec{r}'|^2+2\vec{v}'\cdot(\vec{\Omega}\times\vec{r}')\right)-U
+\end{align}
+$$
+$$
+\begin{align}
+\mathrm{d}L'&=m\vec{v}'\cdot\mathrm{d}\vec{v}'+m(\vec{\Omega}\times\vec{r}')\cdot(\vec{\Omega}\times\mathrm{d}\vec{r}') \\
+&+m\mathrm{d}\vec{v}'\cdot(\vec{\Omega}\times\vec{r}')+m\vec{v}'\cdot(\vec{\Omega}\times\mathrm{d}\vec{r}') \\
+&-\frac{\partial U}{\partial \vec{r}'}\cdot\mathrm{d}\vec{r}'
+\end{align}
+$$
+$$
+\frac{\partial L'}{\partial \vec{v}'}=m\vec{v}'+m\vec{\Omega}\times\vec{r}'
+$$
+$$
+\frac{\partial L'}{\partial \vec{r}'}=m(\vec{\Omega}\times\vec{r}')\times\vec{\Omega}+m\vec{v}'\times\vec{\Omega}-\frac{\partial U}{\partial \vec{r}'}
+$$
+由拉格朗日方程
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L'}{\partial \vec{v}'}=\frac{\partial L'}{\partial\vec{r}'}\Rightarrow
+$$
+$$
+m\frac{\mathrm{d}\vec{v}'}{\mathrm{d}t}+m\left(\frac{\mathrm{d}\vec{\Omega}}{\mathrm{d}t}\times\vec{r}'+\vec{\Omega}\times\vec{v}'\right)=m(\vec{\Omega}\times\vec{r}')\times\vec{\Omega}+m\vec{v}'\times\vec{\Omega}-\frac{\partial U}{\partial \vec{r}'}
+$$
+$$
+\Leftrightarrow m\frac{\mathrm{d}\vec{v}'}{\mathrm{d}t}=m\vec{r}'\times\dot{\vec{\Omega}}+2m\vec{v}'\times\vec{\Omega}+m(\vec{\Omega}\times\vec{r}')\times\vec{\Omega}-\frac{\partial U}{\partial\vec{r}'}
+$$
+:::
 
 3. 既有平动又有转动
 
@@ -1200,6 +1382,31 @@ $$
 $$
 \vec{p}=\vec{p}',\quad\vec{M}=\vec{M}',\quad E-E'=\vec{M}\cdot\vec{\Omega}
 $$
+
+::: details 推导
+非惯性系下拉格朗日量
+$$
+L'=\frac{1}{2}mv'^2+\frac{1}{2}m|\vec{\Omega}\times\vec{r}'|^2+m\vec{v}\cdot(\vec{\Omega}\times\vec{r}')-U
+$$
+$$
+\vec{p}'=\frac{\partial L'}{\partial \vec{v}'}=m\vec{v}'+m\vec{\Omega}\times\vec{r}'
+$$
+非惯性系能量
+$$
+E'=\vec{v}\cdot\vec{p}'-L'=\frac{1}{2}mv'^2+U-\frac{1}{2}m|\vec{\Omega}\times\vec{r}'|^2
+$$
+惯性系能量
+$$
+E=\frac{1}{2}mv^2+U
+$$
+$$
+\begin{align}
+E-E'&=m|\vec{\Omega}\times\vec{r}|^2+m\vec{v}'\cdot(\vec{\Omega}\times\vec{r}) \\
+&=m(\vec{\Omega}\times\vec{r})\cdot\vec{v}=(\vec{r}\times m\vec{v})\cdot\vec{\Omega} \\
+&=\vec{M}\cdot\vec{\Omega}
+\end{align}
+$$
+:::
 
 5. 傅科摆
 
@@ -1236,6 +1443,27 @@ $$
 \frac{\partial H}{\partial p_i}=\dot{q}_i,\quad\frac{\partial H}{\partial q_i}=-\dot{p}_i\quad(i=1,...,s)
 $$
 
+::: details 推导
+由能量的勒让德变换 $E=p\dot{q}-L$
+$$
+\begin{align}
+\mathrm{d}L&=\frac{\partial L}{\partial q}\mathrm{d}q+\frac{\partial L}{\partial\dot{q}}\mathrm{d}\dot{q}+\frac{\partial L}{\partial t}\mathrm{d}t \\
+&=\dot{p}\mathrm{d}q+p\mathrm{d}\dot{q}+\frac{\partial L}{\partial t}\mathrm{d}t \\
+&=\dot{p}\mathrm{d}q+\mathrm{d}(p\dot{q})-\dot{q}\mathrm{d}p+\frac{\partial L}{\partial t}\mathrm{d}t
+\end{align}
+$$
+$$
+\Rightarrow \mathrm{d}(p\dot{q}-L)=\dot{q}\mathrm{d}p-\dot{p}\mathrm{d}q-\frac{\partial L}{\partial t}\mathrm{d}t
+$$
+$$
+\Rightarrow\mathrm{d}H=\dot{q}\mathrm{d}p-\dot{p}\mathrm{d}q-\frac{\partial L}{\partial t}\mathrm{d}t
+$$
+故
+$$
+\frac{\partial H}{\partial p}=\dot{q},\quad\frac{\partial H}{\partial q}=-\dot{p}
+$$
+:::
+
 ### 泊松括号
 
 记泊松括号 (Poisson bracket)
@@ -1259,6 +1487,12 @@ $$
 - $\dfrac{\partial S}{\partial q_i}=p_i$
 - $\dfrac{\partial S}{\partial t}=-H$
 - $\mathrm{d}S=\sum_ip_i\mathrm{d}q_i-H\mathrm{d}t$
+
+::: details 推导
+$$
+S=\int L\mathrm{d}t=\int(p\dot{q}-H)\mathrm{d}t=\int(p\mathrm{d}q-H\mathrm{d}t)
+$$
+:::
 
 ### 正则变换
 
