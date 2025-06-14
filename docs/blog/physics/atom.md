@@ -1106,3 +1106,89 @@ $$
    当 $S,L$ 相同时，若价电子数小于或等于该支壳层可容纳的最大电子数目的一半时，$J$ 值小的能级低（正序）；若电子数大于该支壳层可容纳最大电子数目的一半，$J$ 值大的能级低（倒序）。
 
 ![4-1](./atom_fig/4-1.png)
+
+- 等效电子 (equivalent electrons)： $n$ 和 $l$ 两个量子数相同的电子，也叫同科电子
+- 非等效电子/非同科电子
+
+#### jj耦合
+
+第一步修正：
+每个电子的轨道角动量 $\vec{p}_{li}$ 和自旋角动量 $\vec{p}_{si}$ 耦合成该电子的总角动量 $\vec{p}_{ji}$ ，能级由量子数 $(n_1,l_1,j_1,m_{j1}),(n_2,l_2,j_2,m_{j2}),...$ 决定。
+
+第二步修正：
+各个电子的总角动量耦合成原子的总角动量
+$$
+\left\{\begin{array}{l}
+\vec{p}_{J}=\vec{p}_{j1}+\vec{p}_{j2}+... \\
+p_J=\sqrt{J(J+1)}\hbar \\
+p_{Jz}=M_J\hbar
+\end{array}\right.
+$$
+原子态表示为 $(j_1,j_2,...)_J$
+
+### 多电子原子的实验光谱
+
+#### 选择定则
+
+1. 电子组态的选择定则
+   
+   - 奇宇称 $(-1)^{\sum_i l_i}=-1$
+   - 偶宇称 $(-1)^{\sum_i l_i}=1$
+
+   电子组态的选择定则为 $\Delta(\sum_i l_i)=\pm 1$
+
+2. 原子态的选择定则
+   
+   - LS耦合（原子态 $^{2S+1}L_J$ ）的选择定则
+   $$
+   \left\{\begin{array}{l}
+   \Delta L=0,\pm 1 \\
+   \Delta S=0 \\
+   \Delta J=0,\pm 1 (J=0\rightarrow J=0\text{除外}) \\
+   \Delta M_J=0,\pm 1 (\text{外磁场环境中})
+   \end{array}\right.
+   $$
+
+   - jj耦合（原子态 $(j_1,j_2)_J$ ）的选择定则
+   $$
+   \left\{\begin{array}{l}
+   \left\{\begin{array}{l}
+   \Delta j_1=0 \\
+   \Delta j_2=0,\pm 1
+   \end{array}\right.\text{或}\left\{\begin{array}{l}
+   \Delta j_1=0,\pm 1 \\
+   \Delta j_2=0
+   \end{array}\right. \\
+   \Delta J=0,\pm 1 (J=0\rightarrow J=0\text{除外}) \\
+   \Delta M_J=0,\pm 1 (\text{外磁场环境中})
+   \end{array}\right.
+   $$
+
+#### 氦原子的光谱
+
+![4-2](./atom_fig/4-2.png)
+
+- 仲氦 (Parahelium) ：发射单线结构光谱
+- 正氦 (Orthohelium) ：发射三重线光谱
+
+## X射线谱与原子内壳层结构
+
+- X射线谱线源自于原子内层电子能级的跃迁
+
+- X射线管
+  ![5-1](./atom_fig/5-1.png)
+
+- X射线光谱
+  ![5-2](./atom_fig/5-2.png)
+
+  - 连续谱：由轫致辐射（刹车辐射）（自由-自由跃迁）
+  - 短波限：$\displaystyle\lambda_{min}=\frac{hc}{T}=\frac{hc}{eV}=\frac{1.24}{V(kV)}(nm)$
+  - 特征谱/标识谱：激发电压，线系分为 $K,L,M...$
+  - 莫塞莱定律：特征谱波数公式
+    $$
+    \tilde{\nu}_{K_\alpha}=R(Z-1)^2\left(\frac{1}{1^2}-\frac{1}{2^2}\right)
+    $$
+    $$
+    \tilde{\nu}_{L_\alpha}=R(Z-7.4)^2\left(\frac{1}{2^2}-\frac{1}{3^2}\right)
+    $$
+    可以用于精确测量原子序数。
