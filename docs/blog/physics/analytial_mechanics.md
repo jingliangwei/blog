@@ -63,7 +63,7 @@ $$
 系统的拉格朗日量 $L=T-U$ （其中 $T$ 为动能，$U$ 为势能）
 
 ::: details 猜测拉格朗日的形式
-以一维自由落日运动为例，取 $z$ 轴正方向竖直向上，有
+以一维自由落体运动为例，取 $z$ 轴正方向竖直向上，有
 
 |牛顿力学|拉格朗日力学|
 |:---:|:---:|
@@ -450,7 +450,7 @@ $M=m\sqrt{G(m_1+m_2)a(1-e^2)}$
 
 半长轴 $a=\dfrac{p}{e^2-1}=\dfrac{k}{2E}$
 
-半短轴 $b=\dfrac{p}{\sqrt{e^2-1}}=\dfrac{M}{2mE}$
+半短轴 $b=\dfrac{p}{\sqrt{e^2-1}}=\dfrac{M}{\sqrt{2mE}}$
 
 轨迹 $\displaystyle t(r)=\sqrt{\frac{ma^3}{k}}(e\sinh\xi-\xi),\quad r=a(e\cosh\xi-1)$
 
