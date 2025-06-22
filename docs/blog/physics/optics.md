@@ -801,3 +801,124 @@ $$
 - $ka>100$ 光学区域，折反定律
 
 2. 拉曼散射：非弹性散射现象，散射光频率相对入射光偏移。
+
+## 光的量子性 激光
+
+### 热辐射
+
+- 辐射场的描述：
+  
+  辐射能的分布函数 $f(\nu,\hat{\boldsymbol{s}},\boldsymbol{r},t)$
+
+  分布在以 $\nu$ 为中心的频段 $\mathrm{d}\nu$ 内以 $\hat{\boldsymbol{s}}$ 方向为轴的立体角元 $\mathrm{d}\Omega$ 内的能量为 $f(\nu,\hat{\boldsymbol{s}},\boldsymbol{r},t)\mathrm{d}\nu\mathrm{d}\Omega$
+
+- 基尔霍夫热辐射定律：
+
+  热平衡状态下物体的辐射本领与吸收本领成正比，比值只与 $T,\nu$ 有关。
+
+- 绝对黑体：在任何温度下都把照射在其上任何频率的辐射能完全吸收。
+- 斯特藩-波尔兹曼定律：
+  黑体辐射的辐射本领 $R_T=\int r_0(\lambda,T)\mathrm{d}\lambda$ 与绝对温度 $T$ 的四次方成正比，即
+  $$
+  R_T=\sigma T^4
+  $$
+  比例常数 $\sigma=5.67\times10^{-12}\mathrm{W/cm^2\cdot K^4}$ 称为斯特藩-波尔兹曼常数。
+- 维恩位移定律：在任何温度下 $r_0(\lambda,T)-\lambda$ 曲线都有一最大值，对应波长为 $\lambda_M$ ，有
+  $$
+  \lambda_M T=b
+  $$
+  其中普适常数 $b=0.288\mathrm{cm\cdot K}$
+
+- 普朗克公式：
+  $$
+  r_0(\nu,T)=\frac{2\pi h}{c^2}\frac{\nu^3}{\mathrm{e}^{h\nu/kT}-1}
+  $$
+  $$
+  r_0(\lambda,T)=\frac{2\pi hc^2}{\lambda^5}\frac{1}{\mathrm{e}^{hc/kT\lambda}-1}
+  $$
+
+- 普朗克能量子假说：频率为 $\nu$ 的谐振子，其能量取值为 $\varepsilon_0=h\nu$ 的整数倍， $\varepsilon_0=h\nu$ 称为能量子。
+
+<!-- 把 $r_0(\nu,T)$ 利用关系 $\nu=\dfrac{c}{\lambda}$ 代入得到
+$$
+r_0(\lambda,T)=\frac{2\pi h}{c^2}\frac{(c/\lambda)^3}{\mathrm{e}^{hc/kT\lambda}-1}=\frac{2\pi hc}{\lambda^3}\frac{1}{\mathrm{e}^{hc/kT\lambda}-1}
+$$
+跟
+$$
+r_0(\lambda,T)=\frac{2\pi hc^2}{\lambda^5}\frac{1}{\mathrm{e}^{hc/kT\lambda}-1}
+$$
+不一致，这怎么解释？ -->
+
+### 光的粒子性和波粒二象性
+
+- 光电效应：
+  ![6-1](./optics_fig/6-1.png)
+  ![6-2](./optics_fig/6-2.png)
+  1. 饱和电流：饱和电流与光强成正比，单位时间内从阴极发出的光电子数与光强成正比
+  2. 遏止电压：遏止电压 $V_0$ 与光强无关
+  3. 截止频率（红限）：$V_0$ 与 $\nu$ 成正比
+  4. 弛豫时间
+
+- 爱因斯坦光子假说
+  1. 光子能量 $E=h\nu$
+  2. $h\nu=\dfrac{1}{2}mv_0^2+A=eV_0+A$ 其中 $A$ 为金属的脱出功（功函数）
+
+- [康普顿效应](/blog/physics/atom.html#光的波粒二象性)
+
+### 波尔原子模型与爱因斯坦辐射理论
+
+- [波尔原子模型](/blog/physics/atom.html#玻尔模型)
+- 爱因斯坦辐射理论
+  1. 自发辐射、受激辐射、受激吸收
+  ![6-3](./optics_fig/6-3.png)
+  2. 爱因斯坦系数
+  $$
+  \left(\frac{\mathrm{d}N_{21}}{\mathrm{d}t}\right)_{\text{受激}}=B_{21}u(\nu)N_2
+  $$
+  $$
+  \left(\frac{\mathrm{d}N_{12}}{\mathrm{d}t}\right)_{\text{吸收}}=B_{12}u(\nu)N_1
+  $$
+  $$
+  \left(\frac{\mathrm{d}N_{21}}{\mathrm{d}t}\right)_{\text{自发}}=A_{21}N_2
+  $$
+  系数 $B_{21},B_{12},A_{21}$ 满足
+  $$
+  \frac{A_{21}}{B_{12}}=\frac{A_{21}}{B_{21}}=\frac{8\pi h\nu^3}{c^3}
+  $$
+
+### 激光的产生
+
+![6-4](./optics_fig/6-4.png)
+
+- 激活介质中反转分布的实现
+  ![6-5](./optics_fig/6-5.png)
+
+- 谐振腔的作用
+  ![6-6](./optics_fig/6-6.png)
+  阈值增益
+  $$
+  G_m=-\frac{1}{2L}\ln(R_1R_2)
+  $$
+
+- 激光 (laser,Light Amplification by Stimulated Emission of Radiation)
+- 激光器 (受激辐射光振荡器)
+
+### 激光器对频率的选择
+
+![6-7](./optics_fig/6-7.png)
+
+每个谐振频率称为一个振荡纵模
+- 纵模间隔 $\Delta\nu_m=\dfrac{c}{2nL}$
+- 单模线宽 $\Delta\nu_c=\dfrac{c(1-R)}{2\pi nL\sqrt{R}}$
+- 激活介质自身谱线的半值宽度 $\Delta \nu$ ，主要影响因素：自然线宽、碰撞展宽、多普勒展宽
+
+### 激光的特征及应用
+
+- 激光光束特征：
+1. 方向性好
+2. 单色性好
+3. 高亮度
+4. 相干性好
+
+- 应用：
+  激光测距、激光加工、医学、激光核聚变
