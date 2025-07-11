@@ -51,3 +51,25 @@
 有效的“知识”却又是如此的少。
 >
 >今天，你学了多少？
+
+## About teach
+
+>The mediocre teacher tells.
+>
+>The good teacher explains.
+>
+>The superior teacher demonstrates.
+>
+>The great teacher inspires.
+>
+>——William Arthur Ward
+>
+>普通老师照本宣科
+>
+>好的老师授课解惑
+>
+>更好的老师躬亲示范
+>
+>伟大的老师点拨引路
+>
+>——美国作家威廉 $\cdot$ 亚瑟 $\cdot$ 沃德
