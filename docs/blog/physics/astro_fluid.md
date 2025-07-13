@@ -123,3 +123,20 @@ $$
 - streaklines:
 
   the line (at a particular time $t$) joining the instantaneous positions of all the particles which have ever passed (and will ever pass) through a particular point.
+
+## The fluid equations
+
+### conservation of mass
+
+$$
+\frac{\partial \rho}{\partial t}+\nabla\cdot(\rho\boldsymbol{u})=0
+$$
+$$
+\frac{\mathrm{d}\rho}{\mathrm{d}t}+\rho\nabla\cdot\boldsymbol{u}=0
+$$
+
+- incompressible flows: $\mathrm{d}\rho/\mathrm{d}t=0$
+
+  $$
+  \Rightarrow\nabla\cdot\boldsymbol{u}=0
+  $$

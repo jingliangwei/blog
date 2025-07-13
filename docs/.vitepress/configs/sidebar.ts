@@ -28,8 +28,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: '光学', link: '/blog/physics/optics'},
       { text: '原子物理', link: '/blog/physics/atom'},
       { text: '理论力学', link: '/blog/physics/analytial_mechanics'},
-      { text: '天体物理流体力学', link: '/blog/physics/astro_fluid'},
-      // { text: '流体力学', link: '/blog/physics/fluid'}
+      // { text: '天体物理流体力学', link: '/blog/physics/astro_fluid'},
+      { text: '流体力学', link: '/blog/physics/fluid'},
     ]
   },
   {
