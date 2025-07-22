@@ -2,7 +2,7 @@
 
 There is notes of lectures in CEFCA
 
-## lecture1
+## lecture 1
 
 The basics of Observational Astronomy
 
@@ -34,7 +34,7 @@ The basics of Observational Astronomy
 
 - Equatorial Coordinates: **declination** and **right ascension**
 
-<!-- ![picture of dec and ra]() -->
+![picture of dec and ra](./observational_astro_fig/decra.png)
 
 - Declination ( $\mathbf{Dec}$ or $\delta$): extension of latitude
 
@@ -103,3 +103,261 @@ $$
 
 - Field rotation: rotating the CCD counter clock-wise when looking East
 
+## lecture 2
+
+CCDs: Charge Coupled Devices
+
+### The basics of CCDs
+
+- Silicon ( $^{14}\text{Si}$ ): a **semiconductor**
+
+- energy level band: the energy level overlap when number of atom gets large.
+
+- insulator & semiconductor & conductor
+
+- valence band: the last occupied energy band
+
+- conduction band: the energy bands above the valence band, where electrons can move freely.
+
+- Photoelectric effect: incoming photon can interact with an electron and transfer its energy.
+
+  if $E_{\text{ph}}>E_{\text{gap}}$, the electron can jump to the conduction band.
+
+  for silicon, $E_{\text{ph}}>1.2\text{eV}$ or equivalently $\lambda_{\text{ph}}<1.1\mu m$
+
+  for optical wavelengths, not for NIR(Near infrared)
+
+- Quantum Efficiency: the ability of a CCD to "convert" an incoming photon into a (photo)electron.
+
+- photoelectrons: the electron interacted with photon
+
+- pixel: acts as a **MOS capacitor**
+
+  Metal - Oxide - Semiconductor
+
+  polysilicon - $\text{SiO}_2$ - $\text{Si}$
+
+- the potential well: trap the photoelectrons
+
+- Full Well Capacity: the maximum number of electrons that can be stored in the potential well
+
+- Blooming: the net effect of well capacity saturation on an astronomical image
+
+  only occurs in only one direction
+
+- the structure of CCD pixels:
+
+  the electrode triplet defines the pixel in one direction (here: vertical)
+
+  the other direction (here: horizontal) the pixels are delineated with insulator strips called **channel stops**
+
+![picture of CCD pixels](./observational_astro_fig/ccd_pixel.png)
+
+- CCD linearity: during an exposure of time $t_{\text{exp}}$ a pixel gathers a total number of $N_e$ photoelectrons, and we have
+
+  $$
+  t_{\text{exp}}\sim N_e\rightarrow nt_{\text{exp}}\sim nN_e
+  $$
+
+- Readout:
+  1. charge transfer
+  2. charge measurement: measure **voltage** difference
+  3. charge digitisation: the final output value for a pixel is a **digital integer** value, called **Analog-to-Digital Unit**, or **ADU**
+     
+     **Analog-to-Digital Converter** or **ADC**
+    
+     the CCD **gain** is a quantity that defines "how many electrons are required to obtain one ADU"
+
+- Digital saturation: the ADC cannot represent the ADU counts exceed the value of $65535$ ( $2^{16}$ ) for a standard 16-bit astronomical CCD.
+
+### Calibration frames
+
+- Bias: to avoid the digitise negative ADU values, a fixed **bias** voltage, $V_B$ , is added when $\Delta V'=(V_S-V_R)+V_B$, ensuring that $\Delta V'>0$
+
+- bias frames: a zero-time "integration"
+
+- Thermal electrons: some electrons can jump to the conduction band spontaneously due to their thermal energy. And they are indistinguishable from photoelectrons.
+
+- dark current: the amount of thermal electrons present in the CCD chip
+
+  cool it down to avoid it.
+
+  the dark current is described by a constant $C_D(T)$ that depends on the material and the temperature of the CCD, given in units of $[e/(\text{pix}\cdot s)]$. The amount of dark current increases with the exposure time $C_D(T)\cdot t_{\text{exp}}$
+
+- dark frames: an integration without exposing the chip to light. (notice that the dark frames includes the bias)
+
+- flat frames:
+
+  in order to correct:
+  1. imperfections in the optical path (e.g. vignetting, dust motes etc)
+  2. differences in pixel sensitivity over the whole chip
+
+  to obtain flat frames, simply points the telescope at the dusk or dawn twilight sky.
+
+## lecture 3
+
+Doing science with our data
+
+### Basic definitions
+
+- Luminosity: the total amount of radiant energy emitted over all wavelengths per unit time in all directions, with the unit Watt $[W]$
+
+  for a star, its luminosity is
+  $$
+  L=4\pi R^2\sigma T^4_{\text{eff}}
+  $$
+  where
+
+  $R$ the radius $[m]$
+
+  $T_{\text{eff}}$ the effective temperature $[K]$
+
+  $\sigma$ the Stefan-Boltzmann constant $\sim 5.67\times 10^{-8}[W\cdot m^{-2}\cdot K^{-4}]$
+
+- Brightness: how bright an object appears to be, as seen from Earth
+
+- Flux: for a star at distance $d$ from the Earth, its flux is given by:
+
+  $$
+  F=\frac{L}{4\pi d^2}
+  $$
+
+- Magnitude: just a number refer to the object's brightness. (**apparent** magnitude)
+
+  the large number means faint, while the small number means bright.
+
+  Define that "a star of magnitude 6 should be precisely 100 times fainter than a star of magnitude 1"
+
+  $$
+  \frac{F_1}{F_2}=100^{-\frac{m_1-m_2}{5}}
+  $$
+
+  the magnitude equation:
+  $$
+  m_1-m_2=-2.5\log_{10}\left(\frac{F_1}{F_2}\right)
+  $$
+
+- Vega-magnitude scale: define the magnitude of **Vega** is zero ( $m_{\text{Vega}}=0$ )
+
+  $$
+  m_{\text{star}}=-2.5\log_{10}\left(\frac{F_{\text{star}}}{F_{\text{Vega}}}\right)
+  $$
+
+> Vega is the 5th brightest star in the sky.
+
+- AB-magnitude scale: AB means "absolute"
+  $$
+  m_{\text{AB}}=-2.5\log_{10}f_\nu-48.6
+  $$
+  where $f_\nu$ is the spectral flux density in a frequency interval $(\nu_1,\nu_2)$: $f_\nu=\int_{\nu_1}^{\nu_2}F_\nu(\nu)\mathrm{d}\nu$
+
+  the magnitude in the V-band and the constant number, 48.6, ensures that $mag_{\text{AB,Vega}}=mag_{V,Vega}=0$
+
+- parallax: 
+
+  An object with parallax of 1 arcsec is defined to be at a distance of 1 **parsec** (parallax second). ( $1pc\sim3.26\text{ light years}$ )
+  $$
+  d[pc]=\frac{1}{\omega[arcsec]}=\frac{1000}{\omega[mas]}
+  $$
+  $mas=\text{milli-arcsecond}=10^{-3}arcsec$
+
+- absolute magnitude: the apparent magnitude a star would have if located at a distance of 10 parsec
+
+  the equation of apparent magnitude $m$ and absolute magnitude $M$:
+  $$
+  m-M=5\log_{10}(d)-5
+  $$
+
+### Introducing some Physics
+
+- Planck's Law: the emit radiation of black bodies:
+  $$
+  B_\nu(\nu,T)=\frac{2h\nu^3}{c^2}\frac{1}{\mathrm{e}^{\left(\frac{h\nu}{k_BT}\right)}-1}
+  $$
+
+  the hot star looks blue, while the cool star looks red.
+
+![picture of Planck's law](./observational_astro_fig/planck.png)
+
+- spectral lines:
+  $$
+  \Delta E=E_{n+1}-E_n=h\cdot\nu=\frac{hc}{\lambda}
+  $$
+  e.g. the Hydrogen Balmer series
+
+- Spectral Classes:
+
+  7 spectral classes or types: O,B,A,F,G,K,M
+
+  each class is further sub-divided in 10 sub-classes from 0 to 9. Our Sun is a G2 star.
+
+![picture of spectral classes](./observational_astro_fig/spectral-type.png)
+
+- Spectral Energy Distrubtion (SED)
+
+- Filter
+
+- the Johnson UBVRI system
+
+![picture of Johnson UBVRI system](./observational_astro_fig/Johnson.png)
+
+- the SDSS ugriz system
+
+![picture of SDSS ugriz system](./observational_astro_fig/SDSS.png)
+
+- Color index:
+
+  $m_V$ for apparent magnitude in Johnson V
+
+  $M_g$ for absolute magnitude in SDSS g
+
+  $B=15$ for a star of magnitude 15 in the Johnson B-filter
+
+  $r=19$ for a star of magnitude 19 in the SDSS r-filter
+
+  $B\text{-}V=m_B-m_V$
+
+  $g\text{-}r=m_g-m_r$
+
+- Interstellar extinction and reddening
+
+- color excess: $E(g\text{-}r)=(g\text{-}r)-(g_0\text{-}r_0)$
+
+- the J-PLUS filter system
+
+![picture of J-PLUS filter system](./observational_astro_fig/J-PLUS.png)
+
+- the J-PAS filter system
+
+![picture of J-PAS filter system](./observational_astro_fig/J-PAS.png)
+
+### Doing Science
+
+- The Hertzsprung-Russell diagram (H-R)
+
+- The Main Sequence (MS): most time of stars' lives, steady nuclear fusion reactions in their cores, i.e. converting *Hydrogen* into *Helium*
+
+- giant branch:
+
+  - Red Giant Branch (RGB)
+  - Horizontal Branch (HB)
+  - Asymptotic Giant Branch (AGB)
+
+- white dwarf (WD)
+
+- constructing an H-R diagram:
+  1. observed magnitude - observed color
+  2. absolute magnitude - observed color
+  3. absolute magnitude - intrinsic color
+
+- Anatomy of the Milky way
+
+![anatomy of the Milky way](./observational_astro_fig/Milky-Way.png)
+
+- Clusters:
+  - Globular Clusters
+  - Open Clusters
+
+- Modelling the H-R diagrams of clusters: plot the isochrone
+
+![model of clusters](./observational_astro_fig/model-cluster.png)
