@@ -361,3 +361,144 @@ Doing science with our data
 - Modelling the H-R diagrams of clusters: plot the isochrone
 
 ![model of clusters](./observational_astro_fig/model-cluster.png)
+
+## lecture 4
+
+Data Reduction and Photometry
+
+### the basics of Data Reduction
+
+- data reduction: remove unwanted signals and correct imperfections on the data using *bias*, *dark* and *flat* frames.
+
+- master frames: combine a series of frames, i.e. masterbias, masterdark, masterflat frames.
+
+- Combining Frames: average/mean or median
+
+  median is robust facing outliers. (take odd number frames)
+
+- Scaled Dark frames:
+
+  obtain dark frames in one $t_{\text{exp,dark}}$ and subtract the masterbias from each of these dark frames, combine them into a masterdark, and then **normalise** the masterdark, i.e. divide it by $t_{\text{exp,dark}}$. This is a representation of pure dark signal (as we removed the bias) in 1 second.
+
+  then we can **scale** this normalised masterdark to each of our science exposure times: $\text{MDARK}_{\text{science}}=t_{\text{exp,science}}\cdot\text{MDARK}_{\text{norm}}$
+
+- Flat:
+
+  normalisting each flat frame by its mode value(the number appears most), and then combine.
+
+  each flat frame has its own reference value.
+
+- the whole process:
+
+![the whole process 1](./observational_astro_fig/whole1.png)
+![the whole process 2](./observational_astro_fig/whole2.png)
+![the whole process 3](./observational_astro_fig/whole3.png)
+
+### the basics of Photometry
+
+- photometry: measure the **total** amount of ADU counts of the celestial object we are observing. (represent the amount of light)
+
+#### get the ADU counts
+
+- Aperture photometry:
+
+  aperture:
+  1. Object aperture: around our actual object of interest
+  2. Inner sky annulus
+  3. Outer sky annulus
+  
+  the two annuli define a ring, where we can estimate the contribution of the sky background.
+
+  how to define the apertures? plot in radial
+
+  this can be draw by software AstroImageJ
+
+- The Airy disc: point source turn to disc due to diffraction
+
+  the radius of the Airy disc
+  $$
+  a=1.22\frac{\lambda}{D}[rad]
+  $$
+
+- Astronomical seeing: due to the turbulence of atmosphere
+
+- Aperture Photometry process:
+  1. Raw object flux, $F_{\text{raw}}$
+  2. Sky flux, $F_{\text{sky}}[\text{pix}^{-1}]$
+  3. Final object flux, $F_{\text{obj}}$
+     $$
+     F_{\text{obj}}=F_{\text{raw}}-N_{\text{pix}}\cdot F_{\text{sky}}
+     $$
+     where $N_{\text{pix}}$ is the number of pixels contained in the object aperture
+
+- Signal to Noise Ratio:
+  $$
+  \text{SNR}=\frac{\text{Signal}}{\text{Noise}}
+  $$
+
+#### from counts to magnitudes
+
+- instrumental magnitude, $m_{\text{inst}}$
+  $$
+  m_{\text{inst}}=-2.5\log_{10}\left(\frac{F_{\text{obj}}}{t_{\text{exp}}}\right)
+  $$
+
+- zeropoint magnitude, $m_{\text{zp}}$
+
+  $m_{\text{zp}}$ is the apparent magnitude of a star that, when observed with our CCD, gives **1 ADU/sec**.
+  
+  the apparent magnitude of a star that, when observed with our CCD, has instrumental magnitude $m_{\text{inst}}=0$
+
+  <!-- $m_{\text{inst}}=0$ means its apparent magnitude $m_{\text{zp}}=25$ -->
+
+- the equation convert instrumental magnitude to apparent magnitude:
+  $$
+  m_{\text{obj}}=m_{\text{inst}}+m_{\text{zp}}
+  $$
+
+- Measuring the zeropoint (using standard stars)
+
+  - the atmosphere extinction
+
+    under atmosphere plane parallel approximation
+
+    $m_0$ the magnitude outside of the atmosphere
+
+    $m_{\text{obs}}$ the observed magnitude
+
+    $X=\sec(z)=\dfrac{1}{\cos(z)}$ airmass
+
+    $z$ the zenith distance (or $90^\circ-$ altitude)
+
+    $k$ atmosphere extinction
+
+    $$
+    m_{\text{obs}}=m_0+kX
+    $$
+
+  - standard stars (also called photometric or spectrophotometric standard stars, SPS stars)
+
+    the process:
+
+    1. observe at different airmass
+    2. perform photometry, obtain instrumental magnitudes
+    3. plot airmass versus instrumental magnitudes and fit a straight line ( $m_{\text{inst,obs}}=m_{\text{inst,0}}+kX$ )
+
+    so we get the $m_{\text{inst,0}}$ and for standard stars, its apparent magnitude $m_{\text{obj,0}}$ is known, and the zero point
+    $$
+    m_{\text{zp}}=m_{\text{obj,0}}-m_{\text{inst,0}}
+    $$
+
+- estimating the zeropoint (using external catalogues)
+
+  use catalogues to calibrate our own photometry, the steps:
+
+  1. use a **arbitrary** value for $m_{\text{zp}}$ to obtain apparent magnitudes $m_{\text{GT80}}$
+  2. crossmatch and obtain their calibrated apparent magnitudes, $m_{\text{CAT}}$
+  3. calculate the difference $\Delta mag=m_{\text{GT80}}-m_{\text{CAT}}$
+  4. repeat and obtain average (or median) $\langle\Delta mag\rangle$
+
+  finally we have $m_{\text{GT80,calib}}=m_{\text{GT80,org}}-\langle\Delta mag\rangle$
+
+- gaiaxpy
+
