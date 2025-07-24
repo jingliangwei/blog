@@ -610,4 +610,17 @@ click the Data Processor button DP (obtain the "CCD Data Processor" window)
 
 - "File" -> "Import" -> "Image Sequence"
 
-- multi-apertures
+- multi-apertures: 
+
+  choose the reference star: 
+  - const star
+  - no saturation
+  - no too faint
+  - different reference star for different filters
+
+- turn time-domain to phase-domain:
+
+  $$
+  E=\frac{T_{\text{obs}}-T_0}{P}
+  $$
+  and then you can get the phase $E-int(E)$
