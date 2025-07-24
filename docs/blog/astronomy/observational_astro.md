@@ -2,7 +2,7 @@
 
 There is notes of lectures in CEFCA
 
-## lecture 1
+## lecture 1: basics
 
 The basics of Observational Astronomy
 
@@ -103,7 +103,7 @@ $$
 
 - Field rotation: rotating the CCD counter clock-wise when looking East
 
-## lecture 2
+## lecture 2: CCDs
 
 CCDs: Charge Coupled Devices
 
@@ -194,7 +194,7 @@ CCDs: Charge Coupled Devices
 
   to obtain flat frames, simply points the telescope at the dusk or dawn twilight sky.
 
-## lecture 3
+## lecture 3: science
 
 Doing science with our data
 
@@ -362,7 +362,7 @@ Doing science with our data
 
 ![model of clusters](./observational_astro_fig/model-cluster.png)
 
-## lecture 4
+## lecture 4: photometry
 
 Data Reduction and Photometry
 
@@ -384,7 +384,7 @@ Data Reduction and Photometry
 
 - Flat:
 
-  normalisting each flat frame by its mode value(the number appears most), and then combine.
+  normalisting each flat frame by dividing its mode value(the number appears most), and then combine.
 
   each flat frame has its own reference value.
 
@@ -502,3 +502,43 @@ Data Reduction and Photometry
 
 - gaiaxpy
 
+## lecture 5: time-domain
+
+Time-domain Astronomy
+
+### Light curve
+
+- timestamp
+- light curve: magnitudes-time or magnitudes-phase
+
+- variable star types:
+
+  1. Intrinsic Variables: change in *Luminosity* due to a change in $R$ and/or $T_{\text{eff}}$, e.g. pulsating stars like delta-Scuti, RR-Lyrae and Cepheids
+
+  2. Extrinsic Variables: change in *Brightness* due to "outside" influence e.g. eclipsing binaries.
+
+  3. Transients: basically things like Super Novae, Classical Novae, Cataclysmic Variables, flare stars etc...
+
+- Why study Variable Stars?
+
+  - Cepheid Variables: period-luminosity relation, standard candles for distance measurements ($d=10^{(m-M+5)/5}$)
+  - Plusating Stars: asteroseismology (the earthquake on star), study of stellar interior structure
+  - Eclipsing systems: model-independent measurements of stellar masses and radii
+  - Flare Stars: stellar spots, magnetic field activity
+  - Cataclysmic Variables: study of accretion processes
+
+- Differential photometry:
+
+  use the light curve of one star to correct the light curve of another by plotting the difference of the magnitudes.
+
+- Ensemble differential photometry:
+ 
+  use multiple comparison stars.
+
+  normalise them first (subtract the median)
+
+### The J-VAR survey
+
+![j-var1](./observational_astro_fig/j-var1.png)
+![j-var2](./observational_astro_fig/j-var2.png)
+![j-var3](./observational_astro_fig/j-var3.png)
