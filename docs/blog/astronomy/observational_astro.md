@@ -6,6 +6,8 @@ There is notes of lectures in CEFCA
 
 The basics of Observational Astronomy
 
+[slide 1](/blog/astronomy/observational_astro/BNU_CLASS_1_BASICS.pdf)
+
 ### The celestial sphere, coordinates and planning observations
 
 - great circle: whose diameter is alse a diameter of the sphere.
@@ -107,6 +109,8 @@ $$
 
 CCDs: Charge Coupled Devices
 
+[slide 2](/blog/astronomy/observational_astro/BNU_CLASS_2_CCDS.pdf)
+
 ### The basics of CCDs
 
 - Silicon ( $^{14}\text{Si}$ ): a **semiconductor**
@@ -197,6 +201,8 @@ CCDs: Charge Coupled Devices
 ## lecture 3: science
 
 Doing science with our data
+
+[slide 3](/blog/astronomy/observational_astro/BNU_CLASS_3_SCIENCE.pdf)
 
 ### Basic definitions
 
@@ -366,6 +372,8 @@ Doing science with our data
 
 Data Reduction and Photometry
 
+[slide 4](/blog/astronomy/observational_astro/BNU_CLASS_4_PHOTOMETRY.pdf)
+
 ### the basics of Data Reduction
 
 - data reduction: remove unwanted signals and correct imperfections on the data using *bias*, *dark* and *flat* frames.
@@ -506,6 +514,8 @@ Data Reduction and Photometry
 
 Time-domain Astronomy
 
+[slide 5](/blog/astronomy/observational_astro/BNU_CLASS_5_TDOMAIN.pdf)
+
 ### Light curve
 
 - timestamp
@@ -542,3 +552,62 @@ Time-domain Astronomy
 ![j-var1](./observational_astro_fig/j-var1.png)
 ![j-var2](./observational_astro_fig/j-var2.png)
 ![j-var3](./observational_astro_fig/j-var3.png)
+
+## practice1
+
+light curve of variables
+
+### basic
+
+- .fit(s)
+- header (file-header in SAOImageDS9)
+
+- SIMBAD: the database to search variables
+
+  the website: [https://simbad.cds.unistra.fr/simbad/](https://simbad.cds.unistra.fr/simbad/)
+
+- Otype: the name with the * means a variable
+
+### data reduction using AstroImageJ
+
+[guide 1](/blog/astronomy/observational_astro/Guide_1_AstroImageJ_DataReduction.pdf)
+
+click the Data Processor button DP (obtain the "CCD Data Processor" window)
+
+- create the masterbias frame:
+  
+  set up the directory of bias frames and the filename pattern "*.fit"
+
+  set up the directory of output masterbias frame and the filename like "mbias.fit"
+
+  click the "start" button after finishing set up
+
+- create the masterdark frame:
+
+  the similar set up directory above
+
+  "Enable" the Bias Subtraction, and select the "deBias" option
+
+- create the masterflat frame:
+
+  remember to contain the filter information in the output filename.
+
+- reducing the science images:
+
+  make sure that the selected flat frame matches the filter of the science images
+
+![reducing the science images](./observational_astro_fig/setting_for_sci.png)
+
+### aperture photometry
+
+[guide 2](/blog/astronomy/observational_astro/Guide_2_AstroImageJ_Photometry_Prep.pdf)
+
+- decide the size of aperture using radial profile
+
+### light curve
+
+[guide 3](/blog/astronomy/observational_astro/Guide_3_AstroImageJ_Photometry_Variable.pdf)
+
+- "File" -> "Import" -> "Image Sequence"
+
+- multi-apertures
