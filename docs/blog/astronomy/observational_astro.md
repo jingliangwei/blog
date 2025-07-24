@@ -553,7 +553,7 @@ Time-domain Astronomy
 ![j-var2](./observational_astro_fig/j-var2.png)
 ![j-var3](./observational_astro_fig/j-var3.png)
 
-## practice1
+## practice 1
 
 light curve of variables
 
