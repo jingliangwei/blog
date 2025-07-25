@@ -618,9 +618,27 @@ click the Data Processor button DP (obtain the "CCD Data Processor" window)
   - no too faint
   - different reference star for different filters
 
+above we just get the flux(ADU counts), we need to get magnitude-phase next.
+
+[extra tips slide](/blog/astronomy/observational_astro/BNU_EXTRA_1_LIGHTCURVES.pdf)
+
 - turn time-domain to phase-domain:
 
+  Ephemeris:
   $$
   E=\frac{T_{\text{obs}}-T_0}{P}
   $$
   and then you can get the phase $E-int(E)$
+
+- convert ADU flux to magnitude:
+  $$
+  \text{mag}_T=\frac{\displaystyle -\ln\left(\sum_i 2.512^{-\text{mag}_{Ci}}\right)}{\ln(2.512)}-2.5\log(\text{ref\_flux\_T})
+  $$
+  where $\text{mag}_{Ci}$ is the catalogue magnitude of the i-th comparison star.
+
+  the catalogue that can search the magnitude is on: [https://catalogs.mast.stsci.edu/panstarrs/](https://catalogs.mast.stsci.edu/panstarrs/)
+
+- getting the magnitude error
+  $$
+  \text{Mag\_Err}_T=2.5\log\left(1+\sqrt{\frac{\text{Source\_Error\_T1}^2}{\text{Source-Sky\_T1}^2}+\frac{\displaystyle\sum_i\text{Source\_Err\_C}_1^2}{\displaystyle\left(\sum_i\text{Source-Sky\_C}_i\right)^2}}\right)
+  $$
