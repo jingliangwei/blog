@@ -642,3 +642,5 @@ above we just get the flux(ADU counts), we need to get magnitude-phase next.
   $$
   \text{Mag\_Err}_T=2.5\log\left(1+\sqrt{\frac{\text{Source\_Error\_T1}^2}{\text{Source-Sky\_T1}^2}+\frac{\displaystyle\sum_i\text{Source\_Err\_C}_1^2}{\displaystyle\left(\sum_i\text{Source-Sky\_C}_i\right)^2}}\right)
   $$
+
+- normalize the light curve by dividing the average/mean

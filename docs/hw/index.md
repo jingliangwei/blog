@@ -28,3 +28,6 @@ next: false
 - [作业2(岁差估算)](/hw/astro_meansure/hw2)
 - [实践2(NOVAS天体坐标计算)](/hw/astro_meansure/lab2)
 
+## Observational Astronomy
+
+- [light curve of variables](/hw/observational_astro/result1)
