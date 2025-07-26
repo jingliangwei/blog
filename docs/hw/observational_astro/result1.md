@@ -93,7 +93,7 @@ mag_r_fixed, err_r_fixed = interpolate_data(data_r)
 
 # calculate the difference between two filters
 dis_fixed = mag_g_fixed - mag_r_fixed
-err_dis_fixed = err_g_fixed + err_r_fixed
+err_dis_fixed = np.sqrt(err_g_fixed**2 + err_r_fixed**2)
 
 # Plot
 ## the two light curves

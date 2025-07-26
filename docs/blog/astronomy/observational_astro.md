@@ -644,3 +644,56 @@ above we just get the flux(ADU counts), we need to get magnitude-phase next.
   $$
 
 - normalize the light curve by dividing the average/mean
+
+## practice 2
+
+### open clusters
+
+- usual reduction
+
+- using AstroImageJ:
+
+  select target stars (no comparsion stars)
+
+  get only data at a fixed time (no time domain)
+
+- the gaints saturate, the solution:
+
+  take different picture with different exposure times
+
+- the color in H-R diagram(from blue to red):
+
+  g-r, g-i, r-i
+
+- usually, we take g vs g-r, g vs g-i, r vs r-i as coordinate
+
+### error propagation
+
+- error propagation: the process to correctly calculate the error while convert counts to instrumental magnitudes.
+
+- the general formula:
+
+  for single variable,
+  $$
+  \sigma_y=\sqrt{\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)^2\sigma_x^2}
+  $$
+
+  - for the instrumental magnitude:
+
+    $$
+    m_{\text{inst}}=-2.5\log\left(\frac{C}{t_{\text{exp}}}\right)
+    $$
+    $$
+    \sigma_{m_{\text{inst}}}=\sqrt{\left(\frac{-2.5}{\ln 10}\right)^2\left(\frac{\sigma_C}{C}\right)^2}
+    $$
+
+  for multiple variables,
+  $$
+  \sigma_y=\sqrt{\sum_{i=1}^N\left(\frac{\partial y}{\partial x}\right)^2\sigma_{x_i}^2}
+  $$
+
+  - for the colour index g-r,
+    
+    $$
+    \sigma_{g\text{-}r}=\sqrt{\sigma_{gmag}^2+\sigma_{rmag}^2}
+    $$
