@@ -669,6 +669,8 @@ above we just get the flux(ADU counts), we need to get magnitude-phase next.
 
 ### error propagation
 
+[extra error propagation slide](/blog/astronomy/observational_astro/BNU_EXTRA_2_ERROR_PROPAGATION.pdf)
+
 - error propagation: the process to correctly calculate the error while convert counts to instrumental magnitudes.
 
 - the general formula:

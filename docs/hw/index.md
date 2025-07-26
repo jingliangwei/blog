@@ -31,3 +31,4 @@ next: false
 ## Observational Astronomy
 
 - [light curve of variables](/hw/observational_astro/result1)
+- [open clusters](/hw/observational_astro/work2)
