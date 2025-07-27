@@ -1,4 +1,4 @@
-## variables
+# variables
 
 object: ZTF J210509.99+662506.8
 
@@ -6,7 +6,7 @@ https://simbad.cds.unistra.fr/simbad/sim-coo?Coord=21+05+10.00+%2B66+25+06.0&Coo
 
 - Otype: Delta Scuti Variables
 
-### light curve
+## light curve
 
 we get lightcurve_g.dat and lightcurve_r.dat using AstroImageJ.
 
@@ -123,7 +123,7 @@ plt.show()
 ```
 :::
 
-### H-R diagram
+## H-R diagram
 
 get star data from [https://catalogs.mast.stsci.edu/panstarrs/](https://catalogs.mast.stsci.edu/panstarrs/)
 
