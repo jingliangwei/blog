@@ -456,31 +456,37 @@ err_g_r = err_g_r[mask_err]
 err_g_i = err_g_i[mask_err]
 err_r_i = err_r_i[mask_err]
 
-draw_error = 1
+draw_error = 0
 if draw_error == 1:
     ax1 = plt.subplot(131)
     ax1.errorbar(g_r, g, xerr=err_g_r, yerr=err_g, fmt='o', markersize=1, capsize=1)
+    ax1.invert_yaxis()
     ax1.set_xlabel('g-r')
     ax1.set_ylabel('g')
     ax2 = plt.subplot(132)
     ax2.errorbar(g_i, g, xerr=err_g_i, yerr=err_g, fmt='o', markersize=1, capsize=1)
+    ax2.invert_yaxis()
     ax2.set_xlabel('g-i')
     ax2.set_ylabel('g')
     ax3 = plt.subplot(133)
     ax3.errorbar(r_i, r, xerr=err_r_i, yerr=err_r, fmt='o', markersize=1, capsize=1)
+    ax3.invert_yaxis()
     ax3.set_xlabel('r-i')
     ax3.set_ylabel('r')
 else:
     ax1 = plt.subplot(131)
     ax1.scatter(g_r, g, s=4)
+    ax1.invert_yaxis()
     ax1.set_xlabel('g-r')
     ax1.set_ylabel('g')
     ax2 = plt.subplot(132)
+    ax2.invert_yaxis()
     ax2.scatter(g_i, g, s=4)
     ax2.set_xlabel('g-i')
     ax2.set_ylabel('g')
     ax3 = plt.subplot(133)
     ax3.scatter(r_i, r, s=4)
+    ax3.invert_yaxis()
     ax3.set_xlabel('r-i')
     ax3.set_ylabel('r')
 plt.show()
