@@ -175,7 +175,6 @@ plt.show()
 ::: details `43inst2app.py`
 ```py
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 
 filters = 'i'

@@ -699,3 +699,12 @@ above we just get the flux(ADU counts), we need to get magnitude-phase next.
     $$
     \sigma_{g\text{-}r}=\sqrt{\sigma_{gmag}^2+\sigma_{rmag}^2}
     $$
+
+## Appendix
+
+some useful website link:
+
+- [staralt](https://astro.ing.iac.es/staralt/): check the visibility of objects
+- [webda](https://webda.physics.muni.cz/ocl_list.html): search for open clusters infomations
+- [simbad](https://simbad.cds.unistra.fr/simbad/sim-fcoo): search for variables in field
+- [panstarrs](https://catalogs.mast.stsci.edu/panstarrs): search for magnitudes of stars in field
