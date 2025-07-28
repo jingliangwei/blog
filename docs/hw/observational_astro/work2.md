@@ -64,14 +64,23 @@ prepara the setting file `setting.py`
 
 ::: details `setting.py`
 ```py
-filters = 'g'
+filters = 'r'
 # exposure time in seconds
-t_exp = 120
+t_exp = 90
 # number of target stars (uesd in 2format.py)
 number = 50
 # zero point for magnitude conversion (used in 43inst2app.py)
 ## gain zero point from 42crossmatch.py
 mag_zp = 0
+# the atmosphere extinction (used in 53extinction.py)
+k = 1.0
+# the airmass of frame field (gain running 2format.py) (used in 53extinction.py)
+X = 1.1102888289718416
+
+# search distance locally
+dis_local = False
+filters_local = 'g'
+t_exp_local = 30
 ```
 :::
 
@@ -282,6 +291,8 @@ result.to_csv(output_file, index=False)
 
 8. get the distance (and error of it) of target stars from Gaia (using `51parallax.py`)
 
+or use the local distance (and error of it) in other filters.
+
 ::: details `51parallax.py`
 ```py
 import numpy as np
@@ -289,7 +300,7 @@ import pandas as pd
 from astroquery.gaia import Gaia
 from astropy.coordinates import SkyCoord
 import astropy.units as u
-from setting import filters, t_exp
+from setting import filters, t_exp, dis_local, filters_local, t_exp_local
 
 # load data
 data = np.genfromtxt(f'{filters}SDSS_{t_exp}s/43{filters}_{t_exp}s.csv', delimiter=',', skip_header=1)
@@ -317,17 +328,28 @@ def get_gaia_distance_and_error(ra, dec):
             return distance, distance_error
     return None, None
 
+# search for parallax and its error locally
+def get_distance_local():
+    dis_data = np.genfromtxt(f'{filters_local}SDSS_{t_exp_local}s/51{filters_local}_{t_exp_local}s.csv', delimiter=',', skip_header=1)
+    distance = dis_data[:, 6]
+    distance_error = dis_data[:, 7]
+    return distance, distance_error
+
 distance = []
 distance_error = []
-n = len(RA)
-for i in range(n):
-    ra = 15 * RA[i]  # convert RA from degrees to hours
-    dec = DEC[i]
-    dist, dist_err = get_gaia_distance_and_error(ra=ra, dec=dec)
-    distance.append(dist)
-    distance_error.append(dist_err)
-distance = np.array(distance)
-distance_error = np.array(distance_error)
+if dis_local:
+    distance, distance_error = get_distance_local()
+else:
+    n = len(RA)
+    for i in range(n):
+        print(f'{i}/{n}:', end='')
+        ra = 15 * RA[i]  # convert RA from degrees to hours
+        dec = DEC[i]
+        dist, dist_err = get_gaia_distance_and_error(ra=ra, dec=dec)
+        distance.append(dist)
+        distance_error.append(dist_err)
+    distance = np.array(distance)
+    distance_error = np.array(distance_error)
 
 # save results into new file
 output_file = f'{filters}SDSS_{t_exp}s/51{filters}_{t_exp}s.csv'
@@ -386,19 +408,60 @@ result.to_csv(output_file, index=False)
 ```
 :::
 
-10. draw the H-R diagram (using `6draw.py`)
+10. fix the atmosphere extinction (using `53extinction.py`)
+
+```py
+import numpy as np
+import pandas as pd
+from setting import filters, t_exp, k, X
+
+# load data
+data = np.genfromtxt(f'{filters}SDSS_{t_exp}s/52{filters}_{t_exp}s.csv', delimiter=',', skip_header=1)
+RA = data[:, 0]
+DEC = data[:, 1]
+Mag_inst = data[:, 2]
+Err_mag_inst = data[:, 3]
+Mag_app_catalog = data[:, 4]
+Mag_app_my = data[:, 5]
+Dis = data[:, 6]
+Err_dis = data[:, 7]
+Mag_abs = data[:, 8]
+Err_mag_abs = data[:, 9]
+
+# fix the atmosphere extinction
+Mag_abs_out = Mag_abs - k * X
+
+# save our apparent magnitudes to a new file
+output_file = f'{filters}SDSS_{t_exp}s/53{filters}_{t_exp}s.csv'
+result = pd.DataFrame({
+    'RA': RA,
+    'DEC': DEC,
+    'Mag_inst': Mag_inst,
+    'Err_mag_inst': Err_mag_inst,
+    f'Mag_app_{filters}SDSS_catalog': Mag_app_catalog,
+    f'Mag_app_{filters}SDSS_my': Mag_app_my,
+    'Dis': Dis,
+    'Err_dis': Err_dis,
+    'Mag_abs': Mag_abs,
+    'Err_mag_abs': Err_mag_abs,
+    'Mag_abs_out': Mag_abs_out
+})
+result.to_csv(output_file, index=False)
+```
+
+11. draw the H-R diagram (using `6draw.py`)
 
 ::: details `6draw.py`
 ```py
 import numpy as np
 import matplotlib.pyplot as plt
 
-datag_30s = np.genfromtxt('gSDSS_30s/52g_30s.csv', delimiter=',', skip_header=1)
-datag_120s = np.genfromtxt('gSDSS_120s/52g_120s.csv', delimiter=',', skip_header=1)
-datar_10s = np.genfromtxt('rSDSS_10s/52r_10s.csv', delimiter=',', skip_header=1)
-datar_90s = np.genfromtxt('rSDSS_90s/52r_90s.csv', delimiter=',', skip_header=1)
-datai_4s = np.genfromtxt('iSDSS_4s/52i_4s.csv', delimiter=',', skip_header=1)
-datai_40s = np.genfromtxt('iSDSS_40s/52i_40s.csv', delimiter=',', skip_header=1)
+datag_30s = np.genfromtxt('gSDSS_30s/53g_30s.csv', delimiter=',', skip_header=1)
+datag_120s = np.genfromtxt('gSDSS_120s/53g_120s.csv', delimiter=',', skip_header=1)
+datar_10s = np.genfromtxt('rSDSS_10s/53r_10s.csv', delimiter=',', skip_header=1)
+datar_90s = np.genfromtxt('rSDSS_90s/53r_90s.csv', delimiter=',', skip_header=1)
+datai_4s = np.genfromtxt('iSDSS_4s/53i_4s.csv', delimiter=',', skip_header=1)
+datai_40s = np.genfromtxt('iSDSS_40s/53i_40s.csv', delimiter=',', skip_header=1)
 
 g_30s = datag_30s[:, 8]
 err_g_30s = datag_30s[:, 9]
