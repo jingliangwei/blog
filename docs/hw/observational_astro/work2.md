@@ -54,7 +54,13 @@ data: we have 6 fits files, 3 filters(r,g,i) & 2 exposure times
    \sigma_{g\text{-}r}=\sqrt{\sigma_g^2+\sigma_r^2}
    $$
 
-more questions: in step 6, the interstellar extinction and reddening are waitted to consider.
+7. identify if the star is belong to the clusters
+
+   - using parallax(distance) and proper motion
+
+more questions: the interstellar extinction and reddening are waitted to consider.
+
+the isochrone.
 
 ## process
 
@@ -67,20 +73,30 @@ prepara the setting file `setting.py`
 filters = 'r'
 # exposure time in seconds
 t_exp = 90
+# the length of exposure time ('long' or 'short')
+t_ls = 'long'
 # number of target stars (uesd in 2format.py)
 number = 50
 # zero point for magnitude conversion (used in 43inst2app.py)
 ## gain zero point from 42crossmatch.py
-mag_zp = 0
-# the atmosphere extinction (used in 53extinction.py)
-k = 1.0
-# the airmass of frame field (gain running 2format.py) (used in 53extinction.py)
-X = 1.1102888289718416
+mag_zp = 22.921860444806008
 
-# search distance locally
-dis_local = False
-filters_local = 'g'
-t_exp_local = 30
+# ignore this part
+# the atmosphere extinction (used in 53extinction.py)
+k = 0
+# the airmass of frame field (used in 53extinction.py)
+## gain airmass from 2format.py
+X = 1.108257574223502
+
+# identify if the star belongs to the clusters
+distance_median = 1660.0017621596332
+pm_median = 2.3772686
+pmra_median = -1.6451050478984617
+pmdec_median = -1.6698721604105364
+delta_distance = 500
+delta_pm = 1.414
+delta_pmra = 1
+delta_pmdec = 1
 ```
 :::
 
@@ -94,13 +110,16 @@ the details process:
 
 3. using `2format.py` to convert the `?SDSS_*s/Table_?_*s.tbl` to `2?_*s.csv`
 
+and save the `RA,DEC` to `*_time/2*.csv`
+
 ::: details `2format.py`
 ```py
 import pandas as pd
-from setting import filters, number, t_exp
+from setting import filters, number, t_exp, t_ls
 
 file_in = f'{filters}SDSS_{t_exp}s/Table_{filters}_{t_exp}s.tbl'
 file_out = f'{filters}SDSS_{t_exp}s/2{filters}_{t_exp}s.csv'
+file_out2 = f'{t_ls}_time/2{t_ls}.csv'
 
 # load the table
 df = pd.read_csv(file_in, sep='\t', comment='/', engine='python')
@@ -110,11 +129,17 @@ ra_cols = [f'RA_T{i}' for i in range(1, number+1)]
 dec_cols = [f'DEC_T{i}' for i in range(1, number+1)]
 source_sky_cols = [f'Source-Sky_T{i}' for i in range(1, number+1)]
 source_err_cols = [f'Source_Error_T{i}' for i in range(1, number+1)]
+airmass_col = f'AIRMASS'
 
 ra = df[ra_cols].values[0]
 dec = df[dec_cols].values[0]
 source_sky = df[source_sky_cols].values[0]
 source_err = df[source_err_cols].values[0]
+airmass = df[airmass_col].values[0]
+
+# print out the airmass
+print(f'Airmass of the frame field: {airmass}')
+print('update the airmass in setting.py')
 
 # save information to a new file
 info = pd.DataFrame({
@@ -124,6 +149,11 @@ info = pd.DataFrame({
     'Source_Error': source_err
 })
 info.to_csv(file_out, index=False)
+info2 = pd.DataFrame({
+    'RA': ra,
+    'DEC': dec
+})
+info2.to_csv(file_out2, index=False)
 ```
 :::
 
@@ -291,25 +321,22 @@ result.to_csv(output_file, index=False)
 
 8. get the distance (and error of it) of target stars from Gaia (using `51parallax.py`)
 
-or use the local distance (and error of it) in other filters.
+(only run once for each the 'long' and 'short' exposure time)
 
 ::: details `51parallax.py`
 ```py
+# only run one time for each the 'long' and 'short' exposure time
 import numpy as np
 import pandas as pd
 from astroquery.gaia import Gaia
 from astropy.coordinates import SkyCoord
 import astropy.units as u
-from setting import filters, t_exp, dis_local, filters_local, t_exp_local
+from setting import t_ls
 
 # load data
-data = np.genfromtxt(f'{filters}SDSS_{t_exp}s/43{filters}_{t_exp}s.csv', delimiter=',', skip_header=1)
+data = np.genfromtxt(f'{t_ls}_time/2{t_ls}.csv', delimiter=',', skip_header=1)
 RA = data[:, 0]
 DEC = data[:, 1]
-Mag_inst = data[:, 2]
-Err_mag_inst = data[:, 3]
-Mag_app_catalog = data[:, 4]
-Mag_app_my = data[:, 5]
 
 # search for parallax and its error in Gaia catalog
 def get_gaia_distance_and_error(ra, dec):
@@ -328,38 +355,24 @@ def get_gaia_distance_and_error(ra, dec):
             return distance, distance_error
     return None, None
 
-# search for parallax and its error locally
-def get_distance_local():
-    dis_data = np.genfromtxt(f'{filters_local}SDSS_{t_exp_local}s/51{filters_local}_{t_exp_local}s.csv', delimiter=',', skip_header=1)
-    distance = dis_data[:, 6]
-    distance_error = dis_data[:, 7]
-    return distance, distance_error
-
 distance = []
 distance_error = []
-if dis_local:
-    distance, distance_error = get_distance_local()
-else:
-    n = len(RA)
-    for i in range(n):
-        print(f'{i}/{n}:', end='')
-        ra = 15 * RA[i]  # convert RA from degrees to hours
-        dec = DEC[i]
-        dist, dist_err = get_gaia_distance_and_error(ra=ra, dec=dec)
-        distance.append(dist)
-        distance_error.append(dist_err)
-    distance = np.array(distance)
-    distance_error = np.array(distance_error)
+n = len(RA)
+for i in range(n):
+    print(f'{i+1}/{n}:', end='')
+    ra = 15 * RA[i]  # convert RA from hours to degrees
+    dec = DEC[i]
+    dist, dist_err = get_gaia_distance_and_error(ra=ra, dec=dec)
+    distance.append(dist)
+    distance_error.append(dist_err)
+distance = np.array(distance)
+distance_error = np.array(distance_error)
 
 # save results into new file
-output_file = f'{filters}SDSS_{t_exp}s/51{filters}_{t_exp}s.csv'
+output_file = f'{t_ls}_time/51{t_ls}.csv'
 results = pd.DataFrame({
     'RA': RA,
     'DEC': DEC,
-    'Mag_inst': Mag_inst,
-    'Err_mag_inst': Err_mag_inst,
-    f'Mag_app_{filters}SDSS_catalog': Mag_app_catalog,
-    f'Mag_app_{filters}SDSS_my': Mag_app_my,
     'Dis': distance,
     'Err_dis': distance_error
 })
@@ -373,18 +386,19 @@ results.to_csv(output_file, index=False)
 ```py
 import numpy as np
 import pandas as pd
-from setting import filters, t_exp
+from setting import filters, t_exp, t_ls
 
 # load data
-data = np.genfromtxt(f'{filters}SDSS_{t_exp}s/51{filters}_{t_exp}s.csv', delimiter=',', skip_header=1)
+data = np.genfromtxt(f'{filters}SDSS_{t_exp}s/43{filters}_{t_exp}s.csv', delimiter=',', skip_header=1)
 RA = data[:, 0]
 DEC = data[:, 1]
 Mag_inst = data[:, 2]
 Err_mag_inst = data[:, 3]
 Mag_app_catalog = data[:, 4]
 Mag_app_my = data[:, 5]
-Dis = data[:, 6]
-Err_dis = data[:, 7]
+data2 = np.genfromtxt(f'{t_ls}_time/51{t_ls}.csv', delimiter=',', skip_header=1)
+Dis = data2[:, 2]
+Err_dis = data2[:, 3]
 
 # calculate absolute magnitudes and its error
 Mag_abs = Mag_app_my - 5 * (np.log10(Dis) - 1)
@@ -408,62 +422,41 @@ result.to_csv(output_file, index=False)
 ```
 :::
 
-10. fix the atmosphere extinction (using `53extinction.py`)
+::: info the summary of the process before next step
+the steps:
 
-::: details `53extinction.py`
-```py
-import numpy as np
-import pandas as pd
-from setting import filters, t_exp, k, X
+for `g,30s` run the script `2,3,41,42,43,51,52`
 
-# load data
-data = np.genfromtxt(f'{filters}SDSS_{t_exp}s/52{filters}_{t_exp}s.csv', delimiter=',', skip_header=1)
-RA = data[:, 0]
-DEC = data[:, 1]
-Mag_inst = data[:, 2]
-Err_mag_inst = data[:, 3]
-Mag_app_catalog = data[:, 4]
-Mag_app_my = data[:, 5]
-Dis = data[:, 6]
-Err_dis = data[:, 7]
-Mag_abs = data[:, 8]
-Err_mag_abs = data[:, 9]
+for `i,4s` run `2,3,41,42,43,52`
 
-# fix the atmosphere extinction
-Mag_abs_out = Mag_abs - k * X
+for `r,10s` run `2,3,41,42,43,52`
 
-# save our apparent magnitudes to a new file
-output_file = f'{filters}SDSS_{t_exp}s/53{filters}_{t_exp}s.csv'
-result = pd.DataFrame({
-    'RA': RA,
-    'DEC': DEC,
-    'Mag_inst': Mag_inst,
-    'Err_mag_inst': Err_mag_inst,
-    f'Mag_app_{filters}SDSS_catalog': Mag_app_catalog,
-    f'Mag_app_{filters}SDSS_my': Mag_app_my,
-    'Dis': Dis,
-    'Err_dis': Err_dis,
-    'Mag_abs': Mag_abs,
-    'Err_mag_abs': Err_mag_abs,
-    'Mag_abs_out': Mag_abs_out
-})
-result.to_csv(output_file, index=False)
-```
+for `g,120s` run `2,3,41,42,43,51,52`
+
+for `i,40s` run `2,3,41,42,43,52`
+
+for `r,90s` run `2,3,41,42,43,52`
+
+the results:
+
+in folder `gSDSS_30s,120s/iSDSS_4s,40s/rSDSS_10s,90s`, there are `2,3,41,43,52`
+
+in folder `long_time/short_time`, there are `2,51`
 :::
 
-11. draw the H-R diagram (using `6draw.py`)
+10. draw the H-R diagram (using `6draw.py`)
 
 ::: details `6draw.py`
 ```py
 import numpy as np
 import matplotlib.pyplot as plt
 
-datag_30s = np.genfromtxt('gSDSS_30s/53g_30s.csv', delimiter=',', skip_header=1)
-datag_120s = np.genfromtxt('gSDSS_120s/53g_120s.csv', delimiter=',', skip_header=1)
-datar_10s = np.genfromtxt('rSDSS_10s/53r_10s.csv', delimiter=',', skip_header=1)
-datar_90s = np.genfromtxt('rSDSS_90s/53r_90s.csv', delimiter=',', skip_header=1)
-datai_4s = np.genfromtxt('iSDSS_4s/53i_4s.csv', delimiter=',', skip_header=1)
-datai_40s = np.genfromtxt('iSDSS_40s/53i_40s.csv', delimiter=',', skip_header=1)
+datag_30s = np.genfromtxt('gSDSS_30s/52g_30s.csv', delimiter=',', skip_header=1)
+datag_120s = np.genfromtxt('gSDSS_120s/52g_120s.csv', delimiter=',', skip_header=1)
+datar_10s = np.genfromtxt('rSDSS_10s/52r_10s.csv', delimiter=',', skip_header=1)
+datar_90s = np.genfromtxt('rSDSS_90s/52r_90s.csv', delimiter=',', skip_header=1)
+datai_4s = np.genfromtxt('iSDSS_4s/52i_4s.csv', delimiter=',', skip_header=1)
+datai_40s = np.genfromtxt('iSDSS_40s/52i_40s.csv', delimiter=',', skip_header=1)
 
 g_30s = datag_30s[:, 8]
 err_g_30s = datag_30s[:, 9]
@@ -554,6 +547,484 @@ else:
     ax3.invert_yaxis()
     ax3.set_xlabel('r-i')
     ax3.set_ylabel('r')
+plt.show()
+```
+:::
+
+11. identify if the target star is belong to the clusters：
+
+- run `71pm.py` twice, for setting `t_ls` is `'long'` and `'short'`
+
+::: details `71pm.py`
+```py
+import numpy as np
+import pandas as pd
+from astroquery.gaia import Gaia
+from astropy.coordinates import SkyCoord
+import astropy.units as u
+from setting import t_ls
+
+# load data
+data = np.genfromtxt(f'{t_ls}_time/51{t_ls}.csv', delimiter=',', skip_header=1)
+RA = data[:, 0]
+DEC = data[:, 1]
+Dis = data[:, 2]
+Err_dis = data[:, 3]
+
+def get_gaia_pm(ra, dec):
+    coord = SkyCoord(ra=ra, dec=dec, unit=(u.degree, u.degree), frame='icrs')
+    width = u.Quantity(1, u.arcsec)
+    height = u.Quantity(1, u.arcsec)
+    job = Gaia.query_object_async(coordinate=coord, width=width, height=height)
+    if len(job) > 0 and 'parallax' in job.colnames and 'parallax_error' in job.colnames \
+       and 'pm' in job.colnames and 'pmra' in job.colnames and 'pmdec' in job.colnames:
+        parallax = job['parallax'][0]
+        parallax_error = job['parallax_error'][0]
+        pm = job['pm'][0]
+        pmra = job['pmra'][0]
+        pmdec = job['pmdec'][0]
+        if parallax > 0:
+            distance = 1000.0 / parallax  # parsecs
+            distance_error = abs(1000.0 * parallax_error / (parallax ** 2))
+            if 2 * distance_error > distance:
+                return None, None, None  # avoid unrealistic distances
+            return pm, pmra, pmdec
+    return None, None, None
+
+propermotion = []
+propermotion_ra = []
+propermotion_dec = []
+n = len(RA)
+for i in range(n):
+    print(f'{i+1}/{n}:', end='')
+    ra = 15 * RA[i]  # convert RA from hours to degrees
+    dec = DEC[i]
+    pm, pmra, pmdec = get_gaia_pm(ra=ra, dec=dec)
+    propermotion.append(pm)
+    propermotion_ra.append(pmra)
+    propermotion_dec.append(pmdec)
+propermotion = np.array(propermotion)
+propermotion_ra = np.array(propermotion_ra)
+propermotion_dec = np.array(propermotion_dec)
+
+# save results into new file
+output_file = f'{t_ls}_time/71{t_ls}.csv'
+results = pd.DataFrame({
+    'RA': RA,
+    'DEC': DEC,
+    'Dis': Dis,
+    'Err_dis': Err_dis,
+    'pm': propermotion,
+    'pm_ra': propermotion_ra,
+    'pm_dec': propermotion_dec
+})
+results.to_csv(output_file, index=False)
+```
+:::
+
+- run `72check.py` to view and select the box to contain the main stars in clusters
+
+::: details `72check.py`
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+data_short = np.genfromtxt('short_time/71short.csv', delimiter=',', skip_header=1)
+data_long = np.genfromtxt('long_time/71long.csv', delimiter=',', skip_header=1)
+
+distance_short = data_short[:, 2]
+distance_long = data_long[:, 2]
+pm_short = data_short[:, 4]
+pm_long = data_long[:, 4]
+pmra_short = data_short[:, 5]
+pmra_long = data_long[:, 5]
+pmdec_short = data_short[:, 6]
+pmdec_long = data_long[:, 6]
+
+distance = np.concatenate([distance_short, distance_long])
+pm = np.concatenate([pm_short, pm_long])
+pmra = np.concatenate([pmra_short, pmra_long])
+pmdec = np.concatenate([pmdec_short, pmdec_long])
+
+mask_nan = ~(
+    np.isnan(distance) | np.isnan(pm) | np.isnan(pmra) | np.isnan(pmdec)
+)
+distance = distance[mask_nan]
+pm = pm[mask_nan]
+pmra = pmra[mask_nan]
+pmdec = pmdec[mask_nan]
+
+distance_median = np.median(distance)
+pm_median = np.median(pm)
+pmra_median = np.median(pmra)
+pmdec_median = np.median(pmdec)
+delta_distance = 500
+delta_pm = 1.414
+delta_pmra = 1
+delta_pmdec = 1
+print(f'distance_median: {distance_median}')
+print(f'pm_median: {pm_median}')
+print(f'pmra_median: {pmra_median}')
+print(f'pmdec_median: {pmdec_median}')
+print(f'delta_distance: {delta_distance}')
+print(f'delta_pm: {delta_pm}')
+print(f'delta_pmra: {delta_pmra}')
+print(f'delta_pmdec: {delta_pmdec}')
+print('update above parameters in setting.py')
+
+ax1 = plt.subplot(121)
+ax1.scatter(pm, distance)
+ax1.set_xlabel('Proper Motion (mas/yr)')
+ax1.set_ylabel('distance (pc)')
+rect1 = plt.Rectangle((pm_median - delta_pm, distance_median - delta_distance), 2 * delta_pm, 2 * delta_distance,
+                        linewidth=1, edgecolor='r', facecolor='none')
+ax1.add_patch(rect1)
+ax2 = plt.subplot(122)
+ax2.scatter(pmra, pmdec)
+ax2.set_xlabel('Proper Motion RA (mas/yr)')
+ax2.set_ylabel('Proper Motion Dec (mas/yr)')
+rect2 = plt.Rectangle((pmra_median - delta_pmra, pmdec_median - delta_pmdec), 2 * delta_pmra, 2 * delta_pmdec,
+                     linewidth=1, edgecolor='r', facecolor='none')
+ax2.add_patch(rect2)
+plt.show()
+```
+:::
+
+- run `73identify.py` to save the results to file `short_time/73short.csv`,`long_time/73long.csv`
+
+::: details `73identify.py`
+```py
+import numpy as np
+import pandas as pd
+from setting import distance_median, pm_median, delta_distance, delta_pm
+from setting import pmra_median, pmdec_median, delta_pmra, delta_pmdec
+
+data_short = np.genfromtxt('short_time/71short.csv', delimiter=',', skip_header=1)
+data_long = np.genfromtxt('long_time/71long.csv', delimiter=',', skip_header=1)
+
+ra_short = data_short[:, 0]
+ra_long = data_long[:, 0]
+dec_short = data_short[:, 1]
+dec_long = data_long[:, 1]
+dis_short = data_short[:, 2]
+dis_long = data_long[:, 2]
+err_dis_short = data_short[:, 3]
+err_dis_long = data_long[:, 3]
+pm_short = data_short[:, 4]
+pm_long = data_long[:, 4]
+pmra_short = data_short[:, 5]
+pmra_long = data_long[:, 5]
+pmdec_short = data_short[:, 6]
+pmdec_long = data_long[:, 6]
+
+identify_short = []
+identify_long = []
+
+n = len(pmra_short)
+for i in range(n):
+    dis = dis_short[i]
+    pm = pm_short[i]
+    pmra = pmra_short[i]
+    pmdec = pmdec_short[i]
+    if (dis < distance_median + delta_distance) and (dis > distance_median - delta_distance) and \
+       (pm < pm_median + delta_pm) and (pm > pm_median - delta_pm) and \
+       (pmra < pmra_median + delta_pmra) and (pmra > pmra_median - delta_pmra) and \
+       (pmdec < pmdec_median + delta_pmdec) and (pmdec > pmdec_median - delta_pmdec):
+        identify_short.append(1)
+    else:
+        identify_short.append(0)
+n = len(pmra_long)
+for i in range(n):
+    dis = dis_long[i]
+    pm = pm_long[i]
+    pmra = pmra_long[i]
+    pmdec = pmdec_long[i]
+    if (dis < distance_median + delta_distance) and (dis > distance_median - delta_distance) and \
+       (pm < pm_median + delta_pm) and (pm > pm_median - delta_pm) and \
+       (pmra < pmra_median + delta_pmra) and (pmra > pmra_median - delta_pmra) and \
+       (pmdec < pmdec_median + delta_pmdec) and (pmdec > pmdec_median - delta_pmdec):
+        identify_long.append(1)
+    else:
+        identify_long.append(0)
+identify_short = np.array(identify_short)
+identify_long = np.array(identify_long)
+
+# save results into new file
+output_file_short = 'short_time/73short.csv'
+output_file_long = 'long_time/73long.csv'
+info_short = pd.DataFrame({
+    'RA': ra_short,
+    'DEC': dec_short,
+    'Dis': dis_short,
+    'Err_dis': err_dis_short,
+    'pm': pm_short,
+    'pm_ra': pmra_short,
+    'pm_dec': pmdec_short,
+    'identify': identify_short
+})
+info_long = pd.DataFrame({
+    'RA': ra_long,
+    'DEC': dec_long,
+    'Dis': dis_long,
+    'Err_dis': err_dis_long,
+    'pm': pm_long,
+    'pm_ra': pmra_long,
+    'pm_dec': pmdec_long,
+    'identify': identify_long
+})
+info_short.to_csv(output_file_short, index=False)
+info_long.to_csv(output_file_long, index=False)
+```
+:::
+
+- the `74recheck.py` just for recheck, is optional.
+
+::: details `74recheck.py`
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+data_short = np.genfromtxt('short_time/73short.csv', delimiter=',', skip_header=1)
+data_long = np.genfromtxt('long_time/73long.csv', delimiter=',', skip_header=1)
+
+distance_short = data_short[:, 2]
+distance_long = data_long[:, 2]
+pm_short = data_short[:, 4]
+pm_long = data_long[:, 4]
+pmra_short = data_short[:, 5]
+pmra_long = data_long[:, 5]
+pmdec_short = data_short[:, 6]
+pmdec_long = data_long[:, 6]
+identify_short = data_short[:, 7]
+identify_long = data_long[:, 7]
+
+mask_identify_short = (identify_short == 1)
+mask_identify_long = (identify_long == 1)
+
+distance_short_identify = distance_short[mask_identify_short]
+distance_long_identify = distance_long[mask_identify_long]
+pm_short_identify = pm_short[mask_identify_short]
+pm_long_identify = pm_long[mask_identify_long]
+pmra_short_identify = pmra_short[mask_identify_short]
+pmra_long_identify = pmra_long[mask_identify_long]
+pmdec_short_identify = pmdec_short[mask_identify_short]
+pmdec_long_identify = pmdec_long[mask_identify_long]
+
+distance_identify = np.concatenate([distance_short_identify, distance_long_identify])
+pm_identify = np.concatenate([pm_short_identify, pm_long_identify])
+pmra_identify = np.concatenate([pmra_short_identify, pmra_long_identify])
+pmdec_identify = np.concatenate([pmdec_short_identify, pmdec_long_identify])
+
+mask_nan = ~(
+    np.isnan(distance_identify) | np.isnan(pm_identify) | np.isnan(pmra_identify) | np.isnan(pmdec_identify)
+)
+distance_identify = distance_identify[mask_nan]
+pm_identify = pm_identify[mask_nan]
+pmra_identify = pmra_identify[mask_nan]
+pmdec_identify = pmdec_identify[mask_nan]
+
+distance = np.concatenate([distance_short, distance_long])
+pm = np.concatenate([pm_short, pm_long])
+pmra = np.concatenate([pmra_short, pmra_long])
+pmdec = np.concatenate([pmdec_short, pmdec_long])
+
+ax1 = plt.subplot(121)
+ax1.scatter(pm_identify, distance_identify, label='Identified Stars')
+ax1.scatter(pm, distance, alpha=0.3, label='All Stars')
+ax1.set_xlabel('Proper Motion (mas/yr)')
+ax1.set_ylabel('distance (pc)')
+ax1.legend()
+ax2 = plt.subplot(122)
+ax2.scatter(pmra_identify, pmdec_identify, label='Identified Stars')
+ax2.scatter(pmra, pmdec, alpha=0.3, label='All Stars')
+ax2.set_xlabel('Proper Motion RA (mas/yr)')
+ax2.set_ylabel('Proper Motion Dec (mas/yr)')
+ax2.legend()
+plt.show()
+```
+:::
+
+12. draw the H-R diagram after identification (using `8draw.py`)
+
+::: details `8draw.py`
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+datag_30s = np.genfromtxt('gSDSS_30s/52g_30s.csv', delimiter=',', skip_header=1)
+datag_120s = np.genfromtxt('gSDSS_120s/52g_120s.csv', delimiter=',', skip_header=1)
+datar_10s = np.genfromtxt('rSDSS_10s/52r_10s.csv', delimiter=',', skip_header=1)
+datar_90s = np.genfromtxt('rSDSS_90s/52r_90s.csv', delimiter=',', skip_header=1)
+datai_4s = np.genfromtxt('iSDSS_4s/52i_4s.csv', delimiter=',', skip_header=1)
+datai_40s = np.genfromtxt('iSDSS_40s/52i_40s.csv', delimiter=',', skip_header=1)
+
+data_short = np.genfromtxt('short_time/73short.csv', delimiter=',', skip_header=1)
+data_long = np.genfromtxt('long_time/73long.csv', delimiter=',', skip_header=1)
+
+g_30s = datag_30s[:, 8]
+err_g_30s = datag_30s[:, 9]
+g_120s = datag_120s[:, 8]
+err_g_120s = datag_120s[:, 9]
+r_10s = datar_10s[:, 8]
+err_r_10s = datar_10s[:, 9]
+r_90s = datar_90s[:, 8]
+err_r_90s = datar_90s[:, 9]
+i_4s = datai_4s[:, 8]
+err_i_4s = datai_4s[:, 9]
+i_40s = datai_40s[:, 8]
+err_i_40s = datai_40s[:, 9]
+
+## the whole part
+g = np.concatenate([g_30s, g_120s])
+err_g = np.concatenate([err_g_30s, err_g_120s])
+r = np.concatenate([r_10s, r_90s])
+err_r = np.concatenate([err_r_10s, err_r_90s])
+i = np.concatenate([i_4s, i_40s])
+err_i = np.concatenate([err_i_4s, err_i_40s])
+
+mask_nan = ~(
+    np.isnan(g) | np.isnan(r) | np.isnan(i) |
+    np.isnan(err_g) | np.isnan(err_r) | np.isnan(err_i)
+)
+g = g[mask_nan]
+r = r[mask_nan]
+i = i[mask_nan]
+err_g = err_g[mask_nan]
+err_r = err_r[mask_nan]
+err_i = err_i[mask_nan]
+
+g_r = g - r
+g_i = g - i
+r_i = r - i
+err_g_r = np.sqrt(err_g**2 + err_r**2)
+err_g_i = np.sqrt(err_g**2 + err_i**2)
+err_r_i = np.sqrt(err_r**2 + err_i**2)
+
+max_err = 0.2
+mask_err = ~(
+    (err_g>max_err) & (err_r>max_err) & (err_i>max_err) &
+    (err_g_r>max_err) & (err_g_i>max_err) & (err_r_i>max_err)
+)
+g = g[mask_err]
+r = r[mask_err]
+i = i[mask_err]
+err_g = err_g[mask_err]
+err_r = err_r[mask_err]
+err_i = err_i[mask_err]
+g_r = g_r[mask_err]
+g_i = g_i[mask_err]
+r_i = r_i[mask_err]
+err_g_r = err_g_r[mask_err]
+err_g_i = err_g_i[mask_err]
+err_r_i = err_r_i[mask_err]
+
+## the identify part
+identify_short = data_short[:, 7]
+identify_long = data_long[:, 7]
+
+mask_identified_short = (identify_short == 1)
+mask_identified_long = (identify_long == 1)
+
+g_30s_identify = g_30s[mask_identified_short]
+err_g_30s_identify = err_g_30s[mask_identified_short]
+g_120s_identify = g_120s[mask_identified_long]
+err_g_120s_identify = err_g_120s[mask_identified_long]
+r_10s_identify = r_10s[mask_identified_short]
+err_r_10s_identify = err_r_10s[mask_identified_short]
+r_90s_identify = r_90s[mask_identified_long]
+err_r_90s_identify = err_r_90s[mask_identified_long]
+i_4s_identify = i_4s[mask_identified_short]
+err_i_4s_identify = err_i_4s[mask_identified_short]
+i_40s_identify = i_40s[mask_identified_long]
+err_i_40s_identify = err_i_40s[mask_identified_long]
+
+g_identify = np.concatenate([g_30s_identify, g_120s_identify])
+err_g_identify = np.concatenate([err_g_30s_identify, err_g_120s_identify])
+r_identify = np.concatenate([r_10s_identify, r_90s_identify])
+err_r_identify = np.concatenate([err_r_10s_identify, err_r_90s_identify])
+i_identify = np.concatenate([i_4s_identify, i_40s_identify])
+err_i_identify = np.concatenate([err_i_4s_identify, err_i_40s_identify])
+
+mask_nan = ~(
+    np.isnan(g_identify) | np.isnan(r_identify) | np.isnan(i_identify) |
+    np.isnan(err_g_identify) | np.isnan(err_r_identify) | np.isnan(err_i_identify)
+)
+g_identify = g_identify[mask_nan]
+r_identify = r_identify[mask_nan]
+i_identify = i_identify[mask_nan]
+err_g_identify = err_g_identify[mask_nan]
+err_r_identify = err_r_identify[mask_nan]
+err_i_identify = err_i_identify[mask_nan]
+
+g_r_identify = g_identify - r_identify
+g_i_identify = g_identify - i_identify
+r_i_identify = r_identify - i_identify
+err_g_r_identify = np.sqrt(err_g_identify**2 + err_r_identify**2)
+err_g_i_identify = np.sqrt(err_g_identify**2 + err_i_identify**2)
+err_r_i_identify = np.sqrt(err_r_identify**2 + err_i_identify**2)
+
+max_err = 0.2
+mask_err = ~(
+    (err_g_identify>max_err) & (err_r_identify>max_err) & (err_i_identify>max_err) &
+    (err_g_r_identify>max_err) & (err_g_i_identify>max_err) & (err_r_i_identify>max_err)
+)
+g_identify = g_identify[mask_err]
+r_identify = r_identify[mask_err]
+i_identify = i_identify[mask_err]
+err_g_identify = err_g_identify[mask_err]
+err_r_identify = err_r_identify[mask_err]
+err_i_identify = err_i_identify[mask_err]
+g_r_identify = g_r_identify[mask_err]
+g_i_identify = g_i_identify[mask_err]
+r_i_identify = r_i_identify[mask_err]
+err_g_r_identify = err_g_r_identify[mask_err]
+err_g_i_identify = err_g_i_identify[mask_err]
+err_r_i_identify = err_r_i_identify[mask_err]
+
+## draw the H-R diagram
+show_raw = 0
+draw_error = 1
+if draw_error == 1:
+    ax1 = plt.subplot(131)
+    ax1.errorbar(g_r_identify, g_identify, xerr=err_g_r_identify, yerr=err_g_identify, fmt='o', markersize=1, capsize=1)
+    ax1.invert_yaxis()
+    ax1.set_xlabel('g-r')
+    ax1.set_ylabel('g')
+    ax2 = plt.subplot(132)
+    ax2.errorbar(g_i_identify, g_identify, xerr=err_g_i_identify, yerr=err_g_identify, fmt='o', markersize=1, capsize=1)
+    ax2.invert_yaxis()
+    ax2.set_xlabel('g-i')
+    ax2.set_ylabel('g')
+    ax3 = plt.subplot(133)
+    ax3.errorbar(r_i_identify, r_identify, xerr=err_r_i_identify, yerr=err_r_identify, fmt='o', markersize=1, capsize=1)
+    ax3.invert_yaxis()
+    ax3.set_xlabel('r-i')
+    ax3.set_ylabel('r')
+else:
+    ax1 = plt.subplot(131)
+    ax1.scatter(g_r_identify, g_identify, s=4, label='Identified Stars')
+    if show_raw == 1:
+        ax1.scatter(g_r, g, s=3, alpha=0.8, label='All Stars')
+    ax1.invert_yaxis()
+    ax1.set_xlabel('g-r')
+    ax1.set_ylabel('g')
+    ax1.legend()
+    ax2 = plt.subplot(132)
+    ax2.invert_yaxis()
+    ax2.scatter(g_i_identify, g_identify, s=4, label='Identified Stars')
+    if show_raw == 1:
+        ax2.scatter(g_i, g, s=3, alpha=0.8, label='All Stars')
+    ax2.set_xlabel('g-i')
+    ax2.set_ylabel('g')
+    ax2.legend()
+    ax3 = plt.subplot(133)
+    ax3.scatter(r_i_identify, r_identify, s=4, label='Identified Stars')
+    if show_raw == 1:
+        ax3.scatter(r_i, r, s=3, alpha=0.8, label='All Stars')
+    ax3.invert_yaxis()
+    ax3.set_xlabel('r-i')
+    ax3.set_ylabel('r')
+    ax3.legend()
 plt.show()
 ```
 :::
