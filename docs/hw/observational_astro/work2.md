@@ -410,6 +410,7 @@ result.to_csv(output_file, index=False)
 
 10. fix the atmosphere extinction (using `53extinction.py`)
 
+::: details `53extinction.py`
 ```py
 import numpy as np
 import pandas as pd
@@ -448,6 +449,7 @@ result = pd.DataFrame({
 })
 result.to_csv(output_file, index=False)
 ```
+:::
 
 11. draw the H-R diagram (using `6draw.py`)
 
