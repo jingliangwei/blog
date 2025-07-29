@@ -58,7 +58,18 @@ data: we have 6 fits files, 3 filters(r,g,i) & 2 exposure times
 
    - using parallax(distance) and proper motion
 
-more questions: the interstellar extinction and reddening are waitted to consider.
+8. consider the interstellar extinction:
+
+   - get the $E(B\text{-}V)$ for each star from catalog
+   - fix the magnitude in 3 different filters using
+     $$
+     A_{\text{filter}}=C_{\text{filter}}\cdot E(B\text{-}V)
+     $$
+     $$
+     m_{0_\text{filter}}=m_{\text{obs}_\text{filter}}-A
+     $$
+
+more questions:
 
 the isochrone.
 
@@ -983,8 +994,321 @@ err_g_i_identify = err_g_i_identify[mask_err]
 err_r_i_identify = err_r_i_identify[mask_err]
 
 ## draw the H-R diagram
-show_raw = 0
+show_raw = 0           # only work while draw_error == 0
 draw_error = 1
+if draw_error == 1:
+    ax1 = plt.subplot(131)
+    ax1.errorbar(g_r_identify, g_identify, xerr=err_g_r_identify, yerr=err_g_identify, fmt='o', markersize=1, capsize=1)
+    ax1.invert_yaxis()
+    ax1.set_xlabel('g-r')
+    ax1.set_ylabel('g')
+    ax2 = plt.subplot(132)
+    ax2.errorbar(g_i_identify, g_identify, xerr=err_g_i_identify, yerr=err_g_identify, fmt='o', markersize=1, capsize=1)
+    ax2.invert_yaxis()
+    ax2.set_xlabel('g-i')
+    ax2.set_ylabel('g')
+    ax3 = plt.subplot(133)
+    ax3.errorbar(r_i_identify, r_identify, xerr=err_r_i_identify, yerr=err_r_identify, fmt='o', markersize=1, capsize=1)
+    ax3.invert_yaxis()
+    ax3.set_xlabel('r-i')
+    ax3.set_ylabel('r')
+else:
+    ax1 = plt.subplot(131)
+    ax1.scatter(g_r_identify, g_identify, s=4, label='Identified Stars')
+    if show_raw == 1:
+        ax1.scatter(g_r, g, s=3, alpha=0.8, label='All Stars')
+    ax1.invert_yaxis()
+    ax1.set_xlabel('g-r')
+    ax1.set_ylabel('g')
+    ax1.legend()
+    ax2 = plt.subplot(132)
+    ax2.invert_yaxis()
+    ax2.scatter(g_i_identify, g_identify, s=4, label='Identified Stars')
+    if show_raw == 1:
+        ax2.scatter(g_i, g, s=3, alpha=0.8, label='All Stars')
+    ax2.set_xlabel('g-i')
+    ax2.set_ylabel('g')
+    ax2.legend()
+    ax3 = plt.subplot(133)
+    ax3.scatter(r_i_identify, r_identify, s=4, label='Identified Stars')
+    if show_raw == 1:
+        ax3.scatter(r_i, r, s=3, alpha=0.8, label='All Stars')
+    ax3.invert_yaxis()
+    ax3.set_xlabel('r-i')
+    ax3.set_ylabel('r')
+    ax3.legend()
+plt.show()
+```
+:::
+
+13. reduce the interstellar extinction:
+    
+    - prepare the `dustmaps` to obtain the $E(B\text{-}V)$ value:
+      
+      the [help document](https://dustmaps.readthedocs.io/en/latest/installation.html)
+
+      what we need is:
+      ```sh:no-line-numbers
+      pip install dustmaps
+      ```
+      ```sh:no-line-numbers
+      $ python
+      >>> from dustmaps.config import config
+      >>> config['data_dir'] = '/path/to/store/maps/in'
+      >>> import dustmaps.sfd
+      >>> dustmaps.sfd.fetch()
+      ```
+
+    - run `91ebv.py` to get the value of $E(B\text{-}V)$
+
+    (run twice for setting `t_ls` is `short` and `long`)
+    
+::: details `91ebv.py`
+```py
+import numpy as np
+import pandas as pd
+from astropy.coordinates import SkyCoord
+import astropy.units as u
+from dustmaps.sfd import SFDQuery
+from setting import t_ls
+
+# load data
+data = np.genfromtxt(f'{t_ls}_time/71{t_ls}.csv', delimiter=',', skip_header=1)
+RA = data[:, 0]
+DEC = data[:, 1]
+Dis = data[:, 2]
+Err_dis = data[:, 3]
+pm = data[:, 4]
+pm_ra = data[:, 5]
+pm_dec = data[:, 6]
+
+def get_ebv(ra, dec):
+    coords = SkyCoord(ra=ra, dec=dec, unit=(u.degree, u.degree), frame='icrs')
+    sfd = SFDQuery()
+    ebv = sfd(coords)
+    return ebv
+
+ebvs = []
+n = len(RA)
+for i in range(n):
+    ra = 15 * RA[i]
+    dec = DEC[i]
+    ebv = get_ebv(ra=ra, dec=dec)
+    ebvs.append(ebv)
+ebvs = np.array(ebvs)
+
+# save results into new file
+output_file = f'{t_ls}_time/91{t_ls}.csv'
+results = pd.DataFrame({
+    'RA': RA,
+    'DEC': DEC,
+    'Dis': Dis,
+    'Err_dis': Err_dis,
+    'pm': pm,
+    'pm_ra': pm_ra,
+    'pm_dec': pm_dec,
+    'E(B-V)': ebvs
+})
+results.to_csv(output_file, index=False)
+```
+:::
+
+   - run `92extinction.py` to calculate the magnitude before interstellar extinction
+
+   (run 6 times for each 3 filters and 2 exposure times)
+
+::: details `92extinction.py`
+```py
+import numpy as np
+import pandas as pd
+from setting import filters, t_exp, t_ls
+
+# load data
+data = np.genfromtxt(f'{filters}SDSS_{t_exp}s/52{filters}_{t_exp}s.csv', delimiter=',', skip_header=1)
+RA = data[:, 0]
+DEC = data[:, 1]
+Mag_inst = data[:, 2]
+Err_mag_inst = data[:, 3]
+Mag_app_catalog = data[:, 4]
+Mag_app_my = data[:, 5]
+Dis = data[:, 6]
+Err_dis = data[:, 7]
+Mag_abs = data[:, 8]
+Err_mag_abs = data[:, 9]
+data2 = np.genfromtxt(f'{t_ls}_time/91{t_ls}.csv', delimiter=',', skip_header=1)
+ebv = data2[:, 7]
+
+# reduce the interstellar extinction
+C_g = 3.303
+C_r = 2.285
+C_i = 1.689
+if filters == 'g':
+    A = C_g * ebv
+elif filters == 'r':
+    A = C_r * ebv
+elif filters == 'i':
+    A = C_i * ebv
+Mag_abs_0 = Mag_abs - A
+
+# save results into new file
+output_file = f'{filters}SDSS_{t_exp}s/92{filters}_{t_exp}s.csv'
+results = pd.DataFrame({
+    'RA': RA,
+    'DEC': DEC,
+    'Mag_inst': Mag_inst,
+    'Err_mag_inst': Err_mag_inst,
+    f'Mag_app_{filters}SDSS_catalog': Mag_app_catalog,
+    f'Mag_app_{filters}SDSS_my': Mag_app_my,
+    'Dis': Dis,
+    'Err_dis': Err_dis,
+    'Mag_abs': Mag_abs,
+    'Err_mag_abs': Err_mag_abs,
+    'Mag_abs_0': Mag_abs_0
+})
+results.to_csv(output_file, index=False)
+```
+:::
+
+14. draw the H-R diagram finally (using `10draw.py`)
+
+::: details `10draw.py`
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+datag_30s = np.genfromtxt('gSDSS_30s/92g_30s.csv', delimiter=',', skip_header=1)
+datag_120s = np.genfromtxt('gSDSS_120s/92g_120s.csv', delimiter=',', skip_header=1)
+datar_10s = np.genfromtxt('rSDSS_10s/92r_10s.csv', delimiter=',', skip_header=1)
+datar_90s = np.genfromtxt('rSDSS_90s/92r_90s.csv', delimiter=',', skip_header=1)
+datai_4s = np.genfromtxt('iSDSS_4s/92i_4s.csv', delimiter=',', skip_header=1)
+datai_40s = np.genfromtxt('iSDSS_40s/92i_40s.csv', delimiter=',', skip_header=1)
+
+data_short = np.genfromtxt('short_time/73short.csv', delimiter=',', skip_header=1)
+data_long = np.genfromtxt('long_time/73long.csv', delimiter=',', skip_header=1)
+
+g_30s = datag_30s[:, 10]
+err_g_30s = datag_30s[:, 9]
+g_120s = datag_120s[:, 10]
+err_g_120s = datag_120s[:, 9]
+r_10s = datar_10s[:, 10]
+err_r_10s = datar_10s[:, 9]
+r_90s = datar_90s[:, 10]
+err_r_90s = datar_90s[:, 9]
+i_4s = datai_4s[:, 10]
+err_i_4s = datai_4s[:, 9]
+i_40s = datai_40s[:, 10]
+err_i_40s = datai_40s[:, 9]
+
+## the whole part
+g = np.concatenate([g_30s, g_120s])
+err_g = np.concatenate([err_g_30s, err_g_120s])
+r = np.concatenate([r_10s, r_90s])
+err_r = np.concatenate([err_r_10s, err_r_90s])
+i = np.concatenate([i_4s, i_40s])
+err_i = np.concatenate([err_i_4s, err_i_40s])
+
+mask_nan = ~(
+    np.isnan(g) | np.isnan(r) | np.isnan(i) |
+    np.isnan(err_g) | np.isnan(err_r) | np.isnan(err_i)
+)
+g = g[mask_nan]
+r = r[mask_nan]
+i = i[mask_nan]
+err_g = err_g[mask_nan]
+err_r = err_r[mask_nan]
+err_i = err_i[mask_nan]
+
+g_r = g - r
+g_i = g - i
+r_i = r - i
+err_g_r = np.sqrt(err_g**2 + err_r**2)
+err_g_i = np.sqrt(err_g**2 + err_i**2)
+err_r_i = np.sqrt(err_r**2 + err_i**2)
+
+max_err = 0.2
+mask_err = ~(
+    (err_g>max_err) & (err_r>max_err) & (err_i>max_err) &
+    (err_g_r>max_err) & (err_g_i>max_err) & (err_r_i>max_err)
+)
+g = g[mask_err]
+r = r[mask_err]
+i = i[mask_err]
+err_g = err_g[mask_err]
+err_r = err_r[mask_err]
+err_i = err_i[mask_err]
+g_r = g_r[mask_err]
+g_i = g_i[mask_err]
+r_i = r_i[mask_err]
+err_g_r = err_g_r[mask_err]
+err_g_i = err_g_i[mask_err]
+err_r_i = err_r_i[mask_err]
+
+## the identify part
+identify_short = data_short[:, 7]
+identify_long = data_long[:, 7]
+
+mask_identified_short = (identify_short == 1)
+mask_identified_long = (identify_long == 1)
+
+g_30s_identify = g_30s[mask_identified_short]
+err_g_30s_identify = err_g_30s[mask_identified_short]
+g_120s_identify = g_120s[mask_identified_long]
+err_g_120s_identify = err_g_120s[mask_identified_long]
+r_10s_identify = r_10s[mask_identified_short]
+err_r_10s_identify = err_r_10s[mask_identified_short]
+r_90s_identify = r_90s[mask_identified_long]
+err_r_90s_identify = err_r_90s[mask_identified_long]
+i_4s_identify = i_4s[mask_identified_short]
+err_i_4s_identify = err_i_4s[mask_identified_short]
+i_40s_identify = i_40s[mask_identified_long]
+err_i_40s_identify = err_i_40s[mask_identified_long]
+
+g_identify = np.concatenate([g_30s_identify, g_120s_identify])
+err_g_identify = np.concatenate([err_g_30s_identify, err_g_120s_identify])
+r_identify = np.concatenate([r_10s_identify, r_90s_identify])
+err_r_identify = np.concatenate([err_r_10s_identify, err_r_90s_identify])
+i_identify = np.concatenate([i_4s_identify, i_40s_identify])
+err_i_identify = np.concatenate([err_i_4s_identify, err_i_40s_identify])
+
+mask_nan = ~(
+    np.isnan(g_identify) | np.isnan(r_identify) | np.isnan(i_identify) |
+    np.isnan(err_g_identify) | np.isnan(err_r_identify) | np.isnan(err_i_identify)
+)
+g_identify = g_identify[mask_nan]
+r_identify = r_identify[mask_nan]
+i_identify = i_identify[mask_nan]
+err_g_identify = err_g_identify[mask_nan]
+err_r_identify = err_r_identify[mask_nan]
+err_i_identify = err_i_identify[mask_nan]
+
+g_r_identify = g_identify - r_identify
+g_i_identify = g_identify - i_identify
+r_i_identify = r_identify - i_identify
+err_g_r_identify = np.sqrt(err_g_identify**2 + err_r_identify**2)
+err_g_i_identify = np.sqrt(err_g_identify**2 + err_i_identify**2)
+err_r_i_identify = np.sqrt(err_r_identify**2 + err_i_identify**2)
+
+max_err = 0.2
+mask_err = ~(
+    (err_g_identify>max_err) & (err_r_identify>max_err) & (err_i_identify>max_err) &
+    (err_g_r_identify>max_err) & (err_g_i_identify>max_err) & (err_r_i_identify>max_err)
+)
+g_identify = g_identify[mask_err]
+r_identify = r_identify[mask_err]
+i_identify = i_identify[mask_err]
+err_g_identify = err_g_identify[mask_err]
+err_r_identify = err_r_identify[mask_err]
+err_i_identify = err_i_identify[mask_err]
+g_r_identify = g_r_identify[mask_err]
+g_i_identify = g_i_identify[mask_err]
+r_i_identify = r_i_identify[mask_err]
+err_g_r_identify = err_g_r_identify[mask_err]
+err_g_i_identify = err_g_i_identify[mask_err]
+err_r_i_identify = err_r_i_identify[mask_err]
+
+## draw the H-R diagram
+show_raw = 1           # only work while draw_error == 0
+draw_error = 0
 if draw_error == 1:
     ax1 = plt.subplot(131)
     ax1.errorbar(g_r_identify, g_identify, xerr=err_g_r_identify, yerr=err_g_identify, fmt='o', markersize=1, capsize=1)

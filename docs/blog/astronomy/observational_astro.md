@@ -700,6 +700,27 @@ above we just get the flux(ADU counts), we need to get magnitude-phase next.
     \sigma_{g\text{-}r}=\sqrt{\sigma_{gmag}^2+\sigma_{rmag}^2}
     $$
 
+### identify
+
+using both **parallax(distance)** and **proper motion** to check if the target stars is belong to our clusters.
+
+### interstellar extinction
+
+- our observed color $g\text{-}r$ has color excess $E(g\text{-}r)$, to obtain the real color:
+  $$
+  g_0\text{-}r_0=(g\text{-}r)-E(g\text{-}r)
+  $$
+
+- get real magnitudes:
+
+  - find $E(B\text{-}V)$ in catalog;
+  - get constant $C_g=3.303,C_r=2.285,C_i=1.689$ while $R_V=3.1$ in the Table 6 in [paper](/blog/astronomy/observational_astro/Schlafly_2011_ApJ_737_103.pdf);
+  - $A_g=C_g\cdot E(B\text{-}V)$
+  - $A_r=C_r\cdot E(B\text{-}V)$
+  - $A_i=C_i\cdot E(B\text{-}V)$
+  - $m_{0}=m_{obs}-A$ for each filters(g,r,i)
+
+
 ## Appendix
 
 some useful website link:
