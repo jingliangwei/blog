@@ -89,6 +89,7 @@ k = 0
 X = 1.108257574223502
 
 # identify if the star belongs to the clusters
+## gain from 72check.py
 distance_median = 1660.0017621596332
 pm_median = 2.3772686
 pmra_median = -1.6451050478984617
@@ -137,9 +138,9 @@ source_sky = df[source_sky_cols].values[0]
 source_err = df[source_err_cols].values[0]
 airmass = df[airmass_col].values[0]
 
-# print out the airmass
-print(f'Airmass of the frame field: {airmass}')
-print('update the airmass in setting.py')
+# # print out the airmass
+# print(f'Airmass of the frame field: {airmass}')
+# print('update the airmass in setting.py')
 
 # save information to a new file
 info = pd.DataFrame({
@@ -662,14 +663,14 @@ delta_distance = 500
 delta_pm = 1.414
 delta_pmra = 1
 delta_pmdec = 1
-print(f'distance_median: {distance_median}')
-print(f'pm_median: {pm_median}')
-print(f'pmra_median: {pmra_median}')
-print(f'pmdec_median: {pmdec_median}')
-print(f'delta_distance: {delta_distance}')
-print(f'delta_pm: {delta_pm}')
-print(f'delta_pmra: {delta_pmra}')
-print(f'delta_pmdec: {delta_pmdec}')
+print(f'distance_median = {distance_median}')
+print(f'pm_median = {pm_median}')
+print(f'pmra_median = {pmra_median}')
+print(f'pmdec_median = {pmdec_median}')
+print(f'delta_distance = {delta_distance}')
+print(f'delta_pm = {delta_pm}')
+print(f'delta_pmra = {delta_pmra}')
+print(f'delta_pmdec = {delta_pmdec}')
 print('update above parameters in setting.py')
 
 ax1 = plt.subplot(121)
