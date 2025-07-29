@@ -996,6 +996,7 @@ err_r_i_identify = err_r_i_identify[mask_err]
 ## draw the H-R diagram
 show_raw = 0           # only work while draw_error == 0
 draw_error = 1
+plt.figure(figsize=(16, 6))
 if draw_error == 1:
     ax1 = plt.subplot(131)
     ax1.errorbar(g_r_identify, g_identify, xerr=err_g_r_identify, yerr=err_g_identify, fmt='o', markersize=1, capsize=1)
@@ -1307,6 +1308,7 @@ err_r_i_identify = err_r_i_identify[mask_err]
 ## draw the H-R diagram
 show_raw = 0           # only work while draw_error == 0
 draw_error = 0
+plt.figure(figsize=(16, 6))
 if draw_error == 1:
     ax1 = plt.subplot(131)
     ax1.errorbar(g_r_identify, g_identify, xerr=err_g_r_identify, yerr=err_g_identify, fmt='o', markersize=1, capsize=1)

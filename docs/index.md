@@ -12,12 +12,6 @@ hero:
     - theme: brand
       text: 笔记
       link: /blog/
-    - theme: alt
-      text: Python数据处理
-      link: /blog/tools/python
-    - theme: alt
-      text: JPL星表
-      link: /blog/astronomy/jpl
     - theme: brand
       text: 作业
       link: /hw/
@@ -27,6 +21,12 @@ hero:
     - theme: brand
       text: 报告
       link: /lecture/
+    - theme: alt
+      text: Observational Astronomy
+      link: /blog/astronomy/observational_astro
+    - theme: alt
+      text: Work on Open Clusters
+      link: /hw/observational_astro/work2
 
 features:
   - title: Positive
