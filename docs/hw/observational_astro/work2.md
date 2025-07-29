@@ -1042,23 +1042,9 @@ plt.show()
 :::
 
 13. reduce the interstellar extinction:
+
+    - prepare the catalog file with value of $E(B\text{-}V)$ and its error `Extinction_values_NGC7086.csv`
     
-    - prepare the `dustmaps` to obtain the $E(B\text{-}V)$ value:
-      
-      the [help document](https://dustmaps.readthedocs.io/en/latest/installation.html)
-
-      what we need is:
-      ```sh:no-line-numbers
-      pip install dustmaps
-      ```
-      ```sh:no-line-numbers
-      $ python
-      >>> from dustmaps.config import config
-      >>> config['data_dir'] = '/path/to/store/maps/in'
-      >>> import dustmaps.sfd
-      >>> dustmaps.sfd.fetch()
-      ```
-
     - run `91ebv.py` to get the value of $E(B\text{-}V)$
 
     (run twice for setting `t_ls` is `short` and `long`)
@@ -1069,7 +1055,6 @@ import numpy as np
 import pandas as pd
 from astropy.coordinates import SkyCoord
 import astropy.units as u
-from dustmaps.sfd import SFDQuery
 from setting import t_ls
 
 # load data
@@ -1081,21 +1066,28 @@ Err_dis = data[:, 3]
 pm = data[:, 4]
 pm_ra = data[:, 5]
 pm_dec = data[:, 6]
+data2 = np.genfromtxt('Extinction_values_NGC7086.csv', delimiter=',', skip_header=1)
+ra_gaia = data2[:, 1]
+dec_gaia = data2[:, 2]
+ebv_gaia = data2[:, 3]
+err_ebv_gaia = data2[:, 4]
 
-def get_ebv(ra, dec):
-    coords = SkyCoord(ra=ra, dec=dec, unit=(u.degree, u.degree), frame='icrs')
-    sfd = SFDQuery()
-    ebv = sfd(coords)
-    return ebv
-
-ebvs = []
+ebv = []
+err_ebv = []
 n = len(RA)
 for i in range(n):
-    ra = 15 * RA[i]
-    dec = DEC[i]
-    ebv = get_ebv(ra=ra, dec=dec)
-    ebvs.append(ebv)
-ebvs = np.array(ebvs)
+    star = SkyCoord(ra=15*RA[i]*u.deg, dec=DEC[i]*u.deg, frame='icrs')
+    Gaia_field = SkyCoord(ra=ra_gaia*u.deg, dec=dec_gaia*u.deg, frame='icrs')
+    d2d = star.separation(Gaia_field)
+    idx = np.argmin(d2d)
+    if d2d[idx] < 2 * u.arcsec:
+        ebv.append(ebv_gaia[idx])
+        err_ebv.append(err_ebv_gaia[idx])
+    else:
+        ebv.append(np.nan)
+        err_ebv.append(np.nan)
+ebv = np.array(ebv)
+err_ebv = np.array(err_ebv)
 
 # save results into new file
 output_file = f'{t_ls}_time/91{t_ls}.csv'
@@ -1107,7 +1099,8 @@ results = pd.DataFrame({
     'pm': pm,
     'pm_ra': pm_ra,
     'pm_dec': pm_dec,
-    'E(B-V)': ebvs
+    'E(B-V)': ebv,
+    'Err_E(B-V)': err_ebv
 })
 results.to_csv(output_file, index=False)
 ```
@@ -1137,6 +1130,7 @@ Mag_abs = data[:, 8]
 Err_mag_abs = data[:, 9]
 data2 = np.genfromtxt(f'{t_ls}_time/91{t_ls}.csv', delimiter=',', skip_header=1)
 ebv = data2[:, 7]
+err_ebv = data2[:, 8]
 
 # reduce the interstellar extinction
 C_g = 3.303
@@ -1144,10 +1138,13 @@ C_r = 2.285
 C_i = 1.689
 if filters == 'g':
     A = C_g * ebv
+    Err_mag_abs_0 = np.sqrt(Err_mag_abs**2 + C_g**2 * err_ebv**2)
 elif filters == 'r':
     A = C_r * ebv
+    Err_mag_abs_0 = np.sqrt(Err_mag_abs**2 + C_r**2 * err_ebv**2)
 elif filters == 'i':
     A = C_i * ebv
+    Err_mag_abs_0 = np.sqrt(Err_mag_abs**2 + C_i**2 * err_ebv**2)
 Mag_abs_0 = Mag_abs - A
 
 # save results into new file
@@ -1163,7 +1160,8 @@ results = pd.DataFrame({
     'Err_dis': Err_dis,
     'Mag_abs': Mag_abs,
     'Err_mag_abs': Err_mag_abs,
-    'Mag_abs_0': Mag_abs_0
+    'Mag_abs_0': Mag_abs_0,
+    'Err_mag_abs_0': Err_mag_abs_0
 })
 results.to_csv(output_file, index=False)
 ```
@@ -1187,17 +1185,17 @@ data_short = np.genfromtxt('short_time/73short.csv', delimiter=',', skip_header=
 data_long = np.genfromtxt('long_time/73long.csv', delimiter=',', skip_header=1)
 
 g_30s = datag_30s[:, 10]
-err_g_30s = datag_30s[:, 9]
+err_g_30s = datag_30s[:, 11]
 g_120s = datag_120s[:, 10]
-err_g_120s = datag_120s[:, 9]
+err_g_120s = datag_120s[:, 11]
 r_10s = datar_10s[:, 10]
-err_r_10s = datar_10s[:, 9]
+err_r_10s = datar_10s[:, 11]
 r_90s = datar_90s[:, 10]
-err_r_90s = datar_90s[:, 9]
+err_r_90s = datar_90s[:, 11]
 i_4s = datai_4s[:, 10]
-err_i_4s = datai_4s[:, 9]
+err_i_4s = datai_4s[:, 11]
 i_40s = datai_40s[:, 10]
-err_i_40s = datai_40s[:, 9]
+err_i_40s = datai_40s[:, 11]
 
 ## the whole part
 g = np.concatenate([g_30s, g_120s])
@@ -1307,7 +1305,7 @@ err_g_i_identify = err_g_i_identify[mask_err]
 err_r_i_identify = err_r_i_identify[mask_err]
 
 ## draw the H-R diagram
-show_raw = 1           # only work while draw_error == 0
+show_raw = 0           # only work while draw_error == 0
 draw_error = 0
 if draw_error == 1:
     ax1 = plt.subplot(131)
@@ -1350,6 +1348,7 @@ else:
     ax3.set_xlabel('r-i')
     ax3.set_ylabel('r')
     ax3.legend()
+ax2.set_title('H-R diagram consider interstellar extinction')
 plt.show()
 ```
 :::
