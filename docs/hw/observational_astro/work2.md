@@ -120,6 +120,41 @@ the details process:
    - import the longer exposure time (3 frames) at the same time to make sure the target stars in different filters are the same one, and then repeat for the shorts;
    - then divide the table manually to `gSDSS_30s/Table_g_30s.tbl`,`gSDSS_120s/Table_g_120s.tbl`,`iSDSS_4s/Table_i_4s.tbl`,`iSDSS_40s/Table_i_40s.tbl`,`rSDSS_10s/Table_r_10s.tbl`,`rSDSS_90s/Table_r_90s.tbl` (make sure the name and path here are the same as the scripts used below)
 
+   run `01read.py` to achieve the divide work:
+
+::: details `01read.py`
+```py
+import pandas as pd
+from setting import t_ls
+
+input_path = f'Table_{t_ls}_gir.tbl'
+
+# load data
+with open(input_path, encoding='utf-8') as f:
+    lines = f.readlines()
+
+header = lines[0].strip().split('\t')
+if t_ls == 'short':
+    filters = ['g', 'i', 'r']
+    t_exps = ['30', '4', '10']
+    for i, data_line in enumerate(lines[1:4], 1):
+        filter = filters[i-1]
+        t_exp = t_exps[i-1]
+        row = data_line.strip().split('\t')
+        df = pd.DataFrame([row], columns=header)
+        df.to_csv(f'{filter}SDSS_{t_exp}s/Table_{filter}_{t_exp}s.tbl', index=False, sep='\t')
+else:
+    filters = ['g', 'i', 'r']
+    t_exps = ['120', '40', '90']
+    for i, data_line in enumerate(lines[1:4], 1):
+        filter = filters[i-1]
+        t_exp = t_exps[i-1]
+        row = data_line.strip().split('\t')
+        df = pd.DataFrame([row], columns=header)
+        df.to_csv(f'{filter}SDSS_{t_exp}s/Table_{filter}_{t_exp}s.tbl', index=False, sep='\t')
+```
+:::
+
 3. using `2format.py` to convert the `?SDSS_*s/Table_?_*s.tbl` to `2?_*s.csv`
 
 and save the `RA,DEC` to `*_time/2*.csv`
@@ -684,15 +719,16 @@ print(f'delta_pmra = {delta_pmra}')
 print(f'delta_pmdec = {delta_pmdec}')
 print('update above parameters in setting.py')
 
+alpha = 0.5
 ax1 = plt.subplot(121)
-ax1.scatter(pm, distance)
+ax1.scatter(pm, distance, alpha=alpha)
 ax1.set_xlabel('Proper Motion (mas/yr)')
 ax1.set_ylabel('distance (pc)')
 rect1 = plt.Rectangle((pm_median - delta_pm, distance_median - delta_distance), 2 * delta_pm, 2 * delta_distance,
                         linewidth=1, edgecolor='r', facecolor='none')
 ax1.add_patch(rect1)
 ax2 = plt.subplot(122)
-ax2.scatter(pmra, pmdec)
+ax2.scatter(pmra, pmdec, alpha=alpha)
 ax2.set_xlabel('Proper Motion RA (mas/yr)')
 ax2.set_ylabel('Proper Motion Dec (mas/yr)')
 rect2 = plt.Rectangle((pmra_median - delta_pmra, pmdec_median - delta_pmdec), 2 * delta_pmra, 2 * delta_pmdec,
@@ -994,8 +1030,9 @@ err_g_i_identify = err_g_i_identify[mask_err]
 err_r_i_identify = err_r_i_identify[mask_err]
 
 ## draw the H-R diagram
-show_raw = 0           # only work while draw_error == 0
-draw_error = 1
+show_raw = 1           # only work while draw_error == 0
+draw_error = 0
+alpha = 0.5
 plt.figure(figsize=(16, 6))
 if draw_error == 1:
     ax1 = plt.subplot(131)
@@ -1015,31 +1052,31 @@ if draw_error == 1:
     ax3.set_ylabel('r')
 else:
     ax1 = plt.subplot(131)
-    ax1.scatter(g_r_identify, g_identify, s=4, label='Identified Stars')
     if show_raw == 1:
-        ax1.scatter(g_r, g, s=3, alpha=0.8, label='All Stars')
+        ax1.scatter(g_r, g, s=3, alpha=alpha, label='All Stars')
+    ax1.scatter(g_r_identify, g_identify, s=4, label='Identified Stars')
     ax1.invert_yaxis()
     ax1.set_xlabel('g-r')
     ax1.set_ylabel('g')
     ax1.legend()
     ax2 = plt.subplot(132)
     ax2.invert_yaxis()
-    ax2.scatter(g_i_identify, g_identify, s=4, label='Identified Stars')
     if show_raw == 1:
-        ax2.scatter(g_i, g, s=3, alpha=0.8, label='All Stars')
+        ax2.scatter(g_i, g, s=3, alpha=alpha, label='All Stars')
+    ax2.scatter(g_i_identify, g_identify, s=4, label='Identified Stars')
     ax2.set_xlabel('g-i')
     ax2.set_ylabel('g')
     ax2.legend()
     ax3 = plt.subplot(133)
-    ax3.scatter(r_i_identify, r_identify, s=4, label='Identified Stars')
     if show_raw == 1:
-        ax3.scatter(r_i, r, s=3, alpha=0.8, label='All Stars')
+        ax3.scatter(r_i, r, s=3, alpha=alpha, label='All Stars')
+    ax3.scatter(r_i_identify, r_identify, s=4, label='Identified Stars')
     ax3.invert_yaxis()
     ax3.set_xlabel('r-i')
     ax3.set_ylabel('r')
     ax3.legend()
-plt.show()
-```
+ax2.set_title('H-R diagram after identification')
+plt.show()```
 :::
 
 13. reduce the interstellar extinction:
@@ -1185,20 +1222,54 @@ datai_40s = np.genfromtxt('iSDSS_40s/92i_40s.csv', delimiter=',', skip_header=1)
 data_short = np.genfromtxt('short_time/73short.csv', delimiter=',', skip_header=1)
 data_long = np.genfromtxt('long_time/73long.csv', delimiter=',', skip_header=1)
 
-g_30s = datag_30s[:, 10]
-err_g_30s = datag_30s[:, 11]
-g_120s = datag_120s[:, 10]
-err_g_120s = datag_120s[:, 11]
-r_10s = datar_10s[:, 10]
-err_r_10s = datar_10s[:, 11]
-r_90s = datar_90s[:, 10]
-err_r_90s = datar_90s[:, 11]
-i_4s = datai_4s[:, 10]
-err_i_4s = datai_4s[:, 11]
-i_40s = datai_40s[:, 10]
-err_i_40s = datai_40s[:, 11]
+identify_short = data_short[:, 7]
+identify_long = data_long[:, 7]
 
-## the whole part
+# before extinction
+g_30s = datag_30s[:, 8]
+err_g_30s = datag_30s[:, 9]
+g_120s = datag_120s[:, 8]
+err_g_120s = datag_120s[:, 9]
+r_10s = datar_10s[:, 8]
+err_r_10s = datar_10s[:, 9]
+r_90s = datar_90s[:, 8]
+err_r_90s = datar_90s[:, 9]
+i_4s = datai_4s[:, 8]
+err_i_4s = datai_4s[:, 9]
+i_40s = datai_40s[:, 8]
+err_i_40s = datai_40s[:, 9]
+
+# after extinction
+g0_30s = datag_30s[:, 10]
+err0_g_30s = datag_30s[:, 11]
+g0_120s = datag_120s[:, 10]
+err0_g_120s = datag_120s[:, 11]
+r0_10s = datar_10s[:, 10]
+err0_r_10s = datar_10s[:, 11]
+r0_90s = datar_90s[:, 10]
+err0_r_90s = datar_90s[:, 11]
+i0_4s = datai_4s[:, 10]
+err0_i_4s = datai_4s[:, 11]
+i0_40s = datai_40s[:, 10]
+err0_i_40s = datai_40s[:, 11]
+
+## the raw part
+mask_identified_short = (identify_short == 1)
+mask_identified_long = (identify_long == 1)
+
+g_30s = g_30s[mask_identified_short]
+err_g_30s = err_g_30s[mask_identified_short]
+g_120s = g_120s[mask_identified_long]
+err_g_120s = err_g_120s[mask_identified_long]
+r_10s = r_10s[mask_identified_short]
+err_r_10s = err_r_10s[mask_identified_short]
+r_90s = r_90s[mask_identified_long]
+err_r_90s = err_r_90s[mask_identified_long]
+i_4s = i_4s[mask_identified_short]
+err_i_4s = err_i_4s[mask_identified_short]
+i_40s = i_40s[mask_identified_long]
+err_i_40s = err_i_40s[mask_identified_long]
+
 g = np.concatenate([g_30s, g_120s])
 err_g = np.concatenate([err_g_30s, err_g_120s])
 r = np.concatenate([r_10s, r_90s])
@@ -1242,110 +1313,118 @@ err_g_r = err_g_r[mask_err]
 err_g_i = err_g_i[mask_err]
 err_r_i = err_r_i[mask_err]
 
-## the identify part
-identify_short = data_short[:, 7]
-identify_long = data_long[:, 7]
-
+## the new part
 mask_identified_short = (identify_short == 1)
 mask_identified_long = (identify_long == 1)
 
-g_30s_identify = g_30s[mask_identified_short]
-err_g_30s_identify = err_g_30s[mask_identified_short]
-g_120s_identify = g_120s[mask_identified_long]
-err_g_120s_identify = err_g_120s[mask_identified_long]
-r_10s_identify = r_10s[mask_identified_short]
-err_r_10s_identify = err_r_10s[mask_identified_short]
-r_90s_identify = r_90s[mask_identified_long]
-err_r_90s_identify = err_r_90s[mask_identified_long]
-i_4s_identify = i_4s[mask_identified_short]
-err_i_4s_identify = err_i_4s[mask_identified_short]
-i_40s_identify = i_40s[mask_identified_long]
-err_i_40s_identify = err_i_40s[mask_identified_long]
+g0_30s = g0_30s[mask_identified_short]
+err0_g_30s = err0_g_30s[mask_identified_short]
+g0_120s = g0_120s[mask_identified_long]
+err0_g_120s = err0_g_120s[mask_identified_long]
+r0_10s = r0_10s[mask_identified_short]
+err0_r_10s = err0_r_10s[mask_identified_short]
+r0_90s = r0_90s[mask_identified_long]
+err0_r_90s = err0_r_90s[mask_identified_long]
+i0_4s = i0_4s[mask_identified_short]
+err0_i_4s = err0_i_4s[mask_identified_short]
+i0_40s = i0_40s[mask_identified_long]
+err0_i_40s = err0_i_40s[mask_identified_long]
 
-g_identify = np.concatenate([g_30s_identify, g_120s_identify])
-err_g_identify = np.concatenate([err_g_30s_identify, err_g_120s_identify])
-r_identify = np.concatenate([r_10s_identify, r_90s_identify])
-err_r_identify = np.concatenate([err_r_10s_identify, err_r_90s_identify])
-i_identify = np.concatenate([i_4s_identify, i_40s_identify])
-err_i_identify = np.concatenate([err_i_4s_identify, err_i_40s_identify])
+g0 = np.concatenate([g0_30s, g0_120s])
+err0_g = np.concatenate([err0_g_30s, err0_g_120s])
+r0 = np.concatenate([r0_10s, r0_90s])
+err0_r = np.concatenate([err0_r_10s, err0_r_90s])
+i0 = np.concatenate([i0_4s, i0_40s])
+err0_i = np.concatenate([err0_i_4s, err0_i_40s])
 
 mask_nan = ~(
-    np.isnan(g_identify) | np.isnan(r_identify) | np.isnan(i_identify) |
-    np.isnan(err_g_identify) | np.isnan(err_r_identify) | np.isnan(err_i_identify)
+    np.isnan(g) | np.isnan(r) | np.isnan(i) |
+    np.isnan(err_g) | np.isnan(err_r) | np.isnan(err_i)
 )
-g_identify = g_identify[mask_nan]
-r_identify = r_identify[mask_nan]
-i_identify = i_identify[mask_nan]
-err_g_identify = err_g_identify[mask_nan]
-err_r_identify = err_r_identify[mask_nan]
-err_i_identify = err_i_identify[mask_nan]
+g0 = g0[mask_nan]
+r0 = r0[mask_nan]
+i0 = i0[mask_nan]
+err0_g = err0_g[mask_nan]
+err0_r = err0_r[mask_nan]
+err0_i = err0_i[mask_nan]
 
-g_r_identify = g_identify - r_identify
-g_i_identify = g_identify - i_identify
-r_i_identify = r_identify - i_identify
-err_g_r_identify = np.sqrt(err_g_identify**2 + err_r_identify**2)
-err_g_i_identify = np.sqrt(err_g_identify**2 + err_i_identify**2)
-err_r_i_identify = np.sqrt(err_r_identify**2 + err_i_identify**2)
+g_r0 = g0 - r0
+g_i0 = g0 - i0
+r_i0 = r0 - i0
+err0_g_r = np.sqrt(err0_g**2 + err0_r**2)
+err0_g_i = np.sqrt(err0_g**2 + err0_i**2)
+err0_r_i = np.sqrt(err0_r**2 + err0_i**2)
 
 max_err = 0.2
 mask_err = ~(
-    (err_g_identify>max_err) & (err_r_identify>max_err) & (err_i_identify>max_err) &
-    (err_g_r_identify>max_err) & (err_g_i_identify>max_err) & (err_r_i_identify>max_err)
+    (err0_g>max_err) & (err0_r>max_err) & (err0_i>max_err) &
+    (err0_g_r>max_err) & (err0_g_i>max_err) & (err0_r_i>max_err)
 )
-g_identify = g_identify[mask_err]
-r_identify = r_identify[mask_err]
-i_identify = i_identify[mask_err]
-err_g_identify = err_g_identify[mask_err]
-err_r_identify = err_r_identify[mask_err]
-err_i_identify = err_i_identify[mask_err]
-g_r_identify = g_r_identify[mask_err]
-g_i_identify = g_i_identify[mask_err]
-r_i_identify = r_i_identify[mask_err]
-err_g_r_identify = err_g_r_identify[mask_err]
-err_g_i_identify = err_g_i_identify[mask_err]
-err_r_i_identify = err_r_i_identify[mask_err]
+g0 = g0[mask_err]
+r0 = r0[mask_err]
+i0 = i0[mask_err]
+err0_g = err0_g[mask_err]
+err0_r = err0_r[mask_err]
+err0_i = err0_i[mask_err]
+g_r0 = g_r0[mask_err]
+g_i0 = g_i0[mask_err]
+r_i0 = r_i0[mask_err]
+err0_g_r = err0_g_r[mask_err]
+err0_g_i = err0_g_i[mask_err]
+err0_r_i = err0_r_i[mask_err]
 
 ## draw the H-R diagram
-show_raw = 0           # only work while draw_error == 0
+## all star are identified
+## show_raw here mean show the raw magnitude before extinction
+show_raw = 0
 draw_error = 0
 plt.figure(figsize=(16, 6))
 if draw_error == 1:
     ax1 = plt.subplot(131)
-    ax1.errorbar(g_r_identify, g_identify, xerr=err_g_r_identify, yerr=err_g_identify, fmt='o', markersize=1, capsize=1)
+    ax1.errorbar(g_r0, g0, xerr=err0_g_r, yerr=err0_g, fmt='o', markersize=1, capsize=1, label='After Extinction')
+    if show_raw == 1:
+        ax1.errorbar(g_r, g, xerr=err_g_r, yerr=err_g, fmt='o', markersize=1, capsize=1, label='Before Extinction')
     ax1.invert_yaxis()
     ax1.set_xlabel('g-r')
     ax1.set_ylabel('g')
+    ax1.legend()
     ax2 = plt.subplot(132)
-    ax2.errorbar(g_i_identify, g_identify, xerr=err_g_i_identify, yerr=err_g_identify, fmt='o', markersize=1, capsize=1)
+    ax2.errorbar(g_i0, g0, xerr=err0_g_i, yerr=err0_g, fmt='o', markersize=1, capsize=1, label='After Extinction')
+    if show_raw == 1:
+        ax2.errorbar(g_i, g, xerr=err_g_i, yerr=err_g, fmt='o', markersize=1, capsize=1, label='Before Extinction')
     ax2.invert_yaxis()
     ax2.set_xlabel('g-i')
     ax2.set_ylabel('g')
+    ax2.legend()
     ax3 = plt.subplot(133)
-    ax3.errorbar(r_i_identify, r_identify, xerr=err_r_i_identify, yerr=err_r_identify, fmt='o', markersize=1, capsize=1)
+    ax3.errorbar(r_i0, r0, xerr=err0_r_i, yerr=err0_r, fmt='o', markersize=1, capsize=1, label='After Extinction')
+    if show_raw == 1:
+        ax3.errorbar(r_i, r, xerr=err_r_i, yerr=err_r, fmt='o', markersize=1, capsize=1, label='Before Extinction')
     ax3.invert_yaxis()
     ax3.set_xlabel('r-i')
     ax3.set_ylabel('r')
+    ax3.legend()
 else:
     ax1 = plt.subplot(131)
-    ax1.scatter(g_r_identify, g_identify, s=4, label='Identified Stars')
+    ax1.scatter(g_r0, g0, s=4, label='After Extinction')
     if show_raw == 1:
-        ax1.scatter(g_r, g, s=3, alpha=0.8, label='All Stars')
+        ax1.scatter(g_r, g, s=3, alpha=0.8, label='Before Extinction')
     ax1.invert_yaxis()
     ax1.set_xlabel('g-r')
     ax1.set_ylabel('g')
     ax1.legend()
     ax2 = plt.subplot(132)
     ax2.invert_yaxis()
-    ax2.scatter(g_i_identify, g_identify, s=4, label='Identified Stars')
+    ax2.scatter(g_i0, g0, s=4, label='After Extinction')
     if show_raw == 1:
-        ax2.scatter(g_i, g, s=3, alpha=0.8, label='All Stars')
+        ax2.scatter(g_i, g, s=3, alpha=0.8, label='Before Extinction')
     ax2.set_xlabel('g-i')
     ax2.set_ylabel('g')
     ax2.legend()
     ax3 = plt.subplot(133)
-    ax3.scatter(r_i_identify, r_identify, s=4, label='Identified Stars')
+    ax3.scatter(r_i0, r0, s=4, label='After Extinction')
     if show_raw == 1:
-        ax3.scatter(r_i, r, s=3, alpha=0.8, label='All Stars')
+        ax3.scatter(r_i, r, s=3, alpha=0.8, label='Before Extinction')
     ax3.invert_yaxis()
     ax3.set_xlabel('r-i')
     ax3.set_ylabel('r')

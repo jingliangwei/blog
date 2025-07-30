@@ -263,7 +263,7 @@ Doing science with our data
 
   An object with parallax of 1 arcsec is defined to be at a distance of 1 **parsec** (parallax second). ( $1pc\sim3.26\text{ light years}$ )
   $$
-  d[pc]=\frac{1}{\omega[arcsec]}=\frac{1000}{\omega[mas]}
+  d[pc]=\frac{1}{ ϖ [arcsec]}=\frac{1000}{ ϖ [mas]}
   $$
   $mas=\text{milli-arcsecond}=10^{-3}arcsec$
 
