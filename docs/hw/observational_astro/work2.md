@@ -1433,3 +1433,168 @@ ax2.set_title('H-R diagram consider interstellar extinction')
 plt.show()
 ```
 :::
+
+15. compare with the isochrone using `11isochrone.py`
+
+- prepare isochrone file `ISOCHRONES/*z0149205y269P00O1D1E1.isc_sloan`
+- run `11isochrone.py`
+
+::: details `11isochrone.py`
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+# our data
+## load
+datag_30s = np.genfromtxt('gSDSS_30s/92g_30s.csv', delimiter=',', skip_header=1)
+datag_120s = np.genfromtxt('gSDSS_120s/92g_120s.csv', delimiter=',', skip_header=1)
+datar_10s = np.genfromtxt('rSDSS_10s/92r_10s.csv', delimiter=',', skip_header=1)
+datar_90s = np.genfromtxt('rSDSS_90s/92r_90s.csv', delimiter=',', skip_header=1)
+datai_4s = np.genfromtxt('iSDSS_4s/92i_4s.csv', delimiter=',', skip_header=1)
+datai_40s = np.genfromtxt('iSDSS_40s/92i_40s.csv', delimiter=',', skip_header=1)
+
+data_short = np.genfromtxt('short_time/73short.csv', delimiter=',', skip_header=1)
+data_long = np.genfromtxt('long_time/73long.csv', delimiter=',', skip_header=1)
+
+identify_short = data_short[:, 7]
+identify_long = data_long[:, 7]
+
+## after extinction
+g0_30s = datag_30s[:, 10]
+err0_g_30s = datag_30s[:, 11]
+g0_120s = datag_120s[:, 10]
+err0_g_120s = datag_120s[:, 11]
+r0_10s = datar_10s[:, 10]
+err0_r_10s = datar_10s[:, 11]
+r0_90s = datar_90s[:, 10]
+err0_r_90s = datar_90s[:, 11]
+i0_4s = datai_4s[:, 10]
+err0_i_4s = datai_4s[:, 11]
+i0_40s = datai_40s[:, 10]
+err0_i_40s = datai_40s[:, 11]
+## the new part
+mask_identified_short = (identify_short == 1)
+mask_identified_long = (identify_long == 1)
+
+g0_30s = g0_30s[mask_identified_short]
+err0_g_30s = err0_g_30s[mask_identified_short]
+g0_120s = g0_120s[mask_identified_long]
+err0_g_120s = err0_g_120s[mask_identified_long]
+r0_10s = r0_10s[mask_identified_short]
+err0_r_10s = err0_r_10s[mask_identified_short]
+r0_90s = r0_90s[mask_identified_long]
+err0_r_90s = err0_r_90s[mask_identified_long]
+i0_4s = i0_4s[mask_identified_short]
+err0_i_4s = err0_i_4s[mask_identified_short]
+i0_40s = i0_40s[mask_identified_long]
+err0_i_40s = err0_i_40s[mask_identified_long]
+
+g0 = np.concatenate([g0_30s, g0_120s])
+err0_g = np.concatenate([err0_g_30s, err0_g_120s])
+r0 = np.concatenate([r0_10s, r0_90s])
+err0_r = np.concatenate([err0_r_10s, err0_r_90s])
+i0 = np.concatenate([i0_4s, i0_40s])
+err0_i = np.concatenate([err0_i_4s, err0_i_40s])
+
+mask_nan = ~(
+    np.isnan(g0) | np.isnan(r0) | np.isnan(i0) |
+    np.isnan(err0_g) | np.isnan(err0_r) | np.isnan(err0_i)
+)
+g0 = g0[mask_nan]
+r0 = r0[mask_nan]
+i0 = i0[mask_nan]
+err0_g = err0_g[mask_nan]
+err0_r = err0_r[mask_nan]
+err0_i = err0_i[mask_nan]
+
+g_r0 = g0 - r0
+g_i0 = g0 - i0
+r_i0 = r0 - i0
+err0_g_r = np.sqrt(err0_g**2 + err0_r**2)
+err0_g_i = np.sqrt(err0_g**2 + err0_i**2)
+err0_r_i = np.sqrt(err0_r**2 + err0_i**2)
+
+max_err = 0.2
+mask_err = ~(
+    (err0_g>max_err) & (err0_r>max_err) & (err0_i>max_err) &
+    (err0_g_r>max_err) & (err0_g_i>max_err) & (err0_r_i>max_err)
+)
+g0 = g0[mask_err]
+r0 = r0[mask_err]
+i0 = i0[mask_err]
+err0_g = err0_g[mask_err]
+err0_r = err0_r[mask_err]
+err0_i = err0_i[mask_err]
+g_r0 = g_r0[mask_err]
+g_i0 = g_i0[mask_err]
+r_i0 = r_i0[mask_err]
+err0_g_r = err0_g_r[mask_err]
+err0_g_i = err0_g_i[mask_err]
+err0_r_i = err0_r_i[mask_err]
+
+
+# dataset of isochrone
+yr = [
+    '15', '50', '100', '150', '400'
+]
+
+def load_data(y):
+    # load the data of isochrone
+    filename = f'ISOCHRONES/{y}z0149205y269P00O1D1E1.isc_sloan'
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+    
+    # Find the header and data lines
+    g, r, i = [], [], []
+    for line in lines:
+        if line.strip().startswith('#'):
+            continue  # skip comments
+        numbers = line.split()
+        g.append(float(numbers[5]))
+        r.append(float(numbers[6]))
+        i.append(float(numbers[7]))
+    g = np.array(g)
+    r = np.array(r)
+    i = np.array(i)
+    g_r = g-r
+    g_i = g-i
+    r_i = r-i
+    return g, r, i, g_r, g_i, r_i
+
+# plot the H-R diagram
+alpha = 0.9
+markersize = 1
+color_my = 'k'
+markersize_my = 2
+show_error = 1
+ax1 = plt.subplot(131)
+ax1.set_xlabel('g-r')
+ax1.set_ylabel('g')
+ax1.invert_yaxis()
+ax2 = plt.subplot(132)
+ax2.set_xlabel('g-i')
+ax2.set_ylabel('g')
+ax2.invert_yaxis()
+ax3 = plt.subplot(133)
+ax3.set_xlabel('r-i')
+ax3.set_ylabel('r')
+ax3.invert_yaxis()
+for y in yr:
+    g, r, i, g_r, g_i, r_i = load_data(y)
+    ax1.scatter(g_r, g, label=f'{y} Myr', alpha=alpha, s=markersize)
+    ax2.scatter(g_i, g, label=f'{y} Myr', alpha=alpha, s=markersize)
+    ax3.scatter(r_i, r, label=f'{y} Myr', alpha=alpha, s=markersize)
+if show_error == 0:
+    ax1.scatter(g_r0, g0, s=markersize_my, label='Open Cluster', color=color_my)
+    ax2.scatter(g_i0, g0, s=markersize_my, label='Open Cluster', color=color_my)
+    ax3.scatter(r_i0, r0, s=markersize_my, label='Open Cluster', color=color_my)
+else:
+    ax1.errorbar(g_r0, g0, xerr=err0_g_r, yerr=err0_g, markersize=markersize_my, label='Open Cluster', color=color_my, fmt='o')
+    ax2.errorbar(g_i0, g0, xerr=err0_g_i, yerr=err0_g, markersize=markersize_my, label='Open Cluster', color=color_my, fmt='o')
+    ax3.errorbar(r_i0, r0, xerr=err0_r_i, yerr=err0_g, markersize=markersize_my, label='Open Cluster', color=color_my, fmt='o')
+ax1.legend()
+ax2.legend()
+ax3.legend()
+plt.show()
+```
+:::
