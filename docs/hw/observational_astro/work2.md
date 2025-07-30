@@ -92,13 +92,6 @@ number = 50
 ## gain zero point from 42crossmatch.py
 mag_zp = 22.921860444806008
 
-# ignore this part
-# the atmosphere extinction (used in 53extinction.py)
-k = 0
-# the airmass of frame field (used in 53extinction.py)
-## gain airmass from 2format.py
-X = 1.108257574223502
-
 # identify if the star belongs to the clusters
 ## gain from 72check.py
 distance_median = 1660.0017621596332
@@ -1076,7 +1069,8 @@ else:
     ax3.set_ylabel('r')
     ax3.legend()
 ax2.set_title('H-R diagram after identification')
-plt.show()```
+plt.show()
+```
 :::
 
 13. reduce the interstellar extinction:
