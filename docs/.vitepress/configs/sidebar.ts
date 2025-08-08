@@ -89,14 +89,14 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
 //   }
 // ],
 
-'/exam/': [
-  {
-    text: 'arwell',
-    items: [
-      { text: 'python期末考试', link: '/exam/py_exam'}
-    ]
-  }
-],
+// '/exam/': [
+//   {
+//     text: 'arwell',
+//     items: [
+//       { text: 'python期末考试', link: '/exam/py_exam'}
+//     ]
+//   }
+// ],
 
 '/web_security/': [
   {
