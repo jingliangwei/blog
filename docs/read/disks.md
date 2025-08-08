@@ -27,7 +27,7 @@
    \end{align}
    $$
 
-   The second line implies that the specific angular momentum is conserved. We can then define an effective potential $\displaystyle\Phi_{eff}=\Phi-\frac{1}{2}r^2\dot{\theta}^2=\Phi-\frac{h^2}{2r^2}$ and so:
+   The second line implies that the specific angular momentum is conserved. We can then define an effective potential $\displaystyle\Phi_{eff}=\Phi+\frac{1}{2}r^2\dot{\theta}^2=\Phi+\frac{h^2}{2r^2}$ and so:
    $$
    \begin{align}
    \ddot{r}&=-\partial_r\Phi_{eff} \\
