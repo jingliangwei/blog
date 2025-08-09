@@ -29,4 +29,12 @@ the papers:
 
 3. [yang-li-2024](/read/yang-li-2024.pdf) *mean-motion resonances with interfering density waves*
 
-the [note](/read/disks)
+the [note](/read/disk-satellite)
+
+## dynamics of astrophysical discs
+
+summer in 2025
+
+the [lecture notes](/read/ogilvie-disk-dynamics.pdf) *dynamics of astrophysical discs*
+
+my [note](/read/dynamics_discs)
