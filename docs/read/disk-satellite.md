@@ -363,7 +363,7 @@ some key points from [GT80](/read/goldreich-tremaine-1980.pdf) *disk-satellite i
    $$
 
   ::: info derivation
-  see the equation (13) in [GT79](/read/disks#ii-basic-equations)
+  see the equation (13) in [GT79](/read/disk-satellite#ii-basic-equations)
   :::
 
 - the torque
@@ -479,7 +479,7 @@ $$
    v_A=i\ \text{sgn}(\mathcal{D})\frac{2\Omega}{\kappa}u_A\tag{14}
    $$
 
-   is different from that in [GT79](/read/disks#a-lindblad-resonances)
+   is different from that in [GT79](/read/disk-satellite#a-lindblad-resonances)
 
    $$
    v_1=i\ \text{sgn}(\mathscr{D})\frac{\kappa}{2\Omega}u_1\tag{A5}
