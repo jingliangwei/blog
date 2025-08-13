@@ -3,13 +3,13 @@ prev: false
 next: false
 ---
 
-# Essay with papers
+# Essay with papers/books
 
-There are some notes that record some key points from papers.
+There are some notes that record some key points from papers or books.
 
 ## dynamics in strained rotating flow
 
-summer in 2025
+July in 2025
 
 the [pdf](/read/chaotic-dynamics-in-a-strained-rotating-flow-a-precessing-plane-fluid-layer.pdf) of paper *chaotic dynamics in a strained rotating flow: a precessing plane fluid layer*
 
@@ -19,7 +19,7 @@ the [note](/read/dynamics-in-strained-rorating-flow) record the details of the m
 
 ## the disk-satellite interaction
 
-summer in 2025
+August in 2025
 
 the papers:
 
@@ -29,12 +29,28 @@ the papers:
 
 3. [yang-li-2024](/read/yang-li-2024.pdf) *mean-motion resonances with interfering density waves*
 
-the [note](/read/disk-satellite)
+the [note](/read/disk-satellite) contains:
+
+- the [epicyclic frequency](/read/disk-satellite#basic-conception)
+- the [Lindblad and corotation resonance](/read/disk-satellite#ii-basic-equations) (see the box under the Eq. 13)
 
 ## dynamics of astrophysical discs
 
-summer in 2025
+August in 2025
 
 the [lecture notes](/read/ogilvie-disk-dynamics.pdf) *dynamics of astrophysical discs*
 
-my [note](/read/dynamics_discs)
+my [note](/read/dynamics_discs):
+
+- lecture 2: oscillations and precession, accretion
+- lecture 3: the local view (shearing box)
+
+## planet formation
+
+August in 2025
+
+the [book](/read/planet-formation.pdf) *Astrophysics of Planet Formation*
+
+my [note](/read/planet_formation):
+
+write down the key points in chapter 7.

@@ -347,7 +347,7 @@ some key points from [GT80](/read/goldreich-tremaine-1980.pdf) *disk-satellite i
   $$
 
   ::: info the difference of mark
-  the pattern speed is donated by $\omega$ in [GT79](/read/goldreich-tremaine-1979.pdf), both of them are the coefficients of time $t$.
+  the pattern speed is denoted by $\omega$ in [GT79](/read/goldreich-tremaine-1979.pdf), both of them are the coefficients of time $t$.
   :::
 
 #### c) Torques at Resonances
