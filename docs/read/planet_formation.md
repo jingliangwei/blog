@@ -92,3 +92,39 @@ the physical effects that can lead to migration torques:
 
 ![Fig7.1](./planet_formation_fig/F7.1.png)
 ![Fig7.2](./planet_formation_fig/F7.2.png)
+
+#### 7.1.3 Torque Formulae
+
+for a disk with a power-law scaling of surface density with radius,
+$$
+\Sigma(r)\propto r^{-\alpha}\tag{7.14}
+$$
+
+- the net Lindblad torque on a planet of mass $M_p$ in a circular orbit at distance $a$ from the star is given in linear theory as
+$$
+\Gamma_{\text{LR}}=-(2.34-0.1\alpha)\Gamma_0,\tag{7.15}
+$$
+where $\Gamma_0$, the reference torque, is,
+$$
+\Gamma_0=\left(\frac{M_p}{M_*}\right)^2\left(\frac{h}{r}\right)^{-2}\Sigma a^4\Omega_K^2\tag{7.16}
+$$
+
+- reference migration time scale for a planet with orbital angular momentum $L$ as
+$$
+\tau_0=\frac{L}{\Gamma_0}\propto M_*^{-3/2}M_p^{-1}\left(\frac{h}{r}\right)^2\Sigma^{-1}a^{-1/2}\tag{7.17}
+$$
+
+::: info e.g.
+for a one sun-mass star system ( $M_*=M_\odot$ )
+$$
+\begin{align}
+\tau_0&\approx2.0\times10^{5}\left(\frac{M_p}{3M_\oplus}\right)^{-1}\left(\frac{h/r}{0.02}\right)^2\left(\frac{\Sigma}{10^3\text{g cm}^{-2}}\right)^{-1}\left(\frac{a}{0.1\text{AU}}\right)^{-1/2}\text{yr}, \\
+&\approx4.2\times10^{6}\left(\frac{M_p}{0.1M_\oplus}\right)^{-1}\left(\frac{h/r}{0.03}\right)^2\left(\frac{\Sigma}{10^3\text{g cm}^{-2}}\right)^{-1}\left(\frac{a}{\text{AU}}\right)^{-1/2}\text{yr}, \\
+&\approx7.4\times10^{5}\left(\frac{M_p}{5M_\oplus}\right)^{-1}\left(\frac{h/r}{0.05}\right)^2\left(\frac{\Sigma}{10^2\text{g cm}^{-2}}\right)^{-1}\left(\frac{a}{10\text{AU}}\right)^{-1/2}\text{yr} \tag{7.18}
+\end{align}
+$$
+:::
+
+#### 7.1.4 Gas Disk Migration Regimes
+
+![Fig7.3](./planet_formation_fig/F7.3.png)
