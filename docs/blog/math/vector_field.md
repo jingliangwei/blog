@@ -99,3 +99,39 @@ $$
 $$
 \nabla(\boldsymbol{f}\cdot\boldsymbol{g})=\boldsymbol{f}\times(\nabla\times\boldsymbol{g})+(\boldsymbol{f}\cdot\nabla)\boldsymbol{g}+\boldsymbol{g}\times(\nabla\times\boldsymbol{f})+(\boldsymbol{g}\cdot\nabla)\boldsymbol{f}
 $$
+
+### 流体力学应用
+
+在流体力学中常用的公式 $(\boldsymbol{u}\cdot\nabla)Q$ 和 $(\boldsymbol{u}\cdot\nabla)\boldsymbol{Q}$ 在三种坐标系中的表达式：
+
+- 直角坐标系 (Cartesian coordinates)
+- 球坐标 (Spherical polar coordinates)
+- 柱坐标 (Cylindrical polar coordinates)
+
+$$
+\begin{align}
+(\boldsymbol{u}\cdot\nabla)Q&=u_x\frac{\partial Q}{\partial x}+u_y\frac{\partial Q}{\partial y}+u_z\frac{\partial Q}{\partial z} \\
+&=u_r\frac{\partial Q}{\partial r}+\frac{u_\theta}{r}\frac{\partial Q}{\partial \theta}+\frac{u_\phi}{r\sin\theta}\frac{\partial Q}{\partial \phi} \\
+&=u_R\frac{\partial Q}{\partial R}+\frac{u_\phi}{R}\frac{\partial Q}{\partial\phi}+u_z\frac{\partial Q}{\partial z}
+\end{align}
+$$
+
+$$
+\begin{align}
+(\boldsymbol{u}\cdot\nabla)\boldsymbol{Q}&=\left[\begin{array}{c}
+    u_x\dfrac{\partial Q_x}{\partial x}+u_y\dfrac{\partial Q_x}{\partial y}+u_z\dfrac{\partial Q_x}{\partial z} \\
+    u_x\dfrac{\partial Q_y}{\partial x}+u_y\dfrac{\partial Q_y}{\partial y}+u_z\dfrac{\partial Q_y}{\partial z} \\
+    u_x\dfrac{\partial Q_z}{\partial x}+u_y\dfrac{\partial Q_z}{\partial y}+u_z\dfrac{\partial Q_z}{\partial z}
+    \end{array}\right]_{x,y,z} \\
+&=\left[\begin{array}{c}
+    u_r\dfrac{\partial Q_r}{\partial r}+\dfrac{u_\theta}{r}\dfrac{\partial Q_r}{\partial \theta}+\dfrac{u_\phi}{r\sin\theta}\dfrac{\partial Q_r}{\partial\phi}-\dfrac{u_\theta Q_\theta+u_\phi Q_\phi}{r} \\
+    u_r\dfrac{\partial Q_\theta}{\partial r}+\dfrac{u_\theta}{r}\dfrac{\partial Q_\theta}{\partial\theta}+\dfrac{u_\phi}{r\sin\theta}\dfrac{\partial Q_\theta}{\partial\phi}+\dfrac{u_\theta Q_r}{r}-\dfrac{u_\phi Q_\phi\cot\theta}{r} \\
+    u_r\dfrac{\partial Q_\phi}{\partial r}+\dfrac{u_\theta}{r}\dfrac{\partial Q_\phi}{\partial\theta}+\dfrac{u_\phi}{r\sin\theta}\dfrac{\partial Q_\phi}{\partial\phi}+\dfrac{u_\phi Q_r}{r}+\dfrac{u_\phi Q_\theta\cot\theta}{r}
+\end{array}\right]_{r,\theta,\phi} \\
+&=\left[\begin{array}{c}
+    u_R\dfrac{\partial Q_R}{\partial R}+\dfrac{u_\phi}{R}\dfrac{\partial Q_R}{\partial \phi}+u_z\dfrac{\partial Q_R}{\partial z}-\dfrac{u_\phi Q_\phi}{R} \\
+    u_R\dfrac{\partial Q_\phi}{\partial R}+\dfrac{u_\phi}{R}\dfrac{\partial Q_\phi}{\partial \phi}+u_z\dfrac{\partial Q_\phi}{\partial z}+\dfrac{u_\phi Q_R}{R} \\
+    u_R\dfrac{\partial Q_z}{\partial R}+\dfrac{u_\phi}{R}\dfrac{\partial Q_z}{\partial\phi}+u_z\dfrac{\partial Q_z}{\partial z}
+\end{array}\right]_{R,\phi,z}
+\end{align}
+$$

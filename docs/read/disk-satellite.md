@@ -115,8 +115,50 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
   $$
   where $\boldsymbol{v}_0=r\Omega(r)\hat{e}_\theta$ and $\delta(z)$ is the Dirac delta function.
 
-  ::: tip todo:
-  how to get equation (7)
+  ::: info derivation
+  in brief,
+  |Eq.|derivation|
+  |:--:|:--:|
+  |(5,6)|the linear perturbation method|
+  |(7)|the defination of enthalpy|
+  |(8)|the Poisson's equation of gravitational potential|
+
+  1. denoting the unpertubated gravitational potential $\phi_0$, surface density $\sigma_0$, the Euler equation and continuity equation reads,
+  $$
+  \frac{\partial\boldsymbol{v}_0}{\partial t}=(\boldsymbol{v}_0\cdot\nabla)\boldsymbol{v}_0=\nabla(\phi_0+\eta_0)
+  $$
+  $$
+  \frac{\partial\sigma_0}{\partial t}+\nabla(\sigma_0\boldsymbol{v}_0)=0
+  $$
+  then we introduce the external perturbation potential $\phi_1$ and surface density perturbation $\sigma_1$ which generate additional potential $\phi_1^D$, hence we obtain the pertubation equations (5,6) by substituing $\boldsymbol{v}_0+\boldsymbol{v}_1$,$\phi_0+\phi_1+\phi_1^D$,$\eta_0+\eta_1$ to $\boldsymbol{v}_0$,$\phi_0$,$\eta_0$
+  $$
+  \frac{\partial\boldsymbol{v}_1}{\partial t}+(\boldsymbol{v}_0\cdot\nabla)\boldsymbol{v}_1+(\boldsymbol{v}_1\cdot\nabla)\boldsymbol{v}_0=-\nabla(\phi_1+\phi_1^D+\eta_1)\tag{5}
+  $$
+  $$
+  \frac{\partial\sigma_1}{\partial t}+\nabla\cdot(\sigma_0\boldsymbol{v}_1)+\nabla\cdot(\sigma_1\boldsymbol{v}_0)=0\tag{6}
+  $$
+  2. from the paper, we know the sound speed $c_0$ satisfies (Eq.1 & 2)
+  $$
+  c_0^2=\frac{\mathrm{d}p_0}{\mathrm{d}\sigma_0}=\frac{\mathrm{d}}{\mathrm{d}\sigma_0}K\sigma_0^\gamma=K\gamma\sigma_0^{\gamma-1}
+  $$
+  with the defination of enthalpy $\eta$
+  $$
+  \eta=\int\frac{\mathrm{d}p}{\sigma}=\int\frac{1}{\sigma}\frac{\mathrm{d}p}{\mathrm{d}\sigma}\mathrm{d}\sigma=\int\frac{c^2}{\sigma}\mathrm{d}\sigma=\int\frac{K\gamma\sigma^{\gamma-1}}{\sigma}\mathrm{d}\sigma=\frac{K\gamma}{\gamma-1}\sigma^{\gamma-1}
+  $$
+  $$
+  \Rightarrow(\eta_0+\eta_1)=\frac{K\gamma}{\gamma-1}(\sigma_0+\sigma_1)^{\gamma-1}=\frac{K\gamma}{\gamma-1}\left[\sigma_0^{\gamma-1}+(\gamma-1)\sigma_0^{\gamma-2}\sigma_1+\mathcal{O}(\sigma_1^2)\right]
+  $$
+  $$
+  \Rightarrow \eta_1=K\gamma\sigma_0^{\gamma-2}\sigma_1
+  $$
+  $$
+  \Rightarrow\eta_1=c_0^2(\sigma_1/\sigma_0)\tag{7}
+  $$
+  3. as we mention at 1., the additional potential $\phi_1^D$ is arised by the surface density pertubation $\sigma_1$, so
+  $$
+  \nabla^2\phi_1^D=4\pi G\sigma_1\delta(z)\tag{8}
+  $$
+  this is the Poisson's equation of the gravitational potential.
   :::
 
 - the response of the disk to $\phi_1$ is completely described by equation (7,8,13)
@@ -131,7 +173,66 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
   where $D=\kappa^2-(m\Omega-\omega)^2$
 
   ::: info derivation
-  substitute the component form of equation (5) and equation (7) into the continuity equation (6)
+  in brief, substitute the component form of equation (5) and equation (7) into the continuity equation (6).
+
+  1. the component form of momentum equation (5):
+
+     write each perturbation variable $X$ in the form $X=X(r)\exp\ i(m\theta-\omega t)$, and denote $\boldsymbol{v}_1=u_1\hat{e}_r+v_1\hat{e}_\theta$
+ 
+     - $\dfrac{\partial\boldsymbol{v}_1}{\partial t}$
+     $$
+     \frac{\partial\boldsymbol{v}_1}{\partial t}=-i\omega\boldsymbol{v}_1=-i\omega u_1\hat{e}_r-i\omega v_1\hat{e}_\theta
+     $$
+     - $(\boldsymbol{v}_0\cdot\nabla)\boldsymbol{v}_1$
+     $$
+     \left\{\begin{array}{l}
+     \boldsymbol{v}_0\cdot\nabla=r\Omega\hat{e}_\theta\cdot\left(\dfrac{\partial}{\partial r}\hat{e}_r+\dfrac{1}{r}\dfrac{\partial}{\partial\theta}\hat{e}_\theta\right)=\Omega\dfrac{\partial}{\partial\theta} \\
+     \dfrac{\partial\boldsymbol{v}_1}{\partial \theta}=\dfrac{\partial u_1}{\partial\theta}\hat{e}_r+u_1\dfrac{\partial\hat{e}_r}{\partial\theta}+\dfrac{\partial v_1}{\partial\theta}+v_1\dfrac{\partial\hat{e}_\theta}{\partial\theta}=(imu_1-v_1)\hat{e}_r+(u_1+imv_1)\hat{e}_\theta
+     \end{array}\right.
+     $$
+     $$
+     \Rightarrow (\boldsymbol{v}_0\cdot\nabla)\boldsymbol{v}_1=\Omega\dfrac{\partial\boldsymbol{v}_1}{\partial\theta}=\Omega(imu_1-v_1)\hat{e}_r+\Omega(u_1+imv_1)\hat{e}_\theta
+     $$
+     - $(\boldsymbol{v}_1\cdot\nabla)\boldsymbol{v}_0$
+     $$
+     \boldsymbol{v}_0=r\Omega\hat{e}_\theta\Rightarrow\left\{\begin{array}{l}
+     \dfrac{\partial \boldsymbol{v}_0}{\partial r}=\left(\Omega+r\dfrac{\mathrm{d}\Omega}{\mathrm{d}r}\right)\hat{e}_\theta, \\
+     \dfrac{\partial\boldsymbol{v}_0}{\partial \theta}=-r\Omega\hat{e}_r
+     \end{array}\right.
+     $$
+     $$
+     \begin{align}
+     (\boldsymbol{v}_1\cdot\nabla)\boldsymbol{v}_0=u_1\dfrac{\partial\boldsymbol{v}_0}{\partial r}+\dfrac{v_1}{r}\dfrac{\partial\boldsymbol{v}_0}{\partial\theta}&=-\Omega v_1\hat{e}_r+\left(\Omega+r\dfrac{\mathrm{d}\Omega}{\mathrm{d}r}\right)u_1\hat{e}_\theta\\
+     &=-\Omega v_1\hat{e}_r+(2B-\Omega)u_1\hat{e}_\theta
+     \end{align}
+     $$
+     - $-\nabla(\phi_1+\phi_1^D+\eta_1)$
+     $$
+     \begin{align}
+     -\nabla(\phi_1+\phi_1^D+\eta_1)&=-\left(\dfrac{\partial}{\partial r}\hat{e}_r+\dfrac{1}{r}\dfrac{\partial}{\partial\theta}\hat{e}_\theta\right)(\phi_1+\phi_1^D+\eta_1) \\
+     &=\left(-\dfrac{\mathrm{d}}{\mathrm{d}r}\hat{e}_r-\dfrac{im}{r}\hat{e}_\theta\right)(\phi_1+\phi_1^D+\eta_1)
+     \end{align}
+     $$
+
+     above all, in radial component $\hat{e}_r$ and azimuthal component $\hat{e}_\theta$, we have
+     $$
+     \begin{array}{l}
+     i(m\Omega-\omega)u_1-2\Omega v_1=-\dfrac{\mathrm{d}}{\mathrm{d}r}(\phi_1+\phi_1^D+\eta_1) \\
+     2Bu_1+i(m\Omega-\omega)v_1=-\dfrac{im}{r}(\phi_1+\phi_1^D+\eta_1)\tag{10}
+     \end{array}
+     $$
+
+  2. the solution of systems of linear equations are easy to obtain by Linear Algebra
+     $$
+     \begin{array}{l}
+     u_1=-\dfrac{i}{D}\left[(m\Omega-\omega)\dfrac{\mathrm{d}}{\mathrm{d}r}+\dfrac{2m\Omega}{r}\right](\phi_1+\phi_1^D+\eta_1), \\
+     v_1=\dfrac{1}{D}\left[2B\dfrac{\mathrm{d}}{\mathrm{d}r}+\dfrac{m}{r}(m\Omega-\omega)\right](\phi_1+\phi_1^D+\eta_1),\tag{11}
+     \end{array}
+     $$
+     where $D=\kappa^2-(m\Omega-\omega)^2$
+  3. substituting above into the continuity equation (6)
+     ![details calculation](./disk-satellite_fig/GT79Eq13solve.png)
+     I won't try to calculate it again, you can try that as you wish. (╥﹏╥)
   :::
 
   ::: info resonance
