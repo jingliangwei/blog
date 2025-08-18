@@ -490,6 +490,13 @@ the theory part of [yang-li-2024](/read/yang-li-2024.pdf) *mean-motion resonance
   m\Omega_A=m\Omega_B-\kappa_B\tag{1}
   $$
 
+::: info summary
+the main analyze (in interfering density waves):
+- the normal torque due to gravitational torque and advective transport (migration torque)
+- the inner and outer Lindblad resonance
+- the corotation resonance
+:::
+
 ### 2 Interfering density waves and their backreaction
 
 - the Fourier series of the individual gravitational field for object A or B ( $s=A,B$ )
@@ -509,10 +516,74 @@ the theory part of [yang-li-2024](/read/yang-li-2024.pdf) *mean-motion resonance
   \Omega=\Omega_{l,m}\tag{6}
   $$
 
-- the total angular flux contains the cross-term is
+- the location of the inner $m:m-1$ Lindblad resonance of object A should be close to the radius of object B.
+
+  ::: info derivation
+  1. the object A and B are in $m:m-1$ mean-motion resonance, the orbital velocities satisfy,
+  $$
+  m\Omega_A=(m-1)\Omega_B
+  $$
+  $$
+  \Rightarrow r_B=r_A\left(\frac{\Omega_A}{\Omega_B}\right)^{2/3}=r_A\left(\frac{m-1}{m}\right)^{2/3}
+  $$
+  2. the location of the inner Lindblad resonance of object A (for Keplerian disc, $\kappa\approx\Omega$ )
+  $$
+  m(\Omega_{in}-\Omega_A)=\kappa\approx\Omega_{in}
+  $$
+  $$
+  \Rightarrow m\Omega_A\approx(m-1)\Omega_{in}
+  $$
+  $$
+  \Rightarrow r_{in}=r_A\left(\frac{\Omega_A}{\Omega_{in}}\right)^{2/3}\approx r_A\left(\frac{m-1}{m}\right)^{2/3}
+  $$
+  :::
+
+- the total angular flux contains the cross-term is (the migration torque)
   $$
   \mathcal{F}_{J\times}=-\text{sgn}(k)\frac{mr}{2G}\left(1-\frac{c^2|k|}{\pi G\sigma}\right)\text{Re}(\Phi_A\Phi_B e^{i(Q_0+C_{AB})})\tag{9}
   $$
+  ::: info derivation
+  begin from the gravitational potential perturbation from object A and B
+  $$
+  \begin{array}{c}
+  \varphi_A^D(r)e^{im\phi-i\omega t}=\Phi_Ae^{i\int_A^rk\mathrm{d}r}e^{im\phi-i\omega t} \\
+  \varphi_B^D(r)e^{im\phi-i\omega t}=\Phi_Be^{i\int_B^rk\mathrm{d}r}e^{im\phi-i\omega t}e^{iQ_0}\tag{7}
+  \end{array}
+  $$
+  the total potential perturbation
+  $$
+  \varphi_D=\varphi_A^D+\varphi_B^D
+  $$
+  $$
+  \Rightarrow|\varphi_D|^2=|\varphi_A^D|^2+|\varphi_B^D|^2+2\text{Re}(\varphi_A^D\varphi_B^D)
+  $$
+  the cross-term $2\text{Re}(\varphi_A^D\varphi_B^D)$ represents interference
+  $$
+  \begin{align}
+  \varphi_A^D\varphi_B^{D*}&=\Phi_A\Phi_B\exp\left[i\left(\int_A^rk\mathrm{d}r-\int_B^rk\mathrm{d}r\right)\right]e^{iQ_0} \\
+  &=\Phi_A\Phi_B\exp\left[i\left(\int_A^Bk\mathrm{d}r+Q_0\right)\right]
+  \end{align}
+  $$
+  $$
+  \text{Re}(\varphi_A^D\varphi_B^{D*})=\text{Re}\left(\Phi_A\Phi_Be^{i(Q_0+C_{AB})}\right)
+  $$
+  where $\int_A^Bk\mathrm{d}r=C_{AB}$ is the phase shift due to wave propagation between resonances.
+
+  substituting into equation (8), which is equation (30) in GT79
+  $$
+  \mathcal{F}_J=-\text{sgn}(k)\frac{mr|\varphi_D|^2}{4G}\left(1-\frac{c^2|k|}{\pi G\sigma}\right)\tag{8}
+  $$
+  so the cross-term in the total angular momentum flux is
+  $$
+  \mathcal{F}_{J\times}=-\text{sgn}(k)\frac{mr}{2G}\left(1-\frac{c^2|k|}{\pi G\sigma}\right)\text{Re}(\Phi_A\Phi_B e^{i(Q_0+C_{AB})})\tag{9}
+  $$
+  :::
+
+- the resonant angle $Q$ is
+  $$
+  Q=m\lambda_A-(m-1)\lambda_B-\varpi_B
+  $$
+  where $\dot{\lambda}_s=\Omega_s$ and $\dot{\varpi}_s=\Omega_s-\kappa_s$
 
 #### 2.1 Computing the torque
 
@@ -592,3 +663,56 @@ $$
    -\frac{3me_B}{\cos}(Q-Q_0)\tau_0
    $$
 :::
+
+### 3 Hydrodynamical simulations
+
+#### 3.1 Numerical set-ups
+
+[FARGO3D code](https://fargo3d.github.io/documentation/intro.html)
+
+#### 3.2 Simulations results
+
+##### 3.2.1 Non-resonant pairs
+
+![figure 3](./disk-satellite_fig/ylFig3.png)
+
+##### 3.2.2 Planet pairs with 2:1 MMR
+
+![figure 4](./disk-satellite_fig/ylFig4.png)
+![figure 5](./disk-satellite_fig/ylFig5.png)
+
+##### 3.2.3 Other parameter dependence
+
+![figure 6](./disk-satellite_fig/ylFig6.png)
+![figure 7](./disk-satellite_fig/ylFig7.png)
+
+In summary, the comparison between the numerically extracted torque and analytically predicted torque is:
+- the location of the torque jump which locates at the inner Lindblad resonance
+- the torque amplitudes: the linear dependence on $e_B$, planet mass, and the sinusoidal-like pattern of $Q$
+
+### 4 Modified resonant dynamics
+
+the equations of motion including the effect of interfering density waves for $n=\dot{\lambda}_B,e$ are
+$$
+\begin{array}{l}
+\dot{n}=3(m-1)\beta_0\mu'en^2\sin Q-\dfrac{n}{\tau_n}+p\dfrac{e^2n}{\tau_e}-\dfrac{6en\cos Q}{\tau_0} \\
+\dot{e}=\beta_0\mu'n\sin Q-\dfrac{e}{\tau_e}-\dfrac{\cos Q}{\tau_0}\tag{45}
+\end{array}
+$$
+
+- the normal migration torques: $\tau_e,\tau_n$-related terms
+- the torques of interfering density waves: $\tau_0$-related terms
+
+#### 4.1 Without constant migration torques
+
+![figure 8](./disk-satellite_fig/ylFig8.png)
+![figure 9](./disk-satellite_fig/ylFig9.png)
+
+#### 4.2 With migration torques
+
+- without the interfering density waves terms
+![figure 10](./disk-satellite_fig/ylFig10.png)
+
+- considering the interfering density waves terms
+![figure 11](./disk-satellite_fig/ylFig11.png)
+![figure 12](./disk-satellite_fig/ylFig12.png)
