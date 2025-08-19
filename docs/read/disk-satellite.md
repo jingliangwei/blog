@@ -80,7 +80,7 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
 
 - equation (3): the unperturbed angular velocity $\Omega(r)$
   $$
-  \Omega^2(r)=\frac{1}{r}\frac{\mathrm{d}}{\mathrm{d}r}(\phi_0+\eta_0)\tag{3}
+  \Omega^2(r)=\frac{1}{r}\frac{\mathrm{d}}{\mathrm{d}r}(\varphi_0+\eta_0)\tag{3}
   $$
 
   ::: info derivation (enthalpy represents pressure)
@@ -97,20 +97,20 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
 
   so we have
   $$
-  -r\Omega^2=-\frac{\mathrm{d}\phi}{\mathrm{d}r}-\frac{\mathrm{d}\eta}{\mathrm{d}r}
+  -r\Omega^2=-\frac{\mathrm{d}\varphi}{\mathrm{d}r}-\frac{\mathrm{d}\eta}{\mathrm{d}r}
   $$
   $$
-  \Rightarrow \Omega^2(r)=\frac{1}{r}\frac{\mathrm{d}}{\mathrm{d}r}(\phi_0+\eta_0)
+  \Rightarrow \Omega^2(r)=\frac{1}{r}\frac{\mathrm{d}}{\mathrm{d}r}(\varphi_0+\eta_0)
   $$
   :::
 
 - the linear perturbation equations (5,6,7,8)
   $$
   \begin{align}
-  \frac{\partial\boldsymbol{v}_1}{\partial t}+(\boldsymbol{v}_0\cdot\nabla)\boldsymbol{v}_1+(\boldsymbol{v}_1\cdot\nabla)\boldsymbol{v}_0&=-\nabla(\phi_1+\phi_1^D+\eta_1),\tag{5} \\
+  \frac{\partial\boldsymbol{v}_1}{\partial t}+(\boldsymbol{v}_0\cdot\nabla)\boldsymbol{v}_1+(\boldsymbol{v}_1\cdot\nabla)\boldsymbol{v}_0&=-\nabla(\varphi_1+\varphi_1^D+\eta_1),\tag{5} \\
   \frac{\partial\sigma_1}{\partial t}+\nabla\cdot(\sigma_0\boldsymbol{v}_1)+\nabla\cdot(\sigma_1\boldsymbol{v}_0)&=0,\tag{6} \\
   \eta_1&=c_0^2(\sigma_1/\sigma_0),\tag{7} \\
-  \nabla^2\phi_1^D&=4\pi G\sigma_1\delta(z),\tag{8}
+  \nabla^2\varphi_1^D&=4\pi G\sigma_1\delta(z),\tag{8}
   \end{align}
   $$
   where $\boldsymbol{v}_0=r\Omega(r)\hat{e}_\theta$ and $\delta(z)$ is the Dirac delta function.
@@ -125,14 +125,14 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
 
   1. denoting the unpertubated gravitational potential $\phi_0$, surface density $\sigma_0$, the Euler equation and continuity equation reads,
   $$
-  \frac{\partial\boldsymbol{v}_0}{\partial t}=(\boldsymbol{v}_0\cdot\nabla)\boldsymbol{v}_0=\nabla(\phi_0+\eta_0)
+  \frac{\partial\boldsymbol{v}_0}{\partial t}=(\boldsymbol{v}_0\cdot\nabla)\boldsymbol{v}_0=\nabla(\varphi_0+\eta_0)
   $$
   $$
   \frac{\partial\sigma_0}{\partial t}+\nabla(\sigma_0\boldsymbol{v}_0)=0
   $$
-  then we introduce the external perturbation potential $\phi_1$ and surface density perturbation $\sigma_1$ which generate additional potential $\phi_1^D$, hence we obtain the pertubation equations (5,6) by substituing $\boldsymbol{v}_0+\boldsymbol{v}_1$,$\phi_0+\phi_1+\phi_1^D$,$\eta_0+\eta_1$ to $\boldsymbol{v}_0$,$\phi_0$,$\eta_0$
+  then we introduce the external perturbation potential $\varphi_1$ and surface density perturbation $\sigma_1$ which generate additional potential $\varphi_1^D$, hence we obtain the pertubation equations (5,6) by substituing $\boldsymbol{v}_0+\boldsymbol{v}_1$,$\varphi_0+\varphi_1+\varphi_1^D$,$\eta_0+\eta_1$ to $\boldsymbol{v}_0$,$\varphi_0$,$\eta_0$
   $$
-  \frac{\partial\boldsymbol{v}_1}{\partial t}+(\boldsymbol{v}_0\cdot\nabla)\boldsymbol{v}_1+(\boldsymbol{v}_1\cdot\nabla)\boldsymbol{v}_0=-\nabla(\phi_1+\phi_1^D+\eta_1)\tag{5}
+  \frac{\partial\boldsymbol{v}_1}{\partial t}+(\boldsymbol{v}_0\cdot\nabla)\boldsymbol{v}_1+(\boldsymbol{v}_1\cdot\nabla)\boldsymbol{v}_0=-\nabla(\varphi_1+\varphi_1^D+\eta_1)\tag{5}
   $$
   $$
   \frac{\partial\sigma_1}{\partial t}+\nabla\cdot(\sigma_0\boldsymbol{v}_1)+\nabla\cdot(\sigma_1\boldsymbol{v}_0)=0\tag{6}
@@ -154,18 +154,18 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
   $$
   \Rightarrow\eta_1=c_0^2(\sigma_1/\sigma_0)\tag{7}
   $$
-  3. as we mention at 1., the additional potential $\phi_1^D$ is arised by the surface density pertubation $\sigma_1$, so
+  3. as we mention at 1., the additional potential $\varphi_1^D$ is arised by the surface density pertubation $\sigma_1$, so
   $$
-  \nabla^2\phi_1^D=4\pi G\sigma_1\delta(z)\tag{8}
+  \nabla^2\varphi_1^D=4\pi G\sigma_1\delta(z)\tag{8}
   $$
   this is the Poisson's equation of the gravitational potential.
   :::
 
-- the response of the disk to $\phi_1$ is completely described by equation (7,8,13)
+- the response of the disk to $\varphi_1$ is completely described by equation (7,8,13)
   $$
   \begin{multline}
   \left\{\frac{\mathrm{d}^2}{\mathrm{d}r^2}+\left[\frac{\mathrm{d}}{\mathrm{d}r}\ln\left(\frac{\sigma r}{D}\right)\right]\frac{\mathrm{d}}{\mathrm{d}r}+\frac{2m\Omega}{r(m\Omega-\omega)}\left[\frac{\mathrm{d}}{\mathrm{d}r}\ln\left(\frac{\sigma\Omega}{D}\right)\right]-\frac{m^2}{r^2}\right\} \\
-  (\phi_1+\phi_1^D+\eta_1)=\frac{D\eta_1}{c^2}\tag{13}
+  (\varphi_1+\varphi_1^D+\eta_1)=\frac{D\eta_1}{c^2}\tag{13}
   \end{multline}
   $$
   where the subscripts on $\sigma_0$ and $c_0$ have been dropped.
@@ -206,27 +206,27 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
      &=-\Omega v_1\hat{e}_r+(2B-\Omega)u_1\hat{e}_\theta
      \end{align}
      $$
-     - $-\nabla(\phi_1+\phi_1^D+\eta_1)$
+     - $-\nabla(\varphi_1+\varphi_1^D+\eta_1)$
      $$
      \begin{align}
-     -\nabla(\phi_1+\phi_1^D+\eta_1)&=-\left(\dfrac{\partial}{\partial r}\hat{e}_r+\dfrac{1}{r}\dfrac{\partial}{\partial\theta}\hat{e}_\theta\right)(\phi_1+\phi_1^D+\eta_1) \\
-     &=\left(-\dfrac{\mathrm{d}}{\mathrm{d}r}\hat{e}_r-\dfrac{im}{r}\hat{e}_\theta\right)(\phi_1+\phi_1^D+\eta_1)
+     -\nabla(\varphi_1+\varphi_1^D+\eta_1)&=-\left(\dfrac{\partial}{\partial r}\hat{e}_r+\dfrac{1}{r}\dfrac{\partial}{\partial\theta}\hat{e}_\theta\right)(\varphi_1+\varphi_1^D+\eta_1) \\
+     &=\left(-\dfrac{\mathrm{d}}{\mathrm{d}r}\hat{e}_r-\dfrac{im}{r}\hat{e}_\theta\right)(\varphi_1+\varphi_1^D+\eta_1)
      \end{align}
      $$
 
      above all, in radial component $\hat{e}_r$ and azimuthal component $\hat{e}_\theta$, we have
      $$
      \begin{array}{l}
-     i(m\Omega-\omega)u_1-2\Omega v_1=-\dfrac{\mathrm{d}}{\mathrm{d}r}(\phi_1+\phi_1^D+\eta_1) \\
-     2Bu_1+i(m\Omega-\omega)v_1=-\dfrac{im}{r}(\phi_1+\phi_1^D+\eta_1)\tag{10}
+     i(m\Omega-\omega)u_1-2\Omega v_1=-\dfrac{\mathrm{d}}{\mathrm{d}r}(\varphi_1+\varphi_1^D+\eta_1) \\
+     2Bu_1+i(m\Omega-\omega)v_1=-\dfrac{im}{r}(\varphi_1+\varphi_1^D+\eta_1)\tag{10}
      \end{array}
      $$
 
   2. the solution of systems of linear equations are easy to obtain by Linear Algebra
      $$
      \begin{array}{l}
-     u_1=-\dfrac{i}{D}\left[(m\Omega-\omega)\dfrac{\mathrm{d}}{\mathrm{d}r}+\dfrac{2m\Omega}{r}\right](\phi_1+\phi_1^D+\eta_1), \\
-     v_1=\dfrac{1}{D}\left[2B\dfrac{\mathrm{d}}{\mathrm{d}r}+\dfrac{m}{r}(m\Omega-\omega)\right](\phi_1+\phi_1^D+\eta_1),\tag{11}
+     u_1=-\dfrac{i}{D}\left[(m\Omega-\omega)\dfrac{\mathrm{d}}{\mathrm{d}r}+\dfrac{2m\Omega}{r}\right](\varphi_1+\varphi_1^D+\eta_1), \\
+     v_1=\dfrac{1}{D}\left[2B\dfrac{\mathrm{d}}{\mathrm{d}r}+\dfrac{m}{r}(m\Omega-\omega)\right](\varphi_1+\varphi_1^D+\eta_1),\tag{11}
      \end{array}
      $$
      where $D=\kappa^2-(m\Omega-\omega)^2$
@@ -245,20 +245,20 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
   
   contain a homogeneous free-wave solutions and inhomogeneous non-wave solutions.
 
-  1. the inhomogeneous non-wave solution ( $\phi_1^D\approx0$ )
+  1. the inhomogeneous non-wave solution ( $\varphi_1^D\approx0$ )
    $$
    \begin{multline}
    \frac{\sigma_1}{\sigma}=\frac{\eta_1}{c^2}= \\
-   \frac{1}{D}\left\{\frac{\mathrm{d}^2}{\mathrm{d}r^2}+\left[\frac{\mathrm{d}}{\mathrm{d}r}\ln\left(\frac{\sigma r}{D}\right)\right]\frac{\mathrm{d}}{\mathrm{d}r}+\frac{2m\Omega}{r(m\Omega-\omega)}\left[\frac{\mathrm{d}}{\mathrm{d}r}\ln\left(\frac{\sigma\Omega}{D}\right)\right]-\frac{m^2}{r^2}\right\}\phi_1 \tag{15}
+   \frac{1}{D}\left\{\frac{\mathrm{d}^2}{\mathrm{d}r^2}+\left[\frac{\mathrm{d}}{\mathrm{d}r}\ln\left(\frac{\sigma r}{D}\right)\right]\frac{\mathrm{d}}{\mathrm{d}r}+\frac{2m\Omega}{r(m\Omega-\omega)}\left[\frac{\mathrm{d}}{\mathrm{d}r}\ln\left(\frac{\sigma\Omega}{D}\right)\right]-\frac{m^2}{r^2}\right\}\varphi_1 \tag{15}
    \end{multline}
    $$
 
-  2. the homogeneous free-wave solution ( $\phi_1=0$ )
+  2. the homogeneous free-wave solution ( $\varphi_1=0$ )
   $$
-  \phi_1^D(r)=\Phi(r)\exp\left[i\int^r k(s)\mathrm{d}s\right]\tag{16}
+  \varphi_1^D(r)=\Phi(r)\exp\left[i\int^r k(s)\mathrm{d}s\right]\tag{16}
   $$
   $$
-  \sigma_1=\frac{i\ \text{sgn}(k)}{2\pi Gr^{1/2}}\frac{\mathrm{d}}{\mathrm{d}r}(r^{1/2}\phi_1^D)\tag{17}
+  \sigma_1=\frac{i\ \text{sgn}(k)}{2\pi Gr^{1/2}}\frac{\mathrm{d}}{\mathrm{d}r}(r^{1/2}\varphi_1^D)\tag{17}
   $$
 
   here equation (17) is the WKB solution of Poisson's equation (8)
@@ -274,7 +274,7 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
   1. the angular momentum flux across a cylinder of radius $r$ due to gravitational torques is
     $$
     \begin{align}
-    F_G&=\frac{1}{4\pi G}\int_0^{2\pi}\mathrm{d}\theta\int_{-\infty}^\infty \mathrm{d}z r\ \text{Re}\left[\frac{\partial\phi_1^D}{\partial\theta}\right]\text{Re}\left[\frac{\partial\phi_1^D}{\partial r}\right]\tag{23} \\
+    F_G&=\frac{1}{4\pi G}\int_0^{2\pi}\mathrm{d}\theta\int_{-\infty}^\infty \mathrm{d}z r\ \text{Re}\left[\frac{\partial\varphi_1^D}{\partial\theta}\right]\text{Re}\left[\frac{\partial\varphi_1^D}{\partial r}\right]\tag{23} \\
     &=\text{sgn}(k)\frac{mr\Phi^2(r)}{4G}\tag{25}
     \end{align}
     $$
@@ -297,7 +297,7 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
 
 - the long trailing wave excited at a Lindblad resonance has an angular momentum flux,
   $$
-  F=-m\pi^2\left\{\left|\frac{\sigma}{r\mathrm{d}D/\mathrm{d}r}\right|\left[r\frac{\mathrm{d}\phi_1}{\mathrm{d}r}+\frac{2m\Omega}{(m\Omega-\omega)}\phi_1\right]^2\right\}_{r_L}\tag{46}
+  F=-m\pi^2\left\{\left|\frac{\sigma}{r\mathrm{d}D/\mathrm{d}r}\right|\left[r\frac{\mathrm{d}\varphi_1}{\mathrm{d}r}+\frac{2m\Omega}{(m\Omega-\omega)}\varphi_1\right]^2\right\}_{r_L}\tag{46}
   $$
 
   ::: info derivation
@@ -306,7 +306,7 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
    $$
    \begin{multline}
    \frac{\sigma_1}{\sigma}=\frac{\eta_1}{c^2}= \\
-   \frac{1}{D}\left\{\frac{\mathrm{d}^2}{\mathrm{d}r^2}+\left[\frac{\mathrm{d}}{\mathrm{d}r}\ln\left(\frac{\sigma r}{D}\right)\right]\frac{\mathrm{d}}{\mathrm{d}r}+\frac{2m\Omega}{r(m\Omega-\omega)}\left[\frac{\mathrm{d}}{\mathrm{d}r}\ln\left(\frac{\sigma\Omega}{D}\right)\right]-\frac{m^2}{r^2}\right\}\phi_1 \tag{15}
+   \frac{1}{D}\left\{\frac{\mathrm{d}^2}{\mathrm{d}r^2}+\left[\frac{\mathrm{d}}{\mathrm{d}r}\ln\left(\frac{\sigma r}{D}\right)\right]\frac{\mathrm{d}}{\mathrm{d}r}+\frac{2m\Omega}{r(m\Omega-\omega)}\left[\frac{\mathrm{d}}{\mathrm{d}r}\ln\left(\frac{\sigma\Omega}{D}\right)\right]-\frac{m^2}{r^2}\right\}\varphi_1 \tag{15}
    \end{multline}
    $$
   - the solutions of the dispersion relation (19)
@@ -326,14 +326,9 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
    $$
   - the potential (34)
    $$
-   \Phi=\left(r\frac{\mathrm{d}\phi_1}{\mathrm{d}r}+\frac{2m\Omega}{(m\Omega-\omega)}\phi_1\right)_{r_L}\tag{34}
+   \Phi=\left(r\frac{\mathrm{d}\varphi_1}{\mathrm{d}r}+\frac{2m\Omega}{(m\Omega-\omega)}\varphi_1\right)_{r_L}\tag{34}
    $$
   :::
-
-- the external torque exerted on a gas disk in the neighborhood of the Lindblad resonance
-  $$
-  T_L=\pm m\pi^2\left\{\left|\frac{\sigma}{r\mathrm{d}D/\mathrm{d}r}\right|\left[r\frac{\mathrm{d}\phi_1}{\mathrm{d}r}+\frac{2m\Omega}{(m\Omega-\omega)}\phi_1\right]^2\right\}_{r_L}\tag{100}
-  $$
 
 ### IV. Corotaion Resonances
 
@@ -341,14 +336,14 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
 
 - the entire flux
   $$
-  F_A=-\frac{\pi^2}{4}m\ \text{sgn}(x)\left[\frac{\phi_1^2}{\mathrm{d}\Omega/\mathrm{d}r}\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{\sigma}{B}\right)\right]_{r_c}\exp(-|qx|)\tag{55}
+  F_A=-\frac{\pi^2}{4}m\ \text{sgn}(x)\left[\frac{\varphi_1^2}{\mathrm{d}\Omega/\mathrm{d}r}\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{\sigma}{B}\right)\right]_{r_c}\exp(-|qx|)\tag{55}
   $$
 
 #### b) Disks with Self-Gravity
 
 - the torque exerted by the external potential
   $$
-  T_c=\frac{m\pi^2}{2}\left[\frac{\phi_1^2}{\mathrm{d}\Omega/\mathrm{d}r}\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{\sigma}{B}\right)\right]_{r_c}\tag{93}
+  T_c=\frac{m\pi^2}{2}\left[\frac{\varphi_1^2}{\mathrm{d}\Omega/\mathrm{d}r}\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{\sigma}{B}\right)\right]_{r_c}\tag{93}
   $$
 
 ### Appendix
@@ -357,7 +352,7 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
 
 while solving the Lindblad resonance, we define
 $$
-\Psi=\left(r\frac{\mathrm{d}\phi_1}{\mathrm{d}r}+\frac{2m\Omega}{(m\Omega-\omega)}\phi_1\right)_{r_L}\tag{34}
+\Psi=\left(r\frac{\mathrm{d}\varphi_1}{\mathrm{d}r}+\frac{2m\Omega}{(m\Omega-\omega)}\varphi_1\right)_{r_L}\tag{34}
 $$
 $$
 \alpha=(2\pi G\sigma r/c^2)_{r_L}\text{sgn}(k)\tag{36}
@@ -376,7 +371,13 @@ $$
 
 - the torque exerted on the disk by the external potential in the neighborhood of a Lindblad resonance
   $$
-  T=-\pi m\int_0^\infty\mathrm{d}r r\phi_1(r)\ \text{Im}\ \sigma_1(r)\tag{A7}
+  T=-\pi m\int_0^\infty\mathrm{d}r r\varphi_1(r)\ \text{Im}\ \sigma_1(r)\tag{A7}
+  $$
+  $$
+  T=\pi m\text{Im}\left\{\int_0^\infty\mathrm{d}r\left[\frac{m\varphi_1\sigma v_1}{(m\Omega-\omega)}+ir\sigma u_1\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{\varphi_1}{m\Omega-\omega}\right)\right]\right\}\tag{A8}
+  $$
+  $$
+  T_L=\frac{\pi m\sigma r_L\Psi}{\kappa}\text{sgn}(\mathscr{D})\int_{-\infty}^\infty\mathrm{d}x\text{Re}(u_1)f(x)\tag{A9}
   $$
 
 ## GT80
@@ -442,6 +443,25 @@ some key points from [GT80](/read/goldreich-tremaine-1980.pdf) *disk-satellite i
   $$
   :::
 
+- expand $\phi^s$ in a Fourier series:
+  $$
+  \phi^s(r,\theta,t)=\sum_{l=-\infty}^\infty\sum_{m=0}^\infty\phi^s_{l,m}(r)\cos\{m\theta-[m\Omega_s+(l-m)\kappa_s]t\}\tag{5}
+  $$
+  to first order in $e$, the only nonvanishing components are
+  $$
+  \phi^s_{m,m}=-\frac{GM_s}{2a}(2-\delta_{m,0})(b_{1/2}^m-f\beta\delta_{m,1})\tag{7}
+  $$
+  $$
+  \phi^s_{m+1,m}=-\frac{GM_s}{2a}e(2-\delta_{m,0})\left[\left(\frac{1}{2}+\frac{m\Omega_s}{\kappa_s}+\frac{\beta}{2}\frac{\mathrm{d}}{\mathrm{d}\beta}\right)b_{1/2}^m-f\beta\left(\frac{3}{2}-\frac{2B_s}{\Omega_s}+\frac{\Omega_s}{\kappa_s}\right)\delta_{m,1}\right]\tag{8}
+  $$
+  $$
+  \phi^s_{m+1,m}=-\frac{GM_s}{2a}e(2-\delta_{m,0})\left[\left(\frac{1}{2}-\frac{m\Omega_s}{\kappa_s}+\frac{\beta}{2}\frac{\mathrm{d}}{\mathrm{d}\beta}\right)b_{1/2}^m-f\beta\left(\frac{3}{2}-\frac{2B_s}{\Omega_s}-\frac{\Omega_s}{\kappa_s}\right)\delta_{m,1}\right]\tag{9}
+  $$
+  here $f=\Omega_s^2a^3/GM_p$, $\beta=r/a$, $\delta_{m,n}$ is the Kronecker delta function, and $b_{1/2}^m(\beta)$ is the Laplace coefficient,
+  $$
+  b_{1/2}^m(\beta)=\frac{2}{\pi}\int_0^\pi\frac{\cos m\phi\mathrm{d}\phi}{(1-2\beta\cos\phi+\beta^2)^{1/2}}\tag{10}
+  $$
+
 - the pattern speed of the $l,m$ potential component (in a Fourier series) is
   $$
   \Omega_{l,m}=\Omega_s+\frac{(l-m)}{m}\kappa_s
@@ -478,6 +498,178 @@ some key points from [GT80](/read/goldreich-tremaine-1980.pdf) *disk-satellite i
    $$
    T_{l,m}^C=\frac{m\pi^2}{2}\left[\left(\frac{\mathrm{d}\Omega}{\mathrm{d}r}\right)^{-1}\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{\Sigma}{B}\right)(\phi_{l,m}^s)^2\right]_{r_c}
    $$
+
+#### e) Orbital Variations
+
+- the change rate of $a$ and $e$ are
+  $$
+  \frac{\mathrm{d}a}{\mathrm{d}t}=-\frac{2\Omega T_r}{a\kappa^2M_s}\tag{26}
+  $$
+  $$
+  \frac{\mathrm{d}e}{\mathrm{d}t}=-\left[(\Omega_p-\Omega)-2e^2\Omega\left(1+\frac{\mathrm{d}\ln \kappa}{\mathrm{d}\ln r}\right)\right]\frac{T_r}{M_se(a\kappa)^2}\tag{27}
+  $$
+
+  ::: info derivation
+  The derivation of equations (26) and (27) from equations (22)-(25) in Goldreich & Tremaine (1980) is as follows. The equations are:
+  
+  - Angular momentum:  
+    $$
+    H = M_s a^2 \Omega \tag{22}
+    $$
+  
+  - Energy:  
+    $$
+    E = \frac{1}{2} M_s \left[ (a \Omega)^2 + (e a \kappa)^2 \right] + M_s \Phi(a) \tag{23}
+    $$
+  
+  - Torque relations:  
+    $$
+    \begin{align}
+    \frac{\mathrm{d}H}{\mathrm{d}t} &= -T_r \tag{24}, \\
+    \frac{\mathrm{d}E}{\mathrm{d}t} &= -\Omega_p T_r \tag{25}
+    \end{align}
+    $$
+  
+  - Identities:  
+    $$
+    a \Omega^2 = \frac{\mathrm{d}\Phi}{\mathrm{d}r}, \quad \kappa^2 - 3\Omega^2 = \frac{\mathrm{d}^2\Phi}{\mathrm{d}r^2} \quad \text{(evaluated at } r = a\text{)}
+    $$
+  
+  - **(a) Derivation of Equation (26) for $\mathrm{d}a/\mathrm{d}t$**
+  1. **Differentiate equation (22)**:  
+     $$
+     \frac{\mathrm{d}H}{\mathrm{d}t} = M_s \left( 2a \frac{\mathrm{d}a}{\mathrm{d}t} \Omega + a^2 \frac{\mathrm{d}\Omega}{\mathrm{d}t} \right)
+     $$
+     Since $\Omega = \Omega(a)$, apply the chain rule:  
+     $$
+     \frac{\mathrm{d}\Omega}{\mathrm{d}t} = \frac{\mathrm{d}\Omega}{\mathrm{d}a} \frac{\mathrm{d}a}{\mathrm{d}t}
+     $$
+     Substitute:  
+     $$
+     \frac{\mathrm{d}H}{\mathrm{d}t} = M_s \left( 2a \Omega \frac{\mathrm{d}a}{\mathrm{d}t} + a^2 \frac{\mathrm{d}\Omega}{\mathrm{d}a} \frac{\mathrm{d}a}{\mathrm{d}t} \right) = M_s a \frac{\mathrm{d}a}{\mathrm{d}t} \left( 2\Omega + a \frac{\mathrm{d}\Omega}{\mathrm{d}a} \right)
+     $$
+  
+  2. **Use Oort's parameters (equation 1)**:
+     $$
+     A = \frac{r}{2} \frac{\mathrm{d}\Omega}{\mathrm{d}r}, \quad B = \Omega + A
+     $$
+     At $r = a$:  
+     $$
+     a \frac{\mathrm{d}\Omega}{\mathrm{d}a} = 2A
+     $$
+     Substitute:  
+     $$
+     \frac{\mathrm{d}H}{\mathrm{d}t} = M_s a \frac{\mathrm{d}a}{\mathrm{d}t} (2\Omega + 2A) = 2 M_s a B \frac{\mathrm{d}a}{\mathrm{d}t}
+     $$
+  
+  3. **Apply torque equation (24)**:  
+     $$
+     \frac{\mathrm{d}H}{\mathrm{d}t} = -T_r
+     $$
+     So:  
+     $$
+     -T_r = 2 M_s a B \frac{\mathrm{d}a}{\mathrm{d}t} \implies \frac{\mathrm{d}a}{\mathrm{d}t} = -\frac{T_r}{2 M_s a B}
+     $$
+  
+  4. **Use $\kappa^2 = 4B\Omega$ (from equation 1)**:  
+     $$
+     B = \frac{\kappa^2}{4\Omega}
+     $$
+     Substitute:  
+     $$
+     \frac{\mathrm{d}a}{\mathrm{d}t} = -\frac{T_r}{2 M_s a \cdot (\kappa^2 / (4\Omega))} = -\frac{2 \Omega T_r}{a \kappa^2 M_s}
+     $$
+     This matches **equation (26)**.
+  
+  - **(b) Derivation of Equation (27) for $\mathrm{d}e/\mathrm{d}t$**
+  1. **Differentiate equation (23)**:  
+     $$
+     \frac{\mathrm{d}E}{\mathrm{d}t} = M_s \left[ \frac{1}{2} \cdot 2a \frac{\mathrm{d}a}{\mathrm{d}t} \Omega^2 + \frac{1}{2} a^2 \cdot 2\Omega \frac{\mathrm{d}\Omega}{\mathrm{d}t} + \frac{1}{2} \cdot 2e a^2 \kappa^2 \frac{\mathrm{d}e}{\mathrm{d}t} + \frac{1}{2} e^2 \cdot 2a \kappa^2 \frac{\mathrm{d}a}{\mathrm{d}t} + \frac{1}{2} e^2 a^2 \cdot 2\kappa \frac{\mathrm{d}\kappa}{\mathrm{d}t} + \frac{\mathrm{d}\Phi}{\mathrm{d}t} \right]
+     $$
+     Simplify:  
+     $$
+     \frac{\mathrm{d}E}{\mathrm{d}t} = M_s \left[ a \Omega^2 \frac{\mathrm{d}a}{\mathrm{d}t} + a^2 \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}t} + e a^2 \kappa^2 \frac{\mathrm{d}e}{\mathrm{d}t} + e^2 a \kappa^2 \frac{\mathrm{d}a}{\mathrm{d}t} + e^2 a^2 \kappa \frac{\mathrm{d}\kappa}{\mathrm{d}t} + \frac{\mathrm{d}\Phi}{\mathrm{d}a} \frac{\mathrm{d}a}{\mathrm{d}t} \right]
+     $$
+     From $a \Omega^2 = \mathrm{d}\Phi / \mathrm{d}r$, so $\mathrm{d}\Phi / \mathrm{d}a = a \Omega^2$:  
+     $$
+     \frac{\mathrm{d}E}{\mathrm{d}t} = M_s \left[ a \Omega^2 \frac{\mathrm{d}a}{\mathrm{d}t} + a^2 \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}t} + e a^2 \kappa^2 \frac{\mathrm{d}e}{\mathrm{d}t} + e^2 a \kappa^2 \frac{\mathrm{d}a}{\mathrm{d}t} + e^2 a^2 \kappa \frac{\mathrm{d}\kappa}{\mathrm{d}t} + a \Omega^2 \frac{\mathrm{d}a}{\mathrm{d}t} \right]
+     $$
+     Combine terms:  
+     $$
+     \frac{\mathrm{d}E}{\mathrm{d}t} = M_s \left[ \underbrace{2a \Omega^2 \frac{\mathrm{d}a}{\mathrm{d}t} + a^2 \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}t} + e^2 a \kappa^2 \frac{\mathrm{d}a}{\mathrm{d}t} + e^2 a^2 \kappa \frac{\mathrm{d}\kappa}{\mathrm{d}t}}_{\text{terms with } \mathrm{d}a/\mathrm{d}t} + e a^2 \kappa^2 \frac{\mathrm{d}e}{\mathrm{d}t} \right]
+     $$
+  
+  2. **Apply chain rule to $\mathrm{d}\Omega/\mathrm{d}t$ and $\mathrm{d}\kappa/\mathrm{d}t$**:  
+     $$
+     \frac{\mathrm{d}\Omega}{\mathrm{d}t} = \frac{\mathrm{d}\Omega}{\mathrm{d}a} \frac{\mathrm{d}a}{\mathrm{d}t}, \quad \frac{\mathrm{d}\kappa}{\mathrm{d}t} = \frac{\mathrm{d}\kappa}{\mathrm{d}a} \frac{\mathrm{d}a}{\mathrm{d}t}
+     $$
+     Substitute:  
+     $$
+     \frac{\mathrm{d}E}{\mathrm{d}t} = M_s \left[ \left( 2a \Omega^2 + a^2 \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}a} + e^2 a \kappa^2 + e^2 a^2 \kappa \frac{\mathrm{d}\kappa}{\mathrm{d}a} \right) \frac{\mathrm{d}a}{\mathrm{d}t} + e a^2 \kappa^2 \frac{\mathrm{d}e}{\mathrm{d}t} \right]
+     $$
+  
+  3. **Apply torque equation (25)**:  
+     $$
+     \frac{\mathrm{d}E}{\mathrm{d}t} = -\Omega_p T_r
+     $$
+     So:  
+     $$
+     -\Omega_p T_r = M_s \left[ \left( 2a \Omega^2 + a^2 \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}a} + e^2 a \kappa^2 + e^2 a^2 \kappa \frac{\mathrm{d}\kappa}{\mathrm{d}a} \right) \frac{\mathrm{d}a}{\mathrm{d}t} + e a^2 \kappa^2 \frac{\mathrm{d}e}{\mathrm{d}t} \right]
+     $$
+  
+  4. **Substitute $\mathrm{d}a/\mathrm{d}t$ from equation (26)**:  
+     $$
+     \frac{\mathrm{d}a}{\mathrm{d}t} = -\frac{T_r}{2 M_s a B}
+     $$
+     Insert:  
+     $$
+     -\Omega_p T_r = M_s \left[ \left( 2a \Omega^2 + a^2 \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}a} + e^2 a \kappa^2 + e^2 a^2 \kappa \frac{\mathrm{d}\kappa}{\mathrm{d}a} \right) \left( -\frac{T_r}{2 M_s a B} \right) + e a^2 \kappa^2 \frac{\mathrm{d}e}{\mathrm{d}t} \right]
+     $$
+  
+  5. **Simplify and solve for $\mathrm{d}e/\mathrm{d}t$**:  
+     $$
+     -\Omega_p T_r = -\frac{T_r}{2 B} \left( 2\Omega^2 + a \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}a} + e^2 \kappa^2 + e^2 a \kappa \frac{\mathrm{d}\kappa}{\mathrm{d}a} \right) + M_s e a^2 \kappa^2 \frac{\mathrm{d}e}{\mathrm{d}t}
+     $$
+     Divide by $T_r$:  
+     $$
+     -\Omega_p = -\frac{1}{2B} \left( 2\Omega^2 + a \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}a} + e^2 \kappa^2 + e^2 a \kappa \frac{\mathrm{d}\kappa}{\mathrm{d}a} \right) + \frac{M_s e a^2 \kappa^2}{T_r} \frac{\mathrm{d}e}{\mathrm{d}t}
+     $$
+     Rearrange:  
+     $$
+     \frac{M_s e a^2 \kappa^2}{T_r} \frac{\mathrm{d}e}{\mathrm{d}t} = -\Omega_p + \frac{1}{2B} \left( 2\Omega^2 + a \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}a} + e^2 \kappa^2 + e^2 a \kappa \frac{\mathrm{d}\kappa}{\mathrm{d}a} \right)
+     $$
+     $$
+     \frac{\mathrm{d}e}{\mathrm{d}t} = \frac{T_r}{M_s e a^2 \kappa^2} \left[ -\Omega_p + \frac{1}{2B} \left( 2\Omega^2 + a \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}a} + e^2 \kappa^2 + e^2 a \kappa \frac{\mathrm{d}\kappa}{\mathrm{d}a} \right) \right]
+     $$
+  
+  6. **Simplify using identities**:  
+     - From $\kappa^2 = 4B\Omega$, so $2\Omega^2 + a \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}a} = \frac{\kappa^2}{2}$ (derived from $\kappa^2 = 4\Omega^2 + 2a \Omega \frac{\mathrm{d}\Omega}{\mathrm{d}a}$).  
+     - With $\frac{\mathrm{d} \ln \kappa}{\mathrm{d} \ln r} =\frac{\mathrm{d} \ln\kappa}{\mathrm{d} r}\frac{1}{\frac{\mathrm{d}\ln r}{\mathrm{d}r}}=\frac{\mathrm{d}\ln\kappa}{\mathrm{d}r}r=\frac{\mathrm{d}\ln\kappa}{\mathrm{d}\kappa}\frac{\mathrm{d}\kappa}{\mathrm{d}r}r=\frac{r}{\kappa}\frac{\mathrm{d}\kappa}{\mathrm{d}r}|_{r=a}=\frac{a}{\kappa}\frac{\mathrm{d}\kappa}{\mathrm{d}a}$.  
+     Substitute:  
+     $$
+     \frac{\mathrm{d}e}{\mathrm{d}t} = \frac{T_r}{M_s e a^2 \kappa^2} \left[ -\Omega_p + \frac{1}{2B} \left( \frac{\kappa^2}{2} + e^2 \kappa^2 \left(1 + \frac{\mathrm{d} \ln \kappa}{\mathrm{d} \ln r}\right) \right) \right]
+     $$
+     $$
+     = \frac{T_r}{M_s e a^2 \kappa^2} \left[ -\Omega_p + \underbrace{\frac{\kappa^2}{4B}}_{\Omega} + \frac{e^2 \kappa^2}{2B} \left(1 + \frac{\mathrm{d} \ln \kappa}{\mathrm{d} \ln r}\right) \right]
+     $$
+     $$
+     = \frac{T_r}{M_s e a^2 \kappa^2} \left[ -\Omega_p + \Omega + \frac{e^2 \kappa^2}{2B} \left(1 + \frac{\mathrm{d} \ln \kappa}{\mathrm{d} \ln r}\right) \right]
+     $$
+     Since $\kappa^2 = 4B\Omega$, then $\kappa^2 / (2B) = 2\Omega$:  
+     $$
+     \frac{\mathrm{d}e}{\mathrm{d}t} = \frac{T_r}{M_s e a^2 \kappa^2} \left[ -(\Omega_p - \Omega) + 2 e^2 \Omega \left(1 + \frac{\mathrm{d} \ln \kappa}{\mathrm{d} \ln r}\right) \right]
+     $$
+     Rearrange to match equation (27):  
+     $$
+     \frac{\mathrm{d}e}{\mathrm{d}t} = -\left[ (\Omega_p - \Omega) - 2 e^2 \Omega \left(1 + \frac{\mathrm{d} \ln \kappa}{\mathrm{d} \ln r}\right) \right] \frac{T_r}{M_s e (a \kappa)^2}
+     $$
+     This is **equation (27)**, where $(a \kappa)^2 = a^2 \kappa^2$.
+  
+  - **Key Steps Recap:**
+    - **For $\mathrm{d}a/\mathrm{d}t$**: Differentiated angular momentum $H$, used torque $\mathrm{d}H/\mathrm{d}t = -T_r$, and substituted $B = \kappa^2 / (4\Omega)$.  
+    - **For $\mathrm{d}e/\mathrm{d}t$**: Differentiated energy $E$, used torque $dE/dt = -\Omega_p T_r$, substituted $\mathrm{d}a/\mathrm{d}t$, and applied identities for $\kappa^2$ and logarithmic derivatives.  
+    - **Note**: All derivatives ($\Omega, \kappa, \Phi$) are evaluated at $r = a$, and $\mathrm{d} \ln \kappa / \mathrm{d} \ln r$ is the logarithmic derivative of $\kappa$ with respect to $r$.
+  :::
 
 ## yang-li-2024
 
@@ -662,6 +854,12 @@ $$
    $$
    -\frac{3me_B}{\cos}(Q-Q_0)\tau_0
    $$
+:::
+
+::: tip todo:
+- what's the physical meaning of the parameters $l_s,m_s$ in the Fourier series of gravitational field (Eq.2), and the detailed reason of choose $m_A=l_A=m,m_B=m,l_B=m-1$ ?
+
+- the detailed calculations around Eq.24, look for W88
 :::
 
 ### 3 Hydrodynamical simulations
