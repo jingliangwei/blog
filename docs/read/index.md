@@ -54,3 +54,11 @@ the [book](/read/planet-formation.pdf) *Astrophysics of Planet Formation*
 my [note](/read/planet_formation):
 
 write down the key points in chapter 7.
+
+## dynamics of planetary systems
+
+August in 2025
+
+the [book](/read/Tremaine-Dynamics-of-Planetary-Systems.pdf) *Dynamics of Planetary Systems*
+
+my [note](/read/dynamics_planetary_systems)

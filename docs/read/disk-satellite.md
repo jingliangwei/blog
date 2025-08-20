@@ -404,8 +404,10 @@ some key points from [GT80](/read/goldreich-tremaine-1980.pdf) *disk-satellite i
   r_s=a(1-e\cos\kappa_s t),\quad \theta_s=\Omega_s t+\frac{2\Omega_s e}{\kappa_s}\sin\kappa_s t\tag{2}
   $$
 
-  ::: tip todo:
-  check it in (Chandrasekhar 1960)
+  ::: info derivation
+  see [dynamics of planetary systems: the epicycle approximation](/read/dynamics_planetary_systems#_1-8-2-the-epicycle-approximation)
+
+  considering the relation $\kappa_\phi=\Omega_s$, $\kappa_R=\kappa_s$, and the integration constants $\eta=\pi$, $\phi_0=0$, the equation (a) there is the same as equation (2) here.
   :::
 
 - the perturbation potential due to a satellite of mass $M_s$ reads
