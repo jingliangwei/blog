@@ -56,3 +56,10 @@ systemd-analyze time
 ```bash:no-line-numbers
 sudo dmesg
 ```
+
+## `.bashrc` 配置
+
+- 简化命令
+```bash
+alias tgpt='/path/to/tgpt-linux-amd64'
+```
