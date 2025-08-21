@@ -61,4 +61,6 @@ August in 2025
 
 the [book](/read/Tremaine-Dynamics-of-Planetary-Systems.pdf) *Dynamics of Planetary Systems*
 
-my [note](/read/dynamics_planetary_systems)
+my [note](/read/dynamics_planetary_systems):
+
+- 1.8.2 the epicycle approximation of nearly circular orbits

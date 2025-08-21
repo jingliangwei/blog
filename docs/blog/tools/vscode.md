@@ -9,11 +9,18 @@
 系统设置了 `esc` 键和 `capslock` 键互换， vscode 需要改为识别按键码才能生效。
 
 ```json:no-line-numbers
-"keyboard.dispatch": "keyCode"
+    "keyboard.dispatch": "keyCode",
 ```
 
 ## vim 插件复制到系统剪切板
 
 ```json:no-line-numbers
-"vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+```
+
+## 行号设置
+
+```json:no-line-numbers
+    "editor.lineNumbers": "relative",
+    "vim.smartRelativeLine": true,
 ```
