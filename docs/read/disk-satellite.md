@@ -120,7 +120,7 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
   |Eq.|derivation|
   |:--:|:--:|
   |(5,6)|the linear perturbation method|
-  |(7)|the defination of enthalpy|
+  |(7)|the definition of enthalpy|
   |(8)|the Poisson's equation of gravitational potential|
 
   1. denoting the unpertubated gravitational potential $\phi_0$, surface density $\sigma_0$, the Euler equation and continuity equation reads,
@@ -141,7 +141,7 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
   $$
   c_0^2=\frac{\mathrm{d}p_0}{\mathrm{d}\sigma_0}=\frac{\mathrm{d}}{\mathrm{d}\sigma_0}K\sigma_0^\gamma=K\gamma\sigma_0^{\gamma-1}
   $$
-  with the defination of enthalpy $\eta$
+  with the definition of enthalpy $\eta$
   $$
   \eta=\int\frac{\mathrm{d}p}{\sigma}=\int\frac{1}{\sigma}\frac{\mathrm{d}p}{\mathrm{d}\sigma}\mathrm{d}\sigma=\int\frac{c^2}{\sigma}\mathrm{d}\sigma=\int\frac{K\gamma\sigma^{\gamma-1}}{\sigma}\mathrm{d}\sigma=\frac{K\gamma}{\gamma-1}\sigma^{\gamma-1}
   $$
@@ -326,7 +326,7 @@ some key points from [GT79](/read/goldreich-tremaine-1979.pdf) *the excitation o
    $$
   - the potential (34)
    $$
-   \Phi=\left(r\frac{\mathrm{d}\varphi_1}{\mathrm{d}r}+\frac{2m\Omega}{(m\Omega-\omega)}\varphi_1\right)_{r_L}\tag{34}
+   \Psi=\left(r\frac{\mathrm{d}\varphi_1}{\mathrm{d}r}+\frac{2m\Omega}{(m\Omega-\omega)}\varphi_1\right)_{r_L}\tag{34}
    $$
   :::
 
@@ -498,8 +498,10 @@ some key points from [GT80](/read/goldreich-tremaine-1980.pdf) *disk-satellite i
 
   2. at a corotation resonance $r=r_c$,
    $$
-   T_{l,m}^C=\frac{m\pi^2}{2}\left[\left(\frac{\mathrm{d}\Omega}{\mathrm{d}r}\right)^{-1}\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{\Sigma}{B}\right)(\phi_{l,m}^s)^2\right]_{r_c}
+   T_{l,m}^C=\frac{m\pi^2}{2}\left[\left(\frac{\mathrm{d}\Omega}{\mathrm{d}r}\right)^{-1}\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{\Sigma}{B}\right)(\phi_{l,m}^s)^2\right]_{r_c}\tag{14}
    $$
+
+- the modified Bessel function of order $\nu$ is denoted $K_\nu$
 
 #### e) Orbital Variations
 
@@ -672,6 +674,76 @@ some key points from [GT80](/read/goldreich-tremaine-1980.pdf) *disk-satellite i
     - **For $\mathrm{d}e/\mathrm{d}t$**: Differentiated energy $E$, used torque $dE/dt = -\Omega_p T_r$, substituted $\mathrm{d}a/\mathrm{d}t$, and applied identities for $\kappa^2$ and logarithmic derivatives.  
     - **Note**: All derivatives ($\Omega, \kappa, \Phi$) are evaluated at $r = a$, and $\mathrm{d} \ln \kappa / \mathrm{d} \ln r$ is the logarithmic derivative of $\kappa$ with respect to $r$.
   :::
+
+## W88
+
+some key points from [W88](/read/W88.pdf) *On disk-planet interactions and orbital eccentricities*
+
+- main content:
+
+  consider the co-orbital material, using vertically averaging method to obtain the potential
+
+### I. Introduction
+
+The result in GT80 of **corotation** and **Lindblad resonances** was derived for a perturber orbiting **outside a disk or within a gap**, now consider an object **embedded in a continuous disk without a gap**.
+
+### II. Ring and Disk Torques
+
+This section reviews the established theory for calculating torque ( $T$ ) on a perturber from disk resonances and its effect on eccentricity $e$.
+
+- Lindblad Resonances (Eq.4, 8): They always excite eccentricity. Both inner and outer Lindblad resonances contribute to this excitation.
+- Corotation Resonances (Eq.9, 12): For a perturber in a gap or outside a disk, they leading to net damping. However, for an object embedded in a smooth, continuous disk, the interior and exterior corotation torques largely cancel each other out. Their net contribution to eccentricity change becomes very small and of second order, depending on the second derivative of the vortensity (Eq. 18).
+- Implications: Consider the role of **co-orbital resonance** (resonances at the same orbital distance as the perturber), which were previously sidestepped.
+
+### III. Co-orbital Torques
+
+This is the paper's central section, where Ward develops a model to handle the mathematically tricky co-orbital resonances.
+
+*   **The Problem:** Standard potential expansions diverge at $r = a$ (the planet's orbit). Ward addresses this by **vertically averaging** the gravitational potential over the disk's scale height ($h$), which removes the singularity and acknowledges the 3D nature of the disk.
+    $$
+    b_{1/2}^m(\gamma,z)=\frac{2}{\pi}\int_0^\pi\frac{\cos m\lambda\mathrm{d}\lambda}{\sqrt{1-2\gamma\cos\lambda+\gamma^2+(z/r_p)^2}},\tag{20a}
+    $$
+    $$
+    b_{1/2}^m(\gamma,z)\approx\frac{2}{\pi}K_0(\sqrt{m^2(1-\gamma)^2+(mz/r_p)^2}).\tag{20b}
+    $$
+
+*   **Key Findings:**
+    1.  **Distant Lindblad Resonances:** ( $\alpha=4/3$ )
+        $$
+        \langle\Psi_{m-\varepsilon,m}\rangle=-e\frac{GM_p}{a}\frac{m}{\sqrt{\pi}}\left(\frac{a\Omega}{c}\right)\{\mathscr{F}_2(4/3,\xi)+4\mathscr{F}_1(4/3,\xi)+4\mathscr{F}_0(4/3,\xi)\},\tag{27}
+        $$
+        $$
+        \left(\frac{1}{e}\frac{\mathrm{d}e}{\mathrm{d}t}\right)^L=\frac{\pi}{3}m\left(\frac{a\Omega}{c}\right)^2\mu\Omega\left(\frac{\sigma a^2}{M_\odot}\right)^2\{\mathscr{F}_2+4\mathscr{F}_1+4\mathscr{F}_0\}^2_{\alpha=4/3}\tag{29}
+        $$
+    2.  **Distant Corotation Resonances:** ( $\alpha=2/3$ )
+        $$
+        \langle\phi_{m-\varepsilon,m}\rangle=\varepsilon e\frac{GM_p}{a}\frac{1}{\sqrt{\pi}}\left(\frac{a\Omega}{c}\right)\{\mathscr{F}(2/3,0)+2\mathscr{F}(2/3,\xi)\}.\tag{28}
+        $$
+        $$
+        \left(\frac{1}{e}\frac{\mathrm{d}e}{\mathrm{d}t}\right)^C=-\varepsilon\frac{4\pi}{3}\left(\frac{a\Omega}{c}\right)^2\mu\left(\frac{a^3\Omega^2}{M_\odot}\right)\left(\frac{\mathrm{d}}{\mathrm{d}r}\frac{\sigma}{\Omega}\right)\{\mathscr{F}_1+2\mathscr{F}_0\}^2_{\alpha=2/3}\tag{30}
+        $$
+    3.  **Co-orbital Lindblad Resonances:** These are a new class of resonances that occur for material sharing the planet's orbit. Their forcing function is derived **(Eq. 52)**:
+        $$
+        \begin{align}
+        \langle\Psi_{m+\varepsilon,m}\rangle&=\Psi_d+\Psi_a \\
+        &=-e\frac{GM_pm}{a\sqrt{\pi}}\left(\frac{a\Omega}{c}\right)[\mathscr{F}_2(0,\xi)-4\mathscr{F}_0(0,\xi)]+\frac{4}{\pi}\frac{GM_p}{h\sqrt{\pi}}\sin f_c\tag{52}
+        \end{align}
+        $$
+        and the resulting torque is calculated **(Eq. 60)**.
+        *   **Effect:** Crucially, **all co-orbital Lindblad resonances damp eccentricity** ($(1/e)(\mathrm{d}e/\mathrm{d}t)^L_{\text{co-orbital}} < 0$). This is the opposite of distant Lindblad resonances.
+        *   **Formula (Eq. 65)**
+
+    4.  **Co-orbital Corotation Resonances:** These are also present and are strong (zeroth order in $e$). However, because their pattern speed equals the planet's mean motion ($\Omega_{ps} = \Omega_p$), the term $(\Omega_{ps} - \Omega_p)$ in the fundamental eccentricity equation **(Eq. 1)** is zero. This severely reduces their ability to change eccentricity **(Eq. 69)**. Their effect is much weaker ($∝ 1/m$) than that of co-orbital Lindblad torques ($∝ m$).
+
+- the formula of $\langle\phi_{m,m}\rangle$:
+  $$
+  \langle\phi_{m,m}\rangle=\frac{1}{2}A_0\tag{43}
+  $$
+  $$
+  A_0=-\frac{4GM_p}{\pi r_p\sqrt{\pi}}\xi^{-1}\left\{\pi\mathscr{F}_0-me\gamma_0[(\pi-2f_c)\cos f_c+2\sin f_c]+\frac{\pi}{2}(me\gamma_0)^2\mathscr{F}_2\left(\frac{1}{2}+\cos^2f_c\right)\right\}\tag{A3}
+  $$
+
+*   **Conclusion of Section III:** For an embedded perturber, the **primary source of eccentricity damping comes from co-orbital Lindblad resonances**, not from the distant corotation resonances emphasized in previous work.
 
 ## yang-li-2024
 
@@ -861,7 +933,7 @@ $$
 ::: tip todo:
 - what's the physical meaning of the parameters $l_s,m_s$ in the Fourier series of gravitational field (Eq.2), and the detailed reason of choose $m_A=l_A=m,m_B=m,l_B=m-1$ ?
 
-- the detailed calculations around Eq.24, look for W88
+- need to confirm that the vertically averaging of $\Psi_{B,m-1,m}$ represents the co-orbital material
 :::
 
 ### 3 Hydrodynamical simulations

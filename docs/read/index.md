@@ -27,7 +27,9 @@ the papers:
 
 2. [GT80](/read/goldreich-tremaine-1980.pdf) *disk-satellite interactions*
 
-3. [yang-li-2024](/read/yang-li-2024.pdf) *mean-motion resonances with interfering density waves*
+3. [W88](/read/W88.pdf) *On disk-planet interactions and orbital eccentricities*
+
+4. [yang-li-2024](/read/yang-li-2024.pdf) *mean-motion resonances with interfering density waves*
 
 the [note](/read/disk-satellite) contains:
 
