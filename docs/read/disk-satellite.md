@@ -962,7 +962,23 @@ $$
 :::
 
 ::: tip todo:
-- need to confirm that the vertically averaging of $\Psi_{B,m-1,m}$ represents the co-orbital material
+- the choice of $m_A=l_A=m,m_B=m,l_B=m-1$:
+  
+  keep the fixed phase difference between the Fourier series of A and B (the phase is: $m_s\phi-[m_s\Omega_s+(l_s-m_s)\kappa_s]t$ )
+
+  here for A:
+  $$
+  m_A\phi-[m_A\Omega_A+(l_A-m_A)\kappa_A]t=m\phi-m\Omega_At
+  $$
+
+  for B:
+  $$
+  m_B\phi-[m_B\Omega_B+(l_B-m_B)\kappa_B]t=m\phi-[m\Omega_B-\kappa_B]t
+  $$
+
+  and the phase difference is time-independent while $m\Omega_A=m\Omega_B-\kappa_B$
+
+  BUT it also work for parameters $m_A=l_A=km,m_B=km,l_B=km-k\ (k\in\mathbb{R})$
 
 - the relation between section 2 and 4,5? what does GS14 mainly talk?
 :::
