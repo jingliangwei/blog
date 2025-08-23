@@ -735,6 +735,37 @@ This is the paper's central section, where Ward develops a model to handle the m
 
     4.  **Co-orbital Corotation Resonances:** These are also present and are strong (zeroth order in $e$). However, because their pattern speed equals the planet's mean motion ($\Omega_{ps} = \Omega_p$), the term $(\Omega_{ps} - \Omega_p)$ in the fundamental eccentricity equation **(Eq. 1)** is zero. This severely reduces their ability to change eccentricity **(Eq. 69)**. Their effect is much weaker ($∝ 1/m$) than that of co-orbital Lindblad torques ($∝ m$).
 
+::: details Questions about distant & co-orbital
+I:
+>I'm still confused that the Eq(43)(44) obtained from the vertically average the disturbing function Eq.(21), and the Eq(27)(28) also come from Eq.(21), but why the Eq.(43)(44) represent the co-orbital material while the Eq(27)(28) represent the perturber(planet)?
+
+Deepseek:
+>In Ward's paper, both Equation (27)/(28) and Equation (43)/(44) are derived from the vertically averaged disturbing function (Eq. (21)), but they represent different aspects of the disk-planet interaction due to distinct evaluation points and mathematical treatments. Here's a detailed explanation of the difference:
+>
+>**1. Equation (27) and (28): Representing the Perturber's Potential at Distant Resonances**
+>- **Origin:** These equations are derived from Eq. (21) by evaluating the vertically averaged potential at specific resonance locations away from the planet's orbit. For Lindblad resonances (Eq. (27)), the evaluation uses $\alpha = m|1 - \gamma| = 4/3$, which corresponds to the approximate location of Lindblad resonances in a Keplerian disk (where $\gamma = r/a$). Similarly, for corotation resonances (Eq. (28)), $\alpha = 2/3$ is used.
+>- **Physical Meaning:** Eqs. (27) and (28) quantify the strength of the **planet's gravitational potential** as experienced by disk material at these distant resonances. They are used to calculate the torque exerted by the planet on the disk (or vice versa) at these locations. Specifically:
+>  - Eq. (27) gives the forcing function $\langle \Psi_{m-\epsilon,m} \rangle$ for Lindblad resonances, which is used in the torque formula (Eq. (4)).
+>  - Eq. (28) gives the potential amplitude $\langle \phi_{m-\epsilon,m} \rangle$ for corotation resonances, used in the torque formula (Eq. (9)).
+>- **Key Point:** These equations focus on resonances that are not co-orbital; they are interior or exterior to the planet's orbit. Thus, they represent the planet's influence on distant disk material.
+>
+>**2. Equation (43) and (44): Representing the Potential for Co-orbital Material**
+>- **Origin:** These equations are also derived from Eq. (21), but through a different process:
+>  - **Expansion around $r = a$:** The vertically averaged potential is expanded in a Taylor series around the co-orbital point $r = a$ (see Eq. (38)), which includes terms like $\mathcal{F}_0(0, \xi)$, $\mathcal{F}_2(0, \xi)$, and the sign function $\text{sgn}(1-\gamma)$.
+>  - **Fourier Decomposition in Time:** Due to the planet's eccentric motion, the potential varies periodically with the true anomaly $f$. This expansion is Fourier decomposed to isolate components with pattern speeds that resonate with co-orbital material (e.g., $\Omega_p$ for corotation and $\Omega_p \pm \kappa_p/m$ for Lindblad resonances). This decomposition results in the coefficients $A_k$ (given in Appendix A).
+>- **Physical Meaning:** Eqs. (43) and (44) represent the amplitudes of the **gravitational potential components that drive resonances in the co-orbital region**. Specifically:
+>  - Eq. (43) gives $\langle \phi_{m,m} \rangle$ for the co-orbital corotation resonance (pattern speed $\Omega_p$).
+>  - Eq. (44) gives $\langle \phi_{m\pm 1,m} \rangle$ for the co-orbital Lindblad resonances (pattern speeds $\Omega_p \pm \kappa_p/m$).
+>- **Key Point:** These potentials are not directly from the planet; instead, they arise from the disk's response to the planet's gravity. However, in this context, they are derived from the planet's potential but are used to describe how the co-orbital material is forced. The process captures the time-dependent effects due to eccentricity, which are crucial for co-orbital dynamics.
+>
+>**Why the Difference?**
+>- **Evaluation Point:** Eqs. (27)/(28) are evaluated at resonance locations away from $r=a$, while Eqs. (43)/(44) are derived from an expansion at $r=a$.
+>- **Mathematical Treatment:** Eqs. (27)/(28) use a fixed $\alpha$ value based on resonance conditions, whereas Eqs. (43)/(44) involve a Fourier series in time to account for the planet's orbital motion, which is essential for co-orbital material that experiences periodic forcing.
+>- **Physical Context:** The co-orbital region involves material that shares the planet's orbit, so the potential must be handled with care to avoid singularities and include horseshoe dynamics. The Fourier decomposition achieves this by identifying the relevant components for resonance.
+>
+>In summary, while both sets of equations originate from the same disturbing function (Eq. (21)), Eqs. (27)/(28) represent the planet's potential at distant resonances, and Eqs. (43)/(44) represent the potential components that drive resonances in the co-orbital region, derived through a specialized expansion and decomposition. This distinction is crucial for understanding how co-orbital torques differ from distant torques in eccentricity evolution.
+:::
+
 - the formula of $\langle\phi_{m,m}\rangle$:
   $$
   \langle\phi_{m,m}\rangle=\frac{1}{2}A_0\tag{43}
@@ -931,9 +962,9 @@ $$
 :::
 
 ::: tip todo:
-- what's the physical meaning of the parameters $l_s,m_s$ in the Fourier series of gravitational field (Eq.2), and the detailed reason of choose $m_A=l_A=m,m_B=m,l_B=m-1$ ?
-
 - need to confirm that the vertically averaging of $\Psi_{B,m-1,m}$ represents the co-orbital material
+
+- the relation between section 2 and 4,5? what does GS14 mainly talk?
 :::
 
 ### 3 Hydrodynamical simulations
