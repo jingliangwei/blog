@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Group Meeting 25.9.12</title>
+    <meta name="description" content="">
+    <meta name="author" content="Jingliang Wei">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <style>
+        :root {
+            --r-background-color: #051525;
+        }
+        p {
+            font-size: 20px;
+        }
+        ul {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal"><a class="github-corner bottom" href="/blog/work/group_meeting/25-9-12.html" target="blank" title="The Lecture Note">
+            <img src="group_meeting.25-9-12_fig/icon.jpg" alt="Arwell"></a>
+        <div class="slides">
+            <section class="center" data-transition="fade" data-state="hide-menubar hide-menu" data-auto-animate>
+                <h3 data-id="title1">The Satellite/Particle-disc Interaction</h3>
+                <p>韦境量</p>
+                <p>2025.9.12</p>
+            </section>
+            <!-- <section class="center" data-name="TOC" data-sm="false" data-auto-animate>
+                <h3 data-id="title1">Table of contents</h3>
+                <ul class="menu"></ul>
+            </section> -->
+            
+            <!-- background -->
+            <section data-name="background">
+                <section data-auto-animate>
+                    <h2>Background tools (Lecture 3)</h2>
+                    <p data-id="p1" style="font-size:32px;">The local view of orbital dynamics</p>
+                </section>
+                <section data-auto-animate>
+                    <p data-id="p1" style="font-size:32px;">The local view of orbital dynamics</p>
+                    <ul style="font-size: 20px;">
+                        <li>Local coordinates $(x,y)$</li>
+                        <li>The orbital shear rate</li>
+                        <li>The equations of motion in the local view</li>
+                        <li>The family of circular orbits</li>
+                        <li>The general solution of the local equations of motion</li>
+                    </ul>
+                </section>
+                <!-- 1.1 -->
+                <section data-auto-animate>
+                    <p data-id="p1" style="font-size:32px;">The local view of orbital dynamics</p>
+                    <ul style="font-size: 20px;">
+                        <li><strong>Local coordinates $(x,y)$</strong></li>
+                        <p>
+  $$
+  r=r_0+x,\quad\phi=\Omega_0t+\frac{y}{r_0}.
+  $$
+                        </p>
+                        <img src="group_meeting.25-9-12_fig/global-local.png" alt="global-local" style="display: block; width: 50%; margin: auto;">
+                        <li>The orbital shear rate</li>
+                        <li>The equations of motion in the local view</li>
+                        <li>The family of circular orbits</li>
+                        <li>The general solution of the local equations of motion</li>
+                    </ul>
+                </section>
+                <!-- 1.2 -->
+                <section data-auto-animate>
+                    <p data-id="p1" style="font-size:32px;">The local view of orbital dynamics</p>
+                    <ul style="font-size: 20px;">
+                        <li>Local coordinates $(x,y)$</li>
+                        <li><strong>The orbital shear rate</strong></li>
+                        <p>
+  $$
+  S=-r\frac{\mathrm{d}\Omega}{\mathrm{d}r}.
+  $$
+                        </p>
+                        <li>The equations of motion in the local view</li>
+                        <li>The family of circular orbits</li>
+                        <li>The general solution of the local equations of motion</li>
+                    </ul>
+                </section>
+                <!-- 1.3 -->
+                <section data-auto-animate>
+                    <p data-id="p1" style="font-size:32px;">The local view of orbital dynamics</p>
+                    <ul style="font-size: 20px;">
+                        <li>Local coordinates $(x,y)$</li>
+                        <li>The orbital shear rate</li>
+                        <li><strong>The equations of motion in the local view</strong></li>
+                        <p>
+  $$
+  \begin{align}
+  \ddot{x}-2\Omega\dot{y}&=2\Omega Sx, \notag \\
+  \ddot{y}+2\Omega\dot{x}&=0. \notag
+  \end{align}
+  $$
+                        </p>
+                        <li>The family of circular orbits</li>
+                        <li>The general solution of the local equations of motion</li>
+                    </ul>
+                </section>
+                <!-- 1.4 -->
+                <section data-auto-animate>
+                    <p data-id="p1" style="font-size:32px;">The local view of orbital dynamics</p>
+                    <ul style="font-size: 20px;">
+                        <li>Local coordinates $(x,y)$</li>
+                        <li>The orbital shear rate</li>
+                        <li>The equations of motion in the local view</li>
+                        <li><strong>The family of circular orbits</strong></li>
+                        <p>
+  $$
+  x=x_0, \quad \dot{y}=-Sx_0.
+  $$
+                        </p>
+                        <li>The general solution of the local equations of motion</li>
+                    </ul>
+                </section>
+                <!-- 1.5 -->
+                <section data-auto-animate>
+                    <p data-id="p1" style="font-size:32px;">The local view of orbital dynamics</p>
+                    <ul>
+                        <li>Local coordinates $(x,y)$</li>
+                        <li>The orbital shear rate</li>
+                        <li>The equations of motion in the local view</li>
+                        <li>The family of circular orbits</li>
+                        <li><strong>The general solution of the local equations of motion</strong></li>
+                        <p>
+  $$
+  \begin{align}
+  x&=x_0+\text{Re}\left(Ae^{-i\Omega_rt}\right), \notag \\
+  y&=y_0-S_0x_0t+\text{Re}\left(\frac{2\Omega A}{i\Omega_r}e^{-i\Omega_r t}\right). \notag
+  \end{align}
+  $$
+                        </p>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- ch15 -->
+            <section data-name="satellite-disc">
+                <section data-auto-animate>
+                    <h3>Satellite-disc interaction (Lecture 15)</h3>
+                    <img src="group_meeting.25-9-12_fig/simulation.gif" alt="simulation" style="display: block; width: 80%; margin: auto;">
+                </section>
+                <section data-auto-animate>
+                    <h3>Satellite-disc interaction (Lecture 15)</h3>
+                    <ul>
+                        <li>15.1. Lagrange's equations $\dfrac{\mathrm{d}}{\mathrm{d}t}\dfrac{\partial L}{\partial \dot{q}}=\dfrac{\partial L}{\partial q}$ $\rightarrow$ 
+$
+\left\{\begin{array}{l}
+x=x_0+\text{Re}\left(Ae^{-i\Omega_r t}\right), \\
+y=y_0-Sx_0t+\text{Re}\left(\dfrac{2\Omega A}{i\Omega_r}e^{-i\Omega_r t}\right)
+\end{array}\right.
+$ <br/> $\rightarrow$ $p_y(\Omega_r),A$ $\rightarrow$ 
+$\ \dot{p}_y,\dot{A}\sim\Psi,\ \varepsilon$
+</li>
+<li>15.2. $\Psi$ $\rightarrow$ $\Delta A\propto x_0^{-3},\Delta p_y\propto x_0^{-5}$</li>
+<li>15.3. another approximation $\Delta v_\parallel\propto x_0^{-5}$</li>
+<li><del>16.1</del> 15.4. the force/torque</li>
+                    </ul>
+                </section>
+            </section>
+            
+            <!-- section 15.1 -->
+            <section data-name="ch15.1">
+                <!-- 15.1 a -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(a) The eqaution of motion in local view</p>
+                    <p data-id="eq1">
+  $$
+  \begin{align}
+  \ddot{x}-2\Omega\dot{y}&=2\Omega Sx-\frac{\partial\Psi}{\partial x},\notag \\
+  \ddot{y}+2\Omega\dot{x}&=-\frac{\partial\Psi}{\partial y},\notag
+  \end{align}
+  \quad\Psi(x,y)=-\frac{GM_s}{\sqrt{x^2+y^2}}.
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(a) The eqaution of motion in local view</p>
+                    <p data-id="eq1" style="font-size:16px;">
+  $$
+  \begin{align}
+  \ddot{x}-2\Omega\dot{y}&=2\Omega Sx-\frac{\partial\Psi}{\partial x},\notag \\
+  \ddot{y}+2\Omega\dot{x}&=-\frac{\partial\Psi}{\partial y},\notag
+  \end{align}
+  \quad\Psi(x,y)=-\frac{GM_s}{\sqrt{x^2+y^2}}.
+  $$
+                    </p>
+                    <hr data-id="hr1">
+                    <p>
+  $$
+  \begin{align}
+  L&=\frac{1}{2}\left(\dot{r}^2+r^2\dot{\phi}^2\right)-\underbrace{\Phi(r)}_{\text{centrifugal potential}}-\underbrace{\Psi(r\cos\phi,r\sin\phi)}_{\text{from satellite}}\notag \\
+  &=\frac{1}{2}\left(\dot{x}^2+(r_0+x)^2\left(\Omega_0+\frac{\dot{y}}{r_0}\right)^2\right)-\Phi(r_0+x)-\Psi(x,y),\notag
+  \end{align}
+  $$
+                    </p>
+                    <p>
+  $$
+  L=L_0+L_1+L_2+...,
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(a) The eqaution of motion in local view</p>
+                    <p data-id="eq1" style="font-size:16px;">
+  $$
+  \begin{align}
+  \ddot{x}-2\Omega\dot{y}&=2\Omega Sx-\frac{\partial\Psi}{\partial x},\notag \\
+  \ddot{y}+2\Omega\dot{x}&=-\frac{\partial\Psi}{\partial y},\notag
+  \end{align}
+  \quad\Psi(x,y)=-\frac{GM_s}{\sqrt{x^2+y^2}}.
+  $$
+                    </p>
+                    <hr data-id="hr1">
+                    <p>
+  $$
+  \begin{align}
+  L_0&=\frac{1}{2}r_0^2\Omega_0^2-\Phi_0=\text{constant},\notag \\
+  L_1&=r_0\Omega_0\dot{y}+(r_0\Omega_0^2-\partial_r\Phi|_{(0,0)})x=r_0\Omega_0\dot{y}=\frac{\mathrm{d}}{\mathrm{d}t}(r_0\Omega_0y),\notag \\
+  L_2&=\frac{1}{2}\left(\dot{x}^2+\dot{y}^2\right)+2\Omega_0x\dot{y}+\frac{1}{2}\Omega_0^2x^2-\frac{1}{2}\partial^2_{rr}\Phi|_{(0,0)}x^2-\Psi(x,y).\notag
+  \end{align}
+  $$
+                    </p>
+                    <p data-id="eq2">
+  $$
+  \partial_r\Phi|_{(0,0)}=r_0\Omega_0^2\quad\Rightarrow\quad\partial^2_{rr}\Phi|_{(0,0)}=\Omega_0^2-2\Omega_0 S_0,
+  $$
+  $$
+  \Rightarrow L_2=\frac{1}{2}\left(\dot{x}^2+\dot{y}^2\right)+2\Omega_0x\dot{y}+\Omega_0 S_0x^2-\Psi(x,y).
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(a) The eqaution of motion in local view</p>
+                    <p data-id="eq1" style="font-size:16px;">
+  $$
+  \begin{align}
+  \ddot{x}-2\Omega\dot{y}&=2\Omega Sx-\frac{\partial\Psi}{\partial x},\notag \\
+  \ddot{y}+2\Omega\dot{x}&=-\frac{\partial\Psi}{\partial y},\notag
+  \end{align}
+  \quad\Psi(x,y)=-\frac{GM_s}{\sqrt{x^2+y^2}}.
+  $$
+                    </p>
+                    <hr data-id="hr1">
+                    <p data-id="eq2">
+  $$
+  L_2=\frac{1}{2}\left(\dot{x}^2+\dot{y}^2\right)+2\Omega_0x\dot{y}+\Omega_0 S_0x^2-\Psi(x,y).
+  $$
+                    </p>
+                    <p>
+  $$
+  \begin{align}
+  \ddot{x}&=2\Omega_0\dot{y}+2\Omega_0 S_0x-\frac{\partial\Psi}{\partial x},\notag \\
+  \ddot{y}+2\Omega_0\dot{x}&=-\frac{\partial\Psi}{\partial y}.\notag
+  \end{align}
+  $$
+                    </p>
+                </section>
+
+                <!-- 15.1 b -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(b) Express $\Omega_r$ and $A$ in terms of position and velocity:</p>
+                    <p data-id="eq3">
+  $$
+  \begin{align}
+  p_y&=\frac{\Omega_r^2}{2\Omega}x_0,\notag \\
+  A&=\left[-\frac{2\Omega}{\Omega_r^2}(\dot{y}+Sx)+\frac{i\dot{x}}{\Omega_r}\right]e^{i\Omega_r t}.\notag
+  \end{align}
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(b) Express $\Omega_r$ and $A$ in terms of position and velocity:</p>
+                    <p data-id="eq3" style="font-size:16px;">
+  $$
+  \begin{align}
+  p_y&=\frac{\Omega_r^2}{2\Omega}x_0,\notag \\
+  A&=\left[-\frac{2\Omega}{\Omega_r^2}(\dot{y}+Sx)+\frac{i\dot{x}}{\Omega_r}\right]e^{i\Omega_r t}.\notag
+  \end{align}
+  $$
+                    </p>
+                    <hr data-id="hr2">
+                    <p>
+  $$
+  \left\{\begin{array}{l}
+  x=x_0+\text{Re}\left(Ae^{-i\Omega_r t}\right),\notag \\
+  y=y_0-Sx_0t+\text{Re}\left(\dfrac{2\Omega A}{i\Omega_r}e^{-i\Omega_r t}\right).\notag
+  \end{array}\right.
+  $$
+                    </p>
+                    <p>
+  $$
+  \Rightarrow\left\{\begin{array}{l}
+  \dot{x}=\text{Re}\left(-i\Omega_rAe^{-i\Omega_rt}\right)=\Omega_r\text{Im}\left(Ae^{-i\Omega_rt}\right),\notag \\
+  \begin{align}
+  \dot{y}&=-Sx_0-2\Omega\text{Re}\left(Ae^{-i\Omega_rt}\right)\notag \\
+  &=-Sx-(2\Omega-S)\text{Re}\left(Ae^{-i\Omega_rt}\right).\notag
+  \end{align}
+  \end{array}\right.
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(b) Express $\Omega_r$ and $A$ in terms of position and velocity:</p>
+                    <p data-id="eq3" style="font-size:16px;">
+  $$
+  \begin{align}
+  p_y&=\frac{\Omega_r^2}{2\Omega}x_0,\notag \\
+  A&=\left[-\frac{2\Omega}{\Omega_r^2}(\dot{y}+Sx)+\frac{i\dot{x}}{\Omega_r}\right]e^{i\Omega_r t}.\notag
+  \end{align}
+  $$
+                    </p>
+                    <hr data-id="hr2">
+                    <p>
+  $$
+  \begin{align}
+  p_y&=\frac{\partial L_2}{\partial \dot{y}}=\dot{y}+2\Omega x\notag \\
+  &=-Sx_0-2\Omega\text{Re}\left(Ae^{-i\Omega_r t}\right)+2\Omega\left(x_0+\text{Re}\left(Ae^{-i\Omega_r t}\right)\right)=(2\Omega-S)x_0,\notag
+  \end{align}
+  $$
+  $\Omega_r^2=2\Omega(2\Omega-S)$
+  $$
+  \Rightarrow p_y=\frac{\Omega_r^2}{2\Omega}x_0.
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(b) Express $\Omega_r$ and $A$ in terms of position and velocity:</p>
+                    <p data-id="eq3" style="font-size:16px;">
+  $$
+  \begin{align}
+  p_y&=\frac{\Omega_r^2}{2\Omega}x_0,\notag \\
+  A&=\left[-\frac{2\Omega}{\Omega_r^2}(\dot{y}+Sx)+\frac{i\dot{x}}{\Omega_r}\right]e^{i\Omega_r t}.\notag
+  \end{align}
+  $$
+                    </p>
+                    <hr data-id="hr2">
+                    <p>
+  $$
+  \begin{align}
+  Ae^{-i\Omega_rt}&=\text{Re}\left(Ae^{-i\Omega_rt}\right)+i\text{Im}\left(Ae^{-i\Omega_rt}\right)\notag \\
+  &=-\frac{\left(\dot{y}+Sx\right)}{(2\Omega-S)}+\frac{i\dot{x}}{\Omega_r}\notag
+  \end{align}
+  $$
+  $$
+  \Rightarrow A=\left[-\frac{2\Omega}{\Omega_r^2}\left(\dot{y}+Sx\right)+\frac{i\dot{x}}{\Omega_r}\right]e^{i\Omega_rt}.
+  $$
+                    </p>
+                </section>
+
+                <!-- 15.1 c -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(c) The excitation by a satellite</p>
+                    <p data-id="eq4">
+  $$
+  \begin{align}
+  \dot{p}_y&=-\frac{\partial\Psi}{\partial y},\notag \\
+  \varepsilon+\Psi&=\text{constant},\notag \\
+  \dot{A}&=\left(\frac{2\Omega}{\Omega_r^2}\frac{\partial\Psi}{\partial y}-\frac{i}{\Omega_r}\frac{\partial\Psi}{\partial x}\right)e^{i\Omega_r t},\notag
+  \end{align}
+  $$
+  $$
+  \varepsilon=\frac{1}{2}\Omega_r^2|A|^2-\frac{\Omega S}{\Omega_r^2}p_y^2.
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(c) The excitation by a satellite</p>
+                    <p data-id="eq4" style="font-size:16px;">
+  $$
+  \begin{align}
+  \dot{p}_y&=-\frac{\partial\Psi}{\partial y},\notag \\
+  \varepsilon+\Psi&=\text{constant},\notag \\
+  \dot{A}&=\left(\frac{2\Omega}{\Omega_r^2}\frac{\partial\Psi}{\partial y}-\frac{i}{\Omega_r}\frac{\partial\Psi}{\partial x}\right)e^{i\Omega_r t},\notag
+  \end{align}
+  \quad\varepsilon=\frac{1}{2}\Omega_r^2|A|^2-\frac{\Omega S}{\Omega_r^2}p_y^2.
+  $$
+                    </p>
+                    <hr data-id="hr3">
+                    <p>
+    $$
+    \dot{A}=\left[-\frac{2\Omega}{\Omega_r^2}\left(\ddot{y}+S\dot{x}\right)+\frac{i\ddot{x}}{\Omega_r}-\frac{2i\Omega}{\Omega_r}\left(\dot{y}+Sx\right)-\dot{x}\right]e^{i\Omega_rt},
+    $$
+    $\Omega_r^2=4\Omega^2-2\Omega S$
+    $$
+    \begin{align}
+    \dot{A}&=\left[-\frac{2\Omega}{\Omega_r^2}\left(\ddot{y}+2\Omega\dot{x}\right)+\frac{i}{\Omega_r}\left(\ddot{x}-2\Omega\dot{y}-2\Omega Sx\right)\right]e^{i\Omega_rt},\notag \\
+    &=\left(\frac{2\Omega}{\Omega_r^2}\frac{\partial\Psi}{\partial y}-\frac{i}{\Omega_r}\frac{\partial\Psi}{\partial x}\right)e^{i\Omega_r t}.\notag
+    \end{align}
+    $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(c) The excitation by a satellite</p>
+                    <p data-id="eq4" style="font-size:16px;">
+  $$
+  \begin{align}
+  \dot{p}_y&=-\frac{\partial\Psi}{\partial y},\notag \\
+  \varepsilon+\Psi&=\text{constant},\notag \\
+  \dot{A}&=\left(\frac{2\Omega}{\Omega_r^2}\frac{\partial\Psi}{\partial y}-\frac{i}{\Omega_r}\frac{\partial\Psi}{\partial x}\right)e^{i\Omega_r t},\notag
+  \end{align}
+  \quad\varepsilon=\frac{1}{2}\Omega_r^2|A|^2-\frac{\Omega S}{\Omega_r^2}p_y^2.
+  $$
+                    </p>
+                    <hr data-id="hr3">
+                    <p>
+    $$
+    \varepsilon=\frac{1}{2}\left(\dot{x}^2+\dot{y}^2\right)-\Omega Sx^2
+    $$
+    $$
+    \Omega_rA=\left[-\frac{2\Omega}{\Omega_r}\left(\dot{y}+Sx\right)+i\dot{x}\right]e^{i\Omega_rt}
+    $$
+                    </p>
+                    <p data-id="eq5">
+    $$
+    \begin{align}
+    \Omega_r^2|A|^2&=\dot{x}^2+\frac{4\Omega^2}{\Omega_r^2}\left(\dot{y}+Sx\right)^2\notag \\
+    &=2\varepsilon-\dot{y}^2+2\Omega Sx^2+\frac{4\Omega^2}{\Omega_r^2}\left(\dot{y}+Sx\right)^2\notag \\
+    &=2\varepsilon+\frac{2\Omega S}{\Omega_r^2}\dot{y}^2+\frac{8\Omega^2S}{\Omega_r^2}\dot{y}x+\frac{8\Omega^3S}{\Omega_r^2}x^2\notag \\
+    &=2\varepsilon+\frac{2\Omega S}{\Omega_r^2}\left(\dot{y}+2\Omega x\right)^2\notag
+    \end{align}
+    $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.1 Excitation of epicyclic motion by a satellite</h4>
+                    <p>(c) The excitation by a satellite</p>
+                    <p data-id="eq4" style="font-size:16px;">
+  $$
+  \begin{align}
+  \dot{p}_y&=-\frac{\partial\Psi}{\partial y},\notag \\
+  \varepsilon+\Psi&=\text{constant},\notag \\
+  \dot{A}&=\left(\frac{2\Omega}{\Omega_r^2}\frac{\partial\Psi}{\partial y}-\frac{i}{\Omega_r}\frac{\partial\Psi}{\partial x}\right)e^{i\Omega_r t},\notag
+  \end{align}
+  \quad\varepsilon=\frac{1}{2}\Omega_r^2|A|^2-\frac{\Omega S}{\Omega_r^2}p_y^2.
+  $$
+                    </p>
+                    <hr data-id="hr3">
+                    <p data-id="eq5">
+    $$
+    \begin{align}
+    \Omega_r^2|A|^2&=\dot{x}^2+\frac{4\Omega^2}{\Omega_r^2}\left(\dot{y}+Sx\right)^2\notag \\
+    &=2\varepsilon-\dot{y}^2+2\Omega Sx^2+\frac{4\Omega^2}{\Omega_r^2}\left(\dot{y}+Sx\right)^2\notag \\
+    &=2\varepsilon+\frac{2\Omega S}{\Omega_r^2}\dot{y}^2+\frac{8\Omega^2S}{\Omega_r^2}\dot{y}x+\frac{8\Omega^3S}{\Omega_r^2}x^2\notag \\
+    &=2\varepsilon+\frac{2\Omega S}{\Omega_r^2}\left(\dot{y}+2\Omega x\right)^2\notag
+    \end{align}
+    $$
+                    </p>
+                    <p>
+    $$
+    \Rightarrow\varepsilon=\frac{1}{2}\Omega_r^2|A|^2-\frac{\Omega S}{\Omega_r^2}p_y^2
+    $$
+                    </p>
+                </section>
+            </section>
+
+            <!-- section 15.2 -->
+            <section data-name="ch15.2">
+                <!-- 15.2 a -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>15.2 The Perturbation</h4>
+                    <p>(a) The change of amplitude $\Delta A$</p>
+                    <p data-id="eq6">
+  $$
+  \Delta A=-iC\frac{GM_s}{\Omega_rSx_0^2}
+  $$
+  $$
+  C=f\left(\frac{\Omega_r}{S}\right)-\frac{2\Omega}{\Omega_r}f'\left(\frac{\Omega_r}{S}\right)
+  $$
+  $$
+  f(k)=\int_{-\infty}^\infty\left(1+x^2\right)^{-3/2}\cos kx\mathrm{d}x=2kK_1(k)\quad(k>0)
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.2 The Perturbation</h4>
+                    <p>(a) The change of amplitude $\Delta A$</p>
+                    <p data-id="eq6" style="font-size:16px;">
+  $$
+  \Delta A=-iC\frac{GM_s}{\Omega_rSx_0^2}
+  \quad\quad C=f\left(\frac{\Omega_r}{S}\right)-\frac{2\Omega}{\Omega_r}f'\left(\frac{\Omega_r}{S}\right)
+  $$
+  $$
+  f(k)=\int_{-\infty}^\infty\left(1+x^2\right)^{-3/2}\cos kx\mathrm{d}x=2kK_1(k)\quad(k>0)
+  $$
+                    </p>
+                    <hr data-id="hr4">
+                    <p>
+  $$
+  x=x_0=\text{constant},\quad y=-Sx_0t.
+  $$
+  $\Psi=-GM_s\left(x^2+y^2\right)^{-1/2}$
+                    </p>
+                    <p data-id="eq7">
+  $$
+  \begin{align}
+  \dot{A}&=\left(\frac{2\Omega}{\Omega_r^2}\frac{\partial\Psi}{\partial y}-\frac{i}{\Omega_r}\frac{\partial\Psi}{\partial x}\right)e^{i\Omega_rt}\notag \\
+  &=GM_s\left(x^2+y^2\right)^{-3/2}\left(\frac{2\Omega y}{\Omega_r^2}-\frac{ix}{\Omega_r}\right)e^{i\Omega_r t}\notag \\
+  &\approx-i\frac{GM_s}{\Omega_rx_0^2}\left(1+S^2t^2\right)^{-3/2}\left(1-i\frac{2\Omega}{\Omega_r}St\right)e^{i\Omega_rt},\notag
+  \end{align}
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.2 The Perturbation</h4>
+                    <p>(a) The change of amplitude $\Delta A$</p>
+                    <p data-id="eq6" style="font-size:16px;">
+  $$
+  \Delta A=-iC\frac{GM_s}{\Omega_rSx_0^2}
+  \quad\quad C=f\left(\frac{\Omega_r}{S}\right)-\frac{2\Omega}{\Omega_r}f'\left(\frac{\Omega_r}{S}\right)
+  $$
+  $$
+  f(k)=\int_{-\infty}^\infty\left(1+x^2\right)^{-3/2}\cos kx\mathrm{d}x=2kK_1(k)\quad(k>0)
+  $$
+                    </p>
+                    <hr data-id="hr4">
+                    <p data-id="eq7">
+  $$
+  \begin{align}
+  \dot{A}&=\left(\frac{2\Omega}{\Omega_r^2}\frac{\partial\Psi}{\partial y}-\frac{i}{\Omega_r}\frac{\partial\Psi}{\partial x}\right)e^{i\Omega_rt}\notag \\
+  &=GM_s\left(x^2+y^2\right)^{-3/2}\left(\frac{2\Omega y}{\Omega_r^2}-\frac{ix}{\Omega_r}\right)e^{i\Omega_r t}\notag \\
+  &\approx-i\frac{GM_s}{\Omega_rx_0^2}\left(1+S^2t^2\right)^{-3/2}\left(1-i\frac{2\Omega}{\Omega_r}St\right)e^{i\Omega_rt},\notag
+  \end{align}
+  $$
+                    </p>
+                    <p>
+  $$
+  \begin{align}
+  \Delta A&=\int_{-\infty}^\infty\dot{A}\mathrm{d}t\notag \\
+  &=-i\frac{GM_s}{\Omega_rx_0^2}\int_{-\infty}^\infty\left(1+S^2t^2\right)^{-3/2}\left(\cos\Omega_rt+\frac{2\Omega}{\Omega_r}St\sin\Omega_rt\right)\mathrm{d}t.\notag
+  \end{align}
+  $$
+                    </p>
+                </section>
+
+                <!-- 15.2 b -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>15.2 The Perturbation</h4>
+                    <p>(b) The change of $y$-momentum $\Delta p_y$</p>
+                    <p data-id="eq8">
+  $$
+  \Delta p_y=\frac{\left(CGM_s\right)^2}{2S^3x_0^5}.
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.2 The Perturbation</h4>
+                    <p>(b) The change of $y$-momentum $\Delta p_y$</p>
+                    <p data-id="eq8" style="font-size:16px;">
+  $$
+  \Delta p_y=\frac{\left(CGM_s\right)^2}{2S^3x_0^5}.
+  $$
+                    </p>
+                    <hr data-id="hr5">
+                    <p>
+  Long before and after the encounter, $\Psi\rightarrow0$. $\Rightarrow\Delta\varepsilon=0$
+  $$
+  \varepsilon=\frac{1}{2}\Omega_r^2|A|^2-\frac{\Omega S}{\Omega_r^2}p_y^2
+  $$
+                    </p>
+                    <p data-id="eq9">
+  $$
+  \Rightarrow\Delta\left(p_y^2\right)=\frac{\Omega_r^4}{2\Omega S}\Delta\left(|A|^2\right).
+  $$
+                    </p>
+                    <p>
+  $$
+  A=0,\quad p_y=\frac{\Omega_r^2}{2\Omega}x_0.
+  $$
+  $$
+  A\approx-iC\frac{GM_s}{\Omega_rSx_0^2},
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.2 The Perturbation</h4>
+                    <p>(b) The change of $y$-momentum $\Delta p_y$</p>
+                    <p data-id="eq8" style="font-size:16px;">
+  $$
+  \Delta p_y=\frac{\left(CGM_s\right)^2}{2S^3x_0^5}.
+  $$
+                    </p>
+                    <hr data-id="hr5">
+                    <p data-id="eq9">
+  $$
+  \Delta\left(p_y^2\right)=\frac{\Omega_r^4}{2\Omega S}\Delta\left(|A|^2\right).
+  $$
+                    </p>
+                    <p>
+  $$
+  \Delta\left(p_y^2\right)\approx 2p_y\Delta p_y=2\frac{\Omega_r^2}{2\Omega}x_0\Delta p_y=\frac{\Omega_r^4}{2\Omega S}\left(C\frac{GM_s}{\Omega_rSx_0^2}\right)^2
+  $$
+  $$
+  \Rightarrow\Delta p_y=\frac{\left(CGM_s\right)^2}{2S^3x_0^5}.
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.2 The Perturbation</h4>
+                    <p data-id="eq8" style="font-size:16px;">
+  $$
+  \Delta A=-iC\frac{GM_s}{\Omega_rSx_0^2} \quad\quad
+  \Delta p_y=\frac{\left(CGM_s\right)^2}{2S^3x_0^5}.
+  $$
+                    </p>
+                    <img src="group_meeting.25-9-12_fig/simulation.png" alt="simulation" style="display: block; width: 60%; margin: auto;">
+                </section>
+            </section>
+
+            <!-- section 15.3 -->
+            <section data-name="ch15.3">
+                <!-- 15.3 a -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>15.3 Impulse approximation</h4>
+                    <p>the change of $y$-velocity $\Delta v_\parallel$</p>
+                    <p data-id="eq10">
+  $$
+  \Delta v_\parallel\approx-\frac{(GM_s)^2}{2S^3x_0^5}
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.3 Impulse approximation</h4>
+                    <p>the change of $y$-velocity $\Delta v_\parallel$</p>
+                    <p data-id="eq10" style="font-size:16px;">
+  $$
+  \Delta v_\parallel\approx-\frac{(GM_s)^2}{2S^3x_0^5}
+  $$
+                    </p>
+                    <hr data-id="hr6">
+                    <p>
+  $$
+  v_\parallel=Sx_0
+  $$
+  $$
+  \Delta v_\perp\approx\frac{GM_s}{x_0^2}\frac{1}{S} \quad\text{(acceleration}\times\text{time)}
+  $$
+  $$
+  \Delta\left(v_\perp^2\right)+\Delta(v_\parallel^2)=0 \quad\text{(conservation of energy)}
+  $$
+  $$
+  \left(\frac{GM_s}{Sx_0^2}\right)^2+2Sx_0\Delta v_\parallel\approx0
+  $$
+  $$
+  \Rightarrow\Delta v_\parallel\approx-\frac{(GM_s)^2}{2S^3x_0^5}
+  $$
+                    </p>
+                </section>
+            </section>
+
+            <!-- section 16.1 -->
+            <section data-name="ch16.1">
+                <!-- 16.1 a -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4><del>16.1</del> 15.4 Satellite-disc torques</h4>
+                    <p>The $y$ component of the force on the disc, per unit $x$, at location $x$</p>
+                    <p data-id="eq11">
+  $$
+  F_y(x)=\frac{(CGM_s)^2}{2S^3x^5}\cdot\Sigma\cdot|Sx|\propto x^{-4}\text{sgn}(x).
+  $$
+                    </p>
+                    <p>The torque per unit radius is the same $\times r_0$. The satellite experiences an equal and opposite torque.</p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.4 Satellite-disc torques</h4>
+                    <p>The $y$ component of the force on the disc, per unit $x$, at location $x$</p>
+                    <p data-id="eq11">
+  $$
+  F_y(x)=\frac{(CGM_s)^2}{2S^3x^5}\cdot\Sigma\cdot|Sx|\propto x^{-4}\text{sgn}(x).
+  $$
+                    </p>
+                    <hr data-id="hr6">
+                    <p>
+  $$
+  F_y=\frac{\Delta p}{\Delta t}=\Delta p_y\times\text{surface density}\times\text{encounter rate}
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>15.4 Satellite-disc torques</h4>
+                    <p>The $y$ component of the force on the disc, per unit $x$, at location $x$</p>
+                    <p data-id="eq11">
+  $$
+  F_y(x)=\frac{(CGM_s)^2}{2S^3x^5}\cdot\Sigma\cdot|Sx|\propto x^{-4}\text{sgn}(x).
+  $$
+                    </p>
+                    <p>The torque per unit radius is the same $\times r_0$. The satellite experiences an equal and opposite torque.</p>
+                    <hr data-id="hr6">
+                    <ul>
+                        <li>The effect is of second order in $M_s$</li>
+                        <li>Angular-momentum transport is outward</li>
+                        <li>The one-sided torque leads to gap opening if $M_s$ is large enough and $\nu$ small enough</li>
+                        <li>Asymmetries between inner and outer torques lead to a net torque on the satellite and to migration</li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- ch16 -->
+            <section data-name="particle-disc">
+                <section data-auto-animate>
+                    <h3>Particle-disc interaction (Lecture 16)</h3>
+                </section>
+                <section data-auto-animate>
+                    <h3>Particle-disc interaction (Lecture 16)</h3>
+                    <ul>
+                        <li>16.2. drag force, acceleration $\gamma$</li>
+                        <li>16.3. zonal flow $v_y(x)$ $\rightarrow$ drift $w_x,w_y$</li>
+                        <li>16.4. the equation of motion + the flow inside an equilibrium elliptical vortex patch $\rightarrow$ the requirement of trapping $r>3$</li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- ch16.2 -->
+            <section data-name="ch16.2">
+                <!-- 16.2 a -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>16.2 Drag forces on particles</h4>
+                    <p class="text-left">(a) A particle of mass $m$ with velocity $\dot{\boldsymbol{x}}$ moving in a gas with velocity $\boldsymbol{u}(\boldsymbol{x},t)$ experiences a relative wind velocity $\boldsymbol{u}-\dot{\boldsymbol{x}}$ and a drag force</p>
+  <p>
+  $$
+  \boldsymbol{F}=k(\boldsymbol{u}-\dot{\boldsymbol{x}}).
+  $$
+  </p>
+  <p class="text-left">
+  For subsonic relative motion ( $|\boldsymbol{u}-\dot{\boldsymbol{x}}|\ll v_s$ ), the coefficient $k$ can be regarded as independent of the relative velocity if either<br/>
+  - the size of the particle is small compared to the mean free path of the gas (the kinetic regime, <q>Epstein drag</q>), or<br/>
+  - the Reynolds number of the relative motion is small, resulting in a laminar fluid flow around it (the laminar hydrodynamic regime, <q>Stokes drag</q>).
+</p>
+                </section>
+                <!-- 16.2 b -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>16.2 Drag forces on particles</h4>
+                    <p class="text-left">(b) The acceleration of the particle due to drag can then be written as
+  $$
+  \frac{\boldsymbol{F}}{m}=\gamma(\boldsymbol{u}-\dot{\boldsymbol{x}})=\frac{\boldsymbol{u}-\dot{\boldsymbol{x}}}{t_s},
+  $$
+  where $t_s=m/k$ is the <q>stopping time</q> and $\gamma=1/t_s$. The stopping time is an increasing function of particle size.
+</p>
+                </section>
+            </section>
+
+            <!-- ch16.3 -->
+            <section data-name="ch16.3">
+                <!-- 16.3 a -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>16.3 Radial drift</h4>
+                    <p class="text-left">(a) In the local approximation, the equation of motion of a solid particle is
+  $$
+  \begin{align}
+  \ddot{x}-2\Omega\dot{y}&=2\Omega Sx+\gamma(u_x-\dot{x}),\notag \\
+  \ddot{y}+2\Omega\dot{x}&=\gamma(u_y-\dot{y}),\notag \\
+  \ddot{z}&=-\Omega_z^2z+\gamma(u_z-\dot{z}).\notag
+  \end{align}
+  $$
+  If we take the gas velocity to be the orbital shear flow $\boldsymbol{u}=-Sx\boldsymbol{e}_y$, then the equations are linear. Both the horizontal (epicyclic) and vertical oscillations of the particle are damped. (The amplitude of the oscillations decays $\propto e^{-\gamma t}$ )
+</p>
+                </section>
+                <section data-auto-animate>
+                    <h4>16.3 Radial drift</h4>
+                    <p class="text-left">(a) In the local approximation, the equation of motion of a solid particle is
+  $$
+  \begin{align}
+  \ddot{x}-2\Omega\dot{y}&=2\Omega Sx+\gamma(u_x-\dot{x}),\notag \\
+  \ddot{y}+2\Omega\dot{x}&=\gamma(u_y-\dot{y}),\notag \\
+  \ddot{z}&=-\Omega_z^2z+\gamma(u_z-\dot{z}).\notag
+  \end{align}
+  $$
+  If we take the gas velocity to be the orbital shear flow $\boldsymbol{u}=-Sx\boldsymbol{e}_y$, then the equations are linear. Both the horizontal (epicyclic) and vertical oscillations of the particle are damped. (The amplitude of the oscillations decays $\propto e^{-\gamma t}$ )
+</p>
+                    <hr data-id="hr7">
+                    <p>
+  $$
+  \begin{align}
+  &\ddot{x}+\Omega_r^2 x=2\Omega p_y\notag \\
+  \rightarrow \quad&\ddot{x}-\gamma\dot{x}+\Omega_r^2x=2\Omega p_y\notag
+  \end{align}
+  $$
+                    </p>
+                </section>
+                <!-- 16.3 b -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>16.3 Radial drift</h4>
+                    <p>(b) The velocity of particle's drift</p>
+                    <p data-id="eq12">
+  $$
+  w_x=\left(\frac{\text{St}}{1+\text{St}^2}\right)\frac{1}{\Omega_r}\frac{1}{\Sigma}\frac{\partial P}{\partial x},\quad w_y=\frac{v_y}{1+\text{St}^2}.
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>16.3 Radial drift</h4>
+                    <p>(b) The velocity of particle's drift</p>
+                    <p data-id="eq12" style="font-size:16px;">
+  $$
+  w_x=\left(\frac{\text{St}}{1+\text{St}^2}\right)\frac{1}{\Omega_r}\frac{1}{\Sigma}\frac{\partial P}{\partial x},\quad w_y=\frac{v_y}{1+\text{St}^2}.
+  $$
+                    </p>
+                    <hr data-id="hr8">
+                    <p>
+  $$
+  \boldsymbol{u}=[-Sx+v_y(x)]\boldsymbol{e}_y.
+  $$
+  $$
+  -2\Omega v_y=-\frac{1}{\Sigma}\frac{\partial P}{\partial x}.
+  $$
+  $$
+  \dot{\boldsymbol{x}}=-Sx\boldsymbol{e}_y+\boldsymbol{w}.
+  $$
+                    </p>
+                    <p data-id="eq13">
+  $$
+  \left\{
+  \begin{align}
+  \dot{w}_x-2\Omega w_y&=\gamma(-w_x),\notag \\
+  \dot{w}_y+(2\Omega-S)w_x&=\gamma(v_y-w_y),\notag \\
+  \dot{w}_z&=-\Omega_z^2z+\gamma(-w_z).\notag \\
+  \end{align}
+  \right.
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>16.3 Radial drift</h4>
+                    <p>(b) The velocity of particle's drift</p>
+                    <p data-id="eq12" style="font-size:16px;">
+  $$
+  w_x=\left(\frac{\text{St}}{1+\text{St}^2}\right)\frac{1}{\Omega_r}\frac{1}{\Sigma}\frac{\partial P}{\partial x},\quad w_y=\frac{v_y}{1+\text{St}^2}.
+  $$
+                    </p>
+                    <hr data-id="hr8">
+                    <p data-id="eq13">
+  $$
+  \left\{
+  \begin{align}
+  \dot{w}_x-2\Omega w_y&=\gamma(-w_x),\notag \\
+  \dot{w}_y+(2\Omega-S)w_x&=\gamma(v_y-w_y),\notag \\
+  \dot{w}_z&=-\Omega_z^2z+\gamma(-w_z).\notag \\
+  \end{align}
+  \right.
+  $$
+                    </p>
+                    <p>
+  A steady solution for the dust velocity is given by $w_z=z=0$
+  $$
+  \begin{align}
+  -2\Omega w_y&=-\gamma w_x,\notag \\
+  (2\Omega-S)w_x&=\gamma(v_y-w_y),\notag \\
+  \end{align}
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>16.3 Radial drift</h4>
+                    <p>(b) The velocity of particle's drift</p>
+                    <p data-id="eq12" style="font-size:16px;">
+  $$
+  w_x=\left(\frac{\text{St}}{1+\text{St}^2}\right)\frac{1}{\Omega_r}\frac{1}{\Sigma}\frac{\partial P}{\partial x},\quad w_y=\frac{v_y}{1+\text{St}^2}.
+  $$
+                    </p>
+                    <hr data-id="hr8">
+                    <p>
+  $$
+  w_x=\left(\frac{2\Omega\gamma}{\gamma^2+\Omega_r^2}\right)v_y,\quad w_y=\left(\frac{\gamma^2}{\gamma^2+\Omega_r^2}\right)v_y.
+  $$
+  $$
+  \text{St}=\Omega_r t_s=\frac{\Omega_r}{\gamma},
+  $$
+  $$
+  w_x=\left(\frac{\text{St}}{1+\text{St}^2}\right)\frac{1}{\Omega_r}\frac{1}{\Sigma}\frac{\partial P}{\partial x},\quad w_y=\frac{v_y}{1+\text{St}^2}.
+  $$
+                    </p>
+                </section>
+            </section>
+
+            <!-- ch16.4 -->
+            <section data-name="ch16.4">
+                <!-- 16.4 a -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>16.4 Trapping of dust in a vortex</h4>
+                    <p class="text-left">(a) The flow inside an equilibrium elliptical vortex patch of aspect ratio $r=a/b$ and strength $\zeta_0$
+  $$
+  \boldsymbol{u}=A\left(\frac{y}{r},-rx\right),\quad A=\frac{S}{r-1},\quad\frac{\zeta_0}{S}=-\frac{(r+1)}{r(r-1)}.
+  $$
+                    </p>
+                </section>
+
+                <!-- 16.4 b -->
+                <section data-auto-animate data-background="radial-gradient(circle, #2c1644, #051525)">
+                    <h4>16.4 Trapping of dust in a vortex</h4>
+                    <p class="text-left">(b) Vortices of shapes that satisfy $-\Omega_r^2<\Omega\zeta_0<-A^2$ ( $r>3$ for a Keplerian disc) trap particles of all sizes.</p>
+                </section>
+                <section data-auto-animate>
+                    <h4>16.4 Trapping of dust in a vortex</h4>
+                    <p class="text-left">(b) Vortices of shapes that satisfy $-\Omega_r^2<\Omega\zeta_0<-A^2$ ( $r>3$ for a Keplerian disc) trap particles of all sizes.</p>
+                    <hr data-id="hr9">
+                    <p>
+  $$
+  \left\{
+  \begin{align}
+  \ddot{x}-2\Omega \dot{y}&=2\Omega Sx-\gamma(\dot{x}-u_x),\notag \\
+  \ddot{y}+2\Omega\dot{x}&=-\gamma(\dot{y}-u_y).\notag
+  \end{align}
+  \right.
+  $$
+  $x,y\propto e^{\lambda t}$
+  $$
+  \left(\begin{array}{cc}
+  \lambda^2+\gamma\lambda-2\Omega S & -2\Omega\lambda-\gamma Ar^{-1} \\
+  2\Omega\lambda+\gamma Ar & \lambda^2+\gamma \lambda
+  \end{array}\right)\left(\begin{array}{c}
+  x \\
+  y
+  \end{array}\right)=\left(\begin{array}{c}
+  0 \\
+  0\end{array}\right)
+  $$
+  $$
+  \left(\lambda^2+\gamma\lambda-2\Omega S\right)\left(\lambda^2+\gamma\lambda\right)+\left(2\Omega\lambda+\gamma Ar^{-1}\right)\left(2\Omega\lambda+\gamma Ar\right)=0
+  $$
+                    </p>
+                    <p>
+  $$
+  \lambda^4+2\gamma\lambda^3+\left(\gamma^2+\Omega_r^2\right)\lambda^2-2\Omega\zeta_0\gamma\lambda+\gamma^2A^2=0
+  $$
+                    </p>
+                    <p>$\text{Re}(\lambda)<0$</p>
+                </section>
+                <section data-auto-animate>
+                    <h4>16.4 Trapping of dust in a vortex</h4>
+                    <p class="text-left">(b) Vortices of shapes that satisfy $-\Omega_r^2<\Omega\zeta_0<-A^2$ ( $r>3$ for a Keplerian disc) trap particles of all sizes.</p>
+                    <hr data-id="hr9">
+                    <p>
+  $$
+  \lambda^4+2\gamma\lambda^3+\left(\gamma^2+\Omega_r^2\right)\lambda^2-2\Omega\zeta_0\gamma\lambda+\gamma^2A^2=0
+  $$
+                    </p>
+                    <p class="text-left">
+    In the limit of large $\gamma$ (small $\text{St}$, small particles),  <br/>
+    the product of roots is $O(\gamma^2)$ and the sum of roots is $O(\gamma^1)$.  <br/>
+    Two roots are $O(\gamma^1)$ and two are $O(\gamma^0)$.  <br/>
+    The first scaling gives the balance $\lambda^4+2\gamma\lambda^3+\gamma^2\lambda^2\sim0$, i.e. $\lambda\sim-\gamma$ (twice).  <br/>
+    These solution decay.  <br/>
+    The second scaling gives the balance $\gamma^2\lambda^2+\gamma^2A^2\sim 0$, i.e. $\lambda\sim\pm iA$.  <br/>
+    Expanding further, with $\lambda\sim\pm iA+c\gamma^{-1}$, gives, at $O(\gamma^{1})$, $2(\pm iA)^3+2(\pm iA)c-2\Omega\zeta_0(\pm iA)=0$, i.e. $c=A^2+\Omega\zeta_0$.  <br/>
+    These solution decay if $\Omega\zeta_0<-A^2$.
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <h4>16.4 Trapping of dust in a vortex</h4>
+                    <p class="text-left">(b) Vortices of shapes that satisfy $-\Omega_r^2<\Omega\zeta_0<-A^2$ ( $r>3$ for a Keplerian disc) trap particles of all sizes.</p>
+                    <hr data-id="hr9">
+                    <p>
+  $$
+  \lambda^4+2\gamma\lambda^3+\left(\gamma^2+\Omega_r^2\right)\lambda^2-2\Omega\zeta_0\gamma\lambda+\gamma^2A^2=0
+  $$
+                    </p>
+                    <p class="text-left">
+    In the limit of small $\gamma$ (large $\text{St}$, large particles),  <br/>
+    the product of roots is $O(\gamma^2)$ and the sum of roots is $O(\gamma^1)$.  <br/>
+    Two roots are $O(\gamma^0)$ and two are $O(\gamma^1)$.  <br/>
+    The first scaling gives the balance $\lambda^4+\Omega_r^2\lambda^2\sim0$, i.e. $\lambda\sim\pm i\Omega_r$.  <br/>
+    Expanding further, with $\lambda\sim\pm i\Omega_r+c\gamma$, gives, at $O(\gamma^1)$, $4(\pm i\Omega_r)^3c+2(\pm i\Omega_r)^3+2\Omega_r^2(\pm i\Omega_r)c-2\Omega\zeta_0(\pm i\Omega_r)=0$, i.e. $c=-1-(\Omega\zeta_0/\Omega_r^2)$.  <br/>
+    These solutions decay if $\Omega\zeta_0>-\Omega_r^2$.  <br/>
+    The second scaling gives the balance $\Omega_r^2\lambda^2-2\Omega\zeta_0\gamma\lambda+\gamma^2A^2=0$, i.e. $\lambda\sim(\Omega\zeta_0\pm\sqrt{(\Omega\zeta_0)^2-\Omega_r^2A^2})(\gamma/\Omega_r^2)$.  <br/>
+    These solutions decay if $\Omega\zeta_0<0$.
+                    </p>
+                </section>
+            </section>
+
+            <!-- appendix -->
+            <section data-name="appendix">
+                <section data-auto-animate>
+                    <h3>Appendix</h3>
+                    <ul>
+                        <li>Vieta's Theorem</li>
+                        <li>Translate $-\Omega_r^2<\Omega\zeta_0<-A^2$ to $r>3$ for a Keplerian disc ( $\Omega_r=\Omega$ )</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h3>Appendix</h3>
+                    <ul>
+                        <li>Vieta's Theorem</li>
+                    <p class="text-left">
+   For a quartic equation $x^4+ax^3+bx^2+cx+d=0$, which has 4 roots denoted $x_1,x_2,x_3,x_4$. The equation can rewritten as
+   $$
+   \begin{align}
+   &(x-x_1)(x-x_2)(x-x_3)(x-x_4)\notag \\
+   =\ &x^4-\left(\sum_{i=1}^4x_i\right)x^3+\cdots+\left(\prod_{i=1}^4x_i\right)\notag \\
+   =\ &x^4+ax^3+bx^2+cx+d=0\notag
+   \end{align}
+   $$
+                    </p>
+                        <li>Translate $-\Omega_r^2<\Omega\zeta_0<-A^2$ to $r>3$ for a Keplerian disc ( $\Omega_r=\Omega$ )</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h3>Appendix</h3>
+                    <ul>
+                        <li>Vieta's Theorem</li>
+                        <li>Translate $-\Omega_r^2<\Omega\zeta_0<-A^2$ to $r>3$ for a Keplerian disc ( $\Omega_r=\Omega$ )</li>
+                        <p class="text-left">
+   $$
+   \frac{\zeta_0}{S}=-\frac{(r+1)}{r(r-1)}\Rightarrow \zeta_0=S\left(-\frac{(r+1)}{r(r-1)}\right)=\frac{3}{2}\Omega\left(-\frac{(r+1)}{r(r-1)}\right)
+   $$
+   $$
+   A=\frac{S}{r-1}=\frac{3}{2}\frac{\Omega}{r-1}\Rightarrow A^2=\frac{9}{4}\frac{\Omega^2}{(r-1)^2}
+   $$
+                        </p>
+                        <p>
+    the left part:
+     $$
+     \begin{align}
+     &-\Omega_r^2<\Omega\zeta_0\notag \\
+     \Rightarrow &-\Omega^2<\Omega^2\frac{3}{2}\left(-\frac{(r+1)}{r(r-1)}\right)\notag \\
+     \Rightarrow &1>\frac{3}{2}\frac{r+1}{r(r-1)}\notag \\
+     \Rightarrow &2r^2-5r-3>0\notag \\
+     \Rightarrow &(2r+1)(r-3)>0\notag
+     \end{align}
+     $$
+                        </p>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h3>Appendix</h3>
+                    <ul>
+                        <li>Vieta's Theorem</li>
+                        <li>Translate $-\Omega_r^2<\Omega\zeta_0<-A^2$ to $r>3$ for a Keplerian disc ( $\Omega_r=\Omega$ )</li>
+                        <p class="text-left">
+   $$
+   \frac{\zeta_0}{S}=-\frac{(r+1)}{r(r-1)}\Rightarrow \zeta_0=S\left(-\frac{(r+1)}{r(r-1)}\right)=\frac{3}{2}\Omega\left(-\frac{(r+1)}{r(r-1)}\right)
+   $$
+   $$
+   A=\frac{S}{r-1}=\frac{3}{2}\frac{\Omega}{r-1}\Rightarrow A^2=\frac{9}{4}\frac{\Omega^2}{(r-1)^2}
+   $$
+                        </p>
+                        <p>
+     the right part:
+     $$
+     \begin{align}
+     &\Omega\zeta_0<-A^2\notag \\
+     \Rightarrow &\Omega^2\frac{3}{2}\left(-\frac{(r+1)}{r(r-1)}\right)<-\frac{9}{4}\frac{\Omega^2}{(r-1)^2}\notag \\
+     \Rightarrow &-\frac{r+1}{r}<-\frac{3}{2}\frac{1}{r-1}\notag \\
+     \Rightarrow &2r^2-3r-2>0\notag \\
+     \Rightarrow &(2r+1)(r-2)>0\notag
+     \end{align}
+     $$
+                        </p>
+                    </ul>
+                </section>
+            </section>
+
+        </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/simplemenu/simplemenu.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        Reveal.initialize({
+            simplemenu: {
+                inherit: "previous",
+                barhtml: {
+                    header: "<div class='menubar'><ul class='menu'></ul></div>"
+                }
+            },
+            plugins: [
+                Simplemenu,
+                RevealHighlight,
+                RevealMath.KaTeX
+            ]
+        });
+    </script>
+</body>
+
+</html>
