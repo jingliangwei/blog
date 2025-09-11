@@ -978,7 +978,7 @@ $$
 
   and the phase difference is time-independent while $m\Omega_A=m\Omega_B-\kappa_B$
 
-  BUT it also work for parameters $m_A=l_A=km,m_B=km,l_B=km-k\ (k\in\mathbb{R})$
+  BUT it also work for parameters $m_A=l_A=km,m_B=km,l_B=km-k\ (k\in\mathbb{Z})$
 
 - the relation between section 2 and 4,5? what does GS14 mainly talk?
 :::
