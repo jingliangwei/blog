@@ -60,6 +60,15 @@ sudo dmesg
 ## `.bashrc` 配置
 
 - 简化命令
-```bash
+```bash:no-line-numbers
 alias tgpt='/path/to/tgpt-linux-amd64'
+```
+
+## 识别外接麦克风
+
+情况： `ubuntu 24.04` 华硕 FX60V 只有一个3.5mm接口，插入耳机后设置里 Sound 只有 Output 能识别到耳机， Input 识别不到耳机麦。
+
+解决： 在文件 `/etc/modprobe.d/alsa-base.conf` 加上
+```:no-line-numbers
+options snd-hda-intel model=dell-headset-multi
 ```
