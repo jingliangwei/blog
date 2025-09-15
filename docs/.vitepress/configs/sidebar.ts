@@ -30,6 +30,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: '理论力学', link: '/blog/physics/analytial_mechanics'},
       // { text: '天体物理流体力学', link: '/blog/physics/astro_fluid'},
       { text: '流体力学', link: '/blog/physics/fluid'},
+      { text: '电动力学', link: '/blog/physics/electrodynamics'},
     ]
   },
   {
