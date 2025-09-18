@@ -31,6 +31,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       // { text: '天体物理流体力学', link: '/blog/physics/astro_fluid'},
       { text: '流体力学', link: '/blog/physics/fluid'},
       { text: '电动力学', link: '/blog/physics/electrodynamics'},
+      { text: '量子力学', link: '/blog/physics/quantum_physics'},
     ]
   },
   {
@@ -42,6 +43,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: '儒略日和公历', link: '/blog/astronomy/jd'},
       { text: '天文数据处理', link: '/blog/astronomy/data_processing'},
       { text: 'Observational Astronomy', link: '/blog/astronomy/observational_astro'},
+      { text: '实测天体物理', link: '/blog/astronomy/observational_astrophysics'},
     ]
   },
   {
