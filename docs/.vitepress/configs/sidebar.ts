@@ -44,6 +44,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: '天文数据处理', link: '/blog/astronomy/data_processing'},
       { text: 'Observational Astronomy', link: '/blog/astronomy/observational_astro'},
       { text: '实测天体物理', link: '/blog/astronomy/observational_astrophysics'},
+      { text: '天体力学基础', link: '/blog/astronomy/celestial_mechanics'},
     ]
   },
   {

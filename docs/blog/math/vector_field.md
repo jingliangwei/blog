@@ -100,6 +100,19 @@ $$
 \nabla(\boldsymbol{f}\cdot\boldsymbol{g})=\boldsymbol{f}\times(\nabla\times\boldsymbol{g})+(\boldsymbol{f}\cdot\nabla)\boldsymbol{g}+\boldsymbol{g}\times(\nabla\times\boldsymbol{f})+(\boldsymbol{g}\cdot\nabla)\boldsymbol{f}
 $$
 
+- Laplace 算符
+$$
+\nabla^2\phi=\nabla\cdot\nabla\phi
+$$
+
+- 其他性质
+$$
+\nabla\cdot(\nabla\times\boldsymbol{f})=0
+$$
+$$
+\nabla\times(\nabla\times\boldsymbol{f})=\nabla(\nabla\cdot\boldsymbol{f})-\nabla^2\boldsymbol{f}
+$$
+
 ### 流体力学应用
 
 在流体力学中常用的公式 $(\boldsymbol{u}\cdot\nabla)Q$ 和 $(\boldsymbol{u}\cdot\nabla)\boldsymbol{Q}$ 在三种坐标系中的表达式：
