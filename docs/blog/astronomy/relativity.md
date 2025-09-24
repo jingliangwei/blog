@@ -21,3 +21,35 @@
 ### 双生子佯谬
 
 ![双生子佯谬时空图](./relativity_fig/brothers_trouble.png)
+
+### 闵氏几何
+
+时空几何（闵氏几何）线元
+$$
+ds^2=-dt^2+dx^2+dy^2+dz^2
+$$
+
+## 从矢量到张量
+
+### 相对论速度变换
+
+$$
+\begin{align}
+u'^x&=\frac{u^x-v}{1-vu^x}, \\
+u'^y&=\frac{u^y}{\gamma(1-vu^x)}, \\
+u'^z&=\frac{u^z}{\gamma(1-vu^x)}.
+\end{align}
+$$
+
+### 切失与偏导
+
+坐标基底的变换关系
+$$
+\left(\frac{\partial}{\partial \tilde{x}^\mu}\right)^a=\left(\frac{\partial}{\partial x^\nu}\right)^a\frac{\partial x^\nu}{\partial\tilde{x}^\mu}
+$$
+
+### 坐标微分与对偶坐标基底
+
+$$
+(d\tilde{x}^\mu)_a=\frac{\partial\tilde{x}^\mu}{\partial x^\nu}(dx^\nu)_a
+$$
