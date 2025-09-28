@@ -74,3 +74,20 @@
 
 ## 二体问题
 
+### 有心力对应的比耐公式
+
+$$
+-mh^2u^2\frac{\mathrm{d}^2u}{\mathrm{d}\theta^2}-mu^3h^2=F
+$$
+
+::: info derivation
+$$
+F=ma_r=m(\ddot{r}-r\dot{\theta}^2)
+$$
+$$
+L=mh=mr^2\dot{\theta}
+$$
+$$
+r\equiv\frac{1}{u}
+$$
+:::
