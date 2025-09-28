@@ -82,12 +82,17 @@ $$
 \boldsymbol{P}=\frac{\sum\boldsymbol{p}_i}{\Delta V}
 $$
 
-- 介质表面束缚电荷密度：
+- 介质极化荷体密度：
 $$
 \int_V\rho_P\mathrm{d}V=-\oint_S\boldsymbol{P}\cdot\mathrm{d}\boldsymbol{S}
 $$
 $$
 \rho_P=-\nabla\cdot\boldsymbol{P}
+$$
+
+- 极化电荷面密度
+$$
+\sigma_P=(\boldsymbol{P}_1-\boldsymbol{P}_2)\cdot\hat{e}_{21}
 $$
 
 - 电位移
@@ -127,12 +132,16 @@ $$
 \boldsymbol{M}=\frac{\sum\boldsymbol{m}_i}{\Delta V},\quad\boldsymbol{m}=i\boldsymbol{a}.
 $$
 
-- 磁化电流密度
+- 磁化电流体密度
 $$
 \int_S\boldsymbol{J}_M\cdot\mathrm{d}\boldsymbol{S}=\oint_L\boldsymbol{M}\cdot\mathrm{d}\boldsymbol{l}
 $$
 $$
 \boldsymbol{J}_M=\nabla\times\boldsymbol{M}
+$$
+- 磁化电流面密度
+$$
+\alpha_M=(\boldsymbol{M}_1-\boldsymbol{M}_2)\times\hat{e}_{21}
 $$
 - 极化电流
 $$
@@ -148,7 +157,7 @@ $$
 \nabla\times\boldsymbol{H}=\boldsymbol{J}_f+\frac{\partial\boldsymbol{D}}{\partial t}
 $$
 
-- 磁化率 $chi_M$
+- 磁化率 $\chi_M$
 $$
 \boldsymbol{M}=\chi_M\boldsymbol{H}
 $$

@@ -1710,3 +1710,23 @@ $$
 $$
 :::
 
+---
+
+## 补充
+
+### 电磁场中带电粒子
+
+在非相对论情形下，电磁场中的带电粒子，其拉格朗日量为
+$$
+L=\frac{1}{2}mv^2-q(\phi-\boldsymbol{v}\cdot\boldsymbol{A})
+$$
+正则动量
+$$
+\boldsymbol{P}=m\boldsymbol{v}+q\boldsymbol{A}
+$$
+哈密顿量
+$$
+H=\frac{1}{2m}(\boldsymbol{P}-q\boldsymbol{A})^2+q\phi
+$$
+
+参考 [知乎-【知识仓库】电磁学 - 洛伦兹力和正则动量](https://zhuanlan.zhihu.com/p/655168941)
