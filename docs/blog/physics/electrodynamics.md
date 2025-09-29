@@ -187,3 +187,72 @@ $$
 $$
 \boldsymbol{J}=\sigma\boldsymbol{E}.
 $$
+
+### 1.5 电磁场的边值关系
+
+$$
+\begin{array}
+\boldsymbol{n}\times(\boldsymbol{E}_2-\boldsymbol{E}_1)=0, \\
+\boldsymbol{n}\times(\boldsymbol{H}_2-\boldsymbol{H}_1)=\boldsymbol{\alpha}, \\
+\boldsymbol{n}\cdot(\boldsymbol{D}_2-\boldsymbol{D}_1)=\sigma, \\
+\boldsymbol{n}\cdot(\boldsymbol{B}_2-\boldsymbol{B}_1)=0.
+\end{array}
+$$
+
+::: details derivation
+![1-1](./electrodynamics_fig/1-1.png)
+![1-2](./electrodynamics_fig/1-2.png)
+:::
+
+### 1.6 电磁场的能量和能流
+
+- 能流密度（坡印亭 Poynting 矢量）
+$$
+\boldsymbol{S}=\boldsymbol{E}\times\boldsymbol{H}
+$$
+- 能量密度变化率
+$$
+\frac{\partial w}{\partial t}=\boldsymbol{E}\cdot\frac{\partial\boldsymbol{D}}{\partial t}+\boldsymbol{H}\cdot\frac{\partial\boldsymbol{B}}{\partial t}
+$$
+
+- 能量密度
+  - 真空
+  $$
+  w=\frac{1}{2}\left(\varepsilon_0 E^2+\frac{1}{\mu_0}B^2\right)
+  $$
+  - 介质
+  $$
+  \delta w=\boldsymbol{E}\cdot\delta\boldsymbol{D}+\boldsymbol{H}\cdot\delta\boldsymbol{B}
+  $$
+
+## 静电场
+
+### 2.1 静电场的标势 & 微分方程
+
+泊松 Poisson 方程
+$$
+\nabla^2\varphi=-\frac{\rho}{\varepsilon}
+$$
+
+### 2.2 唯一性定理
+
+### 2.3 Laplace equation & 分离变量法
+
+Laplace equation
+$$
+\nabla^2\varphi=0
+$$
+
+通解
+$$
+\begin{align}
+\varphi(R,\theta,\phi)=&\sum_{n,m}\left(a_{nm}R^n+\frac{b_{nm}}{R^{n+1}}\right)P^m_n(\cos\theta)\cos m\phi \\
+&+\sum_{n,m}\left(c_{nm}R^n+\frac{d_{nm}}{R^{n+1}}\right)P_n^m(\cos\theta)\sin m\phi
+\end{align}
+$$
+$$
+\varphi(R,\theta)=\sum_n\left(a_nR^n+\frac{b_n}{R^{n+1}}\right)P_n(\cos\theta)
+$$
+
+其中勒让德多项式 Legendre polynomials
+![Legendre polynomials](./electrodynamics_fig/2-1.png)
