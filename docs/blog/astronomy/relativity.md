@@ -53,3 +53,53 @@ $$
 $$
 (d\tilde{x}^\mu)_a=\frac{\partial\tilde{x}^\mu}{\partial x^\nu}(dx^\nu)_a
 $$
+
+### 从并矢到张量
+
+并矢：把矢量放一块 $u^av^b$
+
+张量：
+$$
+{{T_a}^{bc}}_d={{T_\mu}^{\nu\sigma}}_\tau(dx^\mu)_a\left(\frac{\partial}{\partial x^\nu}\right)^b\left(\frac{\partial}{\partial x^\sigma}\right)^c(dx^\tau)_d
+$$
+
+张量缩并：
+$$
+\left(\frac{\partial}{\partial x^\mu}\right)^a(dx^\nu)_a={\delta^\nu}_\mu
+$$
+
+#### 度规张量
+
+度规系数 $g_{\mu\nu}$
+
+不同坐标基底下的度规系数
+$$
+g_{kl}=\tilde{g}_{ij}\frac{d\tilde{x}^i}{dx^k}\frac{d\tilde{x}^j}{dx^l}
+$$
+
+度规张量 $g_{ab}\equiv g_{\mu\nu}(dx^\mu)_a(dx^\nu)_b$
+
+逆度规张量 $\displaystyle g^{ab}\equiv g^{\mu\nu}\left(\frac{\partial}{\partial x^\mu}\right)^a\left(\frac{\partial}{\partial x^\nu}\right)^b$ 其中 $g^{\mu\nu}\equiv(g_{\mu\nu})^{-1}$
+
+指标升降
+$$
+T_a\equiv g_{ab}T^b
+$$
+$$
+W^a\equiv g^{ab}W_b
+$$
+
+#### 电磁场张量
+
+电磁场张量
+$$
+F_{\mu\nu}=\left[\begin{array}{cccc}
+0 & -E_x & -E_y & -E_z \\
+E_x & 0 & B_z & -B_y \\
+E_y & -B_z & 0 & B_x \\
+E_z & B_y & -B_x & 0
+\end{array}\right]
+$$
+$$
+F_{ab}\equiv F_{\mu\nu}(dx^\mu)_a(dx^\nu)_b
+$$
