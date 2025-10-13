@@ -256,3 +256,54 @@ $$
 
 其中勒让德多项式 Legendre polynomials
 ![Legendre polynomials](./electrodynamics_fig/2-1.png)
+
+### 2.4 镜像法
+
+### 2.5 Green Function
+
+1. 点电荷密度的 $\delta$ 函数表示
+
+2. Green function
+
+   $$
+   \nabla^2G(\boldsymbol{x},\boldsymbol{x}')=-\frac{1}{\varepsilon_0}\delta(\boldsymbol{x}-\boldsymbol{x}')
+   $$
+
+   1. 无界自由空间
+      $$
+      G(\boldsymbol{x},\boldsymbol{x}')=\frac{1}{4\pi\varepsilon_0}\frac{1}{|\boldsymbol{x}-\boldsymbol{x}'|}
+      $$
+      对于二维空间 $G\propto\ln(r)$
+   2. 上半空间
+   3. 球外空间
+
+3. 第一类边值问题
+   $$
+   \varphi(\boldsymbol{x})=\int_VG(\boldsymbol{x'},\boldsymbol{x})\rho(\boldsymbol{x}')\mathrm{d}V'-\varepsilon_0\oint_S\varphi(\boldsymbol{x}')\frac{\partial}{\partial n'}G(\boldsymbol{x}',\boldsymbol{x})\mathrm{d}S'
+   $$
+   第二类边值问题
+   $$
+   \varphi(\boldsymbol{x})=\int_VG(\boldsymbol{x}',\boldsymbol{x})\rho(\boldsymbol{x}')\mathrm{d}V'+\varepsilon_0\oint_SG(\boldsymbol{x}',\boldsymbol{x})\frac{\partial\varphi(\boldsymbol{x}')}{\partial n'}\mathrm{d}S'+\langle\varphi\rangle _S
+   $$
+
+### 2.6 Multiples
+
+1. 电势的多极展开
+   $$
+   \varphi(\boldsymbol{x})=\int_V\frac{\rho(\boldsymbol{x}')\mathrm{d}V'}{4\pi\varepsilon_0 r}
+   $$
+   - 单极矩
+     $$
+     Q=\int_V\rho(\boldsymbol{x}')\mathrm{d}V'
+     $$
+   - 偶极矩
+     $$
+     \boldsymbol{p}=\int_V\rho(\boldsymbol{x}')\boldsymbol{x}'\mathrm{d}V'
+     $$
+   - 四极矩
+     $$
+     \mathscr{D}_{ij}=\int_V3x'_ix'_j\rho(\boldsymbol{x}')\mathrm{d}V'
+     $$
+   $$
+   \varphi(\boldsymbol{x})=\frac{1}{4\pi\varepsilon_0}\left[\frac{Q}{R}-\boldsymbol{p}\cdot\nabla\frac{1}{R}+\frac{1}{6}\sum_{ij}\mathscr{D}_{ij}\frac{\partial^2}{\partial x_i\partial x_j}\frac{1}{R}+\dots\right]
+   $$
