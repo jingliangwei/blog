@@ -92,7 +92,7 @@ $$
 
 - 极化电荷面密度
 $$
-\sigma_P=(\boldsymbol{P}_1-\boldsymbol{P}_2)\cdot\hat{e}_{21}
+\sigma_P=(\boldsymbol{P}_1-\boldsymbol{P}_2)\cdot\hat{e}_{12}
 $$
 
 - 电位移
@@ -141,7 +141,7 @@ $$
 $$
 - 磁化电流面密度
 $$
-\alpha_M=(\boldsymbol{M}_1-\boldsymbol{M}_2)\times\hat{e}_{21}
+\alpha_M=(\boldsymbol{M}_1-\boldsymbol{M}_2)\times\hat{e}_{12}
 $$
 - 极化电流
 $$
@@ -228,6 +228,11 @@ $$
 ## 静电场
 
 ### 2.1 静电场的标势 & 微分方程
+
+电标势
+$$
+\boldsymbol{E}=-\nabla\varphi
+$$
 
 泊松 Poisson 方程
 $$

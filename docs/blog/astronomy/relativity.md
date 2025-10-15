@@ -103,3 +103,37 @@ $$
 $$
 F_{ab}\equiv F_{\mu\nu}(dx^\mu)_a(dx^\nu)_b
 $$
+
+#### 全对称/全反称张量
+
+全对称操作
+$$
+T^{(i_1\ i_2\ ...\ i_m)}=\frac{1}{m!}\sum_\Pi T^{\Pi(i_1\ i_2\ ...\ i_m)}
+$$
+
+全反称操作
+$$
+T^{[i_1\ i_2\ ...\ i_m]}=\frac{1}{m!}\sum_\Pi G(\Pi)T^{\Pi[i_1\ i_2\ ...\ i_m]}
+$$
+
+#### 体元张量
+
+$$
+\varepsilon_{ab...c}=n!\sqrt{|\text{det}\,g_{\mu\nu}|}(dx^1)_{[a}(dx^2)_b\cdots(dx^n)_{c]}
+$$
+
+#### 四维力
+
+$$
+\left[\begin{array}{c}
+F^0 \\
+F^1 \\
+F^2 \\
+F^3
+\end{array}\right]\equiv\left[\begin{array}{c}
+\gamma\vec{f}\cdot\vec{u} \\
+\gamma f_1 \\
+\gamma f_2 \\
+\gamma f_3
+\end{array}\right]
+$$
