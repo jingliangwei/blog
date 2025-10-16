@@ -104,12 +104,15 @@ $$
 \nabla\cdot\boldsymbol{D}=\rho_f
 $$
 
-::: info 电场和电位移
+::: tip 电场和电位移
 $$
-\rho_f\rightarrow\boldsymbol{D}
+\nabla\cdot\boldsymbol{D}=\rho_f
 $$
 $$
-\rho_f+\rho_P\rightarrow\boldsymbol{E}
+\nabla\cdot\boldsymbol{E}=\frac{\rho_f+\rho_P}{\varepsilon_0}
+$$
+$$
+\nabla\cdot\boldsymbol{P}=-\rho_P
 $$
 :::
 
@@ -191,7 +194,7 @@ $$
 ### 1.5 电磁场的边值关系
 
 $$
-\begin{array}
+\begin{array}{l}
 \boldsymbol{n}\times(\boldsymbol{E}_2-\boldsymbol{E}_1)=0, \\
 \boldsymbol{n}\times(\boldsymbol{H}_2-\boldsymbol{H}_1)=\boldsymbol{\alpha}, \\
 \boldsymbol{n}\cdot(\boldsymbol{D}_2-\boldsymbol{D}_1)=\sigma, \\
@@ -233,6 +236,21 @@ $$
 $$
 \boldsymbol{E}=-\nabla\varphi
 $$
+
+::: tip e.g.
+单位正点电荷的电场
+$$
+\boldsymbol{E}=\frac{1}{4\pi\varepsilon_0}\frac{e}{r^2}\hat{e}_r
+$$
+电势
+$$
+\varphi=\frac{1}{4\pi\varepsilon_0}\frac{e}{r}
+$$
+有
+$$
+\boldsymbol{E}=-\nabla\varphi=-\frac{\partial\varphi}{\partial r}\hat{e}_r
+$$
+:::
 
 泊松 Poisson 方程
 $$
