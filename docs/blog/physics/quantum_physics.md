@@ -55,3 +55,51 @@ c(\boldsymbol{p})&=\int \psi_p^*(\boldsymbol{r})\Psi(\boldsymbol{r})\mathrm{d}\b
 &=\frac{1}{(2\pi\hbar)^{3/2}}\iiint_{-\infty}^\infty \Psi(\boldsymbol{r})e^{-i\boldsymbol{p}\cdot\boldsymbol{r}/\hbar}\mathrm{d}x\mathrm{d}y\mathrm{d}z
 \end{align}
 $$
+
+### Schrodinger 方程
+
+- 量子力学原理2：体系状态波函数满足 Schrodinger 方程
+
+- Schrodinger 方程
+$$
+i\hbar\frac{\partial}{\partial t}\Psi(\vec{r},t)=\left[-\frac{\hbar^2}{2m}\nabla^2+U\right]\Psi(\vec{r},t)=\widehat{H}\Psi(\vec{r},t)
+$$
+
+- 能量算符 $\widehat{E}\equiv i\hbar\frac{\partial}{\partial t}$
+
+  动量算符 $\widehat{p}\equiv -i\hbar\nabla,\ \widehat{p}^2=-\hbar^2\nabla^2$
+
+  Hamilton 算符 $\widehat{H}=-\frac{\hbar^2}{2m}\nabla^2+U$
+
+- 多粒子体系的 Schrodinger 方程
+$$
+i\hbar\frac{\partial}{\partial t}\Psi(\vec{r}_1,\vec{r}_2,\cdots,\vec{r}_N;t)=\left[\sum_{i=1}^N\left[-\frac{\hbar^2}{2m_i}\nabla_i^2+V_i(\vec{r}_i)\right]+U(\vec{r}_1,\vec{r}_2,\cdots,\vec{r}_N)\right]\Psi(\vec{r}_1,\vec{r}_2,\cdots,\vec{r}_N;t)
+$$
+
+### 粒子流密度和粒子数守恒定律
+
+- 概率流密度矢量
+$$
+\vec{J}=\frac{i\hbar}{2m}[\Psi\nabla\Psi^*-\Psi^*\nabla\Psi]
+$$
+
+- 波函数的标准条件：单值、有限、连续
+
+### 定态 Schrodinger 方程
+
+当外势场 $\partial U/\partial t=0$
+
+- 定态波函数
+$$
+\Psi(\vec{r},t)=\psi(\vec{r})e^{-\frac{i}{\hbar}Et}
+$$
+
+- 定态 Schrodinger 方程
+$$
+\nabla^2\psi(\vec{r})+\frac{2m}{\hbar^2}(E-U)\psi(\vec{r})=0
+$$
+
+- 能量本征值方程
+$$
+\widehat{H}\Psi=E\Psi
+$$
