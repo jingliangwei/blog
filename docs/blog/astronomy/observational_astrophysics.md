@@ -74,8 +74,33 @@ $$
 ### 实际光学系统的像差
 
 1. 球差
+   ![1](./observational_astrophysics_fig/1.png)
 2. 彗差 (COMA)
+   ![2](./observational_astrophysics_fig/2.png)
 3. 像散 (Astigmatism)
+   ![3](./observational_astrophysics_fig/3.png)
 4. 场曲 (Field curvature)
+   ![4](./observational_astrophysics_fig/4.png)
 5. 畸变 (Image distortio)
+   ![5](./observational_astrophysics_fig/5.png)
 6. 色（像）差：位置色差、倍率色差
+   ![6-1](./observational_astrophysics_fig/6-1.png)
+   ![6-2](./observational_astrophysics_fig/6-2.png)
+
+### 光学望远镜类别
+
+- 反射望远镜的焦点系统：
+  
+  1. 主焦点系统
+     ![f1](./observational_astrophysics_fig/f1.png)
+  2. 牛顿焦点系统
+     ![f2](./observational_astrophysics_fig/f2.png)
+  3. 卡塞格林焦点系统
+     ![f3](./observational_astrophysics_fig/f3.png)
+  4. R-C 系统
+     ![f4](./observational_astrophysics_fig/f4.png)
+  5. 耐氏 (Nasmyth) 焦点系统
+     ![f5](./observational_astrophysics_fig/f5.png)
+  6. 折轴 (Coude) 焦点系统
+     ![f6](./observational_astrophysics_fig/f6.png)
+
