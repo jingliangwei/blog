@@ -252,9 +252,21 @@ $$
 $$
 :::
 
-泊松 Poisson 方程
+- 泊松 Poisson 方程
 $$
 \nabla^2\varphi=-\frac{\rho}{\varepsilon}
+$$
+
+- 界面边值关系
+$$
+\varphi_1=\varphi_2
+$$
+$$
+\varepsilon_2\frac{\partial\varphi_2}{\partial n_{12}}-\varepsilon_1\frac{\partial\varphi_1}{\partial n_{12}}=-\sigma
+$$
+(对于导体)
+$$
+\varepsilon\frac{\partial \varphi}{\partial n}=-\sigma
 $$
 
 ### 2.2 唯一性定理
