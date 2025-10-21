@@ -89,6 +89,16 @@ $$
 W^a\equiv g^{ab}W_b
 $$
 
+- 闵氏几何度规张量
+$$
+g_{\mu\nu}=\left[\begin{array}{cccc}
+-1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array}\right]\equiv\eta_{\mu\nu}
+$$
+
 #### 电磁场张量
 
 电磁场张量
@@ -125,6 +135,7 @@ $$
 #### 四维力
 
 $$
+F^\mu=
 \left[\begin{array}{c}
 F^0 \\
 F^1 \\
@@ -137,3 +148,65 @@ F^3
 \gamma f_3
 \end{array}\right]
 $$
+
+### 四维速度
+
+$$
+U^\mu=
+\left[\begin{array}{c}
+U^0 \\
+U^1 \\
+U^2 \\
+U^3
+\end{array}\right]\equiv\left[\begin{array}{c}
+\gamma \\
+\gamma u_1 \\
+\gamma u_2 \\
+\gamma u_3
+\end{array}\right]
+$$
+
+- 正交性：
+$$
+g_{ab}F^aU^b=0
+$$
+
+### 四维动量
+
+$$
+P^\mu=
+\left[\begin{array}{c}
+P^0 \\
+P^1 \\
+P^2 \\
+P^3
+\end{array}\right]\equiv\left[\begin{array}{c}
+\gamma m \\
+\gamma mu^1 \\
+\gamma mu^2 \\
+\gamma mu^3
+\end{array}\right]
+$$
+这里 $m$ 代表对象的静质量。
+
+### 四维加速度与动力学方程
+
+- 四维加速度矢量
+$$
+A^a\equiv U^b\partial_b U^a
+$$
+
+- 动力学方程
+$$
+F^a=mU^b\partial_b U^a
+$$
+$$
+F^a=\left(\frac{\mathrm{d}}{\mathrm{d}\tau}\right)^b\nabla_b P^a
+$$
+
+### 矢量的类时、类空、类光性
+
+对于 $g_{ab}A^aA^b$ ：
+1. 正：类空 $\left(\frac{\partial}{\partial t}\right)^a$
+2. 负：类时 $\left(\frac{\partial}{\partial x}\right)^a$
+3. $0$ ：类光 $\left(\frac{\partial}{\partial t}\right)^a+\left(\frac{\partial}{\partial x}\right)^a$
