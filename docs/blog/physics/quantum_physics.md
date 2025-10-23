@@ -103,3 +103,42 @@ $$
 $$
 \widehat{H}\Psi=E\Psi
 $$
+
+### 一维无限深势阱
+
+### 线性谐振子
+
+- Hamilton 量
+$$
+\begin{align}
+\widehat{H}&=\frac{\hat{p}^2}{2m}+\frac{1}{2}m\omega^2x^2 \\
+&=-\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}+\frac{1}{2}m\omega^2x^2
+\end{align}
+$$
+
+- 方程
+$$
+\left[\frac{\mathrm{d}^2}{\mathrm{d}x^2}+\frac{2m}{\hbar^2}\left(E-\frac{1}{2}m\omega^2x^2\right)\right]\psi(x)=0
+$$
+令 $\xi=\alpha x$ 其中 $\alpha=\sqrt{\frac{m\omega}{\hbar}}$
+$$
+\frac{\mathrm{d}^2\psi}{\mathrm{d}\xi^2}+(\lambda-\xi^2)\psi(x)=0,\quad\lambda=\frac{2E}{\hbar\omega}
+$$
+
+- Hermitian 多项式
+$$
+H_n(\xi)=(-1)^n\exp(\xi^2)\frac{\mathrm{d}^n}{\mathrm{d}\xi^n}\exp(-\xi^2)
+$$
+
+- 能量
+$$
+E_n=\hbar\omega\left(n+\frac{1}{2}\right),\quad n=0,1,2,...,m
+$$
+
+- 波函数（厄密函数）
+$$
+\Psi_n(x)=N_n e^{-\frac{\alpha^2}{2}x^2}H_n(\alpha x)
+$$
+$$
+N_n=\sqrt{\frac{\alpha}{2^nn!\sqrt{\pi}}}
+$$
