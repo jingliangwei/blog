@@ -104,3 +104,7 @@ $$
   6. 折轴 (Coude) 焦点系统
      ![f6](./observational_astrophysics_fig/f6.png)
 
+### 主动光学和自适应光学
+
+- 主动光学 (Active Optics) ：矫正望远镜光学系统变化
+- 自适应光学 (Adaptive Optics) ：补偿大气影响
