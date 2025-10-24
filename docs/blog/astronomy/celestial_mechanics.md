@@ -162,5 +162,154 @@ $$
 
 活力积分
 $$
-E=\frac{1}{2}\dot{\vec{r}}\cdot\dot{\vec{r}}-\frac{\mu}{r}
+E=\frac{1}{2}\dot{\vec{r}}\cdot\dot{\vec{r}}-\frac{\mu}{r}=-\frac{\mu}{2a}
 $$
+
+#### 轨道根数
+
+![orbital element](./celestial_mechanics_fig/1.png)
+
+- 半长径 $a$、偏心率 $e$
+- 轨道倾角 $i$、升交点赤经 $\Omega$、近心点幅角 $\omega$
+- 平近点角 $M$、过近心点时刻 $\tau$
+
+![anomaly](./celestial_mechanics_fig/2.png)
+
+- 平近点角 $M$ (Mean Anomaly)
+- 偏近点角 $E$ (Eccentric Anomaly)
+- 真近点角 $f$ (True Anomaly)
+$$
+\cos f=\frac{\cos E-e}{1-e\cos E}
+$$
+$$
+M=E-e\sin E
+$$
+
+### 星历表计算
+
+#### 轨道坐标系
+
+$$
+\vec{r}=a(\cos E-e)\hat{P}+a\sqrt{1-e^2}\sin E\hat{Q}
+$$
+$$
+\dot{\vec{r}}=\frac{na^2}{r}(-\sin E\hat{P}+\sqrt{1-e^2}\cos E\hat{Q})
+$$
+
+#### 从轨道坐标系到任意坐标系
+
+![rotate](./celestial_mechanics_fig/3.png)
+
+$$
+\left[\begin{array}{c}
+x \\
+y \\
+z
+\end{array}\right]=R_z(\omega)R_x(\iota)R_z(\Omega)\left[\begin{array}{c}
+x' \\
+y' \\
+z'
+\end{array}\right]
+$$
+$$
+\left[\begin{array}{c}
+x \\
+y \\
+z
+\end{array}\right]=\left[\begin{array}{ccc}
+\cos\omega\cos\Omega-\cos\iota\sin\omega\sin\Omega & \cos\iota\cos\Omega\sin\omega+\cos\omega\sin\Omega & \sin\iota\sin\omega \\
+-\cos\Omega\sin\omega-\cos\iota\cos\omega\sin\Omega & \cos\iota\cos\omega\cos\Omega-\sin\omega\sin\Omega & \cos\omega\sin\iota \\
+\sin\iota\sin\Omega & -\cos\Omega\sin\iota & \cos\iota
+\end{array}\right]
+\left[\begin{array}{c}
+x' \\
+y' \\
+z'
+\end{array}\right]
+$$
+
+#### 星历表的计算
+
+1. $M\rightarrow E$
+$$
+M(t)=nt+M_0,\quad E-e\sin E=M
+$$
+
+2. 轨道坐标系 ($\hat{P},\hat{Q}$) $\rightarrow\vec{r},\dot{\vec{r}}$
+
+3. 所需坐标下的 ($\hat{P},\hat{Q}$)
+$$
+\hat{P}=\left[\begin{array}{c}
+\cos\omega\cos\Omega-\cos\iota\sin\omega\sin\Omega \\
+\cos\omega\sin\Omega+\cos\iota\cos\Omega\sin\omega \\
+\sin\iota\sin\omega
+\end{array}\right]
+$$
+$$
+\hat{Q}=\left[\begin{array}{c}
+-\cos\iota\cos\omega\sin\Omega-\cos\Omega\sin\omega \\
+\cos\iota\cos\omega\cos\Omega-\sin\omega\sin\Omega \\
+\cos\omega\sin\iota
+\end{array}\right]
+$$
+
+- 从日心黄道坐标到日心赤道坐标 $R_x(-\epsilon)$
+- 从日心赤道坐标到地心赤道坐标 平移
+
+#### 轨道计算
+
+- 由 $\vec{r}(t_0)$ 和 $\dot{\vec{r}}(t_0)$
+  
+  1. 由活力积分
+  $$
+  a=1/\left(\frac{2}{r}-\frac{v^2}{\mu}\right)
+  $$
+  2. $\mu,a\rightarrow n$
+  $$
+  n=\sqrt{\frac{\mu}{a^3}}
+  $$
+  3. $r,\vec{r}\cdot\dot{\vec{r}}\rightarrow e,E$
+  $$
+  e=\sqrt{(1-\frac{r}{a})^2+(\frac{\vec{r}\cdot\dot{\vec{r}}}{a^2n})^2}
+  $$
+  $$
+  \tan E=(\frac{\vec{r}\cdot\dot{\vec{r}}}{a^2n})/(1-\frac{r}{a})
+  $$
+  4. $E\rightarrow M$
+  $$
+  M=E-e\sin E
+  $$
+  5. $\vec{r},\dot{\vec{r}}\rightarrow\hat{P},\hat{Q}$
+  $$
+  \hat{P}=\frac{\cos E}{r}\vec{r}-\frac{\sin E}{an}\dot{\vec{r}}
+  $$
+  $$
+  \hat{Q}=\frac{\sin E}{r\sqrt{1-e^2}}\vec{r}+\frac{\cos E-e}{an\sqrt{1-e^2}}\dot{\vec{r}}
+  $$
+  6. $\hat{n}=\hat{P}\times\hat{Q}$
+  7. $\hat{n},\hat{P},\hat{Q}\rightarrow\Omega,\omega,\iota$
+  $$
+  \Omega=-\arctan\frac{\hat{n}_x}{\hat{n}_y}
+  $$
+  $$
+  \omega=\arctan\frac{\hat{P}_z}{\hat{Q}_z}
+  $$
+  $$
+  \iota=\arccos\hat{n}_z
+  $$
+  5'. $\vec{h}=\vec{r}\times\dot{\vec{r}}\rightarrow \iota,\Omega$
+  $$
+  \vec{h}=A\hat{i}+B\hat{j}+C\hat{k}
+  $$
+  $$
+  \cos\iota=\frac{C}{h}
+  $$
+  $$
+  \cos\Omega=-\frac{B}{h\sin\iota}
+  $$
+  6'. $\vec{h},\vec{e}\rightarrow\hat{n},\hat{P}\rightarrow\hat{Q}\rightarrow \omega$
+  $$
+  \vec{e}=-\frac{1}{\mu}\left(\vec{h}\times\dot{\vec{r}}+\mu\frac{\vec{r}}{r}\right)
+  $$
+
+- 由 $\vec{r}(t_1)$ 和 $\vec{r}(t_2)$
