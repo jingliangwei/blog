@@ -76,6 +76,15 @@ a_r & ra_\theta & r\sin\theta a_\phi
 \end{align}
 $$
 
+- Laplace 算符 ( $\nabla^2=$ div grad )
+$$
+\begin{align}
+\nabla^2\psi&=\frac{\partial^2\psi}{\partial x^2}\hat{x}+\frac{\partial^2\psi}{\partial y^2}\hat{y}+\frac{\partial^2\psi}{\partial z^2}\hat{z} \\
+&=\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial\psi}{\partial r}\right)+\frac{1}{r^2}\frac{\partial^2\psi}{\partial \theta^2}+\frac{\partial^2\psi}{\partial z^2} \\
+&=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial\psi}{\partial r}\right)+\frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right)+\frac{1}{r^2\sin\theta}\frac{\partial^2\psi}{\partial\theta^2}
+\end{align}
+$$
+
 ## $\nabla$ 的运算法则
 
 关于向量微分算符 $\nabla$ 的相关运算法则如下：
