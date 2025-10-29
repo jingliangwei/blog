@@ -342,3 +342,148 @@ $$
    $$
    \varphi(\boldsymbol{x})=\frac{1}{4\pi\varepsilon_0}\left[\frac{Q}{R}-\boldsymbol{p}\cdot\nabla\frac{1}{R}+\frac{1}{6}\sum_{ij}\mathscr{D}_{ij}\frac{\partial^2}{\partial x_i\partial x_j}\frac{1}{R}+\dots\right]
    $$
+
+## 静磁场
+
+### 3.1 矢势 & 微分方程
+
+- 矢势
+$$
+\boldsymbol{B}=\nabla\times\boldsymbol{A}
+$$
+附加要求
+$$
+\nabla\cdot\boldsymbol{A}=0
+$$
+
+- 微分方程
+$$
+\nabla^2\boldsymbol{A}=-\mu\boldsymbol{J}
+$$
+特解
+$$
+\boldsymbol{A}(\boldsymbol{x})=\frac{\mu}{4\pi}\int_V\frac{\boldsymbol{J}(\boldsymbol{x}')\,\mathrm{d}V}{r}
+$$
+$$
+\boldsymbol{B}=\frac{\mu}{4\pi}\int_V\frac{\boldsymbol{J}\times\boldsymbol{r}}{r^3}\mathrm{d}V'=\frac{\mu}{4\pi}\oint_L\frac{I\mathrm{d}\boldsymbol{l}\times\boldsymbol{r}}{r^3}
+$$
+
+- 边界条件
+$$
+\boldsymbol{A}_1=\boldsymbol{A}_2
+$$
+
+- 静磁场能量
+$$
+W=\frac{1}{2}\int\boldsymbol{A}\cdot\boldsymbol{J}\,\mathrm{d}V
+$$
+
+### 3.2 磁标势
+
+- 磁标势 $\varphi_m$
+$$
+\boldsymbol{H}=-\nabla\varphi_m
+$$
+
+### 3.3 磁多极矩
+
+- 矢势的多极展开
+
+  第一项 $\boldsymbol{A}^{(0)}=0$ 不含磁单极项
+
+  第二项
+  $$
+  \boldsymbol{A}^{(1)}=\frac{\mu_0}{4\pi}\frac{\boldsymbol{m}\times\boldsymbol{R}}{R^3}
+  $$
+  磁矩
+  $$
+  \begin{align}
+  \boldsymbol{m}&=\frac{I}{2}\oint_L\boldsymbol{x}'\times\mathrm{d}\boldsymbol{l}' \\
+  &=\frac{1}{2}\int_V\boldsymbol{x}'\times\boldsymbol{J}(\boldsymbol{x}')\,\mathrm{d}V'
+  \end{align}
+  $$
+
+- 磁偶极子磁场、磁标势
+$$
+\boldsymbol{B}^{(1)}=-\frac{\mu_0}{4\pi}(\boldsymbol{m}\cdot\nabla)\frac{\boldsymbol{R}}{R^3}
+$$
+$$
+\varphi_m^{(1)}=\frac{\boldsymbol{m}\cdot\boldsymbol{R}}{4\pi R^3}
+$$
+
+- 磁偶极子势能、受力、力矩
+$$
+U=-\boldsymbol{m}\cdot\boldsymbol{B}_e
+$$
+$$
+\boldsymbol{F}=\boldsymbol{m}\cdot\nabla\boldsymbol{B}_e
+$$
+$$
+\boldsymbol{L}=\boldsymbol{m}\times\boldsymbol{B}_e
+$$
+
+## 电磁波的传播
+
+### 4.1 平面电磁波
+
+- 波动方程
+$$
+\nabla^2\boldsymbol{E}-\frac{1}{c^2}\frac{\partial^2\boldsymbol{E}}{\partial t^2}=0
+$$
+$$
+\nabla^2\boldsymbol{B}-\frac{1}{c^2}\frac{\partial^2\boldsymbol{B}}{\partial t^2}=0
+$$
+
+- 介质色散
+$$
+\boldsymbol{D}(\omega)=\varepsilon(\omega)\boldsymbol{E}(\omega)
+$$
+$$
+\boldsymbol{B}(\omega)=\mu(\omega)\boldsymbol{H}(\omega)
+$$
+
+- 时谐电磁波 (单色波)
+
+$$
+\boldsymbol{E}(\boldsymbol{x},t)=\boldsymbol{E}(\boldsymbol{x})e^{-i\omega t}
+$$
+$$
+\boldsymbol{B}(\boldsymbol{x},t)=\boldsymbol{B}(\boldsymbol{x})e^{-i\omega t}
+$$
+满足亥姆霍兹 (Helmholtz) 方程
+$$
+\nabla^2\boldsymbol{E}+k^2\boldsymbol{E}=0,\quad k=\omega\sqrt{\mu\varepsilon}
+$$
+$$
+\nabla\cdot\boldsymbol{E}=0,
+$$
+$$
+\boldsymbol{B}=-\frac{i}{\omega}\nabla\times\boldsymbol{E}
+$$
+
+- 平面电磁波
+$$
+\boldsymbol{E}(\boldsymbol{x},t)=\boldsymbol{E}_0e^{i(\boldsymbol{k}\cdot\boldsymbol{x}-\omega t)}
+$$
+相速度
+$$
+v=\frac{\omega}{k}=\frac{1}{\sqrt{\mu\varepsilon}}
+$$
+磁场
+$$
+\boldsymbol{B}=\sqrt{\mu\varepsilon}\boldsymbol{e}_k\times\boldsymbol{E}
+$$
+
+- 能量密度和能流密度平均值
+$$
+\overline{w}=\frac{1}{2}\varepsilon E_0^2=\frac{1}{2\mu}B_0^2
+$$
+$$
+\overline{\boldsymbol{S}}=\frac{1}{2}\sqrt{\frac{\varepsilon}{\mu}}E_0^2\boldsymbol{e}_k
+$$
+
+### 4.2 电磁波的反射和折射
+
+- 反射和折射定律
+- 菲涅耳公式
+- 全反射
