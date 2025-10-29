@@ -142,3 +142,5 @@ $$
 $$
 N_n=\sqrt{\frac{\alpha}{2^nn!\sqrt{\pi}}}
 $$
+
+### 势垒贯穿
