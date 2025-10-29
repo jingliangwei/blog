@@ -210,3 +210,10 @@ $$
 1. 正：类空 $\left(\frac{\partial}{\partial t}\right)^a$
 2. 负：类时 $\left(\frac{\partial}{\partial x}\right)^a$
 3. $0$ ：类光 $\left(\frac{\partial}{\partial t}\right)^a+\left(\frac{\partial}{\partial x}\right)^a$
+
+- 相对论火箭方程
+
+与通常的齐奥尔科夫斯基火箭方程一致
+$$
+\Delta v_{\text{roket}}=v\ln\frac{m_0}{m_1}
+$$
