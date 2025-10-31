@@ -14,6 +14,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       // { text: '向量微分算符', link: '/blog/math/nabla' },
       // { text: '全反对称三秩张量', link: '/blog/math/antisymmetric_tensor'},
       { text: '矢量运算和基础场论', link: '/blog/math/vector_field'},
+      { text: 'Calculation', link: '/blog/math/calculation'},
       { text: '概率论与数理统计', link: '/blog/math/probability_and_mathematical_statistics'},
       { text: '概率论中的特征函数', link: '/blog/math/characteristic_function'},
       { text: '傅里叶变换', link: '/blog/math/fourier_transform'}
