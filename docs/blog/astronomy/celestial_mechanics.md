@@ -313,3 +313,96 @@ $$
   $$
 
 - 由 $\vec{r}(t_1)$ 和 $\vec{r}(t_2)$
+
+  1. 计算 $a$
+
+     $t_1,t_2$ 时刻开普勒方程
+     $$
+     nt_1+M_0=E_1-e\sin E_1
+     $$
+     $$
+     nt_2+M_0=E_2-e\sin E_2
+     $$
+     引入辅助变量 $(q,p)$ $(\epsilon,\delta)$ $\sigma$
+     $$
+     q\equiv\frac{E_2-E_1}{2}
+     $$
+     $$
+     \cos p\equiv e\cos\frac{E_2+E_1}{2}
+     $$
+     $$
+     \epsilon\equiv p+q
+     $$
+     $$
+     \delta\equiv p-q
+     $$
+     $$
+     \sigma\equiv|\vec{r}_2-\vec{r}_1|
+     $$
+     有关系式
+     $$
+     \sin\frac{\epsilon}{2}=\pm\sqrt{\frac{r_1+r_2+\sigma}{4a}}
+     $$
+     $$
+     \sin\frac{\delta}{2}=\pm\sqrt{\frac{r_1+r_2-\sigma}{4a}}
+     $$
+     将 4 组 $(\epsilon,\delta)$ 分别带入
+     $$
+     \left\{\begin{array}{l}
+     n=\dfrac{\epsilon-\delta-(\sin\epsilon-\sin\delta)}{t_2-t_1} \\
+     \mu=n^2a^3
+     \end{array}\right.
+     $$
+
+  2. 计算 $e$
+     
+     $r_1,r_2,a,\epsilon,\delta\rightarrow e,E_1$
+     $$
+     \left\{\begin{array}{l}
+     e\sin E_1=\dfrac{(1-\frac{r_1}{a})\cos(\epsilon-\delta)-(1-\frac{r_2}{a})}{\sin(\epsilon-\delta)} \\
+     e\cos E_1=1-\frac{r_1}{a}
+     \end{array}\right.
+     $$
+
+  3. 计算三个角度 $\Omega,\omega,\iota$
+
+     $\vec{r}_1,\vec{r}_2\rightarrow\hat{P},\hat{Q}\rightarrow\Omega,\omega,\iota$
+
+#### 状态传递
+
+- 状态传递函数
+$$
+\vec{r}(t)=F(t)\vec{r}(t_0)+G(t)\dot{\vec{r}}(t_0),
+$$
+$$
+\dot{\vec{r}}(t)=\dot{F}(t)\vec{r}(t_0)+\dot{G}(t)\dot{\vec{r}}(t_0),
+$$
+
+其中
+$$
+F(t)=1-\frac{a}{r_0}[1-\cos\Delta E]
+$$
+$$
+G(t)=\Delta t+\frac{1}{n}[\sin\Delta E-\Delta E]
+$$
+$$
+F'(t)=-\frac{a^2n}{rr_0}\sin\Delta E
+$$
+$$
+G'(t)=1+\frac{a}{r}[\cos\Delta E-1]
+$$
+$$
+\Delta E=E-E_0,\Delta t=t-t_0
+$$
+
+又有
+$$
+n\Delta t=\Delta E-(1-\frac{r_0}{a})\sin\Delta E+\frac{\vec{r}_0\cdot\dot{\vec{r}}_0}{\sqrt{\mu a}}(1-\cos\Delta E)
+$$
+$$
+a=1/(\frac{2}{r_0}-\frac{\dot{\vec{r}}_0\cdot\dot{\vec{r}}_0}{\mu}),n=\sqrt{\frac{\mu}{a^3}}
+$$
+
+从初始条件 $\vec{r}_0,\dot{\vec{r}}_0$ 出发：
+
+$\vec{r}_0,\dot{\vec{r}}_0$ $\rightarrow$ $\Delta E,a$ $\rightarrow$ $E,r=a(1-e\cos E)$ $\rightarrow$ $F,G,\dot{F},\dot{G}$

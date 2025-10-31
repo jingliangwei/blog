@@ -22,11 +22,11 @@ P & Q & R
 \end{array}\right|=\oint_\Gamma P\mathrm{d}x+Q\mathrm{d}y+R\mathrm{d}z
 $$
 
-## 二重积分换元 & Jacobi metrix
+## 二重积分换元 & Jacobi matrix
 
 作变换 $x=x(u,v),y=y(u,v)$
 
-Jacobi metrix $J(u,v)$
+Jacobi matrix $J(u,v)$
 $$
 J(u,v)=\frac{\partial(x,y)}{\partial(u,v)}\equiv\left[\begin{array}{cc}
 \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\
