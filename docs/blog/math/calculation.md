@@ -10,16 +10,32 @@ $$
 
 - Gauss
 $$
-\iiint_\Omega \nabla\cdot\vec{A}\mathrm{d}v=\iint_\Sigma A_n\mathrm{d}S
+\iint_\Sigma A_n\mathrm{d}S=\iiint_\Omega \nabla\cdot\vec{A}\,\mathrm{d}V
+$$
+$$
+\begin{align}
+&\iint_\Sigma P\mathrm{d}y\mathrm{d}z+Q\mathrm{d}z\mathrm{d}x+R\mathrm{d}x\mathrm{d}y= \\
+&\iint_\Sigma (P\cos\alpha+Q\cos\beta+R\cos\gamma)\mathrm{d}S=\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm{d}V\
+\end{align}
 $$
 
 - Stokes
 $$
-\iint_\Sigma \left|\begin{array}{ccc}
+\oint_\Gamma \vec{A}\cdot\mathrm{d}\vec{l}=\iint_\Sigma \nabla\times\vec{A}\,\mathrm{d}S
+$$
+$$
+\begin{align}
+\oint_\Gamma P\mathrm{d}x+Q\mathrm{d}y+R\mathrm{d}z&=\iint_\Sigma \left|\begin{array}{ccc}
 \mathrm{d}y\mathrm{d}z & \mathrm{d}z\mathrm{d}x & \mathrm{d}x\mathrm{d}y \\
 \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\
 P & Q & R
-\end{array}\right|=\oint_\Gamma P\mathrm{d}x+Q\mathrm{d}y+R\mathrm{d}z
+\end{array}\right| \\
+&=\iint_\Sigma \left|\begin{array}{ccc}
+\cos\alpha & \cos\beta & \cos\gamma \\
+\dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\
+P & Q & R
+\end{array}\right|
+\end{align}
 $$
 
 ## 二重积分换元 & Jacobi matrix
