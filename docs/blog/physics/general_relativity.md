@@ -49,7 +49,7 @@ $$
 
 - 测地线方程
 $$
-\frac{\mathrm{d}^2z^\mu}{\mathrm{d}\tau^2}+\Gamma^\nu_{\mu\sigma}\frac{\mathrm{d}z^\mu}{\mathrm{d}\tau}\frac{\mathrm{d}z^\sigma}{\mathrm{d}\tau}=0
+\frac{\mathrm{d}^2z^\mu}{\mathrm{d}\tau^2}+\Gamma^\mu_{\nu\sigma}\frac{\mathrm{d}z^\nu}{\mathrm{d}\tau}\frac{\mathrm{d}z^\sigma}{\mathrm{d}\tau}=0
 $$
 
 ## 协变导数

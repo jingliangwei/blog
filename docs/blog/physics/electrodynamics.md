@@ -487,3 +487,81 @@ $$
 - 反射和折射定律
 - 菲涅耳公式
 - 全反射
+
+### 4.3 有导体存在时电磁波的传播
+
+1. 导体内自由电荷分布
+
+   良导体 $\sigma\gg\varepsilon\omega$
+
+2. 导体内电磁波
+
+   复电容率
+   $$
+   \varepsilon'=\varepsilon+i\frac{\sigma}{\omega}
+   $$
+
+3. 趋肤效应和穿透深度
+
+   穿透深度
+   $$
+   \delta=\sqrt{\frac{2}{\omega\mu\sigma}}
+   $$
+
+4. 导体表面上的反射
+
+### 4.4 谐振腔
+
+1. 有界空间中的电磁波
+
+   波导是中空的金属管
+
+2. 理想导体边界条件
+
+$$
+\boldsymbol{e}_n\times\boldsymbol{E}=0
+$$
+$$
+\boldsymbol{e}_n\times\boldsymbol{H}=\boldsymbol{\alpha}
+$$
+$$
+\boldsymbol{e}_n\cdot\boldsymbol{D}=\sigma
+$$
+$$
+\boldsymbol{e}_n\cdot\boldsymbol{B}=0
+$$
+
+3. 谐振腔
+
+   本征频率
+$$
+\omega_{mnp}=\frac{\pi}{\sqrt{\mu\varepsilon}}\sqrt{\left(\frac{m}{L_1}\right)^2+\left(\frac{n}{L_2}\right)^2+\left(\frac{p}{L_3}\right)^2}
+$$
+
+### 4.5 波导
+
+1. 高频电磁能量的传输
+
+2. 矩形波导中的电磁波
+
+   $$
+   k_x=\frac{m\pi}{a},\ k_y=\frac{n\pi}{b}\ (m,n=0,1,2,...)
+   $$
+
+   $$
+   \boldsymbol{H}=-\frac{i}{\omega\mu}\nabla\times\boldsymbol{E}
+   $$
+
+   横电波 (TE$_{mn}$)
+
+   横磁波 (TM$_{mn}$)
+
+3. 截止频率
+
+$$
+\omega_{c,mn}=\frac{\pi}{\sqrt{\mu\varepsilon}}\sqrt{\left(\frac{m}{a}\right)^2+\left(\frac{n}{b}\right)^2}
+$$
+
+4. TE$_{10}$波的电磁场和管壁电流
+
+![TE_10电磁场和管壁电流](./electrodynamics_fig/4-1.png)
