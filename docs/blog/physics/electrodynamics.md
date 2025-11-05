@@ -500,6 +500,12 @@ $$
    $$
    \varepsilon'=\varepsilon+i\frac{\sigma}{\omega}
    $$
+   $$
+   \boldsymbol{E}(\boldsymbol{x})=\boldsymbol{E}_0 e^{i\boldsymbol{k}\cdot\boldsymbol{x}}
+   $$
+   $$
+   \boldsymbol{k}=\boldsymbol{\beta}+i\boldsymbol{\alpha},\ k=\omega\sqrt{\mu\varepsilon'}
+   $$
 
 3. 趋肤效应和穿透深度
 
