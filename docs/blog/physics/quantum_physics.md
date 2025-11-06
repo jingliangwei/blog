@@ -144,3 +144,65 @@ N_n=\sqrt{\frac{\alpha}{2^nn!\sqrt{\pi}}}
 $$
 
 ### 势垒贯穿
+
+## 量子力学中的力学量
+
+### 算符
+
+- 两波函数的标积
+$$
+(\psi,\varphi)\equiv\int\psi^*\varphi\mathrm{d}\tau
+$$
+
+- 算符 $\widehat{F}$ 的复共轭算符 $\widehat{F}^*$
+
+  e.g. $\hat{p}^*=i\hbar\nabla=-\hat{p}$
+
+- 算符 $\widehat{F}$ 的转置算符 $\widetilde{\widehat{F}}$ 定义为
+  $$
+  (\psi,\widetilde{\widehat{F}}\varphi)=(\varphi^*,\widehat{F}\psi^*)
+  $$
+
+  e.g. $\widetilde{\dfrac{\partial}{\partial x}}=-\dfrac{\partial}{\partial x}$
+
+- 算符 $\widehat{F}$ 的厄米共轭算符 $\widehat{F}^\dagger$
+  $$
+  \widehat{F}^\dagger\equiv\widetilde{\widehat{F}}^*
+  $$
+  - 幺正算符 $\widehat{F}^\dagger=\widehat{F}^{-1}$
+  - 厄米算符 $\widehat{F}^\dagger=\widehat{F}$
+
+- 量子力学原理3：表示力学量的算符都是厄米算符。
+
+### 动量算符和角动量算符
+
+- 动量算符 $\hat{p}$ 的本征方程
+  $$
+  -i\hbar\nabla\psi(\vec{r})=\vec{p}\psi(\vec{r})
+  $$
+  本征函数
+  $$
+  \psi_p(\vec{r})=\frac{1}{(2\pi\hbar)^{3/2}}e^{\frac{i}{\hbar}\vec{p}\cdot\vec{r}}
+  $$
+
+- 角动量算符 $\widehat{L}_z$ 的本征方程
+  $$
+  -i\hbar\frac{\mathrm{d}}{\mathrm{d}\phi}\psi(\phi)=l_z\psi(\phi)
+  $$
+  本征函数
+  $$
+  \psi_m(\phi)=\frac{1}{\sqrt{2\pi}}e^{im\phi}, l_z=m\hbar, m=0,\pm1,\pm2,...
+  $$
+
+- 算符 $\widehat{L}^2$ 的本征方程
+  $$
+  -\hbar^2\left[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right)+\frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right]Y(\theta,\phi)=L^2Y(\theta,\phi)
+  $$
+  本征值 $L^2=l(l+1)\hbar^2$
+  本征函数
+  $$
+  Y_{lm}(\theta,\phi)=(-1)^mN_{lm}P^m_l(\cos\theta)e^{im\phi}
+  $$
+  $$
+  l=0,1,2,...,n-1,\quad m=0,\pm1,\pm2,...,\pm l
+  $$
