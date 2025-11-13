@@ -199,6 +199,7 @@ $$
   -\hbar^2\left[\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right)+\frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right]Y(\theta,\phi)=L^2Y(\theta,\phi)
   $$
   本征值 $L^2=l(l+1)\hbar^2$
+
   本征函数
   $$
   Y_{lm}(\theta,\phi)=(-1)^mN_{lm}P^m_l(\cos\theta)e^{im\phi}
@@ -206,3 +207,35 @@ $$
   $$
   l=0,1,2,...,n-1,\quad m=0,\pm1,\pm2,...,\pm l
   $$
+
+### 电子在库伦场中的运动
+
+- 本征值和本征函数
+$$
+E_n=-\frac{\mu Z^2e^4}{2\hbar^2n^2},n=1,2,3,...
+$$
+$$
+\phi_{nlm}(r,\theta,\phi)=R_{nl}(r)Y_{lm}(\theta,\phi)
+$$
+$$
+l=0,1,2,...,n-1
+$$
+$$
+m=0,\pm 1,\pm 2,...,\pm l
+$$
+
+- 能级简并度
+  
+  主量子数 $n=n_r+l+1$
+
+  角量子数 $l=0,1,2,...,n-1$
+
+  径向量子数 $n_r$
+
+  对于确定的 $l$ ，磁量子数 $m=0,\pm 1,\pm 2,...,\pm l$
+
+  能级 $E_n$ 的简并度为 $\sum_{l=0}^{n-1}(2l+1)=n^2$
+
+### 氢原子
+
+参考 [原子物理-氢原子](/blog/physics/atom.html#氢原子)

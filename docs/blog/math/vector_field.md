@@ -81,7 +81,7 @@ $$
 \begin{align}
 \nabla^2\psi&=\frac{\partial^2\psi}{\partial x^2}\hat{x}+\frac{\partial^2\psi}{\partial y^2}\hat{y}+\frac{\partial^2\psi}{\partial z^2}\hat{z} \\
 &=\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial\psi}{\partial r}\right)+\frac{1}{r^2}\frac{\partial^2\psi}{\partial \theta^2}+\frac{\partial^2\psi}{\partial z^2} \\
-&=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial\psi}{\partial r}\right)+\frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right)+\frac{1}{r^2\sin\theta}\frac{\partial^2\psi}{\partial\theta^2}
+&=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial\psi}{\partial r}\right)+\frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right)+\frac{1}{r^2\sin^2\theta}\frac{\partial^2\psi}{\partial\theta^2}
 \end{align}
 $$
 
@@ -107,11 +107,6 @@ $$
 $$
 $$
 \nabla(\boldsymbol{f}\cdot\boldsymbol{g})=\boldsymbol{f}\times(\nabla\times\boldsymbol{g})+(\boldsymbol{f}\cdot\nabla)\boldsymbol{g}+\boldsymbol{g}\times(\nabla\times\boldsymbol{f})+(\boldsymbol{g}\cdot\nabla)\boldsymbol{f}
-$$
-
-- Laplace 算符
-$$
-\nabla^2\phi=\nabla\cdot\nabla\phi
 $$
 
 - 其他性质
@@ -157,3 +152,34 @@ $$
 \end{array}\right]_{R,\phi,z}
 \end{align}
 $$
+
+## some useful results
+
+- 球坐标下 Laplace 算符的 $r$ 分量
+
+  $$
+  \frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d}r}\left(r^2\frac{\mathrm{d}R(r)}{\mathrm{d}r}\right)=\frac{1}{r}\frac{\mathrm{d}^2(rR(r))}{\mathrm{d}r^2}
+  $$
+
+  proof:
+  $$
+  \begin{align}
+  \frac{\mathrm{d}^2(rR)}{\mathrm{d}r^2}&=\frac{\mathrm{d}}{\mathrm{d}r}\left(R+r\frac{\mathrm{d}R}{\mathrm{d}r}\right) \\
+  &=\frac{\mathrm{d}R}{\mathrm{d}r}+\frac{\mathrm{d}R}{\mathrm{d}r}+r\frac{\mathrm{d}^2R}{\mathrm{d}r^2} \\
+  &=2\frac{\mathrm{d}R}{\mathrm{d}r}+r\frac{\mathrm{d}^2R}{\mathrm{d}r^2} \\
+  &=\frac{1}{r}\left[2r\frac{\mathrm{d}R}{\mathrm{d}r}+r^2\frac{\mathrm{d}^2R}{\mathrm{d}r^2}\right] \\
+  &=\frac{1}{r}\frac{\mathrm{d}}{\mathrm{d}r}\left(r^2\frac{\mathrm{d}R(r)}{\mathrm{d}r}\right)
+  \end{align}
+  $$
+
+- 经典势场及其力场
+  
+  1. 
+  $$
+  \nabla\left(\frac{1}{r}\right)=-\frac{\vec{r}}{r^3}
+  $$
+
+  2. 
+  $$
+  \nabla\left(\frac{\vec{r}\cdot\vec{a}}{a^3}\right)=\frac{\vec{a}}{a^3}
+  $$
