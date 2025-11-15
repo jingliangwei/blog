@@ -571,3 +571,27 @@ $$
 4. TE$_{10}$波的电磁场和管壁电流
 
 ![TE_10电磁场和管壁电流](./electrodynamics_fig/4-1.png)
+
+### 5.7 等离子体
+
+1. 等离子体的准电中性和屏蔽库伦场
+   $$
+   \varphi(\boldsymbol{x})=\frac{q}{4\pi\varepsilon_0 r}e^{-r/\lambda}
+   $$
+   $$
+   \lambda^2=\frac{kT\varepsilon_0}{n_{e0}e^2}
+   $$
+
+2. 等离子体振荡
+   
+   等离子体频率（热平衡下）
+   $$
+   \omega_p=\sqrt{\frac{n_0 e^2}{m\varepsilon_0}}
+   $$
+
+3. 电磁波在等离子体中的传播
+
+   等离子体的折射率
+   $$
+   n=\sqrt{1-\frac{\omega_p^2}{\omega^2}}
+   $$
