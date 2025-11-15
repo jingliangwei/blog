@@ -14,6 +14,35 @@
   \end{align}
   $$
 
+- 一般洛伦兹变化矩阵
+  
+  $$
+  \left[\begin{array}{c}
+  t' \\
+  x' \\
+  y' \\
+  z'
+  \end{array}\right]=\left[\begin{array}{cccc}
+  \gamma & -\gamma v^x & -\gamma v^y & -\gamma v^z \\
+  -\gamma v^x & 1+\dfrac{(\gamma-1)(v^x)^2}{v^2} & \dfrac{(\gamma-1)v^x v^y}{v^2} & \dfrac{(\gamma-1)v^x v^z}{v^2} \\
+  -\gamma v^y & \dfrac{(\gamma-1)v^x v^y}{v^2} & 1+\dfrac{(\gamma-1)(v^y)^2}{v^2} & \dfrac{(\gamma-1)v^y v^z}{v^2} \\
+  -\gamma v^z & \dfrac{(\gamma-1)v^x v^z}{v^2} & \dfrac{(\gamma-1)v^y v^z}{v^2} & 1+\dfrac{(\gamma-1)(v^z)^2}{v^2}
+  \end{array}\right]\left[\begin{array}{c}
+  t \\
+  x \\
+  y \\
+  z
+  \end{array}\right]
+  $$
+  即时间分量
+  $$
+  t'=\gamma (t-\vec{v}\cdot\vec{r})
+  $$
+  空间分量
+  $$
+  \vec{r}'=-\gamma\vec{v}t+\vec{r}+\frac{(\gamma-1)(\vec{v}\cdot\vec{r})}{v^2}\vec{v}
+  $$
+
 ### 动钟变慢
 
 ![动钟变慢时空图](./relativity_fig/move_clock_slow.png)
@@ -165,6 +194,9 @@ U^3
 \gamma u_3
 \end{array}\right]
 $$
+$$
+\gamma=\frac{1}{\sqrt{1-(u^x)^2-(u^y)^2-(u^z)^2}}
+$$
 
 - 正交性：
 $$
@@ -216,4 +248,57 @@ $$
 与通常的齐奥尔科夫斯基火箭方程一致
 $$
 \Delta v_{\text{roket}}=v\ln\frac{m_0}{m_1}
+$$
+
+## 曲线参数化及其物理意义
+
+线长
+$$
+L=\int_{s_1}^{s_2}\sqrt{\left|g_{ab}\left(\frac{\mathrm{d}}{\mathrm{d}s}\right)^a\left(\frac{\mathrm{d}}{\mathrm{d}s}\right)^b\right|}\,\mathrm{d}s
+$$
+
+### 类时曲线参数化
+
+类时曲线对应某观者世界线，四速 $U^a$, 固有时 $\tau$
+$$
+\left(\frac{\mathrm{d}}{\mathrm{d}\tau}\right)^a=U^a
+$$
+$$
+g_{ab}U^aU^b=-1
+$$
+
+### 类空曲线参数化
+
+$$
+g_{ab}\left(\frac{\mathrm{d}}{\mathrm{d}s}\right)^a\left(\frac{\mathrm{d}}{\mathrm{d}s}\right)^b=1
+$$
+
+### 类光曲线参数化
+
+参数化 （光源四速 $U^a$ ，发光频率 $f$ ）
+$$
+g_{ab}\left(\frac{\mathrm{d}}{\mathrm{d}\lambda}\right)^aU^b=-f
+$$
+
+光子频率 $f$ ，光的空间波矢 $\vec{k}$
+$$
+\left(\frac{\mathrm{d}}{\mathrm{d}\lambda}\right)^a=f\left(\frac{\partial}{\partial t}\right)^a+\vec{k}^a
+$$
+
+光子能量为 $hf$ ，动量为 $h\vec{k}$ ，故光子的四动量
+$$
+P^a=h\left(\frac{\mathrm{d}}{\mathrm{d}\lambda}\right)^a
+$$
+
+### 广义四加速及其与四速正交性
+
+广义四加速
+$$
+A^a\equiv U^b\partial_b U^a
+$$
+这里 $U^a$ 对于类时、类空、类光曲线分别为 $\left(\frac{\mathrm{d}}{\mathrm{d}\tau}\right)^a,\left(\frac{\mathrm{d}}{\mathrm{d}s}\right)^a,\left(\frac{\mathrm{d}}{\mathrm{d}\lambda}\right)^a$
+
+正交性
+$$
+g_{ac}U^cA^a=0
 $$
