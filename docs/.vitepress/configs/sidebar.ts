@@ -24,8 +24,9 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     text: 'physics',
     collapsed: false,
     items: [
-      { text: '电偶极子和磁偶极子', link: '/blog/physics/dipoles' },
-      { text: '接地问题', link: '/blog/physics/earthing'},
+      { text: '杂项笔记', link: '/blog/physics/miscellaneous' },
+      // { text: '电偶极子和磁偶极子', link: '/blog/physics/dipoles' },
+      // { text: '接地问题', link: '/blog/physics/earthing'},
       { text: '光学', link: '/blog/physics/optics'},
       { text: '原子物理', link: '/blog/physics/atom'},
       { text: '理论力学', link: '/blog/physics/analytial_mechanics'},
