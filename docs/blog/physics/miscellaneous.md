@@ -336,3 +336,20 @@ $$
 V_A=k\frac{q}{R_A}+k\frac{Q_B}{R_B}=0\Rightarrow q=-Q_B\frac{R_A}{R_B}
 $$
 :::
+
+## Newton Potential's Poisson Equation
+
+考察一个密度分布 $\rho(\vec{x})$ 的系统，记空间的 Newton 势为 $\Phi(\vec{r})$ ，空间中单位质量粒子所受加速度 $\vec{a}=-\nabla\Phi$
+
+取空间中任意一点 $\vec{x}_0$ ，取球心位于该点的球面，令球的半径 $r\rightarrow 0$ ，球面上各点单位质量粒子所受的加速度分解为两部分，一部分由球面内质量引起 $\vec{a}_i$，另一部分由球面外质量引起 $\vec{a}_o$
+
+由于 $r\rightarrow 0$ ，在球面各处的 $\vec{a}_o$ 可视为不变，则
+$$
+\iint_{\Sigma}(\vec{a}_i+\vec{a}_o)\mathrm{d}S=\iint_{\Sigma}\vec{a}_i\mathrm{d}S=\iiint_{\Omega}-\nabla^2\Phi\mathrm{d}V
+$$
+$$
+\frac{G\rho V}{r^2}4\pi r^2=-\nabla^2\Phi V
+$$
+$$
+\Rightarrow \nabla^2\Phi=-4\pi G\rho
+$$
