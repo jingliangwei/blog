@@ -277,6 +277,19 @@ $$
 $$
 此即钟慢效应。
 
+::: info relativity
+注意“同时”的相对性就体现在 Lotentz 变换时对固有时的计算。例如上面的表述就是基于观者1系下的“同时性”得到的结果，如果利用观者2系下的“同时性”，那么上述结果可以完全对换过来。不同系下的“同时性”不同保证了每个参考系下的“动钟”都变慢。
+
+![同时性](./relativity_fig/1.png)
+:::
+
+::: info Doppler
+再考虑 Doppler 效应，光子频率 $f=1/\Delta t$ ，运动观者观测光源两次发射的波前时间间隔 $\mathrm{d}t'=\gamma\Delta t$ ，但在此期间观者与光源距离增加 $-\vec{v}\cdot\hat{k}\mathrm{d}t'$ ，$\hat{k}$ 为光子空间波矢。因此观者两次接受到波前的周期为
+$$
+\mathrm{d}t_0=(1-\vec{v}\cdot\hat{k})\mathrm{d}t'=(1-\vec{v}\cdot\hat{k})\gamma\Delta t
+$$
+:::
+
 ### 四维力
 
 定义相对论性的力 $f^\alpha$
@@ -453,7 +466,7 @@ $$
 \Gamma^\lambda_{\mu\nu}=\frac{1}{2}g^{\lambda\kappa}\left[\frac{\partial g_{\kappa\nu}}{\partial x^\mu}+\frac{\partial g_{\kappa\mu}}{\partial x^\nu}-\frac{\partial g_{\mu\nu}}{\partial x^\kappa}\right]
 $$
 
-::: info 注释
+::: info 注
 具体计算详见 Steven Weinberg 的《引力和宇宙学——广义相对论的原理和应用》3.3 节。
 :::
 
@@ -491,6 +504,40 @@ $$
 \Rightarrow g_{00}=-(1+2\phi)
 $$
 
+#### 引力红移
+
+钟的“滴答”之间的时空间隔为
+$$
+\Delta t=(-g_{\mu\nu}\mathrm{d}x^\mu\mathrm{d}x^\nu)^{1/2}
+$$
+当钟的速度为 $\mathrm{d}x^\mu/\mathrm{d}t$ ，那么“滴答”之间的时间间隔 $\mathrm{d}t$ 由下式决定
+$$
+\frac{\mathrm{d}t}{\Delta t}=\left(-g_{\mu\nu}\frac{\mathrm{d}x^\mu}{\mathrm{d}t}\frac{\mathrm{d}x^\nu}{\mathrm{d}t}\right)^{1/2}
+$$
+当钟静止，
+$$
+\frac{\mathrm{d}t}{\Delta t}=(-g_{00})^{1/2}
+$$
+::: info 注
+单纯测量“滴答”之间的时间间隔是无法确定上式中的膨胀因子的，因为引力场对时间标准的影响等同于它对钟的影响。
+:::
+但是我们可以比较引力场中不同两点处的时间膨胀因子。例如特定原子跃迁发出的光
+$$
+\mathrm{d}t_2=\Delta t(-g_{00}(x_2))^{1/2}
+$$
+$$
+\mathrm{d}t_1=\Delta t(-g_{00}(x_1))^{1/2}
+$$
+$$
+\begin{align}
+\frac{\nu_2}{\nu_1}&=\left(\frac{g_{00}(x_2)}{g_{00}(x_1)}\right)^{1/2} \\
+&=\left(\frac{1+2\phi(x_2)}{1+2\phi(x_1)}\right)^{1/2} \\
+&=\left(1+\frac{2\phi(x_2)-2\phi(x_1)}{1+2\phi(x_1)}\right)^{1/2} \\
+&\approx 1+\frac{\phi(x_2)-\phi(x_1)}{1+2\phi(x_1)} \\
+&\approx 1+(\phi(x_2)-\phi(x_1))
+\end{align}
+$$
+
 #### 引力效应
 
 引力对力学和电动力学方程的影响：
@@ -526,6 +573,7 @@ g_{\mu\nu}=\frac{\partial \xi^\alpha}{\partial x^\mu}\frac{\partial \xi^\beta}{\
 $$
 
 一个度规 $g_{\mu\nu}$ 和 Minkowski 度规 $\eta_{\mu\nu}$ 等价的充要条件是：
+
 (1) 由 $g_{\mu\nu}$ 算出的曲率张量处处为零
 $$
 {R^\lambda}_{\mu\nu\kappa}=0
