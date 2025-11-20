@@ -239,3 +239,86 @@ $$
 ### 氢原子
 
 参考 [原子物理-氢原子](/blog/physics/atom.html#氢原子)
+
+### 厄米算符本征函数性质
+
+1. 正交归一性
+2. 完备性
+
+### 算符与力学量的关系
+
+1. 量子力学原理三：
+   
+   量子力学中表示力学量的算符都是厄米算符，它的本征函数 $\varphi_n(x)$ 组成正交归一完备系。如果量子力学中的力学量 $F$ 在经典力学中有相应的力学量，则表示这个力学量的算符 $\widehat{F}$ 由经典表达式 $F(r,p)$ 中将 $p$ 换成 $\hat{p}$ 得出。
+
+2. 量子力学原理四：
+
+   算符 $\widehat{F}$ 的本征函数为 $\varphi_n(x)$ ，当体系处于归一化波函数
+   $$
+   \psi(x)=\sum_n c_n\varphi_n(x),\quad c_n=(\varphi_n,\psi)
+   $$
+   $$
+   \psi(x)=\int c_\lambda\varphi_\lambda(x)\mathrm{d}\lambda,\quad c_\lambda=(\varphi_\lambda,\psi)
+   $$
+   所描述的状态时，测量力学量 $F$ 所得到的数值，必定是算符 $\widehat{F}$ 的本征值 $\lambda_n$ 之一，测得 $\lambda_n$ 的几率等于 $|c_n|^2$ 。
+
+3. 力学量的平均值
+   $$
+   \bar{F}=\int\psi^*\widehat{F}\psi\mathrm{d}x=\sum_n|c_n|^2F_n,\text{or}\int\lambda|c_\lambda|^2\mathrm{d}\lambda
+   $$
+   对于任意力学量 $\widehat{B}$
+   $$
+   \bar{B}=\int\psi^*\widehat{B}\psi\mathrm{d}x=(\psi,\widehat{B}\psi)
+   $$
+
+### 算符对易关系和测不准关系
+
+1. 算符的对易关系：
+   
+   $$
+   [x_\alpha,\hat{p}_\beta]=i\hbar\delta_{\alpha\beta}
+   $$
+   $$
+   [\hat{p}_\alpha,\hat{p}_\beta]=0
+   $$
+   $$
+   [\hat{L}_x,\hat{L}_y]=i\hbar\hat{L}_z
+   $$
+   $$
+   [\hat{L}^2,\hat{L}_\alpha]=0
+   $$
+
+2. 两个算符对易 $\Leftrightarrow$ 其本征函数系相同且完备 $\Leftrightarrow$ 在本征态下算符/力学量有确定的值
+
+3. 测不准原理：
+   
+   设 $[\widehat{F},\widehat{G}]=i\hat{k}$ 则有
+   $$
+   \overline{(\Delta\widehat{F})^2}\ \overline{(\Delta\widehat{G})^2}\ge \frac{(\bar{k})^2}{4}
+   $$
+
+   e.g. 坐标与动量的测不准关系
+   $$
+   \Delta x\Delta p_x\ge\frac{\hbar}{2}
+   $$
+
+### 力学量的时间变化及守恒律
+
+1. 薛定谔绘景： $\psi(x,t)$ 随时间变化， $\widehat{F}(\vec{r},\hat{p})$ 不随时间变化
+   $$
+   i\hbar\frac{\partial}{\partial t}\psi(\vec{r},t)=\widehat{H}\psi(\vec{r},t)
+   $$
+
+2. 海森堡绘景： $\psi$ 不随时间变化， $\widehat{F}$ 不显含时间，但随时间变化
+   $$
+   \frac{\mathrm{d}\widehat{F}}{\mathrm{d}t}=\frac{1}{i\hbar}[\widehat{F},\widehat{H}]
+   $$
+
+3. 如果 $\widehat{F}$ 不显含时间 $t$ ，与 $\widehat{H}$ 对易，则 $\frac{\mathrm{d}\widehat{F}}{\mathrm{d}t}=0$ ，即力学量 $\widehat{F}$ 守恒。
+
+4. 宇称算符
+   $$
+   \widehat{P}\psi(x,t)=\psi(-x,t)
+   $$
+
+   如果体系的 $\widehat{H}$ 在空间反演下不变，则宇称算符 $\widehat{P}$ 与 $\widehat{H}$ 对易，进而 $P$ 为守恒量，即宇称守恒定律。
