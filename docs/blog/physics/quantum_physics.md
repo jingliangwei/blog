@@ -129,6 +129,13 @@ $$
 $$
 H_n(\xi)=(-1)^n\exp(\xi^2)\frac{\mathrm{d}^n}{\mathrm{d}\xi^n}\exp(-\xi^2)
 $$
+递推关系
+$$
+\frac{\mathrm{d}H_n}{\mathrm{d}\xi}=2nH_{n-1}(\xi)
+$$
+$$
+H_{n+1}-2\xi H_n+2n H_{n-1}=0
+$$
 
 - 能量
 $$
@@ -137,10 +144,21 @@ $$
 
 - 波函数（厄密函数）
 $$
+\Psi_n(\xi)=N_n e^{-\frac{\xi^2}{2}}H_n(\xi)
+$$
+$$
 \Psi_n(x)=N_n e^{-\frac{\alpha^2}{2}x^2}H_n(\alpha x)
 $$
 $$
 N_n=\sqrt{\frac{\alpha}{2^nn!\sqrt{\pi}}}
+$$
+
+有递推关系
+$$
+\xi\Psi_n(\xi)=\sqrt{\frac{n+1}{2}}\Psi_{n+1}(\xi)+\sqrt{\frac{n}{2}}\Psi_{n-1}(\xi)
+$$
+$$
+\frac{\mathrm{d}}{\mathrm{d}\xi}\Psi_n(\xi)=\sqrt{\frac{n}{2}}\Psi_{n-1}(\xi)-\sqrt{\frac{n+1}{2}}\Psi_{n+1}(\xi)
 $$
 
 ### 势垒贯穿
@@ -211,6 +229,9 @@ $$
 ### 电子在库伦场中的运动
 
 - 本征值和本征函数
+$$
+\widehat{H}\psi=\left[-\frac{\hbar^2}{2\mu}\nabla^2-\frac{Ze^2}{r}\right]\psi=E\psi
+$$
 $$
 E_n=-\frac{\mu Z^2e^4}{2\hbar^2n^2},n=1,2,3,...
 $$
