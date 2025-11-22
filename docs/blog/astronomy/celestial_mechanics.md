@@ -406,3 +406,68 @@ $$
 从初始条件 $\vec{r}_0,\dot{\vec{r}}_0$ 出发：
 
 $\vec{r}_0,\dot{\vec{r}}_0$ $\rightarrow$ $\Delta E,a$ $\rightarrow$ $E,r=a(1-e\cos E)$ $\rightarrow$ $F,G,\dot{F},\dot{G}$
+
+### 宇宙速度
+
+- 第一宇宙速度
+  $$
+  \frac{1}{2}v_1^2-\frac{\mu}{r_\oplus}=E=-\frac{\mu}{2r_\oplus}
+  $$
+  $$
+  v_1=\sqrt{\frac{\mu}{r_\oplus}}
+  $$
+
+- 第二宇宙速度
+  $$
+  \frac{1}{2}v_2^2-\frac{\mu}{r_\oplus}=E=0
+  $$
+  $$
+  v_2=\sqrt{\frac{2\mu}{r_\oplus}}
+  $$
+
+- 第三宇宙速度
+  
+  记太阳的第二宇宙速度 $v_{\odot2}=\sqrt{2\mu_\odot/d_{\odot}}$ ，地球轨道速度 $v_e$
+  $$
+  \frac{1}{2}(v_{\odot2}-v_e)^2=\frac{1}{2}v_3^2-\frac{\mu_\oplus}{r_\oplus}
+  $$
+  $$
+  v_3=\sqrt{\frac{2\mu_\oplus}{r_\oplus}+(v_{\odot2}-v_e)^2}=\sqrt{v_2^2+(v_{\odot2}-v_e)^2}
+  $$
+  ::: info 注
+  在太阳参考系下，逃逸速度即 $v_{\odot2}$
+
+  在地球参考系下，该速度为 $v_{\odot2}-v_e$
+
+  也就是说，从地球上以 $v_3$ 发射，以双曲轨道离开地球，离地球无限远时相对地球速度为 $v_{\odot2}-v_e$ ，此时相对太阳速度为 $v_{\odot2}$ ，再以抛物轨道离开太阳。
+  :::
+
+### 作用范围
+
+![作用范围](./celestial_mechanics_fig/4.png)
+
+记 $q=\frac{m}{M}$
+- 引力作用范围
+  $$
+  a_{1\text{引}}=a_{2\text{引}}
+  $$
+  $$
+  r_1\approx\sqrt{q}A
+  $$
+- 引潮比作用范围
+  $$
+  \frac{|\vec{a}_{2\text{引}}|}{|\vec{a}_{1\text{潮}}|}=\frac{|\vec{a}_{1\text{引}}|}{|\vec{a}_{2\text{潮}}|}
+  $$
+  $$
+  \vec{a}_{1\text{潮}}=GM(\frac{\vec{R}}{R^3}+\frac{\vec{A}}{A^3})
+  $$
+  $$
+  \vec{a}_{2\text{潮}}=Gm(\frac{\vec{r}}{r^3}-\frac{\vec{A}}{A^3})
+  $$
+  $$
+  r_2\approx q^{2/5}A
+  $$
+- 希尔作用范围
+  $$
+  r_3\approx q^{1/3}A
+  $$
