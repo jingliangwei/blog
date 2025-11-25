@@ -572,7 +572,7 @@ $$
 
 ![TE_10电磁场和管壁电流](./electrodynamics_fig/4-1.png)
 
-### 5.7 等离子体
+### 4.7 等离子体
 
 1. 等离子体的准电中性和屏蔽库伦场
    $$
@@ -594,4 +594,166 @@ $$
    等离子体的折射率
    $$
    n=\sqrt{1-\frac{\omega_p^2}{\omega^2}}
+   $$
+
+## 电磁波的辐射
+
+### 5.1 电磁场的矢势和标势
+
+1. 电磁场的场论描述
+   $$
+   \boldsymbol{B}=\nabla\times\boldsymbol{A}
+   $$
+   $$
+   \boldsymbol{E}=-\nabla\varphi-\frac{\partial \boldsymbol{A}}{\partial t}
+   $$
+
+2. 规范变换
+   $$
+   \boldsymbol{A}\rightarrow\boldsymbol{A}'=\boldsymbol{A}+\nabla\psi
+   $$
+   $$
+   \varphi\rightarrow\varphi'=\varphi-\frac{\partial\psi}{\partial t}
+   $$
+
+3. 库伦规范
+   $$
+   \nabla\cdot\boldsymbol{A}=0
+   $$
+
+   洛伦兹规范
+   $$
+   \nabla\cdot\boldsymbol{A}+\frac{1}{c^2}\frac{\partial\varphi}{\partial t}=0
+   $$
+
+4. 达朗贝尔 (d'Alembert) 方程 (洛伦兹规范下)
+   $$
+   \nabla^2\boldsymbol{A}-\frac{1}{c^2}\frac{\partial^2\boldsymbol{A}}{\partial t^2}=-\mu_0\boldsymbol{J}
+   $$
+   $$
+   \nabla^2\varphi-\frac{1}{c^2}\frac{\partial^2\varphi}{\partial t^2}=-\frac{\rho}{\varepsilon_0}
+   $$
+
+### 5.2 推迟势
+
+对于一般变化电荷分布 $\rho(\boldsymbol{x}',t)$ ，激发势
+$$
+\varphi(\boldsymbol{x},t)=\int_V\frac{\rho\left(\boldsymbol{x}',t-\dfrac{r}{c}\right)}{4\pi \varepsilon_0 r}\mathrm{d}V'
+$$
+$$
+\boldsymbol{A}(\boldsymbol{x},t)=\frac{\mu_0}{4\pi}\int_V\frac{\boldsymbol{J}\left(\boldsymbol{x}',t-\dfrac{r}{c}\right)}{r}\mathrm{d}V'
+$$
+
+### 5.3 电偶极辐射
+
+1. 辐射场一般公式
+   $$
+   \boldsymbol{A}(\boldsymbol{x})=\frac{\mu_0}{4\pi}\int_V\frac{\boldsymbol{J}(\boldsymbol{x}')e^{ikr}}{r}\mathrm{d}V'
+   $$
+   $$
+   \boldsymbol{B}=\nabla\times\boldsymbol{A}
+   $$
+   $$
+   \boldsymbol{E}=\frac{ic}{k}\nabla\times\boldsymbol{B}
+   $$
+
+2. 矢势展开
+   $$
+   \boldsymbol{A}(\boldsymbol{x})=\frac{\mu_0 e^{ikR}}{4\pi R}\int_V\boldsymbol{J}(\boldsymbol{x}')(1-ik\boldsymbol{e}_R\cdot\boldsymbol{x}'+\cdots)\mathrm{d}V'
+   $$
+
+3. 电偶极辐射 (上式第一项)
+   $$
+   \boldsymbol{B}=\frac{1}{4\pi\varepsilon_0 c^3R}\ddot{\boldsymbol{p}}e^{ikR}\sin\theta\boldsymbol{e}_\phi
+   $$
+   $$
+   \boldsymbol{E}=\frac{1}{4\pi\varepsilon_0 c^2R}\ddot{\boldsymbol{p}}e^{ikR}\sin\theta\boldsymbol{e}_\theta
+   $$
+
+4. 平均能流密度
+   $$
+   \bar{S}=\frac{|\ddot{\boldsymbol{p}}|^2}{32\pi^2\varepsilon_0 c^3R^2}\sin^2\theta\boldsymbol{e}_R
+   $$
+   总辐射功率
+   $$
+   P=\frac{1}{4\pi\varepsilon_0}\frac{|\ddot{\boldsymbol{p}}|^2}{3c^3}
+   $$
+
+5. 短天线辐射电阻
+   $$
+   \begin{align}
+   R_r&=\frac{\pi}{6}\sqrt{\frac{\mu_0}{\varepsilon_0}}\left(\frac{l}{\lambda}\right)^2\quad(l\ll\lambda) \\
+   &=197\left(\frac{l}{\lambda}\right)^2\ \Omega
+   \end{align}
+   $$
+
+### 5.4 磁偶极辐射和电四极辐射
+
+辐射场展开第二项
+$$
+\boldsymbol{A}(\boldsymbol{x})=\frac{-ik\mu_0 e^{ikR}}{4\pi R}\int_V\boldsymbol{J}(\boldsymbol{x}')(\boldsymbol{e}_R\cdot\boldsymbol{x}')\mathrm{d}V'
+$$
+$$
+\boldsymbol{A}(\boldsymbol{x})=-\frac{ik\mu_0e^{ikR}}{4\pi R}\left(-\boldsymbol{e}_R\times\boldsymbol{m}+\frac{1}{6}\boldsymbol{e}_R\cdot\dot{\mathscr{D}}\right)
+$$
+
+1. 磁偶极辐射
+   $$
+   \boldsymbol{A}(\boldsymbol{x})=\frac{ik\mu_0e^{ikR}}{4\pi R}\boldsymbol{e}_R\times\boldsymbol{m}
+   $$
+   $$
+   \boldsymbol{B}=\frac{\mu_0 e^{ikR}}{4\pi c^2R}(\ddot{\boldsymbol{m}}\times\boldsymbol{e}_R)\times\boldsymbol{e}_R
+   $$
+   $$
+   \boldsymbol{E}=-\frac{\mu_0 e^{ikR}}{4\pi cR}(\ddot{\boldsymbol{m}}\times\boldsymbol{e}_R)
+   $$
+   $$
+   \bar{S}=\frac{\mu_0\omega^4|\boldsymbol{m}|^2}{32\pi^2c^3R^2}\sin^2\theta\ \boldsymbol{e}_R
+   $$
+   $$
+   P=\frac{\mu_0\omega^4|\boldsymbol{m}|^2}{12\pi c^3}
+   $$
+
+2. 电四极辐射
+   $$
+   \boldsymbol{A}(\boldsymbol{x})=-\frac{ik\mu_0 e^{ikR}}{24\pi R}\boldsymbol{e}_R\cdot\dot{\mathscr{D}}
+   $$
+   $$
+   \boldsymbol{B}=\frac{e^{ikR}}{24\pi\varepsilon_0 c^4R}\dddot{\mathscr{D}}\times\boldsymbol{e}_R
+   $$
+   $$
+   \boldsymbol{E}=\frac{e^{ikR}}{24\pi\varepsilon_0 c^3R}(\dddot{\mathscr{D}}\times\boldsymbol{e}_R)\times\boldsymbol{e}_R
+   $$
+   $$
+   \bar{S}=\frac{1}{4\pi\varepsilon_0}\frac{1}{288\pi c^5R^2}(\dddot{\mathscr{D}}\times\boldsymbol{e}_R)^2\boldsymbol{e}_R
+   $$
+
+### 5.6 电磁波的衍射
+
+1. 基尔霍夫公式
+   $$
+   \psi(\boldsymbol{x})=-\frac{1}{4\pi}\oint_S\frac{e^{ikr}}{r}\boldsymbol{e}_n\cdot\left[\nabla'\psi+\left(ik-\frac{1}{r}\right)\frac{\boldsymbol{r}}{r}\psi\right]\,\mathrm{d}S'
+   $$
+
+2. 夫琅禾费衍射
+   $$
+   \psi(\boldsymbol{x})=-\frac{ik\psi_0e^{ikR}}{4\pi R}\int_{S_0}e^{i(\boldsymbol{k}_1-\boldsymbol{k}_2)\cdot\boldsymbol{x}'}(\cos\theta_1+\cos\theta_2)\mathrm{d}S'
+   $$
+
+### 5.7 电磁场的动量
+
+1. 动量密度
+   $$
+   \boldsymbol{g}=\varepsilon_0\boldsymbol{E}\times\boldsymbol{B}
+   $$
+   动量流密度张量
+   $$
+   \mathscr{T}=-\varepsilon_0\boldsymbol{E}\boldsymbol{E}-\frac{1}{\mu_0}\boldsymbol{B}\boldsymbol{B}+\frac{1}{2}\mathscr{I}\left(\varepsilon_0E^2+\frac{1}{\mu_0}B^2\right)
+   $$
+   张量 $\mathscr{T}$ 的分量 $T_{ij}$ 的意义是通过垂直于 $i$ 轴的单位面积流过的动量 $j$ 分量。
+
+
+   动量守恒
+   $$
+   \boldsymbol{f}+\frac{\partial\boldsymbol{g}}{\partial t}=-\nabla\cdot\mathscr{T}
    $$
