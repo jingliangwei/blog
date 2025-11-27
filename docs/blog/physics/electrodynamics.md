@@ -664,10 +664,10 @@ $$
 
 3. 电偶极辐射 (上式第一项)
    $$
-   \boldsymbol{B}=\frac{1}{4\pi\varepsilon_0 c^3R}\ddot{\boldsymbol{p}}e^{ikR}\sin\theta\boldsymbol{e}_\phi
+   \boldsymbol{B}=\frac{1}{4\pi\varepsilon_0 c^3R}e^{ikR}\ddot{\boldsymbol{p}}\times\boldsymbol{e}_R
    $$
    $$
-   \boldsymbol{E}=\frac{1}{4\pi\varepsilon_0 c^2R}\ddot{\boldsymbol{p}}e^{ikR}\sin\theta\boldsymbol{e}_\theta
+   \boldsymbol{E}=\frac{1}{4\pi\varepsilon_0 c^2R}e^{ikR}(\ddot{\boldsymbol{p}}\times\boldsymbol{e}_R)\times\boldsymbol{e}_R
    $$
 
 4. 平均能流密度

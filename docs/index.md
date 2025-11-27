@@ -21,12 +21,6 @@ hero:
     - theme: brand
       text: 报告
       link: /lecture/
-    - theme: alt
-      text: Observational Astronomy
-      link: /blog/astronomy/observational_astro
-    - theme: alt
-      text: Work on Open Clusters
-      link: /hw/observational_astro/work2
 
 features:
   - title: Positive
