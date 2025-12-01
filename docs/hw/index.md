@@ -32,3 +32,7 @@ next: false
 
 - [light curve of variables](/hw/observational_astro/result1)
 - [open clusters](/hw/observational_astro/work2)
+
+## 电动力学
+
+- [绘制图像](/hw/electrodynamics/hw1)
