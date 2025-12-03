@@ -66,7 +66,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: 'yazi的使用', link: '/blog/tools/yazi'},
       { text: 'vimium的使用', link: '/blog/tools/vimium'},
       { text: 'vscode的使用', link: '/blog/tools/vscode'},
-      { text: 'wps问题解答', link: '/blog/tools/wps'}
+      { text: 'wps问题解答', link: '/blog/tools/wps'},
+      { text: '流体模拟', link: '/blog/tools/simulation'}
     ]
   }
 ],
