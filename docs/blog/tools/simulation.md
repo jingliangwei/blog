@@ -200,4 +200,43 @@ gnuplot> splot "mesh_structure.dat" w l
 
   "Operators -> Slicing -> ThreeSlice"
 
+  "Operators -> Transform -> Transform"
+
   "Operators -> Selection -> Index Select"
+
+## Server Usage
+
+- connect and file tranfer:
+```sh:no-line-numbers
+ssh -p <port> username@remote_host
+scp -P <port> <-r> local_file/local_directory username@remote_host:/path/on/remote/host
+scp -P <port> <-r> username@remote_host:/path/on/remote/host /path/local
+```
+
+- set up:
+  
+  usually `mpi` is set up already, we just need to set up hdf5:
+
+```sh:no-line-numbers
+wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.1/src/hdf5-1.12.1.tar.gz
+tar -xzf hdf5-1.12.1.tar.gz
+cd hdf5-1.12.1
+
+./configure --prefix=/home/username/.local/hdf5-mpi --enable-parallel --enable-shared \
+            CC=mpicc CXX=mpicxx FC=mpifort
+
+make -j 4
+sudo make install
+```
+
+and write this configure into `~/.bashrc`:
+```sh:no-line-numbers
+export LD_LIBRARY_PATH=/home/jingliangwei/.local/hdf5-mpi/lib:$LD_LIBRARY_PATH
+```
+
+- compile:
+```sh:no-line-numbers
+python configure.py ...
+make clean
+make CPPFLAGS="-I/home/jingliangwei/.local/hdf5-mpi/include/" LDFLAGS="-L/home/jingliangwei/.local/hdf5-mpi/lib/" -j 16
+```
