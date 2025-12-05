@@ -757,3 +757,98 @@ $$
    $$
    \boldsymbol{f}+\frac{\partial\boldsymbol{g}}{\partial t}=-\nabla\cdot\mathscr{T}
    $$
+
+## 狭义相对论
+
+### 6.2 洛伦兹变换
+
+$$
+\begin{align}
+x'&=\frac{x-vt}{\sqrt{1-\dfrac{v^2}{c^2}}} \\
+y'&=y \\
+z'&=z \\
+t'&=\frac{t-\dfrac{v}{c^2}x}{\sqrt{1-\dfrac{v^2}{c^2}}}
+\end{align}
+$$
+
+### 6.3 相对论的时空理论
+
+1. 钟慢效应
+$$
+\Delta t=\frac{\Delta\tau}{\sqrt{1-\dfrac{v^2}{c^2}}}
+$$
+
+2. 尺缩效应
+$$
+l=l_0\sqrt{1-\frac{v^2}{c^2}}
+$$
+
+3. 速度变换式
+$$
+u_x'=\frac{u_x-v}{1-\dfrac{vu_x}{c^2}}
+$$
+$$
+u_y'=\frac{u_y\sqrt{1-\dfrac{v^2}{c^2}}}{1-\dfrac{vu_x}{c^2}}
+$$
+$$
+u_z'=\frac{u_z\sqrt{1-\dfrac{v^2}{c^2}}}{1-\dfrac{vu_x}{c^2}}
+$$
+
+### 6.4 相对论理论的四维形式
+
+1. 引入 $x_4=ict$ ，洛伦兹变换矩阵
+$$
+x'_\mu=a_{\mu\nu}x_\nu
+$$
+$$
+a=\left[\begin{array}{c}
+\gamma & 0 & 0 & i\beta\gamma \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+-i\beta\gamma & 0 & 0 & \gamma
+\end{array}\right]
+$$
+$$
+\beta=\frac{v}{c},\quad\gamma=\frac{1}{\sqrt{1-\dfrac{v^2}{c^2}}}
+$$
+
+### 电动力学的相对论不变性
+
+1. 电磁势
+$$
+\begin{align}
+A_x'&=\gamma(A_x-\frac{v}{c^2}\varphi) \\
+A_y'&=A_y \\
+A_z'&=A_z \\
+\varphi'&=\gamma(\varphi-vA_x)
+\end{align}
+$$
+
+2. 电磁场
+$$
+\boldsymbol{E}'_{\parallel}=\boldsymbol{E}_{\parallel},\quad\boldsymbol{B}'_{\parallel}=\boldsymbol{B}_{\parallel}
+$$
+$$
+\boldsymbol{E}'_{\perp}=\gamma(\boldsymbol{E}+\boldsymbol{\boldsymbol{v}}\times\boldsymbol{B})_{\perp},\quad\boldsymbol{B}'_{\perp}=\gamma(\boldsymbol{B}-\frac{\boldsymbol{v}}{c^2}\times\boldsymbol{E})_{\perp}
+$$
+
+### 相对论力学
+
+1. 能量-动量四维矢量
+$$
+p_\mu=(\boldsymbol{p},\frac{i}{c}W)
+$$
+
+$$
+W=\sqrt{p^2c^2+m_0^2c^4}
+$$
+
+2. 质能关系
+$$
+W=mc^2
+$$
+
+4. 电磁场中运动方程
+$$
+\frac{\mathrm{d}\boldsymbol{p}}{\mathrm{d}t}=e(\boldsymbol{E}+\boldsymbol{v}\times\boldsymbol{B})
+$$
