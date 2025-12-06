@@ -108,3 +108,23 @@ $$
 
 - 主动光学 (Active Optics) ：矫正望远镜光学系统变化
 - 自适应光学 (Adaptive Optics) ：补偿大气影响
+
+## 天文光度测量和成像观测
+
+- 天体天顶距计算：
+  
+  地方恒星时 $S=S_0+(T-8)(1+\mu)+\lambda$ ( $S_0$ 是世界时零时的恒星时， $T$ 为北京时间， $\mu=1/365.2422$ ，$\lambda$ 为当地地理经度)
+
+  天体时角 $t=S-\alpha$ ( $\alpha$ 是天体赤经)
+
+  天顶距 $\cos z=\sin\Phi\sin\delta+\cos\Phi\cos\delta\cos t$ ( $\Phi$ 为当地地理纬度， $\delta$ 为天体赤纬)
+
+- 热星等系统：
+  
+  热星等 $m_b=-2.5\lg E+c$
+
+  天体总光度 $L=4\pi R^2\sigma T_{eff}^4$
+
+  绝对热星等 $M_b=m_b+5-5\lg\pi-A_b(r)$
+
+  热改正 $\text{BC}=m_b-m_v=M_b-M_v$
