@@ -343,3 +343,96 @@ $$
    $$
 
    如果体系的 $\widehat{H}$ 在空间反演下不变，则宇称算符 $\widehat{P}$ 与 $\widehat{H}$ 对易，进而 $P$ 为守恒量，即宇称守恒定律。
+
+## 态和力学量的表象
+
+### 态的表象
+
+- 坐标表象
+  
+  $\varphi_i(x),i=1,2,...,n$
+
+  $\Psi(x,t)=\sum c_n\varphi_n(x)$
+
+- Q表象
+
+  $u_i(x),i=1,2,...,n$ （力学量Q的正交归一本征函数系）
+
+  $\Psi(x,t)=\{a_n\}$ 态矢量
+
+### Q表象下算符的矩阵表示
+
+- 坐标表象 $\widehat{F}=\widehat{F}(\hat{x},\hat{p}_x)=\widehat{F}(x,-i\hbar\nabla_x)$
+
+  动量表象 $\widehat{F}=\widehat{F}(\hat{x},\hat{p}_x)=\widehat{F}(i\hbar\nabla_p,p)$
+
+  Q表象 $F_{nm}\equiv\int u_n^*(x)\widehat{F}(x,-i\hbar\frac{\partial}{\partial x})u_m(x)\mathrm{d}x$
+
+### 量子力学公式的矩阵表示
+
+- 动量表象（连续谱）
+  
+  1. 期望值 $\overline{F}=\int c^*(p)\widehat{F}(i\hbar\nabla_p,p)c(p)\mathrm{d}p$
+
+  2. 本征方程 $\widehat{F}c(p)=F_nc(p)$
+
+  3. Schrodinger方程 $i\hbar\frac{\partial}{\partial t}c(p,t)=\widehat{H}c(p,t)=Ec(p,t)$
+
+- Q表象（分离谱）
+
+  1. 期望值 $\overline{F}=\Psi^\dagger F\Psi$
+
+  2. 久期方程 $\text{det}(F_{mn}-\lambda\delta_{mn})=0$
+
+  3. Schrodinger方程 $i\hbar\frac{\partial}{\partial t}\Psi=H\Psi$
+
+### 两个表象之间算符变换——幺正变换
+
+- $\widehat{Q}$ 本征函数 $\{\psi_n(x)\}$
+
+  $\widehat{B}$ 本征函数 $\{\phi_n(x)\}$
+
+- $\widehat{B}$ 在Q表象下本征矢 $\{\phi_\beta\}$
+  $$
+  S=(\phi_1\ \phi_2\ ...\ \phi_\beta)
+  $$
+
+  $$
+  \Phi=\widetilde{S}\Psi
+  $$
+
+  $S$ 为变换矩阵，幺正矩阵
+
+- $\widehat{F}$ 在B表象下为 $F'$ ，在Q表象下 $F=SF'S^\dagger$
+
+- Q表象波函数 $a$ 在B表象下 $b=S^\dagger a$
+
+  B表象波函数 $b$ 在Q表象下 $a=Sb$
+
+### Dirac 符号
+
+- 右矢和左矢 $|\psi\rangle=\langle\psi|^\dagger$, $\langle\psi|=|\psi\rangle^\dagger$
+
+- $\{a_n\}=\{\langle n|\Psi\rangle\}$ 是态 $\Psi$ 在Q表现中的波函数
+
+  $\varphi(x)=\langle x|\Psi\rangle$ 是 $\Psi$ 在x表现中的波函数
+
+- 内积 $\langle\psi|\varphi\rangle\equiv(\psi,\varphi)$
+
+  外积 $|\psi\rangle\langle\varphi|=\left[\begin{array}{c} a_1\\ a_2\end{array}\right](b_1^*\ b_2^*)=\left[\begin{array}{cc}a_1b_1^* & a_1b_2^* \\ a_2b_1^* & a_2b_2^*\end{array}\right]$
+
+- $\widehat{F}$ 的本征方程 $\widehat{F}|\lambda\rangle=\lambda|\lambda\rangle$
+
+- 期望值公式 $\bar{F}=\langle\psi|\widehat{F}|\psi\rangle$
+
+- Schrodinger方程 $i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle=\widehat{H}|\psi(t)\rangle$
+
+- $\widehat{F}$ 在Q表象下 $F_{mn}=\langle m|\widehat{F}|n\rangle$
+
+### 粒子数表象
+
+- 湮灭算符 $\hat{a}$ : $\hat{a}|n\rangle=\sqrt{n}|n-1\rangle$
+  
+  产生算符 $\hat{a}^\dagger$ : $\hat{a}^\dagger|n\rangle=\sqrt{n+1}|n+1\rangle$
+   
+  粒子数算符 $\widehat{N}=\hat{a}^\dagger\hat{a}$ : $\widehat{N}|n\rangle=n|n\rangle$
