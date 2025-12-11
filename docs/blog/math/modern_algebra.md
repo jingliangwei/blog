@@ -56,7 +56,7 @@ $$
 \alpha^3=\frac{1}{2}(-r+\sqrt{D}),\beta=-\frac{q}{3\alpha},D=r^2+\frac{4}{27}q^3,\omega=\frac{-1+\sqrt{3}i}{2}
 $$
 
-prove idea:
+proof idea:
 
 记一根 $u=\alpha+\beta$ 引入 $\alpha\beta=-q/3$ 得到 $\alpha^3$ 的二次方程
 
