@@ -436,3 +436,18 @@ $$
   产生算符 $\hat{a}^\dagger$ : $\hat{a}^\dagger|n\rangle=\sqrt{n+1}|n+1\rangle$
    
   粒子数算符 $\widehat{N}=\hat{a}^\dagger\hat{a}$ : $\widehat{N}|n\rangle=n|n\rangle$
+
+## 近似方法
+
+### 非简并定态微扰理论
+
+受扰动体系能量和态矢量
+$$
+E_n=E_n^{(0)}+H'_{nn}+\sum_{m\neq n}\frac{|H'_{mn}|^2}{E_n^{(0)}-E_m^{(0)}}+\cdots
+$$
+$$
+|\psi_n\rangle=|\psi_n^{(0)}\rangle+\sum_{m\neq n}\frac{H'_{mn}}{E_n^{(0)}-E_m^{(0)}}|\psi_m^{(0)}\rangle+\cdots
+$$
+$$
+H'_{mn}=\langle\psi_m^{(0)}|\widehat{H}^{(1)}|\psi_n^{(0)}\rangle
+$$
