@@ -51,6 +51,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: '相对论天体物理', link: '/blog/astronomy/relativity'},
       { text: '实测天体物理', link: '/blog/astronomy/observational_astrophysics'},
       { text: '天体力学基础', link: '/blog/astronomy/celestial_mechanics'},
+      { text: '暗能量的理论与实验观测', link: '/blog/astronomy/dark_energy'}
     ]
   },
   {
