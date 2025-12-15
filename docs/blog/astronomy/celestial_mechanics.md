@@ -471,3 +471,40 @@ $\vec{r}_0,\dot{\vec{r}}_0$ $\rightarrow$ $\Delta E,a$ $\rightarrow$ $E,r=a(1-e\
   $$
   r_3\approx q^{1/3}A
   $$
+
+## N体问题
+
+### 万有引力的场论表示
+
+泊松方程
+$$
+\nabla^2 V=4\pi G\rho
+$$
+
+### 星球的引力势函数
+
+#### 引力势展开
+
+$$
+V(\vec{x})=\sum_{l=0}^\infty \frac{1}{R^{l+1}}\sum_{m=0}^l(C_l^m\cos m\phi+S_l^m\sin m\phi)P_{lm}(\cos\theta)
+$$
+$$
+\begin{align}
+C_l^0&=-G\int r'^lP_l(\cos\theta')\rho'(\vec{x}')r'^2\sin\theta'\mathrm{d}r'\mathrm{d}\theta'\mathrm{d}\phi' \\
+S_l^0&=0 \\
+C_l^m&=-2G\frac{(l-m)!}{(l+m)!}\int r'^lP_{lm}(\cos\theta')\cos m\phi'\rho'(\vec{x}')r'^2\sin\theta'\mathrm{d}r'\mathrm{d}\theta'\mathrm{d}\phi' \\
+S_l^m&=-2G\frac{(l-m)!}{(l+m)!}\int r'^lP_{lm}(\cos\theta')\sin m\phi'\rho'(\vec{x}')r'^2\sin\theta'\mathrm{d}r'\mathrm{d}\theta'\mathrm{d}\phi'
+\end{align}
+$$
+
+#### 球多极矩
+
+- 球多极矩
+$$
+I_{lm}\equiv\int r'^l Y_{lm}^*(\theta',\phi')\rho'\mathrm{d}^3x'
+$$
+
+- 引力势展开
+$$
+V(\vec{x})=\sum_{l=0}^\infty\sum_{m=-l}^l \frac{1}{R^{l+1}}\left(-G\frac{4\pi}{2l+1}I_{lm}\right)Y_{lm}
+$$

@@ -348,8 +348,8 @@ $$
 \iint_{\Sigma}(\vec{a}_i+\vec{a}_o)\mathrm{d}S=\iint_{\Sigma}\vec{a}_i\mathrm{d}S=\iiint_{\Omega}-\nabla^2\Phi\mathrm{d}V
 $$
 $$
-\frac{G\rho V}{r^2}4\pi r^2=-\nabla^2\Phi V
+-\frac{G\rho V}{r^2}4\pi r^2=-\nabla^2\Phi V
 $$
 $$
-\Rightarrow \nabla^2\Phi=-4\pi G\rho
+\Rightarrow \nabla^2\Phi=4\pi G\rho
 $$
