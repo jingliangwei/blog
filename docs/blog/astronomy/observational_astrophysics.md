@@ -128,3 +128,30 @@ $$
   绝对热星等 $M_b=m_b+5-5\lg\pi-A_b(r)$
 
   热改正 $\text{BC}=m_b-m_v=M_b-M_v$
+
+## 天体的光谱观测
+
+- 一般光栅方程式
+  $$
+  m\lambda=d(\sin\alpha+\sin\beta)
+  $$
+
+![光栅光程差](./observational_astrophysics_fig/5-1.png)
+
+- 闪耀波长：把衍射光极大方向与反射方向一致
+
+  利特罗 (Littrow) 条件下一级闪耀波长 $\lambda_0=2d\sin\theta$
+
+  一般条件下 $m$ 级闪耀波长
+  $$
+  \begin{align}
+  \lambda_b&=\frac{d(\sin\alpha+\sin\beta)}{m}=\frac{2d}{m}\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2} \\
+  &=\frac{2d}{m}\sin\theta\cos\frac{\alpha-\beta}{2}=\frac{\lambda_0}{m}\cos\frac{\alpha-\beta}{2}=\frac{\lambda_0}{m}\cos(\alpha-\theta)
+  \end{align}
+  $$
+
+![闪耀波长](./observational_astrophysics_fig/5-2.png)
+
+- 交叉色散法（阶梯光栅）
+
+![交叉色散](./observational_astrophysics_fig/5-3.png)
