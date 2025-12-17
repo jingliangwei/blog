@@ -18,7 +18,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: '概率论与数理统计', link: '/blog/math/probability_and_mathematical_statistics'},
       { text: '概率论中的特征函数', link: '/blog/math/characteristic_function'},
       { text: '傅里叶变换', link: '/blog/math/fourier_transform'},
-      { text: '近世代数', link: '/blog/math/modern_algebra'}
+      { text: '近世代数', link: '/blog/math/modern_algebra'},
+      { text: '微分几何', link: '/blog/math/differential_geometry'},
     ]
   },
   {
