@@ -451,3 +451,52 @@ $$
 $$
 H'_{mn}=\langle\psi_m^{(0)}|\widehat{H}^{(1)}|\psi_n^{(0)}\rangle
 $$
+
+## 自旋与全同粒子
+
+### 电子自旋
+
+- 波尔磁子
+  $$
+  M_B=\frac{e\hbar}{2\mu}\text{(SI)}=\frac{e\hbar}{2\mu c}\text{(CGS)}
+  $$
+
+### 自旋算符和自旋波函数
+
+- 对易关系
+  $$
+  \hat{S}\times\hat{S}=i\hbar\hat{S}
+  $$
+  $$
+  [\hat{S}_x,\hat{S}_y]=i\hbar\hat{S}_z
+  $$
+
+- 反对易关系
+  $$
+  \{\hat{S}_x,\hat{S}_y\}=\hat{S}_x\hat{S}_y+\hat{S}_y\hat{S}_x=0
+  $$
+
+$$
+\hat{S}_x\hat{S}_y=\frac{1}{2}i\hbar\hat{S}_z
+$$
+
+- $\hat{S}_z$ 表象下的矩阵
+  $$
+  \hat{S}_x=\frac{\hbar}{2}\left[\begin{array}{cc}0 & 1\\ 1 & 0\end{array}\right]
+  $$
+  $$
+  \hat{S}_y=\frac{\hbar}{2}\left[\begin{array}{cc}0 & -i\\ i & 0\end{array}\right]
+  $$
+  $$
+  \hat{S}_z=\frac{\hbar}{2}\left[\begin{array}{cc}1 & 0\\ 0 & -1\end{array}\right]
+  $$
+
+- 泡利算符 $\hat{S}=\frac{\hbar}{2}\hat{\sigma}$
+
+- 自旋表象本征函数（自旋波函数）
+  $$
+  \chi_{\frac{1}{2}}=\left[\begin{array}{c}1\\0\end{array}\right]
+  $$
+  $$
+  \chi_{-\frac{1}{2}}=\left[\begin{array}{c}0\\1\end{array}\right]
+  $$
