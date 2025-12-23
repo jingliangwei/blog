@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Model-independent Way to Determine the Hubble Constant and the Curvature from the Phase Shift of Gravitational Waves with DECIGO</title>
+    <meta name="description" content="">
+    <meta name="author" content="Jingliang Wei">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <style>
+        :root {
+            --r-background-color: #051525;
+        }
+        p {
+            font-size: 20px;
+        }
+        ul {
+            font-size: 20px;
+        }
+        td {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal"><a class="github-corner bottom" href="https://jingliangwei.github.io/blog/lecture/hubble_constant.html" target="blank" title="The Lecture Note">
+            <img src="group_meeting.25-9-12_fig/icon.jpg" alt="Arwell"></a>
+        <div class="slides">
+            <section class="center" data-transition="fade" data-state="hide-menubar hide-menu" data-auto-animate>
+                <h3 data-id="title1">Model-independent Way to Determine the Hubble Constant and the Curvature</h3>
+                <h4>from the Phase Shift of Gravitational Waves with DECIGO</h4>
+                <p style="font-size: 25px;"><font face="楷体">韦境量</font></p>
+                <p>2026.1.7</p>
+            </section>
+            <!-- <section class="center" data-name="TOC" data-sm="false" data-auto-animate>
+                <h3 data-id="title1">Table of contents</h3>
+                <ul class="menu"></ul>
+            </section> -->
+
+            <section data-name="content" data-sm="false">
+                <section>
+                    <img src="hubble_constant_fig/paper.png" alt="paper" style="display: block; width: 100%; margin: auto;">
+                </section>
+                <section>
+                    <h3 data-id="title1">Table of contents</h3>
+                    <ul class="menu"></ul>
+                </section>
+            </section>
+
+            <section data-name="Introduction">
+                <section>
+                    <h4>Hubble Tension</h4>
+                    <p>CMB v.s. Supernova</p>
+                    <img src="hubble_constant_fig/1.png" alt="ppt1" style="display: block; width: 70%; margin: auto;">
+                </section>
+                <section>
+                    <h4>The spatial curvature of the Universe</h4>
+                    <p>
+                        <table>
+                            <tr>
+                                <td style="width: 400px;">pure CMB data</td>
+                                <td>close Universe</td>
+                                <td>$\Omega_k=-0.044^{+0.018}_{-0.015}$</td>
+                            </tr>
+                            <tr>
+                                <td>combination of Planck lensing data and low redshift baryon acoustic oscillations (BAOs)</td>
+                                <td>flat Universe</td>
+                                <td>$\Omega_k=0.0007\pm0.0019$</td>
+                            </tr>
+                        </table>
+                    </p>
+                </section>
+            </section>
+
+            <section data-name="Methodology">
+                <section data-auto-animate>
+                    <h4>Traditional Method</h4>
+                    <ul>
+                        <li><strong>model</strong></li>
+                        <p>
+                            $\Lambda$CDM
+                        </p>
+                        <li>Friedman equation</li>
+                        <li>theoretical angular diameter distance $D_A^{\text{th}}(z;\boldsymbol{p})$</li>
+                        <li>get observed distance $D_A^{\text{obs}}(z)$</li>
+                        <li>obtain cosmological parameters $\boldsymbol{p}$ by chi-square-minimized (Markov Chain Monte Carlo method)</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h4>Traditional Method</h4>
+                    <ul>
+                        <li>model</li>
+                        <li><strong>Friedman equation</strong></li>
+                        <p>
+   $$
+   E(z)\equiv\left(\frac{H(z)}{H_0}\right)^2=\Omega_{m}(1+z)^3+\Omega_{k}(1+z)^2+\Omega_{\Lambda}
+   $$
+                        </p>
+                        <li>theoretical angular diameter distance $D_A^{\text{th}}(z;\boldsymbol{p})$</li>
+                        <li>get observed distance $D_A^{\text{obs}}(z)$</li>
+                        <li>obtain cosmological parameters $\boldsymbol{p}$ by chi-square-minimized (Markov Chain Monte Carlo method)</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h4>Traditional Method</h4>
+                    <ul>
+                        <li>model</li>
+                        <li>Friedman equation</li>
+                        <li><strong>theoretical angular diameter distance $D_A^{\text{th}}(z;\boldsymbol{p})$</strong></li>
+                        <p>
+   $$
+   D_A^{\text{th}}(z;\boldsymbol{p})=\left\{\begin{array}{ll}
+        \displaystyle\frac{D_H}{(1+z)\sqrt{|\Omega_k}|}\sinh^{-1}\left(\sqrt{|\Omega_k|}\int_0^z\frac{\mathrm{d}z'}{E(z')^{1/2}}\right) & \text{for}\ \Omega_k>0 \\
+        \displaystyle\frac{D_H}{(1+z)}\int\frac{\mathrm{d}z'}{E(z')^{1/2}} & \text{for}\ \Omega_k=0 \\
+        \displaystyle\frac{D_H}{(1+z)\sqrt{|\Omega_k}|}\sin^{-1}\left(\sqrt{|\Omega_k|}\int_0^z\frac{\mathrm{d}z'}{E(z')^{1/2}}\right) & \text{for}\ \Omega_k<0 \\
+   \end{array}\right.
+   $$
+   here $\boldsymbol{p}=(\Omega_m,\Omega_k,\Omega_\Lambda)$
+                        </p>
+                        <li>get observed distance $D_A^{\text{obs}}(z)$</li>
+                        <li>obtain cosmological parameters $\boldsymbol{p}$ by chi-square-minimized (Markov Chain Monte Carlo method)</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h4>Traditional Method</h4>
+                    <ul>
+                        <li>model</li>
+                        <li>Friedman equation</li>
+                        <li>theoretical angular diameter distance $D_A^{\text{th}}(z;\boldsymbol{p})$</li>
+                        <li><strong>get observed distance $D_A^{\text{obs}}(z)$</strong></li>
+                        <li><strong>obtain cosmological parameters $\boldsymbol{p}$ by chi-square-minimized (Markov Chain Monte Carlo method)</strong></li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h4>This work</h4>
+                    <ul>
+                        <li>gravitational wave (GW)'s phase shift</li>
+                        <li>acceleration parameter $X(z)$($H(z)$)</li>
+                        <li>using artificial neural network (ANN) to get function ($z\rightarrow X(z)$)</li>
+                        <li>theoretical angular diameter distance $D_A^{\text{th}}(z;\boldsymbol{p})$</li>
+                        <li>get observed distance $D_A^{\text{obs}}(z)$</li>
+                        <li>obtain cosmological parameters $\boldsymbol{p}$ by chi-square-minimized (Markov Chain Monte Carlo method)</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h4>This work</h4>
+                    <ul>
+                        <li>gravitational wave (GW)'s phase shift</li>
+                        <li><strong>acceleration parameter $X(z)$($H(z)$)</strong></li>
+                        <p>
+   $$
+   X(z)\equiv\frac{H_0}{2}\left(1-\frac{H(z)}{(1+z)H_0}\right)
+   $$
+                        </p>
+                        <li>using artificial neural network (ANN) to get function ($z\rightarrow X(z)$)</li>
+                        <li>theoretical angular diameter distance $D_A^{\text{th}}(z;\boldsymbol{p})$</li>
+                        <li>get observed distance $D_A^{\text{obs}}(z)$</li>
+                        <li>obtain cosmological parameters $\boldsymbol{p}$ by chi-square-minimized (Markov Chain Monte Carlo method)</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h4>This work</h4>
+                    <ul>
+                        <li>gravitational wave (GW)'s phase shift</li>
+                        <li>acceleration parameter $X(z)$($H(z)$)</li>
+                        <li>using artificial neural network (ANN) to get function ($z\rightarrow X(z)$)</li>
+                        <li><strong>theoretical angular diameter distance $D_A^{\text{th}}(z;\boldsymbol{p})$</strong></li>
+                        <p>
+   $$
+   D_A^{\text{th}}(z;\boldsymbol{p})=\left\{\begin{array}{ll}
+        \displaystyle\frac{D_H}{(1+z)\sqrt{|\Omega_k}|}\sinh^{-1}\left(\sqrt{|\Omega_k|}\frac{H_0}{1+z}\int_0^z\frac{\mathrm{d}z'}{H_0-2X(z')}\right) & \text{for}\ \Omega_k>0 \\
+        \displaystyle\frac{c}{(1+z)^2}\int\frac{\mathrm{d}z'}{H_0-2X(z')} & \text{for}\ \Omega_k=0 \\
+        \displaystyle\frac{D_H}{(1+z)\sqrt{|\Omega_k}|}\sin^{-1}\left(\sqrt{|\Omega_k|}\frac{H_0}{1+z}\int_0^z\frac{\mathrm{d}z'}{H_0-2X(z')}\right) & \text{for}\ \Omega_k>0 \\
+   \end{array}\right.
+   $$
+   here $\boldsymbol{p}=(H_0,\Omega_k)$
+                        </p>
+                        <li>get observed distance $D_A^{\text{obs}}(z)$</li>
+                        <li>obtain cosmological parameters $\boldsymbol{p}$ by chi-square-minimized (Markov Chain Monte Carlo method)</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h4>This work</h4>
+                    <ul>
+                        <li>gravitational wave (GW)'s phase shift</li>
+                        <li>acceleration parameter $X(z)$($H(z)$)</li>
+                        <li>using artificial neural network (ANN) to get function ($z\rightarrow X(z)$)</li>
+                        <li>theoretical angular diameter distance $D_A^{\text{th}}(z;\boldsymbol{p})$</li>
+                        <li><strong>get observed distance $D_A^{\text{obs}}(z)$</strong></li>
+                        <li><strong>obtain cosmological parameters $\boldsymbol{p}$ by chi-square-minimized (Markov Chain Monte Carlo method)</strong></li>
+                    </ul>
+                </section>
+            </section>
+
+            <section data-name="GW">
+                <section>
+                    <h4>GW $\rightarrow$ $D_{A}^{\text{th}}(z;\boldsymbol{p})$</h4>
+                </section>
+                <section>
+                    <p>The gravitational waveform without cosmic acceleration reads</p>
+                    <p>
+  $$
+  \tilde{h}(f)=\frac{\sqrt{3}}{2}\mathcal{A}f^{-7/6}e^{i\Psi(f)}\left[\frac{5}{4}A_{\text{pol},\alpha}(t(f))\right]e^{-i(\varphi_{\text{pol},\alpha}+\varphi_D)}
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <p>Gravitational waveform including the effects of the cosmic acceleration reads</p>
+                    <p>
+  $$
+  \tilde{h}(f)_{\text{acc}}=\tilde{h}(f)e^{i\Psi_{\text{acc}}(f)}
+  $$
+                    </p>
+                    <p>
+  where
+  $$
+  \Psi_{\text{acc}}(f)=-\Psi_N(f)\frac{25}{768}X(z)\mathcal{M}_z x^{-4}
+  $$
+  The acceleration parameter $X(z)$ is defined as
+                    </p>
+                    <p>
+  $$
+  X(z)\equiv\frac{H_0}{2}\left(1-\frac{H(z)}{(1+z)H_0}\right)
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <p>Gravitational waveform including the effects of the cosmic acceleration reads</p>
+                    <p>
+  $$
+  \tilde{h}(f)_{\text{acc}}=\tilde{h}(f)e^{i\Psi_{\text{acc}}(f)}
+  $$
+                    </p>
+                    <p>
+  where
+  $$
+  \Psi_{\text{acc}}(f)=-\Psi_N(f)\frac{25}{768}X(z)\mathcal{M}_z x^{-4}
+  $$
+  The acceleration parameter $X(z)$ is defined as
+                    </p>
+                    <p>
+  $$
+  X(z)\equiv\frac{H_0}{2}\left(1-\frac{H(z)}{(1+z)H_0}\right)
+  $$
+                    </p>
+                    <p>
+  $$
+  \Rightarrow E(z)^{1/2}=\frac{H(z)}{H_0}=(H_0-2X(z))(1+z)
+  $$
+                    </p>
+                </section>
+                <section data-auto-animate>
+                    <p>Gravitational waveform including the effects of the cosmic acceleration reads</p>
+                    <p>
+  $$
+  \tilde{h}(f)_{\text{acc}}=\tilde{h}(f)e^{i\Psi_{\text{acc}}(f)}
+  $$
+                    </p>
+                    <p>
+  The waveform $\tilde{h}(f)_{\text{acc}}$ depends on 11 parameters:
+  $$
+  \theta^i=(\ln\mathcal{M}_z,\ln\eta,\beta,t_c,\phi_c,\bar{\theta}_S,\bar{\phi}_S,\bar{\theta}_L,\bar{\phi}_L,D_L,X)
+  $$
+                    </p>
+                </section>
+                <section align="left" data-auto-animate>
+                    <h4>Simulate data</h4>
+                    <p>
+  set $m_1=m_2=1.4M_\odot$ and take $t_c=\phi_c=\beta=0$ for each fiducial redshift $z$, randomly generate $10^4$ sets of $(\bar{\theta}_S,\bar{\phi}_S,\bar{\theta}_L,\bar{\phi}_L)$
+                    </p>
+                    <p>
+  using a flat $\Lambda$CDM model with the cosmological parameters derived by Planck 2018 measurements to generate datas
+                    </p>
+                    <p>
+  divide sample into 50 bins,
+
+  train the ANN on the simulated $X(z)$ data and predicte the $X(z)$ at other redshifts.
+                    </p>
+                    <p>
+  ANN: input redshift $z$,
+  output corresponding cosmic acceleration parameter $X(z)$ and its respective uncertainty $\sigma_X$ at that redshift.
+                    </p>
+                </section>
+                <section align="left" data-auto-animate>
+                    <h4>Simulate data</h4>
+                    <p>
+  ANN: input redshift $z$,
+  output corresponding cosmic acceleration parameter $X(z)$ and its respective uncertainty $\sigma_X$ at that redshift.
+                    </p>
+                    <img src="hubble_constant_fig/fig1.png" alt="fig1" style="display: block; width:50%; margin: auto;">
+                </section>
+            </section>
+
+            <section data-name="QSOs">
+                <section>
+                    <h4>QSOs $\rightarrow$ $D_{A}^{\text{obs}}(z)$</h4>
+                </section>
+                <section align="left" data-auto-animate>
+                    <p>
+  The characteristic angular size of a distant radio quasar is
+  $$
+  \theta=\frac{2\sqrt{-\ln\Gamma\ln 2}}{\pi B}
+  $$
+  $B$: the interferometer baseline<br>
+
+  $\Gamma=S_c/S_t$: the ratio between the total and correlated flux densities
+
+  The angular size of the compact structure in radio QSOs is
+                    </p>
+                    <p>
+  $$
+  \theta(z)=\frac{l_m}{D_A(z;\boldsymbol{p})}
+  $$
+                    </p>
+                    <p>
+  $l_m$: the linear size scaling factor describing the apparent distribution of radio brightness within the core
+                    </p>
+                </section>
+                <section align="left" data-auto-animate>
+                    <p>
+  $$
+  \theta(z)=\frac{l_m}{D_A(z;\boldsymbol{p})}
+  $$
+                    </p>
+                    <p>
+  Taking $l_m=11.03\pm0.25\text{pc}$ and following the redshift distribution of QSOs from Palanque-Delabrouille et al.(2016)(https://doi.org/10.1051/0004-6361/201527392e),<br>
+  
+  simulate $1000$ "angular size-redshift" data, assume the "measured" angular sizes follow a Gaussian distribution $\theta_{\text{means}}=N(\theta_\text{fid},\sigma_\theta)$, $\theta_{\text{fid}}$ is obtained from equation above under same model in GW.
+                    </p>
+                </section>
+                <section align="left" data-auto-animate>
+                    <p>
+  Taking $l_m=11.03\pm0.25\text{pc}$ and following the redshift distribution of QSOs from Palanque-Delabrouille et al.(2016)(https://doi.org/10.1051/0004-6361/201527392e),<br>
+  
+  simulate $1000$ "angular size-redshift" data, assume the "measured" angular sizes follow a Gaussian distribution $\theta_{\text{means}}=N(\theta_\text{fid},\sigma_\theta)$, $\theta_{\text{fid}}$ is obtained from equation above under same model in GW.
+                    </p>
+                    <img src="hubble_constant_fig/fig2.png" alt="fig2" style="display: block; width: 60%; margin: auto;">
+                </section>
+            </section>
+
+            <section data-name="Results">
+                <section align="left" data-auto-animate>
+                    <h4>1. The best-fit values of $H_0$ and $\Omega_k$</h4>
+                    <p>
+  using the Markov Chain Monte Carlo method to minimize the $\chi^2$ objective function:
+  $$
+  \chi^2=\sum_{i=1}^{1000} \frac{[D_{A,i}^{\text{th}}(z;\boldsymbol{p})-D_{A,i}^{\text{obs}}(z)]^2}{\sigma_{D_{A,i}^{\text{th}}}^2+\sigma_{D_{A,i}^{\text{obs}}}^2}
+  $$
+                    </p>
+                    <p>
+  here GW $\rightarrow$ $X(z)$ $\rightarrow$ $D_{A,i}^{\text{th}}(z;\boldsymbol{p})$ <br>
+
+  QSOs $\rightarrow$ $D_{A,i}^{\text{obs}}(z)$
+                    </p>
+                </section>
+                <section align="left" data-auto-animate>
+                    <h4>1. The best-fit values of $H_0$ and $\Omega_k$</h4>
+                    <p>
+  using the Markov Chain Monte Carlo method to minimize the $\chi^2$ objective function:
+  $$
+  \chi^2=\sum_{i=1}^{1000} \frac{[D_{A,i}^{\text{th}}(z;\boldsymbol{p})-D_{A,i}^{\text{obs}}(z)]^2}{\sigma_{D_{A,i}^{\text{th}}}^2+\sigma_{D_{A,i}^{\text{obs}}}^2}
+  $$
+                    </p>
+                    <img src="hubble_constant_fig/2.png" alt="ppt2" style="display: block; width: 60%; margin: auto;">
+                </section>
+                <section align="left" data-auto-animate>
+                    <h4>1. The best-fit values of $H_0$ and $\Omega_k$</h4>
+                    <p>
+  $$
+  H_0=67.19_{-0.74}^{+0.77}\  \text{km}\ \text{s}^{-1}\ \text{Mpc}^{-1},\quad \Omega_k=0.022_{-0.046}^{+0.051}
+  $$
+  at $68.3\%$ confidence level.
+                    </p>
+                    <img src="hubble_constant_fig/fig3.png" alt="fig3" style="display: block; width: 45%; margin: auto;">
+                </section>
+                <section align="left" data-auto-animate>
+                    <h4>1. The best-fit values of $H_0$ and $\Omega_k$</h4>
+                    <p>
+  $$
+  H_0=67.19_{-0.74}^{+0.77}\  \text{km}\ \text{s}^{-1}\ \text{Mpc}^{-1},\quad \Omega_k=0.022_{-0.046}^{+0.051}
+  $$
+  at $68.3\%$ confidence level.
+                    </p>
+                    <p>
+  compare to used model $H_0=67.4\ \text{km}\ \text{s}^{-1}\ \text{Mpc}^{-1}$ and $\Omega_k=0$
+                    </p>
+                </section>
+                <section>
+                    <p style="font-size: 27px;"><strong>2. The uncertainties of the best-fit parameters as a function of QSO sample size $N$</strong></p>
+                    <img src="hubble_constant_fig/fig4.png" alt="fig4" style="width: 45%; margin: auto; left: 0;">
+                    <img src="hubble_constant_fig/fig5.png" alt="fig5" style="width: 46%; margin: auto; right: 0;">
+                </section>
+                <section>
+                    <p style="font-size: 27px;"><strong>3. The uncertainties related to GW signals and QSOs</strong></p>
+                    <img src="hubble_constant_fig/fig6.png" alt="fig6" style="display: block; width: 50%; margin: auto;">
+                </section>
+            </section>
+
+            <section data-name="Conclusion">
+                <section>
+                    <h4>Conclusion</h4>
+                    <p align="left">
+1. a cosmological model-independent method to determine the Hubble constant and curvature parameter simultaneously based on GW from DECIGO and QSOs from VLBI
+                    </p>
+                    <p align="left">
+DECIGO $\rightarrow$ GW $\rightarrow$ phase shift $\rightarrow$ $H(z)$ $\rightarrow$ $D_{A,i}^{\text{th}}(z;\boldsymbol{p})$
+                    </p>
+                    <p align="left">
+VLBI $\rightarrow$ QSOs $\rightarrow$ "angular size-distance" $\rightarrow$ $D_{A,i}^{\text{obs}}(z)$
+                    </p>
+                    <p align="left">
+2. assume a fiducial cosmology to simulate GW and QSOs datas:
+                    </p>
+                    <p align="left">
+$N=1000$ QSOs $\rightarrow$ $\sigma_{H_0}=0.75\ \text{km}\ \text{s}^{-1}\ \text{Mpc}^{-1}$ and $\sigma_{\Omega_k}=0.048$ achieve $1\%$ precision
+                    </p>
+                    <p align="left">
+the precision of $H_0$ with a ﬁxed prior on $\Omega_k$ can reach $0.5\%$
+                    </p>
+                    <p align="left">
+the performance of the method on QSO samples of different sizes (from $N=50$ to $N=1000$): not a simple $1/\sqrt{N}$ but saturate at $N=500$ (unsolved)
+                    </p>
+                    <p align="left">
+3. potential ways to improve results:
+                    </p>
+                    <p align="left">
+higher angular resolution and lower statistical and systematic uncertainty from QSOs from VLBI
+                    </p>
+                    <p align="left">
+datas from other astronomical probes such SNe Ia and BAOs
+                    </p>
+                </section>
+            </section>
+            
+        </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/simplemenu/simplemenu.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        Reveal.initialize({
+            slideNumber: 'c/t',
+            simplemenu: {
+                inherit: "previous",
+                barhtml: {
+                    // header: "<div class='menubar'><ul class='menu'></ul></div>"
+                    header: "<div class='menubar'><ul class='menu'></ul><div class='slide-number'></div></div>"
+                }
+            },
+            plugins: [
+                Simplemenu,
+                RevealHighlight,
+                RevealMath.KaTeX
+            ]
+        });
+    </script>
+</body>
+
+</html>
