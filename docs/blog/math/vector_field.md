@@ -181,5 +181,10 @@ $$
 
   2. 
   $$
+  \nabla_i\left(\frac{1}{r_{ij}}\right)=\nabla_i\left(\frac{1}{r_j-r_i}\right)=\frac{1}{(r_j-r_i)^2}\hat{r}=\frac{\vec{r}_{ij}}{r_{ij}^3}
+  $$
+
+  3. 
+  $$
   \nabla\left(\frac{\vec{r}\cdot\vec{a}}{a^3}\right)=\frac{\vec{a}}{a^3}
   $$

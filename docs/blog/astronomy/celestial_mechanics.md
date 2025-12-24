@@ -508,3 +508,280 @@ $$
 $$
 V(\vec{x})=\sum_{l=0}^\infty\sum_{m=-l}^l \frac{1}{R^{l+1}}\left(-G\frac{4\pi}{2l+1}I_{lm}\right)Y_{lm}
 $$
+
+### 运动方程
+
+惯性系下
+$$
+\ddot{\vec{r}}_k=G\sum_{\begin{array}{c}j=1 \\ j\neq k\end{array}}^N \frac{m_j}{r_{kj}^3}\vec{r}_{kj}
+$$
+$$
+\begin{align}
+\ddot{\vec{r}}_k&=\nabla_k\left[G\sum_{i=1}^N \sum_{j=1+i}^N \frac{m_j}{r_{ij}}\right] \\
+&=\nabla_k\left[\frac{1}{2}G\sum_{i=1}^N \sum_{\begin{array}{c}j=1\\ j\neq i\end{array}}^N \frac{m_j}{r_{ij}}\right]
+\end{align}
+$$
+
+定义力函数
+$$
+U=G\sum_{i=1}^N \sum_{j=1+i}^N \frac{m_im_j}{r_{ij}}=\frac{1}{2}G\sum_{i=1}^N \sum_{\begin{array}{c}j=1\\ j\neq i\end{array}}^N \frac{m_im_j}{r_{ij}}
+$$
+
+### 各种坐标系
+
+1. 相对运动非惯性坐标系： $(\vec{r}_{k1},\vec{r}_{k2},...,\vec{r}_{k,k-1},\vec{r}_{k,k+1},...,\vec{r}_{kN},\vec{r}_k)$
+   $$
+   \ddot{\vec{r}}_i-\ddot{\vec{r}}_k\equiv\ddot{\vec{r}}_{ki}=-G\frac{m_i+m_k}{r_{ki}^3}\vec{r}_{ki}+\sum_{\begin{array}{c}j=1\\ j\neq i,k\end{array}}^N Gm_j\left(\frac{\vec{r}_{ij}}{r_{ij}^3}-\frac{\vec{r}_{kj}}{r_{kj}^3}\right)
+   $$
+   原点取在天体 $P_k$ 处
+   $$
+   \begin{align}
+   \ddot{\vec{r}}_i&=-G\frac{m_i+m_k}{r_i^3}\vec{r}_i+\nabla_i\sum_{\begin{array}{c}j=1\\ j\neq i,k\end{array}}^N Gm_j\left(\frac{1}{r_{ij}}-\frac{\vec{r}_i\cdot\vec{r}_j}{r_j^3}\right)\\
+   &=\nabla_i\left[G\frac{m_i+m_k}{r_i}+\sum_{\begin{array}{c}j=1\\ j\neq i,k\end{array}}^N Gm_j\left(\frac{1}{r_{ij}}-\frac{\vec{r}_i\cdot\vec{r}_j}{r_j^3}\right)\right]
+   \end{align}
+   $$
+
+2. 雅可比坐标系：
+   
+   $P_2$ 相对 $P_1$ 位置坐标 $\vec{r}_2'$
+
+   $P_3$ 相对 $P_1-P_2$ 质心位置坐标 $\vec{r}_3'$
+
+   $P_4$ 相对 $P_1-P_2-P_3$ 质心位置坐标 $\vec{r}_4'$
+
+   ...
+
+   $(\vec{r}_2',\vec{r}_3',...\vec{r}_N',\vec{r}_C)$
+
+   $$
+   \vec{r}_i'=\vec{r}_i-\frac{1}{\eta_i}\sum_{j=1}^{i-1}m_j\vec{r}_j,\ 2\le i\le N
+   $$
+   $$
+   \eta_i=\sum_{j=1}^{\boldsymbol{i-1}}m_j
+   $$
+
+   运动方程
+   $$
+   \ddot{r}_i'=\frac{1}{\mu_i}\nabla_{i'}U
+   $$
+   $$
+   \mu_i\equiv\frac{m_i\eta_i}{m_i+\eta_i}
+   $$
+
+   正则坐标及哈密顿量
+   $$
+   \vec{q}_i=\vec{r}_{i+1}',\ i=1,...,N-1
+   $$
+   $$
+   \vec{p}_i=\mu_{i+1}\dot{\vec{r}}_{i+1}',\ i=1,...,N-1
+   $$
+   $$
+   H=\sum_{i=1}^{N-1}\frac{1}{2\mu_i}p_i^2-U(\vec{q}_i)
+   $$
+
+3. 作用量-角变量：角坐标为循环坐标，周期函数解
+   
+   可积哈密顿系统的解在相空间对应一系列环面，KAM环面
+
+   不可积系统对应破碎的KAM环面
+
+   完全可积二体问题，常用的作用量-角变量是 Delaunay 变量
+
+4. 哈密顿-雅可比变量： $(P,Q)$ 使哈密顿量变为零
+
+   旧正则变量 $(p,q)$ 哈密顿量 $H(p,q,t)$
+
+   寻找哈密顿-雅可比变量，等价于求解生成函数 $\Psi(q,P,t)$ 的哈密顿-雅可比方程
+   $$
+   \frac{\partial\Psi}{\partial t}+H(q,\frac{\partial\Psi}{\partial q},t)=0
+   $$
+
+## 三体问题
+
+### 特解
+
+考虑三个天体相对旋转非惯性系静止的特解：
+1. 排在一条直线上，绕质心旋转
+2. 构成边长为 $a$ 的正三角形，绕质心以角速度 $n=\sqrt{\frac{G(m_0+m_1+m_2)}{a^3}}$ 旋转
+
+- 中心构型：
+  $$
+  \sum_{\begin{array}{c}j=0 \\ j\neq i\end{array}}^{N-1}\frac{m_j\vec{a}_{ij}}{a_{ij}^3}=-\lambda\vec{a}_i
+  $$
+  对于三体问题，上式有共线解和正三角形解。通过定义特殊矢量乘法，配以中心构型可以给出 $N$ 体问题的若干特解。
+
+### 限制性三体问题
+
+- 二体系统加测试天体问题称为限制性三体问题
+
+- 在三体问题共线特解中分别取三个天体为测试天体可以给出第一、第二、第三拉格朗日点
+
+  考虑正三角形解给出第四、第五拉格朗日点
+
+- 限制性三体问题根据两个有限质量天体的相对运动轨道形状分为圆型、椭圆型和抛物型
+
+### 圆型限制性三体问题
+
+- 引入记号
+  $$
+  \Omega\equiv\frac{1}{2}(x^2+y^2)+\frac{1-\mu}{r_1}+\frac{\mu}{r_2}
+  $$
+  运动方程
+  $$
+  \frac{\mathrm{d}^2x}{\mathrm{d}\tau^2}-2\frac{\mathrm{d}y}{\mathrm{d}\tau}=\frac{\partial\Omega}{\partial x}
+  $$
+  $$
+  \frac{\mathrm{d}^2y}{\mathrm{d}\tau^2}+2\frac{\mathrm{d}x}{\mathrm{d}\tau}=\frac{\partial\Omega}{\partial y}
+  $$
+  $$
+  \frac{\mathrm{d}^2z}{\mathrm{d}\tau^2}=\frac{\partial\Omega}{\partial z}
+  $$
+
+- 雅可比积分（旋转势能、引力势能和动能和）：
+  $$
+  a^2n^2C_J=n^2(x_0^2+y_0^2)+2G\frac{m_1}{r_{10}}+2G\frac{m_2}{r_{20}}-(\dot{x}_0^2+\dot{y}_0^2+\dot{z}_0^2)
+  $$
+
+- 蒂塞郎准则：两次测定彗星相对太阳的位置和速度，根据雅可比积分判定是否为同一颗彗星
+
+- 零速度面：
+  $$
+  x^2+y^2+\frac{2(1-\mu)}{\sqrt{(x-x_1)^2+y^2+z^2}}+\frac{2\mu}{\sqrt{(x-x_2)^2+y^2+z^2}}=C_J
+  $$
+
+- 希尔作用范围：天体到第一拉格朗日点构成球面
+
+- 洛希势和洛希瓣：引力势+离心势
+
+### 拉格朗日点的动力学稳定性
+
+- 线性稳定性分析：
+  
+  动力学系统
+  $$
+  \frac{\mathrm{d}y_i}{\mathrm{d}t}=f_i(y_1,y_2,...,y_N),\quad i=1,...,N
+  $$
+  取线性微扰 $y_i^o(t)+\xi_i(t)$
+  $$
+  \frac{\mathrm{d}\xi_i}{\mathrm{d}t}=\sum_{j=1}^N\left.\frac{\partial f_i}{\partial y_j}\right|_{y=y^o}\xi_j
+  $$
+
+- 共线特解拉格朗日点 $L_1,L_2,L_3$ 不稳定
+  
+  记 Ruth 临界质量 $\mu_1=\frac{1}{18}(9-\sqrt{69})$ 当
+  1. $\mu_1<\mu\le\frac{1}{2}$ 和 $\mu=\mu_1$ 时，$L_4,L_5$ 不稳定
+  2. $\mu<\mu_1$ 时，$L_4,L_5$ 稳定
+
+## 摄动理论
+
+### 受摄二体问题
+
+- 受摄二体问题
+$$
+\ddot{\vec{r}}=\vec{F}_0+\vec{F}_e=-G\frac{M+m}{r^3}\vec{r}+\vec{F}_e
+$$
+
+- 吻切轨道
+  
+  受摄二体问题的解
+  $$
+  \vec{r}=\vec{r}(C_1(t),C_2(t),C_3(t),C_4(t),C_5(t),C_6(t);t)
+  $$
+  $$
+  \dot{\vec{r}}=\dot{\vec{r}}(C_1(t),C_2(t),C_3(t),C_4(t),C_5(t),C_6(t);t)
+  $$
+
+  每个时刻 $t$ ，存在一个由 $C_1(t),C_2(t),C_3(t),C_4(t),C_5(t),C_6(t)$ 决定的二体问题轨道，该轨道与实际运动轨道互为吻切轨道。
+
+### 摄动方程
+
+- 摄动方程
+  $$
+  \sum_{j=1}^6\frac{\partial\dot{\vec{r}}}{\partial C_j}\frac{\mathrm{d}C_j}{\mathrm{d}t}=\vec{F}_e
+  $$
+  构造守恒量 $\psi$: $\psi(C_1,C_2,C_3,C_4,C_5,C_6)=\psi(\vec{r},\dot{\vec{r}})$
+  $$
+  \sum_{j=1}^6\frac{\partial\psi}{\partial C_j}\frac{\mathrm{d}C_j}{\mathrm{d}t}=\frac{\partial\psi}{\partial\dot{\vec{r}}}\vec{F}_e
+  $$
+
+- STW 型摄动方程：
+  
+  取六个轨道根数 $a,e,\iota,\Omega,\omega,M_0$ ，记 $\vec{F}_e$ 在 $(\hat{r},\hat{\theta},\hat{n})$ 方向的分量为 $S,T,W$
+
+  1. 能量守恒
+  $$
+  \frac{\mathrm{d}a}{\mathrm{d}t}=\frac{2}{n\sqrt{1-e^2}}[e\sin fS+(1+e\cos f)T]
+  $$
+  2. 角动量守恒
+  $$
+  \frac{\mathrm{d}e}{\mathrm{d}t}=\frac{\sqrt{1-e^2}}{na}[\sin fS+(\cos f+\cos E)T]
+  $$
+  3. 角动量的 $x,y$ 分量
+  $$
+  \frac{\mathrm{d}\iota}{\mathrm{d}t}=\frac{r\cos(\omega+f)}{na^2\sqrt{1-e^2}}W
+  $$
+  $$
+  \frac{\mathrm{d}\Omega}{\mathrm{d}t}=\frac{r\sin(\omega+f)}{na^2\sqrt{1-e^2}\sin\iota}W
+  $$
+  4. 拉普拉斯积分守恒量 $z$ 分量
+  $$
+  \frac{\mathrm{d}\omega}{\mathrm{d}t}=\frac{\sqrt{1-e^2}}{nae}\left[-S\cos f+T\left(1+\frac{r}{p}\right)\sin f\right]-W\cos\iota\frac{r\sin(\omega+f)}{na^2\sin\iota\sqrt{1-e^2}}
+  $$
+  5. 开普勒方程 $M=E-e\sin E$ 的时间导数
+  $$
+  \frac{\mathrm{d}M}{\mathrm{d}t}=n-\frac{1-e^2}{nae}\left[-S\left(\cos f-2e\frac{r}{p}\right)+T\sin f\left(1+\frac{r}{p}\right)\right]
+  $$
+
+- UNW 型摄动方程：
+
+  把摄动力按速度切向 $(\hat{v})$ 、速度法向 $(\hat{w})$ 和轨道面法向展开
+  $$
+  \vec{F}_e=U\hat{v}+N\hat{w}+W\hat{n}=S\hat{r}+T\hat{\theta}+W\hat{n}
+  $$
+  由 STW 型摄动方程有：
+  $$
+  \frac{\mathrm{d}a}{\mathrm{d}t}=\frac{2}{n\Gamma}U
+  $$
+  $$
+  \frac{\mathrm{d}e}{\mathrm{d}t}=\frac{\Gamma}{na}[2U(e+\cos f)-N\beta\sin E]
+  $$
+  $$
+  \frac{\mathrm{d}\iota}{\mathrm{d}t}=W\frac{\beta}{na}\frac{\cos(\omega+f)}{1+e\cos f}
+  $$
+  $$
+  \frac{\mathrm{d}\Omega}{\mathrm{d}t}=W\frac{\beta}{na}\frac{\sin(\omega+f)}{1+e\cos f}\csc \iota
+  $$
+  $$
+  \frac{\mathrm{d}\omega}{\mathrm{d}t}=\frac{\Gamma}{nae}\left[2U\sin f+N(e+\cos E)-\dot{\Omega}\cos\iota\right]
+  $$
+  $$
+  \frac{\mathrm{d}M}{\mathrm{d}t}=n-\frac{\beta\Gamma}{nae}\left[-2U\left(1+\frac{e^2}{1+e\cos f}\right)\sin f+N(e-\cos E)\right]
+  $$
+  其中
+  $$
+  \beta\equiv\sqrt{1-e^2},\quad\Gamma\equiv\frac{\sqrt{1-e^2}}{\sqrt{1+2e\cos f+e^2}}
+  $$
+
+这两组摄动方程为高斯型摄动方程，下面考虑保守力型摄动方程（拉格朗日型摄动方程）
+
+- 拉格朗日型摄动方程：
+
+  记摄动力 $\vec{F}_e=\nabla R$ ，STW 型摄动方程为：
+  $$
+  \frac{\mathrm{d}a}{\mathrm{d}t}=\frac{2}{na}\frac{\partial R}{\partial M}
+  $$
+  $$
+  \frac{\mathrm{d}e}{\mathrm{d}t}=\frac{1-e^2}{na^2e}\frac{\partial R}{\partial M}-\frac{\sqrt{1-e^2}}{na^2e}\frac{\partial R}{\partial \omega}
+  $$
+  $$
+  \frac{\mathrm{d}\iota}{\mathrm{d}t}=\frac{1}{na^2\sqrt{1-e^2}\sin\iota}\left(\cos\iota\frac{\partial R}{\partial \omega}-\frac{\partial R}{\partial \Omega}\right)
+  $$
+  $$
+  \frac{\mathrm{d}\Omega}{\mathrm{d}t}=\frac{1}{na^2\sqrt{1-e^2}\sin\iota}\frac{\partial R}{\partial \iota}
+  $$
+  $$
+  \frac{\mathrm{d}\omega}{\mathrm{d}t}=\frac{\sqrt{1-e^2}}{na^2e}\frac{\partial R}{\partial e}-\cos \iota\frac{\mathrm{d}\Omega}{\mathrm{d}t}
+  $$
+  $$
+  \frac{\mathrm{d}M}{\mathrm{d}t}=n-\frac{1-e^2}{na^2e}\frac{\partial R}{\partial e}-\frac{2}{na}\frac{\partial R}{\partial a}
+  $$
