@@ -500,3 +500,57 @@ $$
   $$
   \chi_{-\frac{1}{2}}=\left[\begin{array}{c}0\\1\end{array}\right]
   $$
+
+### 简单塞曼效应
+
+有外磁场 $B$ 时
+$$
+E=E_{nlm}=\left\{\begin{array}{ll}
+\displaystyle E_{nl}+\frac{e\hbar B}{2\mu c}(m+1) & \text{for}\  S_z=\frac{\hbar}{2} \\
+\displaystyle E_{nl}+\frac{e\hbar B}{2\mu c}(m-1) & \text{for}\  S_z=-\frac{\hbar}{2}
+\end{array}\right.
+$$
+
+### 角动量耦合
+
+- 无耦合表象：
+  $$
+  |j_1,m_1\rangle|j_2,m_2\rangle\equiv|j_1,m_1,j_2,m_2\rangle
+  $$
+
+- 耦合表象：
+  $$
+  |j_1,j_2,j,m\rangle
+  $$
+  $$
+  \hat{J}^2|j_1,j_2,j,m\rangle=j(j+1)\hbar^2|j_1,j_2,j,m\rangle
+  $$
+  $$
+  \hat{J}_z|j_1,j_2,j,m\rangle=m\hbar|j_1,j_2,j,m\rangle
+  $$
+
+- 矢量耦合系数 (Clebsch-Gorldon 系数)
+  $$
+  \langle j_1,m_1,j_2,m_2|j_1,j_2,j,m\rangle
+  $$
+
+- $j=j_1+j_2,(j_1+j_2)-1,(j_1+j_2)-2,...,|j_1-j_2|$
+  
+  $m=m_1+m_2$
+
+### 光谱精细结构
+
+1. 不考虑自旋-轨道相互作用时
+   $$
+   E_n=\frac{\mu Z^2 e^4}{2\hbar^2 n^2}, n=1,2,3,...
+   $$
+   电子状态由 $(n,l,m_l,m_s)$ 确定
+
+2. 考虑自旋-轨道相互作用（精细光谱）
+
+   $E_{nlj}^{(1)}$ 与 $m$ 无关，给定 $n,l$ 则 $j=l\pm1/2$ ($l\neq 0$)
+
+- 精细结构常数
+  $$
+  \alpha=\frac{e^2}{\hbar c}=\frac{1}{137}
+  $$
