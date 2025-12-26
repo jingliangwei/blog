@@ -35,8 +35,8 @@
         <div class="slides">
             <section class="center" data-transition="fade" data-state="hide-menubar hide-menu" data-auto-animate>
                 <h3 data-id="title1">Model-independent Way to Determine the Hubble Constant and the Curvature</h3>
-                <h4>from the Phase Shift of Gravitational Waves with DECIGO</h4>
-                <p style="font-size: 25px;"><font face="楷体">韦境量</font></p>
+                <p style="font-size: 40px;">from the Phase Shift of Gravitational Waves with DECIGO</p>
+                <p style="font-size: 35px;"><font face="楷体">韦境量</font></p>
                 <p>2026.1.7</p>
             </section>
             <!-- <section class="center" data-name="TOC" data-sm="false" data-auto-animate>
@@ -55,6 +55,9 @@
             </section>
 
             <section data-name="Introduction">
+                <section>
+                    <h3>Introduction</h3>
+                </section>
                 <section>
                     <h4>Hubble Tension</h4>
                     <p>CMB v.s. Supernova</p>
@@ -80,6 +83,9 @@
             </section>
 
             <section data-name="Methodology">
+                <section>
+                    <h3>Methodology</h3>
+                </section>
                 <section data-auto-animate>
                     <h4>Traditional Method</h4>
                     <ul>
@@ -113,6 +119,11 @@
                     <ul>
                         <li>model</li>
                         <li>Friedman equation</li>
+                        <p>
+   $$
+   E(z)\equiv\left(\frac{H(z)}{H_0}\right)^2=\Omega_{m}(1+z)^3+\Omega_{k}(1+z)^2+\Omega_{\Lambda}
+   $$
+                        </p>
                         <li><strong>theoretical angular diameter distance $D_A^{\text{th}}(z;\boldsymbol{p})$</strong></li>
                         <p>
    $$
@@ -170,6 +181,11 @@
                     <ul>
                         <li>gravitational wave (GW)'s phase shift</li>
                         <li>acceleration parameter $X(z)$($H(z)$)</li>
+                        <p>
+   $$
+   X(z)\equiv\frac{H_0}{2}\left(1-\frac{H(z)}{(1+z)H_0}\right)
+   $$
+                        </p>
                         <li>using artificial neural network (ANN) to get function ($z\rightarrow X(z)$)</li>
                         <li><strong>theoretical angular diameter distance $D_A^{\text{th}}(z;\boldsymbol{p})$</strong></li>
                         <p>
@@ -271,7 +287,7 @@
                     </p>
                 </section>
                 <section align="left" data-auto-animate>
-                    <h4>Simulate data</h4>
+                    <h4 align="center">Simulate data</h4>
                     <p>
   set $m_1=m_2=1.4M_\odot$ and take $t_c=\phi_c=\beta=0$ for each fiducial redshift $z$, randomly generate $10^4$ sets of $(\bar{\theta}_S,\bar{\phi}_S,\bar{\theta}_L,\bar{\phi}_L)$
                     </p>
@@ -289,7 +305,7 @@
                     </p>
                 </section>
                 <section align="left" data-auto-animate>
-                    <h4>Simulate data</h4>
+                    <h4 align="center">Simulate data</h4>
                     <p>
   ANN: input redshift $z$,
   output corresponding cosmic acceleration parameter $X(z)$ and its respective uncertainty $\sigma_X$ at that redshift.
@@ -346,6 +362,9 @@
             </section>
 
             <section data-name="Results">
+                <section>
+                    <h3>Results</h3>
+                </section>
                 <section align="left" data-auto-animate>
                     <h4>1. The best-fit values of $H_0$ and $\Omega_k$</h4>
                     <p>
@@ -404,7 +423,10 @@
             </section>
 
             <section data-name="Conclusion">
-                <section>
+                <section data-auto-animate>
+                    <h4>Conclusion</h4>
+                </section>
+                <section data-auto-animate>
                     <h4>Conclusion</h4>
                     <p align="left">
 1. a cosmological model-independent method to determine the Hubble constant and curvature parameter simultaneously based on GW from DECIGO and QSOs from VLBI
@@ -436,6 +458,12 @@ higher angular resolution and lower statistical and systematic uncertainty from 
                     <p align="left">
 datas from other astronomical probes such SNe Ia and BAOs
                     </p>
+                </section>
+            </section>
+
+            <section data-name="content" data-sm="false">
+                <section>
+                    <h3>Thanks</h3>
                 </section>
             </section>
             
