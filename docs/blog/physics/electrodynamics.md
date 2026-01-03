@@ -852,3 +852,92 @@ $$
 $$
 \frac{\mathrm{d}\boldsymbol{p}}{\mathrm{d}t}=e(\boldsymbol{E}+\boldsymbol{v}\times\boldsymbol{B})
 $$
+
+## 带电粒子和电磁场的相互作用
+
+### 辐射场 vs 库伦场
+
+运动带电粒子的势 (Liénard-Wiechert)
+$$
+\boldsymbol{A}=\frac{q\boldsymbol{v}}{4\pi\varepsilon_0 c^2\left(r-\dfrac{\boldsymbol{v}}{c}\cdot\boldsymbol{r}\right)}
+$$
+$$
+\varphi=\frac{q}{4\pi\varepsilon_0\left(r-\dfrac{\boldsymbol{v}}{c}\cdot\boldsymbol{r}\right)}
+$$
+上式右边各量都是在 $t'=t-\frac{r}{c}$ 时取值
+
+进而有
+$$
+\boldsymbol{B}=\frac{q\boldsymbol{v}\times\boldsymbol{r}}{4\pi\varepsilon_0 c^2r^3}+\frac{q\dot{\boldsymbol{v}}\times\boldsymbol{r}}{4\pi\varepsilon_0 c^3r^2}
+$$
+$$
+\boldsymbol{E}=\frac{q\boldsymbol{r}}{4\pi\varepsilon_0r^3}+\frac{q}{4\pi\varepsilon_0c^2r^3}\boldsymbol{r}\times(\boldsymbol{r}\times\dot{\boldsymbol{v}})
+$$
+
+第一项为库伦场 $\propto r^{-2}$
+
+第二项为辐射场 $\propto r^{-1}$
+
+### 频谱分析
+
+傅里叶变换
+
+- 轫致辐射：带电粒子和物质靶内原子中的电子和原子核碰撞减速辐射
+- 同步辐射：带电粒子高速圆周运动，射束张角 $\Delta\theta\sim1/\gamma$
+
+![同步辐射](./electrodynamics_fig/7-1.png)
+
+### 切连科夫辐射
+
+带电粒子在介质中速度超过介质内光速，诱导电流激发次波干涉形成辐射，称为切连科夫辐射 (Cherenkov)
+
+![切连科夫辐射](./electrodynamics_fig/7-2.png)
+
+### 散射
+
+- 自由电子散射电磁波：
+
+  汤姆孙散射公式
+  $$
+  P=\oint\bar{S}r^2\mathrm{d}\Omega=\frac{8\pi}{3}r_e^2 I_0
+  $$
+  
+  被散射的能量相当入射到 $\sigma$ 截面上能量，称为自由电子对电磁波的散射截面
+  $$
+  \sigma=\frac{P}{I_0}=\frac{8\pi}{3}r_e^2
+  $$
+
+  角分布（微分散射截面）
+  $$
+  \frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}=\frac{r_e^2}{2}(1+\cos^2\theta)
+  $$
+  实际角分布如虚线，用量子电动力学可以解释
+
+  ![微分散射截面](./electrodynamics_fig/7-3.png)
+
+- 束缚电子的散射：
+
+  设束缚电子的固有频率为 $\omega_0$ ，入射电磁波频率 $\omega$
+
+  散射截面
+  $$
+  \sigma=\frac{8\pi}{3}r_e^2\frac{\omega^4}{(\omega_0^2-\omega^2)^2+\omega^2\gamma^2}
+  $$
+
+  (1) $\omega\ll\omega_0$:
+  $$
+  \sigma=\frac{8\pi}{3}r_e^2\left(\frac{\omega}{\omega_0}\right)^4
+  $$
+  低频散射截面 $\propto\omega^4$ ，称为瑞利散射
+
+  (2) $\omega\gg\omega_0$:
+  $$
+  \sigma=\frac{8\pi}{3}r_e^2
+  $$
+  过渡到自由电子散射
+
+  (3) $\omega=\omega_0$:
+  $$
+  \sigma=\frac{8\pi}{3}r_e^2\left(\frac{\omega}{\gamma}\right)^2
+  $$
+  共振
