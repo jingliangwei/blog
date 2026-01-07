@@ -554,3 +554,55 @@ $$
   $$
   \alpha=\frac{e^2}{\hbar c}=\frac{1}{137}
   $$
+
+## 全同粒子
+
+### 全同粒子的特性
+
+- 全同粒子：质量、电荷、自旋等固有性质完全相同的微观粒子
+
+- 量子力学原理五（全同性原理）：全同粒子组成的体系中，二全同粒子互相替换不引起体系物理状态的改变。
+
+- 玻色子 Boson ：自旋为 $0$ 或 $\hbar/2$ 的偶数倍 $(s=0,1,2,...)$ 的粒子，其多粒子波函数对于交换两个粒子对称。
+
+- 费米子 Fermion ：自旋为 $\hbar/2$ 的奇数倍 $(s=1/2,3/2,...)$ 的粒子，其多粒子波函数对于交换两个粒子反对称。
+
+### 全同粒子体系波函数
+
+- 两个粒子分别满足
+  $$
+  \widehat{H}_0(q_n)\varphi_i(q_n)=\varepsilon_i\varphi_i(q_n)
+  $$
+  单粒子能量 $\varepsilon_i$ ，对应波函数 $\varphi_i(q_n)(n=1,2)$
+
+  体系波函数
+  $$
+  \widehat{H}\Phi(q_1,q_2)=E\Phi(q_1,q_2)
+  $$
+  体系能量 $E=\varepsilon_1+\varepsilon_2$ ，体系波函数 $\Phi(q_1,q_2)=\varphi(q_1)\varphi(q_2)$
+
+- 对于玻色子
+  $$
+  \Phi_S(q_1,q_2)=\frac{1}{\sqrt{2}}[\varphi_i(q_1)\varphi_j(q_2)+\varphi_j(q_1)\varphi_i(q_2)]
+  $$
+
+- 对于费米子
+  $$
+  \Phi_A(q_1,q_2)=\frac{1}{\sqrt{2}}\left|\begin{array}{cc}
+  \varphi_i(q_1) & \varphi_i(q_2) \\
+  \varphi_j(q_1) & \varphi_j(q_2)
+  \end{array}\right|
+  $$
+  $$
+  \Phi_A(q_1,q_2,...,q_N)=\frac{1}{\sqrt{N!}}\left|\begin{array}{ccc}
+  \varphi_i(q_1) & \varphi_i(q_2) & \ldots & \varphi_i(q_N) \\
+  \varphi_j(q_1) & \varphi_j(q_2) & \ldots & \varphi_j(q_N) \\
+  \vdots & \vdots & \ddots & \vdots \\
+  \varphi_k(q_1) & \varphi_k(q_2) & \ldots & \varphi_k(q_N)
+  \end{array}\right|
+  $$
+
+- Pauli 不相容原理：
+  $$
+  \Phi(q_1,q_2)=\varphi_i(q_1)\varphi_i(q_2)-\varphi_i(q_2)\varphi_i(q_1)=0
+  $$
