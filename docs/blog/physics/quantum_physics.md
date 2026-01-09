@@ -452,6 +452,60 @@ $$
 H'_{mn}=\langle\psi_m^{(0)}|\widehat{H}^{(1)}|\psi_n^{(0)}\rangle
 $$
 
+### 与时间有关的微扰理论
+
+从初态 $\Phi_k$ 跃迁到终态 $\Phi_m$ 概率
+$$
+W_{k\rightarrow m}=|a_m(t)|^2=\frac{1}{\hbar^2}\left|\int_0^t H'_{mk}e^{i\omega_{mk}t'}\mathrm{d}t'\right|^2
+$$
+其中 微扰矩阵元
+$$
+H'_{mn}=\langle\psi_m|\widehat{H}'(t)|\psi_m\rangle
+$$
+从 $\varepsilon_n$ 跃迁到 $\varepsilon_m$ 的 Bohr 频率
+$$
+\omega_{mn}=\frac{1}{\hbar}[\varepsilon_m-\varepsilon_n]
+$$
+
+### 光的发射和吸收
+
+- 爱因斯坦系数 $\varepsilon_m>\varepsilon_k$ ：
+
+  自发发射系数 $A_{mk}$
+
+  受激发射系数 $B_{mk}$
+
+  吸收系数 $B_{km}$
+
+$$
+B_{km}=B_{mk}=\frac{4\pi^2e^2}{3\hbar^2}|\vec{r}_{mk}|^2
+$$
+$$
+A_{mk}=\frac{4\omega_{mk}^3e^2}{3\hbar c^3}|\vec{r}_{mk}|^2
+$$
+
+- 跃迁辐射强度
+  $$
+  J_{mk}=N_m\frac{4\omega_{mk}^4e^2}{3c^3}|\vec{r}_{mk}|^2
+  $$
+
+### 选择定则
+
+- 跃迁速率 $\varpi_{k\rightarrow m}\propto|\vec{r}_{mk}|^2$
+
+- 禁戒跃迁
+
+- 选择定则：
+
+  使 $|r_{mk}|\neq 0$
+
+  $$
+  \left\{\begin{array}{l}
+  \Delta l=l'-l=\pm 1 \\
+  \Delta m=m'-m=0,\pm 1
+  \end{array}\right.
+  $$
+
 ## 自旋与全同粒子
 
 ### 电子自旋
