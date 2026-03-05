@@ -1,6 +1,6 @@
 # Observational Astronomy Course
 
-There is notes of lectures in CEFCA
+There is note of lectures in CEFCA
 
 ## lecture 1: basics
 
