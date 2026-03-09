@@ -54,6 +54,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: '天体力学基础', link: '/blog/astronomy/celestial_mechanics'},
       { text: '暗能量的理论与实验观测', link: '/blog/astronomy/dark_energy'},
       { text: '星系天文学', link: '/blog/astronomy/galaxy'},
+      { text: '射电天文学', link: '/blog/astronomy/radio'},
       { text: '高能天体物理', link: '/blog/astronomy/high_energy_astrophysics'},
     ]
   },
