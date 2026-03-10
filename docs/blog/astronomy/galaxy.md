@@ -115,7 +115,7 @@
       <td>中性云际气体</td>
     </tr>
     <tr>
-      <td rowspan="2">HI</td>
+      <td rowspan="2">HII</td>
       <td rowspan="2">~8000</td>
       <td>0.2-0.5</td>
       <td>20-50</td>
@@ -129,7 +129,7 @@
       <td>HI区/云 （电离弥漫星云）</td>
     </tr>
     <tr>
-      <td>HI</td>
+      <td>HII</td>
       <td>10⁶-10⁷</td>
       <td>0.0065</td>
       <td>30-70%</td>
