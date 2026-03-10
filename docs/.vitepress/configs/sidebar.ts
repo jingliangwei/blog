@@ -36,6 +36,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       { text: '流体力学', link: '/blog/physics/fluid'},
       { text: '电动力学', link: '/blog/physics/electrodynamics'},
       { text: '量子力学', link: '/blog/physics/quantum_physics'},
+      { text: '热力学与统计物理', link: '/blog/physics/thermodynamics_and_statistical_physics'},
       // { text: '广义相对论', link: '/blog/physics/general_relativity'},
       { text: '相对论', link: '/blog/physics/relativity'},
     ]
