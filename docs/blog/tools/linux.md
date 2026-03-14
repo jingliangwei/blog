@@ -15,6 +15,13 @@ Exec=/usr/local/bin/astroimagej
 Icon=/usr/local/AstroImageJ/astronomy_icon.png
 ```
 
+## 删除安装软件
+
+```
+apt list --installed | grep -i possible_package_name
+apt remove package_name
+```
+
 ## 设置`apt`镜像
 
 `Ubuntu 24.04` 的 `apt` 源的位置替换到了 `/etc/apt/sources.list.d/ubuntu.sources` 中
