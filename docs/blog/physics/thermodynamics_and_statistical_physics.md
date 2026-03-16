@@ -121,3 +121,34 @@
     |$\gamma=1$| $pV=\text{const}$| 等温|
     |$\gamma=C_p/C_V$| $pV^\gamma=\text{const}$| 绝热|
     |$\gamma=\infty$| $V=\text{const}$| 等容|
+
+    ::: info 推导绝热过程方程
+    $$
+    \delta Q=0
+    $$
+    $$
+    \Leftrightarrow\mathrm{d}U+p\mathrm{d}V=0
+    $$
+    $$
+    \Leftrightarrow C_V\mathrm{d}T+p\mathrm{d}V=0
+    $$
+    $$
+    pV=NRT
+    $$
+    $$
+    \Rightarrow p\mathrm{d}V+V\mathrm{d}p=NR\mathrm{d}T
+    $$
+    $$
+    \Rightarrow p\mathrm{d}V+V\mathrm{d}p=C_V(\gamma-1)\mathrm{d}T
+    $$
+    联立消 $\mathrm{d}T$ 得
+    $$
+    V\mathrm{d}p+\gamma p\mathrm{d}V=0
+    $$
+    $$
+    \Rightarrow \frac{\mathrm{d}p}{p}+\gamma\frac{\mathrm{d}V}{V}=0
+    $$
+    $$
+    \Rightarrow pV^\gamma=\text{const}
+    $$
+    :::
