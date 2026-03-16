@@ -126,7 +126,7 @@
       <td>10²-10⁴</td>
       <td>&lt;1</td>
       <td>发射星云</td>
-      <td>HI区/云 （电离弥漫星云）</td>
+      <td>HII区/云 （电离弥漫星云）</td>
     </tr>
     <tr>
       <td>HII</td>
@@ -168,3 +168,62 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
         $$
         O^++H_2\rightarrow OH^++H,\ OH^++e^-\rightarrow O+H
         $$
+
+::: info 分子光谱
+1. 电子 (electronic) 能级：价电子的能量量子化
+2. 振动 (vibrational) 能级：原子在化学键键长附近振动能量量子化
+3. 转动 (rotational) 能级：分子整体转动角动量量子化
+:::
+
+3. 观测：
+
+    星际分子谱线多为纯转动谱线，因为温度太低。
+
+    $^{12}CO$ 的最强辐射源来自转动能级的 $J=1\rightarrow 0$ 跃迁，波长 $2.6mm$
+
+    H₂通常无法直接观测：对称、转动惯量小，最低转动态向基态跃迁波长 $28\mu m$，对应温度 $\sim 510K$
+
+    示踪分子：分子云中的 $H_2$ 与 $CO,HCN,NH_3,H_2O$ 分子成协。如 $CO$ 分子辐射强度与 $H_2$ 的柱密度存在经验关系。
+
+4. 分子云：
+
+    主要特征：低温（利于分子存在），紫外和光学波段光学厚（尘埃）
+
+    - 巨分子云：狭长纤维状结构 (filamentary structures)
+
+    - 博克球状体 (Bok Globules)：
+
+      高密度暗星云，通常处于 HII 区
+
+      >similar to insect's cocoons
+
+      引力坍缩阶段原恒星，星际物质与恒星的过渡阶段（观测验证：红外波段观测到恒星形成的不同阶段）
+
+::: info $H_2$ 的典型存在环境
+1. 分子云 (dense molecular gas) $T\sim 10-20K,n>100cm^{-3}$
+2. 拱星包层 (Stellar outflows) $T\sim 50-10^3K,n=1-10^6cm^{-3}$
+3. 半透明星云 (diffuse molecular gas) $T\sim 50K,n\sim 100cm^{-3}$
+:::
+
+#### HII
+
+1. 形成：
+
+    - 光致电离（HII区，行星状星云）
+    - 碰撞电离（超新星遗迹，云际冕气）
+
+2. 观测：
+
+    - 光学观测：发射线谱，允许线和禁戒线，颜色偏红 ($H\alpha\ 656.3nm$)
+    - 射电观测：H，N和C等的离子复合为高激发态原子（里徳伯原子）退激发谱线
+      
+      射电连续谱：热轫致辐射
+  
+3. 大小： Strömgren 半径
+
+    斯特隆根球 (Strömgren sphere) ：O，B星周围气体云质量够大，消耗中心恒星紫外光子，形成HI区内球状HII区
+
+4. 云际冕气：
+
+    形成：星系喷泉 (Galactic Fountain)
+
