@@ -69,3 +69,28 @@ $\sigma\propto Z^2P(E,Z)$
 无机 主要探测设备
 
 光电倍增管
+
+### 高能光子的成像观测
+
+#### 间接成像：孔径调制
+
+1. 时间孔径调制：
+
+    - 狭缝准直器扫描
+
+    - 月球、地球掩蚀
+
+2. 空间孔径调制：
+
+    - 编码孔径成像（编码板望远镜 coded-mask telescope）：
+
+        Fully Coded FOV (FCFOV)
+
+        Partially Coded FOV (PCFOV)
+
+        角分辨率
+
+#### 直接成像：掠射聚焦
+
+1. Wolter
+2. lobster-eye
