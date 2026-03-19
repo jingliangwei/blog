@@ -1,5 +1,7 @@
 # 高能天体物理
 
+reference: *High Energy Astrophysics* (3ed) by Longair M.S.
+
 ## 高能辐射机制
 
 ### 相关物理量
@@ -98,6 +100,10 @@
 
 ### 黑体辐射
 
+热平衡、光学厚、完全吸收（吸收=发射）
+
+详见[光学-热辐射](/blog/physics/optics#热辐射)
+
 - 亮温度 Brightness temperature
     $$
     I_\nu=B_\nu(T_b)
@@ -145,6 +151,10 @@ $$
 $$
 S=\frac{1}{c\mu_0}\frac{|\ddot{p}|^2\sin^2\theta}{16\pi^2 \varepsilon_0^2 c^4 r^2}=\frac{|\ddot{p}|^2\sin^2\theta}{16\pi^2\varepsilon_0c^3r^2}
 $$
+:::
+
+::: tip 注
+只能在电子共动系中使用，注意坐标系转换
 :::
 
 ::: info Parseval’s theorem
@@ -195,9 +205,164 @@ $$
 $a_\parallel=\dot{v}_x,a_\perp=\dot{v}_z$ 傅里叶变换后代入 Parseval's theorem.
 :::
 
-## Appendix 2: Distances in astronomy
+#### 热轫致辐射
 
-reference: *High Energy Astrophysics* (3ed) by Longair M.S.
+- 热等离子体：完全电离、热平衡、光学薄、非相对论性
+
+![热轫致辐射](./high_energy_astrophysics_fig/5.jpg)
+
+- 将单电子轫致辐射能谱积分
+    $$
+    \begin{align}
+    I&=\int N_e(T,\nu)I_e(\omega)\mathrm{d}\nu\mathrm{d}b \\
+    &\propto\frac{Z^2 NN_e}{\sqrt{T}}\exp\left(-\frac{\hbar\omega}{kT}\right)g(\omega,T)
+    \end{align}
+    $$
+    $N_e(T,\nu)$ ：热平衡下电子的 Maxwell 速度分布；
+
+    $I_e(\omega)$ ：单个电子的轫致辐射能谱
+
+    $\mathrm{d}b$ ：对作用距离积分
+
+    ![能谱](./high_energy_astrophysics_fig/6.jpg)
+
+#### 非热轫致辐射
+
+- 等离子体外电子
+- 极端相对论电子，幂率分布
+
+### 同步辐射
+
+#### 电子在磁场中运动
+
+- 电子在洛伦兹力下动量变化
+    $$
+    \frac{\mathrm{d}\vec{p}}{\mathrm{d}t}=\gamma m_e\frac{\mathrm{d}\vec{v}}{\mathrm{d}t}=-e\left(\vec{E}+\vec{v}\times\vec{B}\right)
+    $$
+
+- 回旋频率
+    $$
+    \omega_g=\frac{eB}{\gamma m_e}=2\pi\nu_g
+    $$
+
+- 能量损失率
+    $$
+    -\frac{\mathrm{d}E}{\mathrm{d}t}=2\sigma_T cU_B\beta^2\gamma^2\sin^2\theta
+    $$
+    Thomson 散射截面 $\sigma_T=\dfrac{q^4}{6\pi\varepsilon_0^2 c^4m_e^2}$
+
+    磁场能量密度 $U_B=\dfrac{B^2}{2\mu_0}$
+
+    ![电子螺旋运动](./high_energy_astrophysics_fig/7.jpg)
+
+    ::: info derivation
+    观测系电磁场，洛伦兹变化到电子系，再用拉莫方程可得。
+    :::
+
+- 电子冷却时间
+    $$
+    \tau=\frac{E}{|\mathrm{d}E/\mathrm{d}t|}\propto\frac{1}{B^2\beta^2\gamma}
+    $$
+
+#### 回旋辐射
+
+- 低速条件下 $v\ll c,\gamma=1$
+
+- 相当一个电偶极辐射
+
+- 辐射率
+    $$
+    -\frac{\mathrm{d}E}{\mathrm{d}t}=\frac{2\sigma_T}{c}U_B v^2\sin^2\theta
+    $$
+
+#### 中等相对论电子
+
+- 相对论集束效应
+- 相对论多普勒效应
+- 周期性脉冲形式
+
+#### 单电子同步辐射
+
+- 集束效应：辐射集中在张角 $1/\gamma$ 锥内
+
+    ::: info derivation
+    电子系速度经过洛伦兹变化到观测系，得到观测系张角
+    $$
+    \tan\theta=\frac{u_y}{u_x}=\frac{u'\sin\theta'}{\gamma(u'\cos\theta'+v)}=\frac{\sin\theta'}{\gamma(\cos\theta'+\beta)}
+    $$
+    取 $\theta'=\pi/2$ 得到观测系的辐射张角
+    $$
+    \tan\theta=\frac{1}{\gamma\beta}
+    $$
+    $$
+    \theta\sim\tan\theta=\frac{1}{\gamma}
+    $$
+    :::
+
+- 多普勒效应：脉冲宽度
+
+    $$
+    \Delta t\approx\frac{1}{\gamma^3\omega_g}=\frac{1}{\gamma^2\omega_{cycl}}
+    $$
+
+    ::: info derivation
+    ![多普勒效应](./high_energy_astrophysics_fig/8.jpg)
+    $$
+    \Delta t=\frac{\Delta L}{c}=\frac{L'-L}{c}=\frac{L}{v}-\frac{L}{c}=\frac{L}{v}(1-\beta)
+    $$
+    $$
+    \frac{L}{v}=\frac{\theta}{\omega_g}=\frac{2}{\gamma\omega_g}=\frac{2}{\omega_{cycl}}
+    $$
+    $$
+    1-\beta=\frac{1-\beta^2}{1+\beta}=\frac{1}{\gamma^2}\frac{1}{1+\beta}\approx\frac{1}{2\gamma^2}
+    $$
+    :::
+
+- 单电子同步辐射能谱
+
+    ![能谱](./high_energy_astrophysics_fig/9.jpg)
+
+- 截断频率
+    $$
+    \nu_c\approx\frac{1}{\Delta t}\approx \gamma^2\nu_{cycl}\approx\gamma^3\nu_g
+    $$
+
+#### 非热同步辐射
+
+- 电子数幂律分布
+    $$
+    N(E)\mathrm{d}E\propto E^{-p}\mathrm{d}E
+    $$
+
+- 辐射谱也幂律分布
+    $$
+    J(\omega)\propto\omega^{-\frac{p-1}{2}}=\omega^{-\alpha}
+    $$
+
+    ![能谱](./high_energy_astrophysics_fig/10.jpg)
+
+    ::: info derivation
+    $$
+    \omega\propto E^2,\quad N\propto E^{-p}
+    $$
+    $$
+    J\sim N\cdot E=E^{-(p-1)}=\omega^{-\frac{p-1}{2}}
+    $$
+    :::
+
+#### 同步辐射自吸收
+
+- 低能端，等离子体光学厚，R-J近似
+    $$
+    I_\nu=\frac{2kT_e}{c^2}\nu^2\propto\nu^{5/2}
+    $$
+    电子温度 $kT_e=E=\gamma mc^2$ ，吸收光子 $\nu\approx\nu_c\propto\gamma^2\propto T_e^2$
+
+- 能谱
+
+    ![能谱](./high_energy_astrophysics_fig/11.jpg)
+
+## Appendix 2: Distances in astronomy
 
 - Parallaxes
 - The relation between the pulsation periods of Cepheid variables and their intrinsic luminosities
