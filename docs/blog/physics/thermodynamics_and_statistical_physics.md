@@ -51,7 +51,7 @@
     - 昂尼斯 (Onnes) 方程（低压展开，压强幂级数）
     - 顺磁固体，居里 (Curie) 定律
 
-### 热力学第一定律
+### 热力学第一定律/内能
 
 1. 热力学第一定律（能量守恒） $\Delta U=W+Q$
 
@@ -152,3 +152,102 @@
     \Rightarrow pV^\gamma=\text{const}
     $$
     :::
+
+### 热力学第二定律/熵与熵变
+
+1. 热机，通常以气体作为工质（气体体积变化大）
+
+2. 可逆过程、不可逆过程 （外界变化）
+
+    无摩擦的准静态过程为可逆过程
+
+3. 热力学第二定律：（自发过程不可逆）
+
+    - Clausius 不可能把热量从低温物体传递到高温物体而不引起其他变化
+    - Kelvin-Planck 不可能从单一热源吸热使之完全变成功而不引起其他变化
+
+4. 卡诺定理：
+
+    工作在两个一定温度间的热机，可逆机效率最高
+    $$
+    \eta=\frac{Q_1-Q_2}{Q_1}\le\frac{T_1-T_2}{T_1}
+    $$
+
+5. 熵（态函数） Entropy
+    $$
+    S_1-S_0=\int_0^1\frac{\delta Q}{T}
+    $$
+    - 积分沿可逆过程
+    - 广延量
+    - 差值才有意义
+    - 对于任意过程：
+        $$
+        S_1-S_0\ge\int_0^1\frac{\delta Q}{T},\quad \mathrm{d}S\ge\frac{\delta Q}{T}
+        $$
+
+6. 热力学基本方程
+    $$
+    \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V
+    $$
+
+7. 熵增原理
+
+8. $T\mathrm{d}S$ 方程：
+    $$
+    T\mathrm{d}S=C_V\mathrm{d}T+T\left(\frac{\partial p}{\partial T}\right)_V\mathrm{d}V=C_V\mathrm{d}T+\frac{T\alpha}{\kappa}\mathrm{d}V
+    $$
+    $$
+    T\mathrm{d}S=C_p\mathrm{d}T-T\left(\frac{\partial V}{\partial T}\right)_p\mathrm{d}p=C_p\mathrm{d}T-TV\alpha\mathrm{d}p
+    $$
+    $$
+    T\mathrm{d}S=C_p\left(\frac{\partial T}{\partial V}\right)_p\mathrm{d}V+C_V\left(\frac{\partial T}{\partial p}\right)_V\mathrm{d}p=\frac{C_p}{\alpha V}\mathrm{d}V+\frac{C_V\kappa}{\alpha}\mathrm{d}p
+    $$
+
+    ::: info derivation
+    1. 热力学基本方程+内能全微分
+    $$
+    \left\{\begin{array}{l}
+        \displaystyle \mathrm{d}S=\frac{1}{T}(\mathrm{d}U+p\mathrm{d}V) \\
+        \displaystyle \mathrm{d}U=\left(\frac{\partial U}{\partial T}\right)_V\mathrm{d}T+\left(\frac{\partial U}{\partial V}\right)_T\mathrm{d}V
+    \end{array}\right.
+    $$
+    $$
+    \Rightarrow \mathrm{d}S=\frac{1}{T}\left(\frac{\partial U}{\partial T}\right)_V\mathrm{d}T+\frac{1}{T}[\left(\frac{\partial U}{\partial V}\right)_T+p]\mathrm{d}V
+    $$
+    2. +熵全微分
+    $$
+    \left\{\begin{array}{l}
+        \displaystyle \mathrm{d}S=\frac{1}{T}\left(\frac{\partial U}{\partial T}\right)_V\mathrm{d}T+\frac{1}{T}[\left(\frac{\partial U}{\partial V}\right)_T+p]\mathrm{d}V \\
+        \displaystyle \mathrm{d}S=\left(\frac{\partial S}{\partial T}\right)_V\mathrm{d}T+\left(\frac{\partial S}{\partial V}\right)_T\mathrm{d}V
+    \end{array}\right.
+    $$
+    $$
+    \Rightarrow \left\{\begin{array}{l}
+        \left(\dfrac{\partial S}{\partial T}\right)_V=\dfrac{1}{T}\left(\dfrac{\partial U}{\partial T}\right)_V \\
+        \left(\dfrac{\partial S}{\partial V}\right)_T=\dfrac{1}{T}[\left(\dfrac{\partial U}{\partial V}\right)_T+p]
+    \end{array}\right.
+    $$
+    3. 二阶混合偏导
+    $$
+    \left[\frac{\partial}{\partial V}\left(\frac{\partial S}{\partial T}\right)_V\right]_T=\left[\frac{\partial}{\partial T}\left(\frac{\partial S}{\partial V}\right)_T\right]_V
+    $$
+    $$
+    \Rightarrow 0=-\frac{1}{T^2}[\left(\frac{\partial U}{\partial V}\right)_T+p]+\frac{1}{T}[0+\left(\frac{\partial p}{\partial T}\right)_V]
+    $$
+    $$
+    \Rightarrow \left(\frac{\partial U}{\partial V}\right)_T=T\left(\frac{\partial p}{\partial T}\right)_V-p
+    $$
+    4. 代回熵全微分
+    $$
+    T\mathrm{d}S=C_V\mathrm{d}T+T\left(\frac{\partial p}{\partial T}\right)_V\mathrm{d}V=C_V\mathrm{d}T+\frac{T\alpha}{\kappa}\mathrm{d}V
+    $$
+
+    对于其他两个方程，类似方式可证
+    :::
+
+9. 
+| 过程 | 热力学特征 | 不变的状态函数 | 熵变 ($\Delta S$) | 温度变化 （理想气体） |
+| :---: | :---: | :---: | :---: | :---: |
+| **绝热自由膨胀** | 向真空膨胀，$Q=0, W=0$ | **内能 $U$** | 增加 ($>0$) | 不变 |
+| **绝热节流膨胀** | 稳流通过多孔塞，$Q=0$ | **焓 $H$** | 增加 ($>0$) | 不变 |
+| **绝热可逆膨胀** | 准静态，无摩擦，$Q=0$ | **熵 $S$** | 不变 ($=0$) | 降低 |
