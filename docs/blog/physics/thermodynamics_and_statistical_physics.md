@@ -191,8 +191,47 @@
     $$
 
 7. 熵增原理
+    ::: tip 注
+    热源默认足够大，温度不变。
 
-8. $T\mathrm{d}S$ 方程：
+    物体则温度会变。
+    :::
+
+8. 理想气体的熵 （理想气体的 $T\mathrm{d}S$ 方程）：
+
+    - $(T,V)$:
+        $$
+        \mathrm{d}S=\frac{C_V}{T}\mathrm{d}T+\frac{nR}{V}\mathrm{d}V
+        $$
+        ::: info derivation
+        $$
+        \mathrm{d}U=C_V\mathrm{d}T
+        $$
+        $$
+        \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V
+        $$
+        $$
+        pV=nRT
+        $$
+        :::
+    - $(T,p)$:
+        $$
+        \mathrm{d}S=\frac{C_p}{T}\mathrm{d}T-nR\frac{\mathrm{d}p}{p}
+        $$
+        ::: info derivation
+        $$
+        pV=nRT \Rightarrow \frac{\mathrm{d}p}{p}+\frac{\mathrm{d}V}{V}=\frac{\mathrm{d}T}{T}
+        $$
+        $$
+        \mathrm{d}U=C_V\mathrm{d}T
+        $$
+        $$
+        \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V
+        $$
+        :::
+
+
+9. $T\mathrm{d}S$ 方程：
     $$
     T\mathrm{d}S=C_V\mathrm{d}T+T\left(\frac{\partial p}{\partial T}\right)_V\mathrm{d}V=C_V\mathrm{d}T+\frac{T\alpha}{\kappa}\mathrm{d}V
     $$
@@ -245,7 +284,7 @@
     对于其他两个方程，类似方式可证
     :::
 
-9. 
+10. 
 | 过程 | 热力学特征 | 不变的状态函数 | 熵变 ($\Delta S$) | 温度变化 （理想气体） |
 | :---: | :---: | :---: | :---: | :---: |
 | **绝热自由膨胀** | 向真空膨胀，$Q=0, W=0$ | **内能 $U$** | 增加 ($>0$) | 不变 |
