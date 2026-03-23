@@ -227,3 +227,100 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 
     形成：星系喷泉 (Galactic Fountain)
 
+#### HI
+
+1. 存在环境：
+
+    - 冷中性气体 Cool HI, HI cloud, diffuse atomic cloud
+    - 暖中性气体 Warm HI, 中性云际气体
+  
+2. 观测：
+
+    - HI 的 21cm 谱线： 电子与质子自旋平行与反平行跃迁，受尘埃影响小
+    - 星际吸收线：窄而固定的吸收线
+
+    星际 HI 两相可以相互靠近，观测无亮背景 HI 云出现窄线宽分量（cold HI）和宽肩分量（warm HI）
+  
+#### 星际气体之间与恒星的关系
+
+![Life-cycle of ISM](./galaxy_fig/1.png)
+
+- 重子循环：气体（星系际介质->星系->恒星->恒星风，超新星爆发->星系际空间）
+- 星际元素贫化 interstellar elemental depletions
+
+### 星际尘埃
+
+1. 可能来源：
+
+    - 主要：恒星晚期，冷外层大气抛射
+    - 次要：超新星，新星等爆发
+    - 冷星际介质凝聚，行星、彗星瓦解
+
+2. 破坏：
+
+    热蒸发，碰撞，被天体吸附
+
+3. 化学成分：
+
+    1. 硅酸盐（Mg,Fe）无定型
+    2. 含碳的物质颗粒（PAHs、石墨）
+
+#### 尘埃与星云关系
+
+- 暗星云：尘埃消光
+- 分子云：尘埃利于分子形成，保护分子
+- 反射星云：尘埃散射星光
+- 发射星云：尘埃红外辐射
+
+#### 星际尘埃与电磁辐射关系
+
+1. 尘埃辐射：红外辐射
+
+    ::: info 尘埃的红外辐射
+    分两类：
+    - $\lambda\ge 60\mu m$ 约占 65%：大尺度尘埃，远红外黑体辐射；
+    - $\lambda< 60\mu m$ 约占 35%：小尺度（PAHs, polycyclic aromatic hydrocarbons）多环芳香烃，近、中红外的随机热辐射。
+    :::
+
+    实际观测星际尘埃的辐射谱：
+
+      - 远红外连续谱：大尺度尘埃热平衡辐射，黑体谱
+
+      - 中红外连续谱：小尺度尘埃非平衡辐射，宽连续谱，叠加显著红外 PAHs 振动谱带
+
+2. 尘埃吸收和散射：
+
+    - 星际消光 interstellar extinction ：星光强度减弱
+
+    - 星际红化 interstellar reddening ：对蓝色吸收散射比红色强，星光颜色偏红
+
+    ::: info 尘埃消光
+    - 星际消光 $A_\lambda$： $M_\lambda=m_{\lambda \text{ Int}}+5-5\lg d=m_{\lambda \text{ obs}}+5-5\lg d-A_\lambda$
+    - 色余 $E(B-V)=(B-V)_{\text{obs}}-(B-V)_{\text{Int}}=(m_b-m_v)_{\text{obs}}-(M_B-M_V)=A_B-A_V$
+    - 消光比率 $R$： $R_V=A_V/E(B-V)=A_V/(A_B-A_V)$
+    - 消光曲线 $A(\lambda)/A_V\sim \lambda$
+    :::
+
+3. 尘埃的偏振：
+
+    - 星际极化/星光偏振 interstellar polarization -> 磁场
+
+::: info 小结：星际介质的多波段观测
+- 射电波段：
+
+    - 谱线：HI 21cm, CO 2.6mm, HII 射电复合线
+    - 连续谱： HII 区热轫致谱，Supernova Remnant (SNR)、冕气中电子的同步辐射
+
+- 红外波段：
+
+    PAHs 发射谱带，硅酸盐吸收谱带，尘埃热辐射连续谱
+- 光学到近紫外波段：
+
+    HI 星际吸收线，发射星云发射线（H的复合线，e.g. $H\alpha,H\beta$ 巴耳末线系），尘埃的星际消光、红化和偏振
+- 极紫外到软 X 射线波段：
+
+    热等离子体辐射（冕气）
+- $\gamma$ 射电波段：
+
+    高能宇宙线粒子与星际介质和星际辐射场相互作用形成的连续谱背景，如轫致辐射、逆康普顿散射、$\pi$ 介子衰变等
+:::
