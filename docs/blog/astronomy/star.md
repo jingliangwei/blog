@@ -118,3 +118,81 @@ open cluster has the Hertzsprung gap
     $$
     \frac{\mathrm{d}M(r)}{\mathrm{d}r}=4\pi r^2\rho(r)
     $$
+
+::: info applications
+1. Minimun values for central pressure of a star:
+
+    $$
+    \left\{\begin{array}{l}
+        \dfrac{\mathrm{d}P}{\mathrm{d}r}=-\dfrac{GM\rho}{r^2} \\
+        \dfrac{\mathrm{d}M}{\mathrm{d}r}=4\pi r^2\rho
+    \end{array}\right.
+    $$
+    $$
+    \Rightarrow \frac{\mathrm{d}P}{\mathrm{d}M}=-\frac{GM}{4\pi r^4}
+    $$
+    $$
+    P_c-P_s=\int_0^{M_s}\frac{GM}{4\pi r^4}\mathrm{d}M>\int_0^{M_s}\frac{GM}{4\pi r_s^4}\mathrm{d}M=\frac{GM_s^2}{8\pi r_s^4}
+    $$
+
+2. The Virial theorem:
+
+    $$
+    \Rightarrow 4\pi r^3\mathrm{d}P=-\frac{GM}{r}\mathrm{d}M
+    $$
+    $$
+    \Rightarrow 3\int_{P_c}^{P_s}V\mathrm{d}P=-\int_0^{M_s}\frac{GM}{r}\mathrm{d}M
+    $$
+    $$
+    \Rightarrow 3[PV]|_c^s-3\int_{V_c}^{V_s}P\mathrm{d}V=-\int_0^{M_s}\frac{GM}{r}\mathrm{d}M
+    $$
+    $$
+    \Rightarrow 3\int_0^{V_s}P\mathrm{d}V+\Omega=0
+    $$
+    where $\Omega$ is the total gravitational potential energy of the star.
+
+3. Minimun mean temperature of a star:
+
+    $$
+    -\Omega=3\int_0^{V_s}P\mathrm{d}V=3\int_0^{M_s}\frac{P}{\rho}\mathrm{d}M
+    $$
+    for ideal gas $P=nkT=k\rho T/m$,
+    $$
+    3\int_0^{M_s}\frac{kT}{m}\mathrm{d}M=-\Omega=\int_0^{M_s}\frac{GM}{r}\mathrm{d}M>\int_0^{M_s}\frac{GM}{r_s}\mathrm{d}M=\frac{GM_s^2}{2r_s}
+    $$
+    $$
+    \overline{T}=\frac{\int_0^{M_s}T\mathrm{d}M}{M_s}>\frac{GM_sm}{6kr_s}
+    $$
+
+4. Physical state of stellar material: plasma (highly ionized gas)
+
+5. the radiation
+
+    $$
+    P_{rad}=\frac{aT^4}{3}
+    $$
+    
+    radiation v.s. gas pressure
+    $$
+    \frac{P_r}{P_g}=\frac{aT^4/3}{kT\rho/m}\approx\frac{amT^3}{3k\left(\dfrac{3M_s}{4\pi r_s^3}\right)}=\frac{4\pi amr_s^3T^3}{9kM_s}\propto M_s^2
+    $$
+
+6. Gravitational instability:
+
+    using the Virial theorem $3\int_0^{V_s}P\mathrm{d}V+\Omega=0$
+
+    $$
+    3\int_0^{V_s}nkT\mathrm{d}V=3\int_0^{V_s}\frac{\rho_0}{\mu m_H}kT\mathrm{d}V=3\frac{\rho_0}{\mu m_H}kT\frac{4\pi}{3}r_s^3=\frac{3M_s kT}{\mu m_H}
+    $$
+    $$
+    \int_0^{M_s}\frac{GM}{r}\mathrm{d}M=\int_0^{r_s}\frac{G\dfrac{4\pi}{3}\rho_0r^3}{r}4\pi r^2\rho_0\mathrm{d}r=\frac{3}{5}\frac{GM_s^2}{r_s}
+    $$
+
+    Jeans criterions:
+    $$
+    M_s>\left(\frac{5kT}{G\mu m_H}\right)^{3/2}\left(\frac{3}{4\pi\rho_0}\right)^{1/2}\equiv M_J
+    $$
+    $$
+    r_J>\left(\frac{15kT}{4\pi G\mu m_H\rho_0}\right)^{1/2}\equiv r_J
+    $$
+:::
