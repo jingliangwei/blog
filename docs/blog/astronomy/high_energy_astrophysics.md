@@ -362,6 +362,85 @@ $a_\parallel=\dot{v}_x,a_\perp=\dot{v}_z$ 傅里叶变换后代入 Parseval's th
 
     ![能谱](./high_energy_astrophysics_fig/11.jpg)
 
+#### 同步辐射的偏振
+
+- 平均的同步辐射在观测面上呈现线偏振，方向跟磁场在观测面上的投影垂直。
+
+    $$
+    \vec{E}\parallel\vec{a}\propto -(\vec{v}\times\vec{B})
+    $$
+
+### 逆康普顿散射
+
+#### 汤姆孙散射
+
+- 低能光子+低能电子，光子能量不变，弹性散射
+
+- 电子产生总辐射强度
+    $$
+    -\left(\frac{\mathrm{d}E}{\mathrm{d}t\mathrm{d}\Omega}\right)_{\text{tot}}=\frac{e^4}{16\pi^2 m_e^2\varepsilon_0^2c^4}(1+\cos^2\alpha)\frac{S}{2}
+    $$
+    $\alpha$ 是光子的散射角（散射方向与入射方向夹角）
+    ::: info derivation
+    $$
+    -\left(\frac{\mathrm{d}E}{\mathrm{d}t\mathrm{d}\Omega}\right)_y=\frac{e^4|E_y|^2\sin^2\theta}{16\pi^2m_e^2\varepsilon_0 c^3}=\frac{e^4 S_y}{16\pi^2 m_e^2\varepsilon_0^2c^4}
+    $$
+    $$
+    -\left(\frac{\mathrm{d}E}{\mathrm{d}t\mathrm{d}\Omega}\right)_x=\frac{e^4|E_x|^2\sin^2\theta}{16\pi^2m_e^2\varepsilon_0 c^3}=\frac{e^4 S_x\cos^2\alpha}{16\pi^2 m_e^2\varepsilon_0^2c^4}
+    $$
+    $$
+    -\left(\frac{\mathrm{d}E}{\mathrm{d}t\mathrm{d}\Omega}\right)_{\text{tot}}=-\left(\frac{\mathrm{d}E}{\mathrm{d}t\mathrm{d}\Omega}\right)_x-\left(\frac{\mathrm{d}E}{\mathrm{d}t\mathrm{d}\Omega}\right)_y
+    $$
+    :::
+
+- 汤姆孙散射截面
+    $$
+    \frac{\mathrm{d}\sigma_T}{\mathrm{d}\Omega}=-\left(\frac{\mathrm{d}E}{\mathrm{d}t\mathrm{d}\Omega}\right)\frac{1}{S}=\frac{r_e^2}{2}(1+\cos^2\alpha),\quad r_e=\frac{e^2}{4\pi m_e\varepsilon_0 c^2}
+    $$
+    $$
+    \sigma_T=\frac{8\pi}{3}r_e^2
+    $$
+
+- 偏振（x，y分量）
+
+#### 康普顿散射
+
+- 高能光子+低能电子，能量：光子->电子
+
+- 光子波长
+    $$
+    \Delta\lambda=\lambda_C(1-\cos\theta)
+    $$
+    $$
+    \lambda_C=\frac{h}{m_e c}=2.43\times 10^{-12}m
+    $$
+
+#### 逆康普顿散射
+
+- 光子+高能电子，能量：电子动能->光子
+
+- 电子能量损失率
+    $$
+    -\left(\frac{\mathrm{d}E}{\mathrm{d}t}\right)_{IC}=\frac{4}{3}\sigma_T cU_{rad}\beta^2\gamma^2
+    $$
+    $U_{rad}$ 为辐射场能量密度。
+
+![能谱](./high_energy_astrophysics_fig/2-0.jpg)
+
+#### 康普顿化
+
+- 热轫致辐射的康普顿化
+
+![能谱](./high_energy_astrophysics_fig/2-1.jpg)
+
+- 黑体辐射的康普顿化
+
+![能谱](./high_energy_astrophysics_fig/2-2.jpg)
+
+- 同步自康普顿散射
+
+![能谱](./high_energy_astrophysics_fig/2-3.jpg)
+
 ## Appendix 2: Distances in astronomy
 
 - Parallaxes
