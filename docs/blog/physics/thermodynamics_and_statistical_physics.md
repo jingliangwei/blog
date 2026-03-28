@@ -161,6 +161,10 @@
 
     无摩擦的准静态过程为可逆过程
 
+    ::: tip 理解
+    可逆过程保证了过程量 $(\delta Q,\delta W)$ 可以用状态函数微分 $(T\mathrm{d}S,p\mathrm{d}V)$ 表示。
+    :::
+
 3. 热力学第二定律：（自发过程不可逆）
 
     - Clausius 不可能把热量从低温物体传递到高温物体而不引起其他变化
@@ -370,6 +374,9 @@
         $$
         \mathrm{d}U=\left(\frac{\partial U}{\partial T}\right)_V\mathrm{d}T+\left(\frac{\partial U}{\partial V}\right)_T\mathrm{d}V=C_V\mathrm{d}T+\left[T\left(\frac{\partial p}{\partial T}\right)_V-p\right]\mathrm{d}V
         $$
+        ::: info derivation
+        $S(T,V)$ -> $\mathrm{d}U$
+        :::
 
     - 焓态方程
         $$
@@ -378,8 +385,49 @@
         $$
         \mathrm{d}H=\left(\frac{\partial H}{\partial T}\right)_p\mathrm{d}T+\left(\frac{\partial H}{\partial p}\right)_T\mathrm{d}p=C_p\mathrm{d}T+\left[V-T\left(\frac{\partial V}{\partial T}\right)_p\right]\mathrm{d}p
         $$
+        ::: info derivation
+        $S(T,p)$ -> $\mathrm{d}H$
+        :::
 
     - 熵
         $$
         \mathrm{d}S=\frac{C_V}{T}\mathrm{d}T+\left(\frac{\partial p}{\partial T}\right)_V\mathrm{d}V
         $$
+
+    - 热容
+        $$
+        C_p=T\left(\frac{\partial S}{\partial T}\right)_p,\quad C_V=T\left(\frac{\partial S}{\partial T}\right)_V
+        $$
+
+::: tip some tricks
+1. 自变量 $p,V,T,S$
+
+    势 $U,H,F,G$
+
+2. 偏导数倒数关系
+    $$
+    \left(\frac{\partial p}{\partial S}\right)_V=\frac{1}{\left(\dfrac{\partial S}{\partial p}\right)_V}
+    $$
+    proof.
+    $$
+    \mathrm{d}S=\left(\frac{\partial S}{\partial p}\right)_V\mathrm{d}p+\left(\frac{\partial S}{\partial V}\right)_p\mathrm{d}V
+    $$
+    $$
+    \mathrm{d}p=\frac{1}{\left(\dfrac{\partial S}{\partial p}\right)_V}\mathrm{d}S-\frac{\left(\dfrac{\partial S}{\partial V}\right)_p}{\left(\dfrac{\partial S}{\partial p}\right)_V}\mathrm{d}V
+    $$
+
+3. 偏导数循环关系
+    $$
+    \left(\frac{\partial p}{\partial V}\right)_T\left(\frac{\partial V}{\partial T}\right)_p\left(\frac{\partial T}{\partial p}\right)_V=-1
+    $$
+    $$
+    \left(\frac{\partial p}{\partial V}\right)_T=-\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial T}{\partial V}\right)_p
+    $$
+    proof.
+    $$
+    \mathrm{d}T=\left(\frac{\partial T}{\partial p}\right)_V\mathrm{d}p+\left(\frac{\partial T}{\partial V}\right)_p\mathrm{d}V=0
+    $$
+    $$
+    \left(\frac{\partial p}{\partial V}\right)_T=-\frac{\left(\dfrac{\partial T}{\partial V}\right)_p}{\left(\dfrac{\partial T}{\partial p}\right)_V}
+    $$
+:::
