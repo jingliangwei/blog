@@ -47,8 +47,8 @@
     - 宏观上：低压、低密
     :::
 
-    - 范德瓦耳斯气体（考虑分子之间相互作用）
-    - 昂尼斯 (Onnes) 方程（低压展开，压强幂级数）
+    - 范德瓦耳斯气体（考虑分子之间相互作用） $\left(p+\dfrac{N^2a}{V^2}\right)(V-Nb)=NRT$
+    - 昂尼斯 (Onnes) 方程（低压展开，压强幂级数） $pV=NRT(1+A_2p+A_3p^2+\cdots)$
     - 顺磁固体，居里 (Curie) 定律
 
 ### 热力学第一定律/内能
@@ -290,3 +290,96 @@
 | **绝热自由膨胀** | 向真空膨胀，$Q=0, W=0$ | **内能 $U$** | 增加 ($>0$) | 不变 |
 | **绝热节流膨胀** | 稳流通过多孔塞，$Q=0$ | **焓 $H$** | 增加 ($>0$) | 不变 |
 | **绝热可逆膨胀** | 准静态，无摩擦，$Q=0$ | **熵 $S$** | 不变 ($=0$) | 降低 |
+
+### 热力学势与麦克斯韦关系
+
+1. 热力学函数
+
+    - 内能作为热力学函数：
+
+        $$
+        \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V
+        $$
+    
+    - 熵作为热力学函数：
+
+        $$
+        \mathrm{d}S=\frac{1}{T}\mathrm{d}U+\frac{p}{T}\mathrm{d}V
+        $$
+
+    - 自由能作为热力学函数：
+
+        $$
+        F=U-TS
+        $$
+        $$
+        \mathrm{d}F=-S\mathrm{d}T-p\mathrm{d}V
+        $$
+
+        最大功定理：系统在等温过程中，自由能的减少是系统对外做功的最大值
+    
+    - 焓作为热力学函数：
+
+        $$
+        H=U+pV
+        $$
+        $$
+        \mathrm{d}H=T\mathrm{d}S+V\mathrm{d}p
+        $$
+    
+    - 吉布斯自由能作为热力学函数：
+
+        $$
+        G=U+pV-TS
+        $$
+        $$
+        \mathrm{d}G=-S\mathrm{d}T+V\mathrm{d}p
+        $$
+
+2. 热力学势与热力学基本方程组：
+
+    - 热力学势：
+
+        - $U=U(S,V)$ 等熵等容过程，系统的不可逆/自发过程 $\mathrm{d}U<0$
+        - $H=H(S,p)$ 等熵等压过程，系统的不可逆/自发过程 $\mathrm{d}H<0$
+        - $F=F(T,V)$ 等温等容过程，系统的不可逆/自发过程 $\mathrm{d}F<0$
+        - $G=G(T,p)$ 等温等压过程，系统的不可逆/自发过程 $\mathrm{d}G<0$
+
+    - 热力学基本方程组
+
+    | 热力学势 | 全微分 | 平衡态信息 |
+    |:---:|:---:|:---:|
+    | $U=U(S,V)$ | $\mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V$ | $T=\left(\dfrac{\partial U}{\partial S}\right)_V,p=-\left(\dfrac{\partial U}{\partial V}\right)_S$ |
+    | $H=H(S,p)$ | $\mathrm{d}H=T\mathrm{d}S+V\mathrm{d}p$ | $T=\left(\dfrac{\partial H}{\partial S}\right)_p,V=\left(\dfrac{\partial H}{\partial p}\right)_S$ |
+    | $F=F(T,V)$ | $\mathrm{d}F=-S\mathrm{d}T-p\mathrm{d}V$ | $S=-\left(\dfrac{\partial F}{\partial T}\right)_V,p=-\left(\dfrac{\partial F}{\partial V}\right)_T$ |
+    | $G=G(T,p)$ | $\mathrm{d}G=-S\mathrm{d}T+V\mathrm{d}p$ | $S=-\left(\dfrac{\partial G}{\partial T}\right)_p,V=\left(\dfrac{\partial G}{\partial p}\right)_T$ |
+
+3. 麦克斯韦关系（混合二阶偏导相等）：
+
+    - $\left(\dfrac{\partial T}{\partial V}\right)_S=-\left(\dfrac{\partial p}{\partial S}\right)_V$
+    - $\left(\dfrac{\partial T}{\partial p}\right)_S=\left(\dfrac{\partial V}{\partial S}\right)_p$
+    - $\left(\dfrac{\partial S}{\partial V}\right)_T=\left(\dfrac{\partial p}{\partial T}\right)_V$
+    - $-\left(\dfrac{\partial S}{\partial p}\right)_T=\left(\dfrac{\partial V}{\partial T}\right)_p$
+
+4. 麦克斯韦关系应用：
+
+    - 能态方程
+        $$
+        \left(\frac{\partial U}{\partial V}\right)_T=T\left(\frac{\partial p}{\partial T}\right)_V-p
+        $$
+        $$
+        \mathrm{d}U=\left(\frac{\partial U}{\partial T}\right)_V\mathrm{d}T+\left(\frac{\partial U}{\partial V}\right)_T\mathrm{d}V=C_V\mathrm{d}T+\left[T\left(\frac{\partial p}{\partial T}\right)_V-p\right]\mathrm{d}V
+        $$
+
+    - 焓态方程
+        $$
+        \left(\frac{\partial H}{\partial p}\right)_T=-T\left(\frac{\partial V}{\partial T}\right)_p+V
+        $$
+        $$
+        \mathrm{d}H=\left(\frac{\partial H}{\partial T}\right)_p\mathrm{d}T+\left(\frac{\partial H}{\partial p}\right)_T\mathrm{d}p=C_p\mathrm{d}T+\left[V-T\left(\frac{\partial V}{\partial T}\right)_p\right]\mathrm{d}p
+        $$
+
+    - 熵
+        $$
+        \mathrm{d}S=\frac{C_V}{T}\mathrm{d}T+\left(\frac{\partial p}{\partial T}\right)_V\mathrm{d}V
+        $$
