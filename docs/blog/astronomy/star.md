@@ -88,7 +88,7 @@ open cluster has the Hertzsprung gap
 
     Core nuclear energy generation rate
 
-1. Equation of hydrostatic equilibrium:
+1. **Equation of hydrostatic equilibrium**:
 
     $$
     \frac{\mathrm{d}P(r)}{\mathrm{d}r}=-\frac{GM(r)\rho(r)}{r^2}
@@ -113,7 +113,7 @@ open cluster has the Hertzsprung gap
     $$
     :::
 
-2. Equation of mass conservation:
+2. **Equation of mass conservation**:
 
     $$
     \frac{\mathrm{d}M(r)}{\mathrm{d}r}=4\pi r^2\rho(r)
@@ -195,4 +195,105 @@ open cluster has the Hertzsprung gap
     $$
     r_J>\left(\frac{15kT}{4\pi G\mu m_H\rho_0}\right)^{1/2}\equiv r_J
     $$
+:::
+
+- Source of energy generation:
+
+    - Cooling or Contraction
+    - Chemical Reactions
+    - Nuclear Reactions (Fission / Fusion)
+
+3. **Equation of energy production**:
+    $$
+    \frac{\mathrm{d}L(r)}{\mathrm{d}r}=4\pi r^2\rho(r)\varepsilon
+    $$
+
+    ::: info derivation
+    $$
+    L(r+\delta r)=L(r)+4\pi r^2\rho(r)\delta r\ \varepsilon
+    $$
+    where $\varepsilon$ is the energy release per unit mass per unit time.
+    :::
+
+- Method of energy transport:
+
+    - Conduction: by collisions of gas particles
+    - Radiation: by photons
+    - Convection: by mass motions of the gas
+
+        condition for occurrence of convection (Schwarzschild criterion):
+        $$
+        \frac{\mathrm{d}T}{\mathrm{d}r}>\frac{\gamma-1}{\gamma}\frac{T}{P}\frac{\mathrm{d}P}{\mathrm{d}r}=\left(\frac{\mathrm{d}T}{\mathrm{d}r}\right)_{\text{adia}}
+        $$
+        ::: info derivation
+        The density of the convective element should be lower than the surroundings
+        $$
+        \rho-\delta\rho<\rho-\Delta\rho
+        $$
+        Assuming adiabatical
+        $$
+        PV^\gamma=\text{const}\Rightarrow\frac{P}{\rho^\gamma}=\text{const}
+        $$
+        $$
+        \Rightarrow\delta \rho\approx\frac{\rho}{\gamma P}\delta P
+        $$
+        $$
+        \frac{\rho}{\gamma P}\frac{\mathrm{d}P}{\mathrm{d}r}>\frac{\mathrm{d}\rho}{\mathrm{d}r}
+        $$
+        $$
+        P=\frac{\rho kT}{m}\Rightarrow 1=\frac{P}{\rho}\frac{\mathrm{d}\rho}{\mathrm{d}P}+\frac{P}{T}\frac{\mathrm{d}T}{\mathrm{d}P}
+        $$
+        :::
+
+- The characteristic timescales
+
+    - The dynamical timescale (Newtonian timescale)
+        $$
+        t_d=\sqrt{\frac{2r^3}{GM}}
+        $$
+    - The thermal timescale (Kelvin-Helmholtz timescale)
+        $$
+        t_{th}=\frac{GM^2}{Lr}
+        $$
+    - The nuclear timescale (Einstein timescale)
+        $$
+        t_{nuc}\sim\frac{\eta Mc^2}{L}
+        $$
+
+4. **Equation of radiative transport**:
+    $$
+    \frac{\mathrm{d}T(r)}{\mathrm{d}r}=-\frac{3\rho \kappa}{16\pi acr^2T^3}L(r)
+    $$
+    ::: info derivation
+    Only considering the radiation
+    $$
+    E=aT^4,\quad p_R=\frac{1}{3}aT^4
+    $$
+    $$
+    -\mathrm{d}p_R=F\kappa\rho\mathrm{d}x/c
+    $$
+    $$
+    F=-\frac{4acT^3}{3\kappa\rho}\frac{\mathrm{d}T}{\mathrm{d}r}
+    $$
+    $$
+    L=4\pi r^2F
+    $$
+    :::
+
+::: info summary
+Four equation:
+$$
+\left\{\begin{array}{l}
+    \displaystyle \frac{\mathrm{d}P(r)}{\mathrm{d}r}=-\frac{GM(r)\rho(r)}{r^2} \\
+    \displaystyle \frac{\mathrm{d}M(r)}{\mathrm{d}r}=4\pi r^2\rho(r) \\
+    \displaystyle \frac{\mathrm{d}L(r)}{\mathrm{d}r}=4\pi r^2\rho(r)\varepsilon \\
+    \displaystyle \frac{\mathrm{d}T(r)}{\mathrm{d}r}=-\frac{3\rho \kappa}{16\pi acr^2T^3}L(r)
+\end{array}\right.
+$$
+with 7 variablies $M(r),\rho(r),P(r),L(r),\varepsilon(r),T(r),\kappa(r)$.
+
+Solvable with 3 supplements:
+- Equation of state: $P$
+- Equation of Opacity: $\kappa$
+- Equation of nuclear reactions: $\varepsilon$
 :::
