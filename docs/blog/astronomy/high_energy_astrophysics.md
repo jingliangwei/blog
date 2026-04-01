@@ -433,13 +433,95 @@ $a_\parallel=\dot{v}_x,a_\perp=\dot{v}_z$ 傅里叶变换后代入 Parseval's th
 
 ![能谱](./high_energy_astrophysics_fig/2-1.jpg)
 
-- 黑体辐射的康普顿化
+- 黑体辐射的康普顿化 Sunyaev-Zel'dovich effect （用于测量星系团距离、尺度）
 
 ![能谱](./high_energy_astrophysics_fig/2-2.jpg)
 
 - 同步自康普顿散射
 
 ![能谱](./high_energy_astrophysics_fig/2-3.jpg)
+
+## 银河系内的高能天体物理
+
+### 星际介质
+
+#### 星际介质对X射线的吸收
+
+- 吸收
+    $$
+    I_{\text{obs}}(E)=e^{-\sigma_{\text{ISM}}(E)N_H}I_{\text{src}}(E)
+    $$
+    $N_H$ 氢柱密度 ($\text{atom cm}^{-2}$)
+
+- 吸收截面 $\sigma_{\text{ISM}}=\sigma_{\text{gas}}+\sigma_{\text{grains}}+\sigma_{\text{molecules}}$
+
+    - $\displaystyle \sigma_{\text{gas}}=\sum_{Z,i}A_Z\times a_{Z,i}\times(1-\beta_{Z,i})\times \sigma_{bf}(Z,i)$
+
+        $A_Z=N(Z)/N(H)$ 元素 $Z$ 的相对丰度
+
+        $a_{Z,i}=N(Z,i)/N(Z)$ 原子处于电离态 $i$ 的几率
+
+        $1-\beta_{Z,i}$ 尘埃消耗系数，多少元素分布在气体中
+
+        $\sigma_{bf}(Z,i)$ 光电吸收截面 $\sigma\propto E^{-3.5}$
+
+    - $\sigma_{\text{grains}}$ 考虑尘埃颗粒尺寸分布、形状、自遮挡等
+
+    - $\sigma_{\text{molecules}}=A_{H_2}\times\sigma_{bf}(H_2)\sim 2.85\sigma_H$ 仅考虑氢分子
+
+#### 星际尘埃对X射线的散射
+
+- 微分散射截面
+    $$
+    \frac{\mathrm{d}\sigma_{sca}(a,E,\theta_{sca})}{\mathrm{d}\Omega}\sim e^{-0.46E^2a^2\theta_{sca}^2}
+    $$
+
+    总散射截面
+    $$
+    \sigma_{sca}\sim E^{-2}
+    $$
+
+    对于能量为 $E$ 的光子，典型散射角为
+    $$
+    \theta_{sca}\sim\frac{1}{Ea}\propto E^{-1}
+    $$
+
+- 散射时间延迟测距
+    $$
+    \Delta t=\frac{D}{c}\frac{x\theta\theta_{sca}}{1-x}
+    $$
+    ::: info derivation
+    ![示意图](./high_energy_astrophysics_fig/2-1.png)
+    小角近似
+    $$
+    \theta\approx\theta_{sca}(1-x)
+    $$
+    $$
+    t_1=D/c
+    $$
+    $$
+    t_2=(D+xD\theta\theta_{sca})/c
+    $$
+    :::
+
+### 恒星
+
+- 太阳（GKM晚型星）：
+
+    - 日冕：等离子体 热轫致辐射+发射线
+    - 耀斑：磁重联 非热轫致辐射
+
+- 早型星（O/B）：
+
+    - 星风、激波
+
+### 超新星和超新星遗迹
+
+Supernovae (SNe)
+
+Supernova Remnants (SNRs)
+
+
 
 ## Appendix 2: Distances in astronomy
 
