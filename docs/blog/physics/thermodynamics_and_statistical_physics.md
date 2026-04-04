@@ -398,6 +398,9 @@
         $$
         C_p=T\left(\frac{\partial S}{\partial T}\right)_p,\quad C_V=T\left(\frac{\partial S}{\partial T}\right)_V
         $$
+        $$
+        C_p-C_V=T\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial V}{\partial T}\right)_p
+        $$
 
 ::: tip some tricks
 1. 自变量 $p,V,T,S$
@@ -430,4 +433,184 @@
     $$
     \left(\frac{\partial p}{\partial V}\right)_T=-\frac{\left(\dfrac{\partial T}{\partial V}\right)_p}{\left(\dfrac{\partial T}{\partial p}\right)_V}
     $$
+:::
+
+### 相变
+
+1. 单元系/多元系，单相系/复相系
+
+2. 热力学平衡条件： 力学平衡，热平衡，相平衡，化学平衡
+
+    - (亚)稳定平衡态时，
+
+        $(U,V)$ $S$ 最大
+
+        $(T,V)$ $F$ 最小
+
+        $(T,p)$ $G$ 最小
+
+        $(V,S)$ $U$ 最小
+
+        $(p,S)$ $H$ 最小
+    
+    - 均匀系，热动平衡条件
+        $$
+        \left\{\begin{array}{l}
+            T=T_0 \\
+            p=p_0
+        \end{array}\right.
+        $$
+        稳定平衡条件
+        $$
+        \left\{\begin{array}{l}
+            C_V>0 \\
+            \kappa_T>0
+        \end{array}\right.
+        $$
+
+3. 化学势
+
+    - 开系的热力学基本方程
+
+        | 热力学势 | 全微分 |
+        |:---:|:---:|
+        | $G=G(T,p,n)$ | $\mathrm{d}G=-S\mathrm{d}T+V\mathrm{d}p+\mu\mathrm{d}n$ |
+        | $U=U(S,V,n)$ | $\mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V+\mu\mathrm{d}n$ |
+        | $H=H(S,p,n)$ | $\mathrm{d}H=T\mathrm{d}S+V\mathrm{d}p+\mu\mathrm{d}n$ |
+        | $F=F(T,V,n)$ | $\mathrm{d}F=-S\mathrm{d}T-p\mathrm{d}V+\mu\mathrm{d}n$ |
+
+        $\mu=\left(\dfrac{\partial G}{\partial n}\right)_{T,p}$ 为化学势
+
+        巨热力学势 $J=F-\mu n$
+
+        | 巨热力学势 | 全微分 |
+        |:---:|:---:|
+        | $J=J(T,V,n)$ | $\mathrm{d}J=-S\mathrm{d}T-p\mathrm{d}V-n\mathrm{d}\mu$ |
+
+4. 单元系的复相平衡条件
+
+    $T^\alpha=T^\beta$ 热平衡条件
+
+    $p^\alpha=p^\beta$ 力学平衡条件
+
+    $\mu^\alpha=\mu^\beta$ 相平衡条件
+
+5. 单元系的复相平衡性质
+
+    - 相图
+
+    - 克拉伯龙 (Clapeyron) 方程：
+
+        $$
+        \frac{\mathrm{d}p}{\mathrm{d}T}=\frac{L}{T(V_m^\beta-V_m^\alpha)}
+        $$
+        相变潜热 $L=T(S_m^\beta-S_m^\alpha)$
+
+6. 气液两相转变
+
+    - 范德瓦耳斯等温线
+
+7. 表面相对相变的影响
+
+    液相：$\alpha$ ，气相：$\beta$ ，表面：$\gamma$
+
+    - 相平衡条件
+
+        $T^\alpha=T^\beta=T^\gamma$ 热平衡条件
+
+        $p^\alpha=p^\beta+\dfrac{2\sigma}{r}$ 力学平衡条件
+
+        $\mu^\alpha=\mu^\beta$ 相变平衡条件
+    
+    - 气体中液滴的形成与平衡条件
+
+        $$
+        \ln\frac{p'}{p}=\frac{2\sigma V_m^\alpha}{RTr}
+        $$
+
+        中肯半径
+        $$
+        r_C=\frac{2\sigma V_m^\alpha}{RT\ln\dfrac{p'}{p}}
+        $$
+
+        这里 $p$ 代表平液面时气液平衡的饱和蒸汽压， $p'$ 是弯曲液面时气液平衡的蒸汽压。
+    
+    - 液体中气泡的形成与平衡条件
+
+        $p^\beta=p^\alpha+\dfrac{2\sigma}{r}$ 力学平衡条件
+
+        $\ln\dfrac{p}{p'}=\dfrac{2\sigma V_m^\alpha}{RTr}$ 相变平衡条件
+    
+    - 相变分类：
+
+        化学势在第 $n$ 级偏导存在突变，称为 $n$ 级相变。二级及以上为连续相变。
+
+8. 多元系的热力学函数与基本方程
+
+    - 多元单相系
+
+        - 状态参量 $C_{\{T,p,V\}}^2,n_1,n_2,\cdots,n_k$ ($n_1+n_2+\cdots+n_k=n$)
+
+        - 偏摩尔量函数
+
+            $v_i=\left(\dfrac{\partial V}{\partial n_i}\right)_{T,p,n_{j\neq i}}$
+
+            $u_i=\left(\dfrac{\partial U}{\partial n_i}\right)_{T,p,n_{j\neq i}}$
+
+            $s_i=\left(\dfrac{\partial S}{\partial n_i}\right)_{T,p,n_{j\neq i}}$
+
+            $\mu_i=\left(\dfrac{\partial G}{\partial n_i}\right)_{T,p,n_{j\neq i}}$
+
+        - 热力学基本方程
+
+            $$
+            \mathrm{d}G=-S\mathrm{d}T+V\mathrm{d}p+\sum_{i=1}^k \mu_i\mathrm{d}n_i
+            $$
+            $$
+            \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V+\sum_{i=1}^k \mu_i\mathrm{d}n_i
+            $$
+            $$
+            \mathrm{d}H=T\mathrm{d}S+V\mathrm{d}p+\sum_{i=1}^k \mu_i\mathrm{d}n_i
+            $$
+            $$
+            \mathrm{d}F=-S\mathrm{d}T-p\mathrm{d}V+\sum_{i=1}^k \mu_i\mathrm{d}n_i
+            $$
+        
+        - 吉布斯关系
+            $$
+            S\mathrm{d}T-V\mathrm{d}p+\sum_{i=1}^k n_i\mathrm{d}\mu_i=0
+            $$
+    
+    - 多元复相系
+
+        - 当各相达到热平衡和力学平衡，才有热力学方程
+            $$
+            \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V+\sum_{i=1}^k\sum_{\alpha}\mu_i^\alpha\mathrm{d}n_i^\alpha
+            $$
+
+::: info 介质声速
+流体力学导出声速 $c^2=\dfrac{\mathrm{d}p}{\mathrm{d}\rho}$
+
+绝热压缩系数 $\kappa_S=-\dfrac{1}{V}\left(\dfrac{\partial V}{\partial p}\right)_S$
+
+推导出 声速 $c=\sqrt{\dfrac{1}{\rho\kappa_S}}$
+:::
+
+::: tip 道尔顿分压
+压强为强度量，对于两组分气体 $(n_1,p_1,V_1),(n_2,p_2,V_2)$
+
+混合后 $n=n_1+n_2,V=V_1+V_2$ ，总压强为 $p$
+
+分压为 $p_1=\dfrac{n_1}{n}p,p_2=\dfrac{n_2}{n}p$
+
+若两组气体为同一成分，那分压都为总压 $p_1=p_2=p$
+:::
+
+::: info 能斯特定理
+热力学第三定律：
+
+系统的熵在等温过程中的改变量随绝对温度趋于零，即
+$$
+\lim_{T\rightarrow 0}(\Delta S)_T=0
+$$
 :::
