@@ -7,6 +7,10 @@ next: false
 
 There are some notes that record some key points from papers or books.
 
+::: tip Notice
+Now I put my notes of papers/books on [new blog](https://jingliangwei.github.io/blog-hexo/)
+:::
+
 ## dynamics in strained rotating flow
 
 July in 2025

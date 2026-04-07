@@ -297,3 +297,51 @@ Solvable with 3 supplements:
 - Equation of Opacity: $\kappa$
 - Equation of nuclear reactions: $\varepsilon$
 :::
+
+- Use of mass as the independent variable
+    $$
+    \begin{align}
+    \frac{\mathrm{d}r}{\mathrm{d}M}&=\frac{1}{4\pi r^2\rho} \\
+    \frac{\mathrm{d}P}{\mathrm{d}M}&=-\frac{GM}{4\pi r^4} \\
+    \frac{\mathrm{d}L}{\mathrm{d}M}&=\varepsilon \\
+    \frac{\mathrm{d}T}{\mathrm{d}M}&=-\frac{3\kappa L}{64\pi^2acr^4T^3}
+    \end{align}
+    $$
+    with boundary conditions:
+    $$
+    r=0,\ L=0\text{ at } M=0
+    $$
+    $$
+    \rho=0,\ T=0\text{ at } M=M_S
+    $$
+
+- Influence of convection
+    $$
+    L_{conv}=4\pi r^2\alpha\rho v\frac{5k\delta T}{2m}=\frac{10\pi r^2\alpha\rho vk\delta T}{m}
+    $$
+
+## The physics of stellar interiors
+
+1. Equation of state of an ideal gas
+    $$
+    P=\frac{\mathfrak{R}\rho T}{\mu}+\frac{aT^4}{3}
+    $$
+
+2. Mean molecular weight
+    $$
+    n=\frac{2X\rho}{m_H}+\frac{3Y\rho}{4m_H}+\frac{Z\rho}{2m_H}=\frac{\rho}{4m_H}(6X+Y+2)
+    $$
+    $$
+    \mu=\frac{4}{6X+Y+2}
+    $$
+
+3. Equation of state of a degenerate gas
+
+    - Non-relativistic degenerate gas
+        $$
+        P=\frac{1}{20}\left(\frac{2}{\pi}\right)^{2/3}\frac{h^2n_e^{5/3}}{m_e}
+        $$
+    - Relativistic degenerate gas
+        $$
+        P=\frac{1}{8}\left(\frac{3}{\pi}\right)^{1/3}hcn_e^{4/3}
+        $$
