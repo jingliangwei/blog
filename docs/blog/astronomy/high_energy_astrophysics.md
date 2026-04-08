@@ -521,7 +521,42 @@ Supernovae (SNe)
 
 Supernova Remnants (SNRs)
 
+#### 超新星分类
 
+![2-4](./high_energy_astrophysics_fig/2-4.jpg)
+
+#### Ia 型超新星
+
+- 引力 v.s. 电子简并压
+- 双简并模型 v.s. 单简并模型
+
+#### 塌缩型超新星
+
+- 大质量恒星 洋葱结构
+- 中子星 引力 v.s. 中子简并压
+
+![2-5](./high_energy_astrophysics_fig/2-5.jpg)
+
+#### 超新星遗迹
+
+- 演化流体动力学模型
+    - 自由膨胀相
+    - 绝热膨胀相
+    - 辐射相
+    - 消失相
+
+![2-6](./high_energy_astrophysics_fig/2-6.jpg)
+
+### 恒星的归宿
+
+#### 白矮星
+
+- 质量 $<M_{\odot}$ 恒星的演化：
+    - 主序阶段：中心 H->He
+    - 红巨星阶段：中心 He 核，外层 H 核反应
+    - 水平枝：中心 He 反应（氦闪）
+    - 红巨星：CO 核，抛出物质
+    - 白矮星
 
 ## Appendix 2: Distances in astronomy
 
