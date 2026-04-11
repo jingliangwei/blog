@@ -588,6 +588,34 @@
             \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V+\sum_{i=1}^k\sum_{\alpha}\mu_i^\alpha\mathrm{d}n_i^\alpha
             $$
 
+        - 平衡条件
+            $$
+            \left\{\begin{array}{l}
+                \mu_1^\alpha=\mu_1^\beta=\cdots=\mu_1^\varphi=\lambda_1, \\
+                \mu_2^\alpha=\mu_2^\beta=\cdots=\mu_2^\varphi=\lambda_2, \\
+                \cdots, \\
+                \mu_k^\alpha=\mu_k^\beta=\cdots=\mu_k^\varphi=\lambda_k,
+            \end{array}\right.
+            $$
+        
+        - 吉布斯相律
+
+            体系独立强度量个数 $k-\varphi+2$
+
+9. 化学平衡条件
+
+    - 化学平衡条件
+        $$
+        \sum_i \nu_i\mu_i=0
+        $$
+        $\nu_i$ 为各组分物质的量
+    
+    - 萨哈公式
+        $$
+        \varepsilon=\frac{1}{\sqrt{1+bpT^{-\frac{5}{2}}e^{\frac{\Delta H_0}{RT}}}}
+        $$
+        电离度 $\varepsilon$ 与电离能 $\Delta H_0$ 及温度和压强的关系
+
 ::: info 介质声速
 流体力学导出声速 $c^2=\dfrac{\mathrm{d}p}{\mathrm{d}\rho}$
 
@@ -614,3 +642,15 @@ $$
 \lim_{T\rightarrow 0}(\Delta S)_T=0
 $$
 :::
+
+## 统计物理
+
+### 近独立粒子的描述
+
+1. 涨落
+2. 等概率原理：宏观孤立、平衡系统中各种微观状态出现的几率相同。
+3. 粒子运动的经典描述
+
+    $\mu$ 空间/相空间
+
+4. 粒子运动的量子描述
