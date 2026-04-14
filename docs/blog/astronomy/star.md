@@ -341,7 +341,28 @@ Solvable with 3 supplements:
         $$
         P=\frac{1}{20}\left(\frac{2}{\pi}\right)^{2/3}\frac{h^2n_e^{5/3}}{m_e}
         $$
+        $$
+        P=\frac{h^2}{20m_e}\left(\frac{3}{\pi}\right)^{2/3}\left(\frac{1+X}{2m_H}\right)^{5/3}\rho^{5/3}
+        $$
     - Relativistic degenerate gas
         $$
         P=\frac{1}{8}\left(\frac{3}{\pi}\right)^{1/3}hcn_e^{4/3}
+        $$
+        $$
+        P=\frac{hc}{8}\left(\frac{3}{\pi}\right)^{1/3}\left(\frac{1+X}{2m_H}\right)^{4/3}\rho^{4/3}
+        $$
+    
+    They are independent of temperature.
+
+4. Opacity
+
+    - Four processes: 
+        1. Bound-bound absorption
+        2. Bound-free absorption
+        3. Free-free absorption
+        4. Scattering
+    
+    - Approximate form
+        $$
+        \kappa=\kappa_0\rho^\alpha T^\beta
         $$
