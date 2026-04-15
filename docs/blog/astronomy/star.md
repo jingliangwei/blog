@@ -320,11 +320,25 @@ Solvable with 3 supplements:
     L_{conv}=4\pi r^2\alpha\rho v\frac{5k\delta T}{2m}=\frac{10\pi r^2\alpha\rho vk\delta T}{m}
     $$
 
+- Schwarzschild Criterion (convection versus radiation)
+    $$
+    \nabla_{\text{conv}}\equiv\frac{P}{T}\frac{\mathrm{d}T}{\mathrm{d}P}
+    $$
+    $$
+    \nabla_{\text{rad}}\equiv\frac{\gamma-1}{\gamma}
+    $$
+
 ## The physics of stellar interiors
 
 1. Equation of state of an ideal gas
     $$
     P=\frac{\mathfrak{R}\rho T}{\mu}+\frac{aT^4}{3}
+    $$
+    $$
+    \begin{align}
+    P&=\frac{\mathfrak{R}\rho T}{\mu_e}+\frac{\mathfrak{R}\rho T}{\mu_i}+\frac{aT^4}{3} \\
+    &\equiv P_e+P_i+P_r
+    \end{align}
     $$
 
 2. Mean molecular weight
