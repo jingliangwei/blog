@@ -558,6 +558,101 @@ Supernova Remnants (SNRs)
     - 红巨星：CO 核，抛出物质
     - 白矮星
 
+- 简并压
+    - 非相对论：
+        $$
+        P\sim\frac{h^2}{m_e}\left(\frac{\rho}{m_p}\right)^{5/3}
+        $$
+    - 相对论：
+        $$
+        P\sim hc\left(\frac{\rho}{m_p}\right)^{4/3}
+        $$
+
+- 钱德拉塞卡质量
+    $$
+    M=\frac{5.836}{\mu_e^2}M_\odot
+    $$
+    白矮星 $\mu_e=2\Rightarrow M=1.46M_\odot$
+
+#### 中子星
+
+中子简并压 vs 引力
+
+- 形成：
+
+    塌缩型超新星爆发：中子化（简并电子+质子），中子滴出（富中子原子核）
+
+- 最大质量 $2.4M_\odot$
+
+    平均质量 $1.4M_\odot$
+
+    半径 $\sim 10\text{km}$
+
+    平均密度 $\sim 6\times10^{17}\text{kg m}^{-3}$ (原子核密度)
+
+- 脉冲星：自转能量通过磁偶极辐射
+
+    - 自转减慢 $\dot{\Omega}=-\kappa \Omega^n$
+
+    - $n$ 制动指数
+
+        - 磁偶极辐射 $n=3$
+        - 观测
+            $$
+            n=\frac{\Omega\ddot{\Omega}}{\dot{\Omega}^2}=2-\frac{P\ddot{P}}{\dot{P}^2}
+            $$
+        - 双星，引力波辐射 $n=5$
+
+    - 年龄
+        $$
+        \tau=\frac{P}{(n-1)\dot{P}}
+        $$
+    
+    - 表面偶极磁场强度
+        $$
+        B_S\approx 3\times 10^{19}\sqrt{P\dot{P}}\text{ G}
+        $$
+
+- $P-\dot{P}$ 图：
+    - 年轻脉冲星
+    - 毫秒脉冲星 (中子星双星：脉冲星+中子星)
+    - 磁星
+
+- 分布：
+
+    一般脉冲星：主要在银盘/悬臂上，年轻
+
+    毫秒脉冲星：更加均匀，较年老系统
+
+- 冷却：
+
+    内部中微子辐射 vs 外部热辐射
+
+- 光速圆柱面
+    $$
+    R_{LC}=\frac{cP}{2\pi}
+    $$
+    闭合磁力线 -> 开放磁力线
+
+    束缚等离子体 -> 逃离磁层
+
+- 辐射：
+    - 非热辐射： 逃逸电子   幂率谱
+    - 热辐射：表面辐射，极区热斑    黑体谱
+
+- glitch: 自旋突变加速
+
+    anti-glitch: 自旋突变减速
+
+#### 黑洞
+
+- 史瓦西半径
+    $$
+    r_g=\frac{2GM}{c^2}\approx 3\left(\frac{M}{M_\odot}\right)\text{km}
+    $$
+
+- 性质：质量、电荷、角动量
+
 ## Appendix 2: Distances in astronomy
 
 - Parallaxes
