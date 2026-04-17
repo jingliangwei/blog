@@ -654,3 +654,69 @@ $$
     $\mu$ 空间/相空间
 
 4. 粒子运动的量子描述
+
+    - 量子相格：
+
+        自由度为 $1$ 粒子 $\Delta q\Delta p\approx h$
+
+        自由度为 $r$ 粒子 $\Delta q_1\cdots\Delta q_r\Delta p_1\cdots\Delta p_r\approx h^r$
+    
+    - 粒子可达相体积 $\Omega$
+
+    - 粒子微观状态数 $W=\dfrac{\Omega}{h^r}$
+
+    - 态密度 $D(\varepsilon)$
+
+        1. 等能面围相体积 $\Omega(\varepsilon)$
+        2. 能量间隔 $\varepsilon-\varepsilon+\mathrm{d}\varepsilon$ 的相体积 $\mathrm{d}\Omega(\varepsilon)$
+        3. 能量间隔 $\varepsilon-\varepsilon+\mathrm{d}\varepsilon$ 内微观状态数 $\mathrm{d}W$
+            $$
+            \mathrm{d}W=g\frac{\mathrm{d}\Omega(\varepsilon)}{h^r}=D(\varepsilon)\mathrm{d}\varepsilon
+            $$
+            其中 $g$ 是粒子内部自由度带来的简并度。
+
+5. 系统微观状态的描述
+
+    - 全同粒子 vs 近独立粒子
+
+    - 费米子（自旋半整数），玻色子（自旋整数），复合粒子
+
+    - 费米子遵循泡利不相容原理
+
+    - 粒子系统：
+        - 波尔兹曼系统：可分辨的全同粒子，个体量子态上粒子数不受限制
+        - 玻色系统：不可分辨的全同粒子，个体量子态上粒子数不受限制
+        - 费米系统：不可分辨的全同粒子，个体量子态上粒子数最多只能为 1 个粒子
+
+6. 等概率原理：处于平衡态的孤立系统，系统的各个可能的微观状态出现的概率是相等的。
+
+7. 分布与微观状态数
+
+    - 分布：
+        
+        能级 $\varepsilon_1,\varepsilon_2,\cdots,\varepsilon_l$
+
+        相应能级的简并度 $\omega_1,\omega_2,\cdots,\omega_l$
+
+        每个能级上粒子数 $a_1,a_2,\cdots,a_l$
+
+        （约束条件： $\sum_l a_l=N,\quad\sum_l a_l\varepsilon_l=E$
+
+    - 不同系统的微观状态数
+
+        - 波尔兹曼系统：
+            $$
+            \Omega_{M.B.}=\frac{N!}{\prod_l a_l!}\prod_l \omega_l^{a_l}
+            $$
+        - 玻色系统：
+            $$
+            \Omega_{B.E.}=\prod_l \frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}
+            $$
+        - 费米系统：
+            $$
+            \Omega_{F.D.}=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!}
+            $$
+        - 经典系统：
+            $$
+            \Omega_{cl}=\frac{N!}{\prod_l a_l!}\prod_l \left(\frac{\Delta \omega_l}{h_0^r}\right)^{a_l}
+            $$
