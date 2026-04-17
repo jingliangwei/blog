@@ -1,4 +1,4 @@
-# 概统相关结论以及推导
+# 概率论与数理统计
 
 ## 变量分布
 
@@ -11,6 +11,34 @@
 |几何分布| $P(X=k)=p(1-p)^{k-1}$ | $X\sim G(p)$ |
 |超几何分布| $P(X=k)=\dfrac{C_M^k C_{N-M}^{n-k}}{C_N^n}$ | $X\sim H(n,M,N)$ |
 |泊松分布| $P(X=k)=\dfrac{\lambda^k}{k!}e^{-\lambda}$ | $X\sim \pi(\lambda)$ |
+
+::: tip 二项分布 -> 泊松分布
+当 $n\rightarrow \infty,p\rightarrow 0$ ，使得 $\lambda=np$ 保持常数
+
+$$
+\begin{align}
+P(X=k)&=C_n^kp^k(1-p)^{n-k} \\
+&=\frac{n\cdot(n-1)\cdots(n-k+1)}{k!}\left(\frac{\lambda}{n}\right)^k\left(1-\frac{\lambda}{n}\right)^{n-k} \\
+&=\frac{\lambda^k}{k!}\cdot \frac{n}{n}\frac{n-1}{n}\cdots\frac{n-k+1}{n}\cdot \left(1-\frac{\lambda}{n}\right)^{n}\left(1-\frac{\lambda}{n}\right)^{-k}
+\end{align}
+$$
+
+由于
+$$
+\lim_{n\rightarrow\infty}\left[\frac{n}{n}\frac{n-1}{n}\cdots\frac{n-k+1}{n}\right]=1
+$$
+$$
+\lim_{n\rightarrow\infty} \left(1-\frac{\lambda}{n}\right)^{n} = e^{-\lambda}
+$$
+$$
+\lim_{n\rightarrow\infty} \left(1-\frac{\lambda}{n}\right)^{-k} = 1
+$$
+
+当 $n\rightarrow\infty$ 时，二项分布化为泊松分布
+$$
+P(X=k)=\frac{\lambda^k}{k!}e^{-\lambda}
+$$
+:::
 
 连续：
 
