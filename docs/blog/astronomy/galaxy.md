@@ -406,7 +406,55 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 | **8. 整体运动** | **速度弥散大**（$\sigma \sim 10-20$ km/s）。<br>个体星间相对运动快，但整体绕银心做**长椭圆轨道**。 | **速度弥散小**（$\sigma \sim 1-3$ km/s）。<br>成员星以**几乎相同的空间速度**（本动速度）共移。 |
 
 - 近红外波段 观测恒星消光小
+
+    中远红外多为尘埃
 - 蓝离散星 (Blue Stragglers) HR 图主序拐点之上的蓝色亮星
 - 场星 (Field stars) 
     1. 不属于任何已知星团或星协等恒星聚集体的恒星
     2. 观测某一星团时，沿视线方向前景和背景中不属于该星团的恒星
+
+- 区分星团成员和场星：年龄、金属性、运动特征
+- 星系的恒星形成率 star formation rate (SFR)
+- 星暴 starburst
+- “特殊”星团：
+    - 星协 stellar association: 高光度年轻恒星组成，通常引力不束缚
+    - 移动星团 moving cluster: 疏散星团的“晚年”
+    - 超星团 super star cluster (SSC)/ 年轻大质量星团 young massive cluster (YMC): 球状星团的前身
+
+### 星族
+
+stellar populations
+
+- 星族：由年龄、金属丰度、分布地域和运动学特性都相似的恒星族群
+
+- 星族I：迅速绕银河系公转，银道面附近，亮O，B型星
+
+    星族II：绕银河系公转较慢，银道面两边，光度较低的红色和橙色巨星
+
+    二者根本差别是年龄
+
+- 金属元素谱线的强弱 $\neq$ 恒星金属丰度
+
+- 星族的运动学 (kinematics) 特性：
+
+    - 速度弥散度 velocity dispersion
+        $$
+        \sigma=\sqrt{\sum_i^N(v_i-\langle v\rangle)^2/N}
+        $$
+        星族I转动速度大，速度弥散小
+
+        星族II转动速度小，速度弥散大
+    
+    - UVW 速度分量：
+
+        U：银心指向恒星方向
+
+        V：恒星沿着盘转动方向
+
+        W：垂直银道面方向
+
+        - 参考点：局部静止标准 Local standrad of rest (LSR)
+
+            $$
+            R_0=8.5 \text{kpc},V_0=220\text{km/s}
+            $$
