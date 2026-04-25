@@ -380,3 +380,116 @@ Solvable with 3 supplements:
         $$
         \kappa=\kappa_0\rho^\alpha T^\beta
         $$
+
+5. The binding energy of the atomic nucleus:
+    $$
+    Q(Z,N)\equiv[Zm_p+Nm_n-m(Z,N)]c^2
+    $$
+    total binding energy per nucleon
+    $$
+    \frac{Q(Z,N)}{Z+N}\equiv\frac{Q(Z,N)}{A}
+    $$
+    where $A$ is the baryon number.
+
+    fusion vs fission
+
+6. The occurrence of fusion reactions
+
+    overcome Coulomb barrier by Quantum Tunnelling
+    $$
+    P_{\text{fusion}}\propto \exp\left(\frac{-\pi Z_1Z_2e^2}{h\varepsilon_0 v}\right)\exp\left(-\frac{mv^2}{2k_B T}\right)
+    $$
+
+    the Gamow peak (Maxwell distribution + tunnelling probability)
+
+7. Hydrogen burning:
+
+    - p-p chain:
+
+        1. PPI chain ( $1.3\times10^7K$ ):
+            $$
+            p+p\rightarrow D+e^++\nu_e
+            $$
+            $$
+            D+p\rightarrow ^3\!\!He+\gamma
+            $$
+            $$
+            ^3He+^3\!\!He\rightarrow ^4\!\!He+2p
+            $$
+        2. PPII chain ( $2.0\times10^7K$ ):
+            $$
+            ^3He+^4\!\!He\rightarrow^7\!\!Be+\gamma
+            $$
+            $$
+            ^7Be+e^-\rightarrow^7\!\!Li+\nu_e
+            $$
+            $$
+            ^7Li+p\rightarrow^4\!\!He+^4\!\!He
+            $$
+        3. PPIII chain ( $3\times10^7K$ ):
+            $$
+            ^7Be+p\rightarrow^8\!\!B+\gamma
+            $$
+            $$
+            ^8B\rightarrow^8\!\!Be+e^++\nu_e
+            $$
+            $$
+            ^8Be\rightarrow 2\ ^4He
+            $$
+        
+        Energy production
+        $$
+        Q_{\text{p-p}}=[4M(p)-M(^4He)]c^2=26.7MeV
+        $$
+
+        Neutrino emission
+    
+    - CNO cycle
+
+        carbon, nitrogen, oxygen
+
+        $$
+        ^{12}C+p\rightarrow^{13}\!\!N+\gamma
+        $$
+        $$
+        ^{13}N\rightarrow^{13}\!\!C+e^++\nu_e
+        $$
+        $$
+        ^{13}C+p\rightarrow^{14}\!\!N+\gamma
+        $$
+        $$
+        ^{14}N+p\rightarrow^{15}\!\!O+\gamma
+        $$
+        $$
+        ^{15}O\rightarrow^{15}\!\!N+e^++\nu_e
+        $$
+        $$
+        ^{15}N+p\rightarrow^{12}\!\!C+^{4}\!\!He
+        $$
+
+    the rate of energy production of each
+    $$
+    \varepsilon_{\text{p-p}}\propto \rho T^4
+    $$
+    $$
+    \varepsilon_{\text{CNO}}\propto \rho T^{16}
+    $$
+
+8. Helium burning
+
+    - the triple-$\alpha$ reaction
+        $$
+        ^4He+^4\!\!He\rightarrow^8\!\!Be
+        $$
+        $$
+        ^8Be+^4\!\!He\rightarrow^{12}\!\!C+\gamma
+        $$
+    
+    the energy released
+    $$
+    Q_{3\alpha}=[3M(^4He)-M(^{12}C)]c^2=7.275MeV
+    $$
+    the rate of energy production
+    $$
+    \varepsilon_{3\alpha}\propto \rho^2 T^{40}
+    $$
