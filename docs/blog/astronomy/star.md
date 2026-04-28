@@ -330,6 +330,8 @@ Solvable with 3 supplements:
 
 ## The physics of stellar interiors
 
+### Equation of state
+
 1. Equation of state of an ideal gas
     $$
     P=\frac{\mathfrak{R}\rho T}{\mu}+\frac{aT^4}{3}
@@ -368,6 +370,8 @@ Solvable with 3 supplements:
     
     They are independent of temperature.
 
+### Opacity
+
 4. Opacity
 
     - Four processes: 
@@ -380,6 +384,8 @@ Solvable with 3 supplements:
         $$
         \kappa=\kappa_0\rho^\alpha T^\beta
         $$
+
+### Nuclear reactions
 
 5. The binding energy of the atomic nucleus:
     $$
@@ -493,3 +499,105 @@ Solvable with 3 supplements:
     $$
     \varepsilon_{3\alpha}\propto \rho^2 T^{40}
     $$
+
+9. Carbon burning ( $5\times10^8K$ )
+
+    Oxygen burning ( $10^9K$ )
+
+    Silicon burning ( $3\times10^9K$ )
+
+::: info Major nuclear burning processes
+| Nuclear Fuel | Process | $T_{\text{threshold}}\quad (10^6K)$ | Products | Energy per nucleon (MeV) |
+|:---:|:---:|:---:|:---:|:---:|
+| H | PP | ~4 | He | 6.55 |
+| H | CNO | 15 | He | 6.25 |
+| He | 3$\alpha$ | 100 | C,O | 0.61 |
+| C | C+C | 600 | O,Ne,Na,Mg | 0.54 |
+| O | O+O | 1000 | Mg,S,P,Si | ~0.3 |
+| Si | Nuc eq. | 3000 | Co,Fe,Ni | <0.18 |
+:::
+
+$$
+\varepsilon=\varepsilon_0\rho T^\eta
+$$
+
+10. Origin of the elements heavier than Fe:
+
+    the s-process and r-process: the neutron capture reactions proceeds more slowly or rapidly than the competing $\beta$ decays.
+
+    - $\beta$ decay: $n^0\rightarrow p^++e^-+\nu_e$
+
+11. Abundances of nuclei:
+
+    percentage of (total number of atoms / total mass (X,Y,Z used above))
+
+## The structure of main-sequence stars
+
+Four stellar structure equations:
+$$
+    \begin{align}
+    \frac{\mathrm{d}r}{\mathrm{d}M}&=\frac{1}{4\pi r^2\rho} \\
+    \frac{\mathrm{d}P}{\mathrm{d}M}&=-\frac{GM}{4\pi r^4} \\
+    \frac{\mathrm{d}L}{\mathrm{d}M}&=\varepsilon \\
+    \frac{\mathrm{d}T}{\mathrm{d}M}&=-\frac{3\kappa L}{64\pi^2acr^4T^3}
+    \end{align}
+$$
+Three supplements:
+$$
+\begin{aligned}
+P&=\frac{\mathcal{R}\rho T}{\mu} \\
+\kappa &=\kappa_0 \rho^\alpha T^\beta \\
+\varepsilon &= \varepsilon_0\rho T^\eta
+\end{aligned}
+$$
+
+### homologous stellar model
+
+- model:
+    $$
+    \begin{aligned}
+    r&=M_s^{a_1}r^*(m) \\
+    \rho&=M_s^{a_2}\rho^*(m) \\
+    L&=M_s^{a_3}L^*(m) \\
+    T&=M_s^{a_4}T^*(m) \\
+    P&=M_s^{a_5}P^*(m)
+    \end{aligned}
+    $$
+
+    substitute into the four stellar structure equation and the equation of state, and we have
+    $$
+    \begin{aligned}
+    4a_1+a_5&=2 \\
+    3a_1+a_2&=1 \\
+    a_3&=\eta a_4+a_2+1 \\
+    4a_1+(4-\beta)a_4&=\alpha a_2+a_3+1 \\
+    a_5&=a_2+a_4
+    \end{aligned}
+    $$
+
+- $M-L$ and $L-T_e$ relations:
+
+    $$
+    L_s\propto M_s^{a_3}
+    $$
+    $$
+    L_s\propto T_s^{4a_3/(a_3-2a_1)}
+    $$
+
+### polytropes model
+
+- model:
+    $$
+    \left\{\begin{array}{l}
+    \dfrac{\mathrm{d}P(r)}{\mathrm{d}r}=-\dfrac{GM(r)\rho(r)}{r^2} \\
+    P=K\rho^\gamma=K\rho^{n+1/n}
+    \end{array}\right.
+    $$
+    $$
+    \Rightarrow \frac{1}{\xi^2}\frac{\mathrm{d}}{\mathrm{d}\xi}\left(\xi^2\frac{\mathrm{d}\theta}{\mathrm{d}\xi}\right)=-\theta^n
+    $$
+    where
+    $$
+    \xi\equiv \frac{r}{\alpha},\theta^n\equiv\frac{\rho}{\rho_c},\alpha\equiv\sqrt{\frac{(n+1)K}{4\pi G\rho_c^{n-1/n}}}
+    $$
+    This is Lane-Emden equation.
