@@ -653,6 +653,89 @@ Supernova Remnants (SNRs)
 
 - 性质：质量、电荷、角动量
 
+### X 射线双星
+
+#### 简介
+
+- 分类：
+
+    - 根据致密天体分：
+
+        - 中子星 X 射线双星
+        - 黑洞 X 射线双星
+
+    - 根据伴星种类分：
+
+        - 低质量 X 射线双星 LMXB：小质量主序星，一般 $<1.4M_\odot$ ，温度低，演化慢
+        - 高质量 X 射线双星 HMXB：O/B 型星，一般 $>20M_\odot$ ，年轻，温度高
+
+- 分布：
+
+    ![分布](https://www.aanda.org/articles/aa/full/2002/33/aah3162/img30.gif)
+
+    $\bullet$ HMXB
+
+    $\circ$ LMXB
+
+    ![分布](https://www.aanda.org/articles/aa/full/2002/33/aah3162/img57.gif)
+
+    ref: Grimm, H.-J., Gilfanov, M., & Sunyaev, R. (2002). The Milky Way in X-rays for an outside observer: Log(N)-Log(S) and luminosity function of X-ray binaries from RXTE/ASM data. *Astronomy & Astrophysics*, *391*(3), 923–944. https://doi.org/10.1051/0004-6361:20020826
+
+#### 吸积
+
+- 质量吸积率 $\dot{m}$
+
+    吸积光度 $L=\dfrac{GM}{R}\dot{m}$
+
+    吸积效率 $\xi=\dfrac{L}{\dot{m}c^2}=\dfrac{r_s}{2R}$
+
+    天体的史瓦西半径 $r_s=\dfrac{2GM}{c^2}$
+
+    Kerr 黑洞 $\xi_\text{max}=0.426$ 能量转换率最高的天体
+
+- 爱丁顿光度：
+
+    重力 $F_\text{grav}=\dfrac{GM}{r^2}(m_p+m_e)=\dfrac{GMm_p}{r^2}$
+
+    辐射压力 $F_\text{rad}=\dfrac{N_\gamma p_\gamma}{\Delta t}=\dfrac{L}{4\pi r^2h\nu}\sigma_T\dfrac{h\nu}{c}=\dfrac{L\sigma_T}{4\pi r^2c}$
+
+    Eddington Luminosity $L_\text{edd}=\dfrac{GMm_p4\pi c}{\sigma_T}=1.3\times 10^{38}\left(\dfrac{M}{M_\odot}\right)\text{ erg s}^{-1}$
+
+    - 质量吸积率上限 $\dot{m}\le\dfrac{L_\text{edd}}{\xi c^2}=2\times10^{-8}\left(\dfrac{M}{M_\odot}\right) M_\odot\text{yr}^{-1}$
+
+    - 吸积天体质量下限 $M\ge\dfrac{L_\text{obs}}{1.3\times 10^{38}\text{ erg s}^{-1}}M_\odot$
+
+- 辐射能段：
+
+    - 辐射温度 $T_\text{rad}=\dfrac{h\bar{\nu}}{k}$
+    - 黑体温度 $T_\text{bb}=\left(\dfrac{L}{4\pi R^2\sigma}\right)^{1/4}$ 光学厚
+    - 热温度 $T_\text{th}=\dfrac{GMm_p}{3kR}$ 光学薄
+
+    $T_\text{bb}<T_\text{rad}<T_\text{th}$
+
+- 吸积盘：
+    - 有粘滞作用才能吸积
+    - 薄盘 $H\ll r$ ：
+
+        自引力可忽略
+
+        稳定吸积，不同 $r$ 处吸积率 $\dot{m}$ 相同
+
+        盘上物质近似开普勒运动
+
+        盘上辐射压可以忽略 $L\ll L_\text{edd}$
+
+        盘上物质环绕速度超声速 $v_\phi\gg c_s$
+    
+    - 吸积盘光度：盘的粘滞作用辐射 $L_\text{disk}=\dfrac{GM\dot{m}}{2R_*}$
+
+        吸积光度：整个吸积过程（无穷远落到天体表面）
+
+        光学厚薄吸积盘温度分布 $T(r)=\left(\dfrac{3GM\dot{m}}{8\pi\sigma r^3}\right)^{1/4}\propto r^{-3/4}$
+
+        辐射能谱
+        ![能谱](./high_energy_astrophysics_fig/5.png)
+
 ## Appendix 2: Distances in astronomy
 
 - Parallaxes
