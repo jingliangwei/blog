@@ -671,13 +671,13 @@ Supernova Remnants (SNRs)
 
 - 分布：
 
-    ![分布](https://www.aanda.org/articles/aa/full/2002/33/aah3162/img30.gif)
+    ![分布](./high_energy_astrophysics_fig/1.gif)
 
     $\bullet$ HMXB
 
     $\circ$ LMXB
 
-    ![分布](https://www.aanda.org/articles/aa/full/2002/33/aah3162/img57.gif)
+    ![分布](./high_energy_astrophysics_fig/2.gif)
 
     ref: Grimm, H.-J., Gilfanov, M., & Sunyaev, R. (2002). The Milky Way in X-rays for an outside observer: Log(N)-Log(S) and luminosity function of X-ray binaries from RXTE/ASM data. *Astronomy & Astrophysics*, *391*(3), 923–944. https://doi.org/10.1051/0004-6361:20020826
 
@@ -735,6 +735,74 @@ Supernova Remnants (SNRs)
 
         辐射能谱
         ![能谱](./high_energy_astrophysics_fig/5.png)
+
+#### 各种 X 射线双星
+
+1. NS-LMXB
+    - 伴星：晚型星，光度低
+    - 中子星：年老，X 射线辐射弱，磁场也较弱
+    - 吸积方式：洛希瓣外流-盘吸积
+    - UV-X 射线辐射：中子星，吸积盘，主要是盘内侧
+    - 光学辐射：吸积盘，被 X 射线加热的恒星表面 $L_\text{opt}\ll L_X$
+    - 观测：盘内侧发出的 X 射线被遮挡
+
+        - dipper 吸积盘附近物质
+        - eclipse 伴星遮挡
+    - X 射线能谱：
+
+        - 指数截断幂率谱 $N_\text{ph}(E)\propto E^{-\Gamma}e^{-E/E_\text{cut}}$
+        - 高 $L_X$ 的系统还要加入黑体成分
+    - 爆发：
+        - 光变特征: FRED (Fast Raise & Exponential Decay)
+        - 能量越大，爆发峰值越大
+        - 光度低（吸积率低）系统的爆发等待时间 $\tau$ 长
+        - 高能段峰值比低能延迟，高能成分衰减快，近似黑体谱
+        - 爆发机制：中子星吸积氢，氢聚变成氦，发生氦闪
+        - PRE（光球半径膨胀）暴发光度接近爱丁顿极限，辐射压推升中子星表面，半径膨胀，强度暂时稳定
+        - Echo tomography 利用暴发作为闪光，观测被吸积盘和伴星反射的延迟信号，反映几何结构
+        - 超级暴发 super burst 快速上升，长时间冷却，机制：C 核聚变？
+    - 准周期振荡 QPO
+
+2. NS-HMXB
+    - 伴星：O/B型星，年轻，质量大
+    - 中子星：年轻，磁场强
+    - 分类：
+        - Be X 射线双星 (Be：B型光谱+发射线)
+        - 超巨星 X 射线双星    
+    - 吸积方式：星风环境下球吸积
+    - 辐射：
+        - 被吸积物质——轫致辐射
+        - 中子星表面热斑——黑体辐射
+        - 磁场等离子体——回旋辐射
+        - Fe——荧光谱线
+
+3. 黑洞 X 射线双星：性质与 AGN 相仿
+
+## 银河系外的高能天体物理
+
+### Gamma-Ray Burst
+
+- 暴发时间：
+    - 长暴 $T_{90}>2s$ 软
+    - 短暴 $T_{90}<2s$ 硬
+
+    $T_{90}$ 代表暴发总累积光子计数从 $5\%$ 到 $95\%$ 所经历的时间
+
+- 能谱：非热谱，Band函数
+
+- 余辉：
+    - 余辉以幂率衰减
+    - 红移，GRB 距离
+    - 长暴与超新星成协
+
+- 相对论火球激波模型：
+
+    - 暴发——内激波
+    - 余辉——外激波
+
+- GRB 前身：
+    - 长暴：大质量坍缩星
+    - 短暴：双中子星或者中子星和黑洞并合
 
 ## Appendix 2: Distances in astronomy
 
