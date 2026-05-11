@@ -505,3 +505,25 @@ stellar populations
 - 特殊子结构：
 
     星流 stellar stream
+
+- 补充内容：
+
+    - 质光关系 mass-luminosity relation
+        $$
+        \frac{L}{L_\odot}=\left(\frac{M}{M_\odot}\right)^\alpha
+        $$
+    - 质光比 mass-to-light ratio
+        $$
+        \Upsilon=\frac{M/L}{M_\odot/L_\odot}
+        $$
+        其倒数表示单位质量的物质平均发光效率。
+    - 光度函数 Luminosity Function
+        $$
+        \Phi(L)\Delta L=\frac{\Delta N}{\Delta V}
+        $$
+        按光度参数空间数密度分布，通常也用绝对星等表示 $\Phi(M)$
+    - 初始质量函数 Initial mass function (IMF)
+        $$
+        \xi(m)
+        $$
+        $\xi(m)\Delta m$ 代表恒星形成时，单位体积内，在 $m$ 和 $m+\Delta m$ 质量范围内（以太阳质量为单位）的恒星数。
