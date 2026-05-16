@@ -700,7 +700,7 @@ $$
 
         每个能级上粒子数 $a_1,a_2,\cdots,a_l$
 
-        （约束条件： $\sum_l a_l=N,\quad\sum_l a_l\varepsilon_l=E$
+        （约束条件： $\sum_l a_l=N,\quad\sum_l a_l\varepsilon_l=E$）
 
     - 不同系统的微观状态数
 
@@ -720,3 +720,160 @@ $$
             $$
             \Omega_{cl}=\frac{N!}{\prod_l a_l!}\prod_l \left(\frac{\Delta \omega_l}{h_0^r}\right)^{a_l}
             $$
+
+### 波尔兹曼分布
+
+1. 最概然分布：
+
+    - 最概然分布（最可几分布）：系统微观状态数目取极大值的分布
+
+    - 波尔兹曼分布：波尔兹曼系统的最概然分布
+    $$
+    a_l=\omega_l e^{-\alpha-\beta\varepsilon_l}
+    $$
+    其中
+    $$
+    N=\sum_l\omega_l e^{-\alpha-\beta\varepsilon_l},\quad E=\sum_l\varepsilon_l\omega_l e^{-\alpha-\beta\varepsilon_l}
+    $$
+
+    ::: info Stirling 公式
+    $$
+    \ln m!=m(\ln m-1)+\frac{1}{2}\ln(2\pi m)
+    $$
+    :::
+
+    经典统计的波尔兹曼分布：
+    $$
+    a_l=\frac{\Delta\omega_l}{h_0^r} e^{-\alpha-\beta\varepsilon_l}
+    $$
+    $$
+    N=\sum_l\frac{\Delta\omega_l}{h_0^r} e^{-\alpha-\beta\varepsilon_l},\quad E=\sum_l\varepsilon_l\frac{\Delta\omega_l}{h_0^r} e^{-\alpha-\beta\varepsilon_l}
+    $$
+
+    - 玻色分布：
+        $$
+        a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
+        $$
+        $$
+        N=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1},\quad E=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
+        $$
+    - 费米分布：
+        $$
+        a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
+        $$
+        $$
+        N=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1},\quad E=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
+        $$
+    
+    - 定域：束缚在一定范围内
+
+        定域粒子：被限制在一定范围内，可由位置来区别的粒子
+
+        定域系统：由定域粒子组成的系统
+
+2. 宏观热力学量的表达
+
+    以波尔兹曼统计分布为例
+
+    - 单粒子配分函数 $Z_1$
+        $$
+        N=\sum_l a_l=e^{-\alpha}\sum_l \omega_l e^{-\beta\varepsilon_l}\equiv e^{-\alpha}Z_1
+        $$
+    - 内能 $U$
+        $$
+        U=-N\frac{\partial}{\partial \beta}\ln Z_1
+        $$
+
+    - 广义力 $Y=\sum_l a_lf_l$
+        $$
+        Y=-\frac{N}{\beta}\frac{\partial}{\partial y}\ln Z_1
+        $$
+    - 做功 $\delta W$
+        $$
+        \delta W=\sum_l a_l\mathrm{d}\varepsilon_l
+        $$
+        热传递 $\delta Q$
+        $$
+        \delta Q=\sum_l \epsilon_l\mathrm{d}a_l
+        $$
+    - 熵的全微分
+        $$
+        \mathrm{d}S=\frac{\delta Q}{T}=\frac{1}{T}(\mathrm{d}U-Y\mathrm{d}y)
+        $$
+        $$
+        S=Nk\left(\ln Z_1-\beta\frac{\partial \ln Z_1}{\partial \beta}\right)
+        $$
+        $\beta$ 的物理含义
+        $$
+        \beta(\mathrm{d}U-Y\mathrm{d}y)=N\mathrm{d}\left(\ln Z_1-\beta\frac{\partial\ln Z_1}{\partial \beta}\right)
+        $$
+        $$
+        \beta=\frac{1}{\kappa T}
+        $$
+    - 熵的统计意义
+        $$
+        S=k\ln\Omega_{M.B.}
+        $$
+        $$
+        S_{B.E.}=S_{F.D.}=k\ln\Omega_{M.B.}-k\ln N!
+        $$
+    - 自由能 $F$
+        $$
+        F=-NkT\ln Z_1
+        $$
+
+3. 经典统计中热力学函数的表达式
+
+    $$
+    \omega_l\rightarrow\frac{\Delta\omega_l}{h_0^r}
+    $$
+    $$
+    \sum_l\Delta\omega_l\rightarrow\int\mathrm{d}\omega
+    $$
+
+4. 理想气体物态方程
+
+    $$
+    U=\frac{3}{2}NkT
+    $$
+
+5. 麦克斯韦速度分布律
+
+    $$
+    f_\bar{v}(v_x,v_y,v_z)=\left(\frac{m}{2\pi kT}\right)^{3/2}e^{-\frac{m}{2kT}(v_x^2+v_y^2+v_z^2)}
+    $$
+
+    - 最概然速率 $v_m$
+        $$
+        v_m=\sqrt{\frac{2kT}{m}}
+        $$
+    - 平均速率 $\bar{v}$
+        $$
+        \bar{v}=\sqrt{\frac{8kT}{\pi m}}
+        $$
+    - 方均根速率 $v_s$
+        $$
+        v_s=\sqrt{\bar{v^2}}=\sqrt{\frac{3kT}{m}}
+        $$
+
+6. 能量均分定理
+
+    对于处在温度 $T$ 的平衡状态的经典系统粒子能量中每一个平方项的平均值等于 $\dfrac{1}{2}kT$
+
+7. 理想气体的内能，热容与化学势
+
+    - 常温下，振动自由度对热容的贡献趋于零
+    - 单原子理想气体的熵
+        $$
+        S=\frac{3}{2}Nk\ln T+Nk\ln\frac{V}{N}+\frac{3}{2}Nk\left[\frac{5}{3}+\ln\frac{2\pi mk}{h^2}\right]
+        $$
+    - 化学势
+        $$
+        \mu=kT\ln\left[\frac{N}{V}\left(\frac{h^2}{2\pi mkT}\right)^{3/2}\right]
+        $$
+
+- 负温度
+    $$
+    \frac{1}{T}=\left(\frac{\partial S}{\partial U}\right)_y
+    $$
+    负温状态内能高于正温状态
