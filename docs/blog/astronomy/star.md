@@ -601,3 +601,58 @@ $$
     \xi\equiv \frac{r}{\alpha},\theta^n\equiv\frac{\rho}{\rho_c},\alpha\equiv\sqrt{\frac{(n+1)K}{4\pi G\rho_c^{n-1/n}}}
     $$
     This is Lane-Emden equation.
+
+- For $n=1.5$, in the case of non-relativistic degeneracy $P=K_1\rho^{5/3}$
+    $$
+    M_sR^3=\text{const}
+    $$
+    For $n=3$, in the case of relativistic degeneracy $P=K_2\rho^{4/3}$
+    $$
+    M_s=5.83\mu_e^{-2}M_\odot
+    $$
+
+- Minimum and maximum masses for stars:
+
+    - Clayton's model:
+        $$
+        \frac{\mathrm{d}P}{\mathrm{d}r}=-\frac{4\pi}{3}G\rho_c^2 r\exp\left(-\frac{r^2}{a^2}\right)
+        $$
+        $$
+        \Rightarrow P(r)=\frac{2\pi}{3}G\rho_c^2 a^2\left[\exp\left(-\frac{r^2}{a^2}\right)-\exp\left(-\frac{R^2}{a^2}\right)\right]
+        $$
+        $$
+        P_c\approx\left[\frac{\pi}{36}\right]^{1/3}GM_s^{2/3}\rho_c^{4/3}
+        $$
+    - Minimum mass of a main sequence star:
+        
+        The maximum temperature at the center of a contracting gas cloud reaches the ignition temperature for the thermonuclear fusion of H.
+        $$
+        M_\text{min}\approx\left(\frac{36}{\pi}\right)^{1/2}\left(\frac{4K_{NR}}{G^2m_H^{8/3}}\right)^{3/4}(kT_{ign})^{3/4}
+        $$
+        where $K_{NR}$ meaning the non-relativistic $P=K_{NR}n_e^{5/3}$
+
+        $M_\text{min}\sim 0.08 M_\odot$
+
+    - Maximum mass of a main sequence star:
+
+        If radiation becomes the dominant source of the pressure, the star could be easily disrupted.
+        $$
+        P_g=\frac{\rho_c}{m}kT_c
+        $$
+        $$
+        P_r=\frac{1}{3}aT_c^4
+        $$
+        denoting the parameter $\beta$:
+        $$
+        P_g\equiv\beta P_c,\quad P_r\equiv(1-\beta)P_c
+        $$
+        $$
+        P_c=\left(\frac{3}{a}\frac{1-\beta}{\beta^4}\right)^{1/3}\left(\frac{k\rho_c}{m}\right)^{4/3}
+        $$
+        $$
+        \left[\frac{\pi}{36}\right]^{1/3}GM_s^{2/3}=\left(\frac{3}{a}\frac{1-\beta}{\beta^4}\right)^{1/3}\left(\frac{k}{m}\right)^{4/3}
+        $$
+
+        the maximum mass of a main sequence star is $\sim 100M_\odot$ by requiring $(1-\beta)$ to be less than $0.5$.
+
+        
