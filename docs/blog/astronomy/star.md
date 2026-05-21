@@ -655,4 +655,79 @@ $$
 
         the maximum mass of a main sequence star is $\sim 100M_\odot$ by requiring $(1-\beta)$ to be less than $0.5$.
 
-        
+### detailed stellar models
+
+- The model of the Sun:
+    ![model_sun](./star_fig/model_sun.png)
+    ![element_sun](./star_fig/element_sun.png)
+
+    For different masses: the convective regions
+    ![different_mass](./star_fig/different_mass.png)
+
+- The five sections on Main-sequence:
+    - Brown dwarfs (and planets): $\le0.08M_\odot$ or $\le80M_\text{Jup}$ cannot ignite H.
+    - Red dwarfs: $\le0.7M_\odot$ MS lifetime exceeds the present age of the Universe.
+    - Low-mass stars: $0.7M_\odot\le M\le 2M_\odot$
+    - Intermediate mass stars: $2M_\odot\le M\le 8-10M_\odot$
+    - High mass (or massive) stars: $M>8-10M_\odot$
+
+- Geneva models:
+    ![Geneva](./star_fig/Geneva.png)
+
+- Convection processes:
+
+    Mixing length theory of convection: mixing length $l$
+
+    $\alpha=\frac{l}{H_p}$ for the Sun $\alpha=1.6$
+
+    Convective overshooting
+
+- Modelling star clusters:
+
+    Isochrones
+
+## The evolution of stars
+
+The general rules of stellar evolution:
+1. The Russell-Vogt Theorem: the stellar evolution is mainly determined by the initial stellar mass and the initial chemical composition.
+2. The higher the mass, the shorter the lifetime of the star will be.
+3. The lower the mass, the higher will be the central density and the lower the central temperature in a given evolutionary phase.
+4. The higher the metallicity (keeping the initial He abundance fixed) the lower the luminosity and $T_\text{eff}$ will be, and the longer the evolutionary phases.
+
+### For $1M_\odot$ mass stars
+
+- The main-sequence phase
+
+    H-burning (pp chain)
+
+    the core of the star is radiative
+
+    H-exhaustion, the H-burning continues in a shell around the core, H envelope expands.
+
+- The red-giant phase
+
+    the outer layers reach $5000K$ and the envelopes become fully convective.
+
+    approaches the Hayashi line
+
+    shell H burning
+
+- The He-flash and core He-burning
+
+    He-flash: when the star reaches the tip of RGB.
+
+- The horizontal branch
+
+    Core He burning and shell H burning
+
+- The AGB and thermal pulses
+
+    Asymptotic giant branch: CO-core + shell H/He source -> expansion of the envelop
+
+    When the star moves to the tip of AGB, shell He flash -> stellar pulsation (thermal pulses) -> throw out the envelope of AGB -> planetary nebulae + very hot electron degeneracy CO core
+
+- Planetary nebula
+
+- White dwarf:
+
+    CO core collapsed as a white drawf
