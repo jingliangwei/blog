@@ -877,3 +877,256 @@ $$
     \frac{1}{T}=\left(\frac{\partial S}{\partial U}\right)_y
     $$
     负温状态内能高于正温状态
+
+### 玻色统计与费米统计
+
+1. 热力学量的统计表达式
+
+    (a) 玻色 Bose 系统
+    
+    1. 平均总粒子数 $\bar{N}$
+        $$
+        \bar{N}=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}=-\frac{\partial}{\partial\alpha}\ln\Xi
+        $$
+        巨分配函数 $\Xi$
+        $$
+        \Xi=\prod_l\Xi_l=\prod_l\left[1-e^{-\alpha-\beta\varepsilon_l}\right]^{-\omega_l}
+        $$
+        $$
+        \ln\Xi=-\sum_l\omega_l\ln(1-e^{-\alpha-\beta\varepsilon_l})
+        $$
+    
+    2. 内能 $U$
+        $$
+        U=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}=-\frac{\partial}{\partial\beta}\ln\Xi
+        $$
+    
+    3. 广义力 $Y$
+        $$
+        Y=-\frac{1}{\beta}\frac{\partial}{\partial y}\ln\Xi
+        $$
+        $$
+        p=-\frac{1}{\beta}\frac{\partial}{\partial -V}\ln\Xi
+        $$
+    
+    4. 熵 $S$
+
+        经典热力学
+        $$
+        \mathrm{d}S=\frac{1}{T}\left(\mathrm{d}U-Y\mathrm{d}y-\mu\mathrm{d}\bar{N}\right)
+        $$
+        玻色统计
+        $$
+        S=k\left(\ln\Xi+\alpha\bar{N}+\beta U\right)=k\ln\Omega_{B.E.}
+        $$
+
+        并且有
+        $$
+        \beta=\frac{1}{kT},\quad \alpha=-\mu\beta=\frac{-\mu}{kT}
+        $$
+    
+    (b) 费米 Fermi 系统
+
+    $$
+    \bar{N}=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
+    $$
+    $$
+    \Xi=\prod_l\left[1+e^{-\alpha-\beta\varepsilon_l}\right]^{\omega_l}
+    $$
+    $$
+    \bar{N}=-\frac{\partial}{\partial\alpha}\ln\Xi
+    $$
+    $$
+    U=-\frac{\partial}{\partial\beta}\ln\Xi
+    $$
+    $$
+    Y=-\frac{1}{\beta}\frac{\partial}{\partial y}\ln\Xi
+    $$
+    $$
+    p=\frac{1}{\beta}\frac{\partial}{\partial V}\ln\Xi
+    $$
+    $$
+    S=k\left(\ln\Xi-\beta\frac{\partial\ln\Xi}{\partial\beta}-\alpha\frac{\partial\ln\Xi}{\partial\alpha}\right)=k\ln\Omega_{F.D.}
+    $$
+
+    巨热力势 $J=U-TS-\mu\bar{N}=-kT\ln\Xi$
+
+2. 弱简并理想玻色气体与费米气体
+
+    物态方程
+    $$
+    pV=NkT\left[1\pm\frac{1}{4\sqrt{2}g}n\lambda^3\right]
+    $$
+    其中 $g$ 为粒子自旋简并度
+
+    $$
+    n=\frac{N}{V},\quad\lambda=\sqrt{\frac{h^2}{2\pi mkT}}
+    $$
+
+    费米气体的附加内能为正，玻色气体的附加内能为负
+
+3. 玻色-爱因斯坦凝聚
+
+    1. 理想玻色气体化学势必须低于粒子最低能级的能量
+        $$
+        \mu<\varepsilon_0
+        $$
+        化学势随温度的降低而升高
+    
+    2. 粒子数
+        $$
+        n=n_{\varepsilon=0}(T)+\frac{2\pi}{h^3}(2m)^{3/2}\int_0^\infty\frac{\sqrt{\varepsilon}\mathrm{d}\varepsilon}{e^{{(\varepsilon-\mu)/kT}}-1}
+        $$
+        当温度低于临界温度
+        $$
+        T_c=\frac{2\pi}{(2.612)^{2/3}}\frac{\hbar^2}{mk}n^{2/3}
+        $$
+        有宏观量级的粒子在能级 $\varepsilon=0$ 凝聚
+        $$
+        n_{\varepsilon=0}(T)=n\left[1-\left(\frac{T}{T_c}\right)^{3/2}\right]
+        $$
+
+4. 光子气体 （平衡辐射）
+
+    1. 宏观热力学
+
+        - 平衡热辐射只取决于温度
+        - $p=u/3$
+        - $u=aT^4$
+        - $S=(4/3)aVT^3$
+        - $G=H-TS=U+pV-TS=0$
+        - $\mu=0$
+        - $J=(1/4)cu$
+    
+    2. 统计物理理论
+
+        - 玻色-爱因斯坦统计
+        - 极化简并度为 $2$
+        - 普朗克公式
+            $$
+            U(\omega,T)=\frac{V}{\pi^2 c^3}\frac{\hbar\omega^3}{e^{\hbar\omega/kT}-1}
+            $$
+    
+    3. 平衡辐射经典公式
+
+        - 红外极限 瑞利-金斯公式
+            $$
+            U(\omega,T)\mathrm{d}\omega=\frac{V}{\pi^2 c^3}\frac{\hbar\omega^3}{e^{\hbar\omega/kT}-1}\mathrm{d}\omega
+            $$
+        - 紫外极限 维恩公式
+            $$
+            U(\omega,T)\mathrm{d}\omega=\frac{V}{\pi^2c^3}\frac{\hbar\omega^3\mathrm{d}\omega}{e^{\hbar\omega/kT}}
+            $$
+        - 斯特藩-波尔兹曼公式
+            $$
+            U=\frac{\pi^2 k^4}{15 c^3\hbar^3}VT^4
+            $$
+        - 维恩位移定律
+            $$
+            \frac{1}{\lambda_m T}=\frac{k}{ch}2.882=b=\text{const}
+            $$
+
+    4. 光子气体的热力学函数
+        $$
+        \ln\Xi=\frac{\pi^2 V}{45 c^3}\left(\frac{1}{\beta\hbar}\right)^3
+        $$
+        $$
+        p=\frac{1}{3}\frac{U}{V}
+        $$
+        $$
+        S=\frac{4}{45}\frac{\pi^2k^4V}{c^3\hbar^3}T^3V
+        $$
+
+5. 声子气体
+
+    - 声子：描述固体中原子核的运动，只是格波激发的量子
+
+    - Dulong-Petit 定律：
+
+        常温下，固体的摩尔热容 $C_V\approx 25$ J/mol K
+
+        能量均分定理 $\Rightarrow C_V=3N_Ak_B$
+    
+    - Einstein 模型：
+
+        能量量子化，晶体所有原子以同一频率 $\omega_E$ 振动
+
+        Einstein 温度 $T_E=\dfrac{\hbar\omega_E}{k_B}$
+        $$
+        C_V=3Nk_B\left(\frac{T_E}{T}\right)^2\frac{e^{T_E/T}}{(e^{T_E/T}-1)^2}=3Nk_Bf_E\left(\frac{T_E}{T}\right)
+        $$
+
+        低温下， $C_V=3Nk_B\left(\frac{T_E}{T}\right)^2e^{-T_E/T}$
+
+    - Debye 模型：
+
+        假设晶体为连续弹性介质，原子热运动为弹性波，频率上限 $\omega_D$ 为德拜频率
+
+        德拜温度 $T_D=\dfrac{\hbar\omega_D}{k_B}$
+
+        $$
+        C_V=9Nk_B\left(\frac{T}{T_D}\right)^3\int_0^{T_D/T}\frac{x^4e^x}{(e^x-1)^2}\mathrm{d}x
+        $$
+
+        低温下， $C_V=\frac{12}{5}\pi^4 Nk_B\left(\frac{T}{T_D}\right)^3$
+
+6. 自由电子气体
+
+    - $0K$ 时平均粒子数
+        $$
+        f=\left\{\begin{array}{l}
+        1\quad \varepsilon<\mu(0) \\
+        0\quad \varepsilon>\mu(0)
+        \end{array}\right.
+        $$
+        $$
+        N=\frac{8\pi V}{3h^3}(2m)^{3/2}(\mu(0))^{3/2}
+        $$
+
+        费米能级
+        $$
+        \varepsilon_F=\mu(0)=\frac{h^2}{2m}\left(\frac{3N}{8\pi V}\right)^{2/3}=\frac{\hbar^2}{2m}\left(3\pi^2\frac{N}{V}\right)^{2/3}
+        $$
+
+        费米动量
+        $$
+        p_F=\sqrt{2m_e\mu(0)}=\sqrt[3]{3\pi^2\frac{N}{V}}\hbar
+        $$
+
+        费米温度
+        $$
+        kT_F=\mu(0)
+        $$
+
+        电子气体内能
+        $$
+        U(0)=\frac{3N}{5}\mu(0)
+        $$
+        费米简并压
+        $$
+        p(0)=\frac{2}{5}\frac{N}{V}\mu(0)
+        $$
+
+    - $>0K$ 时
+        $$
+        f=\frac{1}{e^{(\varepsilon-\mu)/kT}+1}
+        $$
+        $$
+        \left.\frac{\partial f}{\partial\varepsilon}\right|_{\varepsilon=\mu}=-\frac{1}{4kT}\ll -1
+        $$
+
+        电子气体的定容热容
+        $$
+        C_V=Nk\frac{\pi^2}{2}\frac{kT}{\mu(0)}\equiv r_0 T
+        $$
+
+    低温下，金属的总定容热容
+    $$
+    C_V=rT+AT^3
+    $$
+
+::: tip 极端相对论
+- 非相对论 $\varepsilon=\dfrac{p^2}{2m}$
+- 相对论 $\varepsilon=\sqrt{p^2c^2+m_0^2c^4}$
+- 极端相对论 $\varepsilon=cp$
+:::
