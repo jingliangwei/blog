@@ -527,3 +527,97 @@ stellar populations
         \xi(m)
         $$
         $\xi(m)\Delta m$ 代表恒星形成时，单位体积内，在 $m$ 和 $m+\Delta m$ 质量范围内（以太阳质量为单位）的恒星数。
+
+### 专题：宇宙距离阶梯
+
+1. 距离的定义：
+
+    - 固有距离 proper distance / 物理距离 physical distance
+
+    - 光度距离 luminosity distance
+        $$
+        d_L=\sqrt{\frac{L}{4\pi f}}
+        $$
+        距离模数 $\mu=m-M=-5+5\lg d_L+A(r)$ 其中 $A(r)$ 为消光
+
+        主星序重叠法/主星序拟合法 Main Sequence Fitting
+
+    - 角直径距离 angular-diameter distance
+        $$
+        d_A\propto\frac{\Delta}{\theta}
+        $$
+    
+    - 自行距离 proper-motion distance
+        $$
+        d_P(pc)=\frac{1}{4.74}\frac{V_T\ (km/s)}{\mu\ (^"/year)}
+        $$
+
+        移动星团方法 the moving cluster method / 星群视差 group parallaxes
+    
+2. 宇宙距离阶梯：
+
+    - 标准烛光 standard candle
+
+        Ia 型超新星、造父变星
+
+        光度距离
+    
+    - 标准直尺 standard ruler
+
+        已知线大小的天体（面源）
+
+        角直径距离
+    
+    - 标准汽笛 standard siren
+
+        引力波信号
+    
+## 银河系的基本结构
+
+- 结构：
+
+    核球 bulge
+
+    银盘 disk ~30kpc
+
+    银晕 halo
+
+- 银道坐标系：
+
+    原点：太阳
+
+    银经 $l:0^\circ-360^\circ$ ：从银心方向开始，沿银道面按（从北极看）逆时针方向计算
+
+    银纬 $b:-90^\circ-90^\circ$
+
+    四个像限
+    
+    ![四个像限](./galaxy_fig/coord.png)
+
+    反银心方向 anti-centre
+
+### 银盘
+
+#### 基本性质
+
+1. 银盘是由恒星和星际介质组成的扁平盘
+
+2. 太阳在银盘的位置很靠近银道面，在其以北 $25\pm 5pc$ ；靠近猎户臂（人马臂和英仙臂间的次结构）内侧边缘，距离银心 $\sim 8.2\pm0.1kpc$ ，绕银心转动速度 $238\pm 15 km/s$
+
+3. 银盘包括恒星盘和弥散的星际气体盘
+
+    1. 恒星盘
+
+        薄盘 thin disk + 厚盘 thick disk
+    
+    2. 星际气体盘
+
+        - 观测： 盘星 （近红外）
+
+            HI （射电 2.6mm）
+
+            HII （射电 21cm）
+
+    3. 银盘的翘曲 warp
+
+4. 银盘中存在由恒星和星际介质组成的、呈对数螺旋曲线形态的悬臂结构
