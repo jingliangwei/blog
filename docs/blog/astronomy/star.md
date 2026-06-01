@@ -731,3 +731,24 @@ The general rules of stellar evolution:
 - White dwarf:
 
     CO core collapsed as a white drawf
+
+### For massive stars
+
+1. For high-mass stars ($M>\sim 8M\odot$):
+
+    - Main sequence: core hydrogen burning with a well-mixed convective core
+    - Post-Main sequence: core hydrogen exhaustion -> overall stellar contraction (causing a "hook" to the left in the HR diagram) -> ignition of a hydrogen-burning shell -> envelope expansion -> star becomes a red supergiant (RSG)
+    - Advenced burning: the non-degenerate core undergoes successive nuclear fusion stages: Helium -> Carbon -> Neon -> Oxygen -> Silicon burning, building an "onion-skin" structure
+    - Final Fate: Formation of an iron core. Once the core exceeds the Chandrasekhar limit ($\sim 1.4M_\odot$), it collapses, leading to a Type II supernova explosion. The remnant is a neutron star (if core mass $<\sim 3M_\odot$) or a black hole (if core mass $>\sim 3M_\odot$)
+
+2. Differences for stars of moderate mass ($\sim 1.5-6M_\odot$)
+
+    - the Schönberg-Chandrasekhar limit: when the isothermal helium core reaches $\sim10-15\%$ of the star's mass, it can no longer support itself, triggering a rapid core contraction and envelope expansion.
+    - the Hertzsprung gap
+
+3. Differences for super-massive stars ($15M_\odot-25M_\odot$)
+
+    - the electrons in their cores do not become degenrate until the final burning stages, when iron core is reached
+    - mass-loss: stellar wind
+    - the luminosity remains approximately constant in spite of internal changes
+    - Wolf-Rayet stars ($>20M_\odot$): O main-sequence star -> blue supergiant -> red supergiant -> WR star
