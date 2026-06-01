@@ -609,6 +609,8 @@ stellar populations
     1. 恒星盘
 
         薄盘 thin disk + 厚盘 thick disk
+
+        数密度 $n(z)=n_0\exp(-z/h_0)$
     
     2. 星际气体盘
 
@@ -621,3 +623,55 @@ stellar populations
     3. 银盘的翘曲 warp
 
 4. 银盘中存在由恒星和星际介质组成的、呈对数螺旋曲线形态的悬臂结构
+
+#### 旋臂结构
+
+1. 旋臂示踪天体： O，B 星，HII 区，分子云
+
+2. 旋臂通常不是固定的同一批物质臂组成
+
+3. 密度波理论：星系盘区，有一个刚体旋转的引力势区域，旋转速度与恒星或气体的轨道速度不同
+
+### 银晕
+
+银晕包含 恒星晕 stellar halo ，暗物质晕 dark matter halo ，气体晕 gas halo
+
+#### 恒星晕
+
+1. 主要是星族 II 型恒星组成的球状星团
+
+2. 晕星数密度与半径的关系： $n(r)\propto r^{-2.8}$
+
+#### 暗物质晕
+
+1. 星系旋转曲线 / 自转曲线 rotation curve:
+
+    测定：
+
+    1. 太阳的银心距离 $R_0$ 和太阳绕银心的转动速度 $V_0$
+
+        $R_0=8.122\pm 0.031$ kpc
+
+        $V_0=234.7\pm 1.7$ km/s
+    
+    2. 对太阳轨道内的天体，通过 HI 21cm 或 CO 2.6mm 射电谱线的轮廓，利用终端速度 terminal velocity / 切点法 tangent-point method 可以直接同时、独立得到 HI 区或分子云的距离和速度
+
+        1. 银心距 $R=R_0\sin l$
+        2. 转动速度 $V=V_r+V_0\sin l$
+
+        ![终端速度](./galaxy_fig/terminal_velocity.png)
+    
+    3. 对太阳轨道外的天体，利用其与 HII 区，星族 I 造父变星等成协测定光度距离，然后利用银河系动力学模型导出 $V(R)$
+
+2. Disk like rotation & Keplerian rotation
+
+3. 暗物质晕（暗晕）：
+
+    特征参数（总质量、边界）都不确定
+
+    数值结果，分布：
+
+        在星系和星系团尺度：呈近球形晕 dark matter halo
+
+        在更大尺度：呈纤维状结构 cosmic web
+
