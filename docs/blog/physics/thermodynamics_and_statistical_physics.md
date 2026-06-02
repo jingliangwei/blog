@@ -888,7 +888,7 @@ $$
         $$
         \bar{N}=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}=-\frac{\partial}{\partial\alpha}\ln\Xi
         $$
-        巨分配函数 $\Xi$
+        巨配分函数 $\Xi$
         $$
         \Xi=\prod_l\Xi_l=\prod_l\left[1-e^{-\alpha-\beta\varepsilon_l}\right]^{-\omega_l}
         $$
@@ -1130,3 +1130,247 @@ $$
 - 相对论 $\varepsilon=\sqrt{p^2c^2+m_0^2c^4}$
 - 极端相对论 $\varepsilon=cp$
 :::
+
+### 系综理论
+
+- 系综：宏观状态、微观结构相同，但微观状态不同的系统的集合
+
+| 类别       | 子类别     | 物理量           | 符号     |
+|:---:|:---:|:---:|:---:|
+| 宏观状态   | 广延量     | 能量             | $E$                |
+|            |            | 粒子数           | $N$                |
+|            |            | 体积             | $V$                |
+|            | 强度量     | 温度             | $T$                |
+|            |            | 化学势           | $\mu$    |
+| 微观状态   | 微观结构   | 能级（若有）             |  $\varepsilon_l$                |
+|            |            |  能级简并度（若有）        |       $\omega_l$           |
+|            |  微观分布   | 具体粒子数分布   | $a_l$                |
+
+- 微正则系综： $E,N,V$ 参量完备，与外界无能量交换、无粒子交换（孤立系）
+
+    正则系综： $N,V,T$ 参量完备，与外界有能量交换、无粒子交换（封闭系）
+
+    巨正则系综： $V,T,\mu$ 参量完备，与外界有能量交换、有粒子交换（开放系）
+
+- 理想模型：
+
+    粒子源：化学势 $\mu$ 不变，能够提供、接纳任意多粒子
+
+    热源：温度 $T$ 不变，能够输出任意多能量
+
+- 经典理论：
+
+    $\rho(q,p,t)=\mathrm{d}N/N$
+    
+    $\int\rho(q,p,t)\mathrm{d}\Omega=1$
+
+    $\bar{B}(t)=\int B(q,p)\rho(q,p,t)\mathrm{d}\Omega$
+
+    量子理论：
+
+    $\rho_s(t)$
+    
+    $\sum_s\rho_s(t)=1$
+
+    $\bar{B}(t)=\sum_s\rho_s(t)B_s$
+
+1. 微正则系综
+
+    - 等概率原理（微正则分布）：在 $E\rightarrow E+\Delta E$ 内所有可能微观态概率密度都相等
+
+    - 表达式：
+
+        经典
+        $$
+        \left\{\begin{array}{l}
+        \rho(q,p)=\text{const}\qquad E\le H(q,p)\le E+\Delta E \\
+        \rho(q,p)=0\qquad H(q,p)>E+\Delta E\text{ or } H(q,p)<E
+        \end{array}\right.
+        $$
+        量子
+        $$
+        \rho_s=\frac{1}{\Omega}
+        $$
+        其中 $\Omega$ 是 $E\rightarrow E+\Delta E$ 内系统可能的微观状态数
+    
+    - 热力学公式：
+
+        - 平衡条件：内部有微弱相互作用的一个孤立系统 $A^{(0)}=A_1+A_2$
+
+            $$
+            \beta=\left(\frac{\partial \ln \Omega(N,E,V)}{\partial E}\right)_{N,V}
+            $$
+            统计热平衡条件 $\beta_1=\beta_2$
+
+            波尔兹曼关系 $S=k\ln\Omega$
+
+            力学平衡 $\gamma_1=\gamma_2$
+            $$
+            \gamma=\left(\frac{\partial \ln\Omega(N,E,V)}{\partial V}\right)_{N,E}
+            $$
+            化学平衡 $\alpha_1=\alpha_2$
+            $$
+            \alpha=\left(\frac{\partial \ln\Omega(N,E,V)}{\partial N}\right)_{E,V}
+            $$
+
+            $$
+            \left\{\begin{array}{l}
+            \beta=1/kT \\
+            \gamma=p/kT \\
+            \alpha=-\mu/kT
+            \end{array}\right.
+            $$
+    
+    - 应用：
+
+        - 波尔兹曼常量
+            $$
+            k=\frac{R}{N_A}
+            $$
+        
+        - 求热力学函数程序
+
+            1. 求微观状态数 $\Omega(N,E,V)$
+
+            2. 求熵 $S(N,E,V)=k\Omega(N,E,V)$
+
+            3. $S=S(N,E,V)\Rightarrow E=E(S,N,V)$
+
+            4. 由 $\mathrm{d}E=T\mathrm{d}S-p\mathrm{d}V$
+                $$
+                \Rightarrow T=\left(\frac{\partial E}{\partial S}\right)_{V,N}=T(S,V,N)
+                $$
+                $$
+                p=-\left(\frac{\partial E}{\partial V}\right)_{S,N}
+                $$
+            
+            5. $T=T(S,V,N)\Rightarrow S=S(T,V,N)$
+                $$
+                \left\{\begin{array}{l}
+                p=p(S,V,N) \\
+                E=E(S,V,N)
+                \end{array}\right.
+                \Rightarrow
+                \left\{\begin{array}{l}
+                p=p(T,V,N) \\
+                E=E(T,V,N)
+                \end{array}\right.
+                $$
+
+2. 正则系综
+
+    确定 $N,V,T$ 的系统，引入复合系统 $E^{(0)}$ 由 $E_s,\Omega_s$ 和热源 $E_r,\Omega_r$ 组成
+
+    - 表达式：
+
+        量子
+        $$
+        \rho_l=\frac{1}{Z}W_le^{-\beta E_l}
+        $$
+        $$
+        Z=\sum_l W_le^{-\beta E_l}
+        $$
+
+        经典
+        $$
+        \rho(q,p)\mathrm{d}\Omega=\frac{1}{Z}\frac{\mathrm{d}\Omega}{N!h^{Nr}}e^{-\beta E(q,p)}
+        $$
+        $$
+        Z=\frac{1}{N!h^{Nr}}\int\mathrm{d}\Omega e^{-\beta E(q,p)}
+        $$
+    
+    - 热力学公式
+
+        内能 $U$
+        $$
+        U=-\frac{\partial}{\partial\beta}\ln Z
+        $$
+
+        广义力 $Y$
+        $$
+        Y=-\frac{1}{\beta}\frac{\partial}{\partial y}\ln Z
+        $$
+        $$
+        p=\frac{1}{\beta}\frac{\partial}{\partial V}\ln Z
+        $$
+
+        熵 $S$
+        $$
+        S=k(\ln Z-\beta\frac{\partial}{\partial \beta}\ln Z)
+        $$
+
+        能量涨落
+        $$
+        \overline{(E-\bar{E})^2}=kT^2C_V
+        $$
+        能量相对涨落
+        $$
+        \frac{\overline{(E-\bar{E})^2}}{(\bar{E})^2}\propto\frac{1}{N}
+        $$
+
+3. 巨正则系综
+
+    确定 $V,T,\mu$ 的系统，引入复合系统 $E^{(0)},N^{(0)}$ 由 $E_s,N_s$ 和 热源+粒子源 $E_r,N_r,\Omega$ 组成
+
+    - 表达式：
+
+        量子
+        $$
+        \rho_s=\frac{1}{\Xi}e^{-\alpha N_s-\beta E_s}
+        $$
+        $$
+        \sum_s\rho_s=\sum_{N,l}\rho(N,E_l)=1
+        $$
+        $$
+        \Xi=\sum_N\sum_s e^{-\alpha N-\beta E_s}=\sum_N\sum_l \omega_l e^{-\alpha N-\beta E_l}
+        $$
+
+        经典
+        $$
+        \rho(q,p)\mathrm{d}\Omega=\frac{1}{\Xi}\frac{\mathrm{d}\Omega}{N!h^{Nr}}e^{-\alpha N-\beta E(q,p)}
+        $$
+        $$
+        \Xi=\sum_N\frac{e^{-\alpha N}}{{N!h^{Nr}}}\int e^{-\beta E(q,p)}\mathrm{d}\Omega
+        $$
+    
+    - 热力学函数
+
+        平均粒子数 $\bar{N}$
+        $$
+        \bar{N}=-\frac{\partial}{\partial\alpha}\ln\Xi
+        $$
+
+        内能 $U$
+        $$
+        U=-\frac{\partial}{\partial \beta}\ln \Xi
+        $$
+
+        广义力 $Y$
+        $$
+        Y=-\frac{1}{\beta}\frac{\partial}{\partial y}\ln \Xi
+        $$
+        $$
+        p=\frac{1}{\beta}\frac{\partial}{\partial V}\ln \Xi
+        $$
+
+        熵 $S$
+        $$
+        S=k(\ln \Xi-\alpha\frac{\partial\ln\Xi}{\partial\alpha}-\beta\frac{\partial\ln\Xi}{\partial\beta})
+        $$
+
+        粒子数涨落
+        $$
+        \overline{(N-\bar{N})^2}=kT\left(\frac{\partial\bar{N}}{\partial\mu}\right)_{T,V}
+        $$
+        粒子数相对涨落
+        $$
+        \frac{\overline{(N-\bar{N})^2}}{(\bar{N})^2}=\frac{kT}{V}\kappa_T\propto\frac{1}{N}
+        $$
+
+- 三种系综关系
+
+    微正则 $\rho_\text{微}=C=\dfrac{1}{\Omega}$
+
+    正则 $\rho_\text{正}=\dfrac{1}{Z}e^{-\beta E}$ 令 $E=$ 常数 -> 微正则
+
+    巨正则 $\rho_\text{巨}=\dfrac{1}{\Xi}e^{-\beta E-\alpha N}$ 令 $N=$ 常数 -> 正则
