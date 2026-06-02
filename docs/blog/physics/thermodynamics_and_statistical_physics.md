@@ -13,7 +13,7 @@
 5. 物态方程：
 
     - 三个力学响应函数
-        - 等压膨胀系由数
+        - 等压膨胀系数
         $$
         \alpha\equiv\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_p
         $$
@@ -27,6 +27,18 @@
         $$
         \kappa_T\equiv-\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T
         $$
+    
+    ::: info 系数关系
+    $$
+    \left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial T}{\partial V}\right)_p\left(\frac{\partial V}{\partial p}\right)_T=-1
+    $$
+    $$
+    \Rightarrow \left(\frac{\partial p}{\partial T}\right)_V=-\frac{1}{\left(\dfrac{\partial T}{\partial V}\right)_p\left(\dfrac{\partial V}{\partial p}\right)_T}=-\frac{\left(\dfrac{\partial V}{\partial T}\right)_p}{\left(\dfrac{\partial V}{\partial p}\right)_T}=\frac{\alpha}{\kappa}
+    $$
+    $$
+    \Rightarrow \alpha=\kappa\beta p
+    $$
+    :::
 
     - 理想气体（实际气体压强趋于零的极限）
     $$
@@ -61,17 +73,44 @@
 
 2. 内能（态函数） $U$
     
-    焓（态函数） $H=U+pV$
+    焓（态函数） $H=U+pV$ （等压过程系统吸热等于焓变）
     ::: info 理想气体内能只是温度函数的实验证明
     1. 盖吕萨克-焦耳“绝热自由膨胀”实验
+
+        $$
+        U=U(T,V)
+        $$
+
+        等内能过程
+
+        $$
+        \left(\frac{\partial U}{\partial V}\right)_T=-\left(\frac{\partial U}{\partial T}\right)_V\left(\frac{\partial T}{\partial V}\right)_U=-C_V\left(\frac{\partial T}{\partial V}\right)_U=0
+        $$
+        $$
+        \left(\frac{\partial U}{\partial V}\right)_T=0\Rightarrow U=U(T)
+        $$
+
     2. 焦耳-汤姆孙“多孔塞节流”实验
+
+        $$
+        H=U+pV=U(T,p)+NRT=H(T,p)
+        $$
+
+        等焓过程 $p_2V_2-p_1V_1=U_1-U_2$
+
+        $$
+        \left(\frac{\partial H}{\partial p}\right)_T=-\left(\frac{\partial H}{\partial T}\right)_p\left(\frac{\partial T}{\partial p}\right)_H=-C_p\left(\frac{\partial T}{\partial p}\right)_H=0
+        $$
+        $$
+        \left(\frac{\partial H}{\partial p}\right)_T=0\Rightarrow H=H(T)
+        $$
     :::
 
     ::: tip 注
     只有理想气体的内能只与温度有关，实际气体还与体积/压强有关。
     :::
 
-3. 绝热过程、准静态过程
+3. 绝热过程、准静态过程（一直平衡态）
 4. 等容热容量
     $$
     C_V=\lim_{\Delta T\rightarrow 0}\left(\frac{\Delta Q}{\Delta T}\right)_V=\left(\frac{\partial U}{\partial T}\right)_V
@@ -111,6 +150,14 @@
     &=\left[p+\left(\frac{\partial U}{\partial V}\right)_T\right]\left(\frac{\partial V}{\partial T}\right)_p
     \end{align}
     $$
+    对于理想气体 $pV=NRT$
+    $$
+    \left\{\begin{array}{l}
+    \left(\dfrac{\partial U}{\partial V}\right)_T=0 \\
+    \left(\dfrac{\partial V}{\partial T}\right)_p=\dfrac{NR}{p}
+    \end{array}\right.
+    \Rightarrow C_p-C_V=p\frac{NR}{p}=NR
+    $$
     :::
 
 6. 过程方程 $pV^\gamma=C$
@@ -121,6 +168,8 @@
     |$\gamma=1$| $pV=\text{const}$| 等温|
     |$\gamma=C_p/C_V$| $pV^\gamma=\text{const}$| 绝热|
     |$\gamma=\infty$| $V=\text{const}$| 等容|
+
+    绝热方程 $pV^\gamma=\text{const}$, $TV^{\gamma-1}=\text{const}$, $\dfrac{T^\gamma}{p^{\gamma-1}}=\text{const}$
 
     ::: info 推导绝热过程方程
     $$
