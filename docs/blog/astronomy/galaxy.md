@@ -1,5 +1,17 @@
 # 星系天文学
 
+- 近代的银河系模型：
+
+    观测：望远镜，可以分辨银河系内的恒星
+
+    理论：构造模型需要天体的准确距离，星光的传播情况
+
+    结论：银河系是“汇聚成群的无数恒星的集合”，呈盘状，太阳位于盘上。但是其中太阳的位置、银河系的大小存在争议。
+
+- 宇宙岛：20 世纪初，通过成功测定河外星系的距离，确认了银河系并非整个宇宙，在银河系最遥远的恒星外，还存在无数个类似银河系的“宇宙岛”。（现代星系天文学的奠基）
+
+    宇宙没有中心，由无数的星系构成，银河系不过是宇宙中一个普通的星系。（现代宇宙学的奠基）
+
 > A galaxy is a massive, gravitationally bound system that consists of stars and stellar remnants, an interstellar medium of gas dust, and an important but poorly understood component tentatively dubbed dark matter.
 >
 >(From Wikipedia)
@@ -37,14 +49,16 @@
 ### 星际介质分类
 
 1. 星际介质分类：
-    - 气体 (gas) & 尘埃 (dust)
+    - （组成）气体 (gas) & 尘埃 (dust)
 
-    - 星云 (nebula) & 云际介质 (intercloud medium)
+    - （密度）星云 (nebula) & 云际介质 (intercloud medium)
+
+        星云数密度超过 $10\text{个}/cm^{-3}$ 原子
 
 2. 云际介质：
 
-    - 暖 (warm) 云际气体： $10^4\sim 10^5$ K
-    - 热 (hot) 云际气体 / 云际冕气 (coronal gas) ： $10^6\sim 10^7$ K
+    - 暖 (warm) 云际气体： $10^4\sim 10^5$ K 主要是稀薄的 HI 和 HII
+    - 热 (hot) 云际气体 / 云际冕气 (coronal gas) ： $10^6\sim 10^7$ K 主要是 HII
 
 3. 星云分类：
     1. （可见光波段发光性质）
@@ -53,12 +67,13 @@
        - 暗星云
 
     ::: info 发射星云分类
-    - 普通 HII 区：新形成高温亮恒星（O,B星），光致电离
-    - 行星状星云：热晚型星（白矮星），光致电离
-    - 超新星遗迹：超新星，碰撞电离
+    根据激发源（照明星）不同
+    - 普通 HII 区（热辐射星云）：新形成高温亮恒星（O,B星），光致电离
+    - 行星状星云（热辐射星云）：热晚型星（白矮星），光致电离
+    - 超新星遗迹（非热辐射星云）：超新星，碰撞电离
     :::
 
-    2. （星际消光大小）
+    2. （星际消光大小 / 尘埃多少）
 
        - 暗星云 (dark) ：气体分子
        - 半透明星云 (translucent) ：气体分子，原子
@@ -143,6 +158,11 @@
 
 1. 星际分子的形成：
     - 辐射缔合 (Radiative Association)
+
+        原子碰撞结合形成分子，释放光子（辐射）
+
+        由于 $H_2$ 的对称性，系统电偶极矩为零，无法通过电偶极辐射释放能量，通过辐射缔合的概率极低
+
     - 尘埃表面的催化作用 (Grain Surface Chemistry)
 
 ::: info 早期宇宙第一代 H₂ 的形成
@@ -163,16 +183,16 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 :::
 
 2. 破坏：
-    - 光致离解
+    - 光致离解：吸收光子跃迁到分子的非束缚能级
     - 离解复合：e.g. 大气电离层
         $$
         O^++H_2\rightarrow OH^++H,\ OH^++e^-\rightarrow O+H
         $$
 
 ::: info 分子光谱
-1. 电子 (electronic) 能级：价电子的能量量子化
-2. 振动 (vibrational) 能级：原子在化学键键长附近振动能量量子化
-3. 转动 (rotational) 能级：分子整体转动角动量量子化
+1. 电子 (electronic) 能级：价电子的能量量子化，紫外和可见光
+2. 振动 (vibrational) 能级：原子在化学键键长附近振动能量量子化，近红外光谱
+3. 转动 (rotational) 能级：分子整体转动角动量量子化，远红外和微波
 :::
 
 3. 观测：
@@ -181,15 +201,19 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 
     $^{12}CO$ 的最强辐射源来自转动能级的 $J=1\rightarrow 0$ 跃迁，波长 $2.6mm$
 
-    H₂通常无法直接观测：对称、转动惯量小，最低转动态向基态跃迁波长 $28\mu m$，对应温度 $\sim 510K$
+    H₂ 通常无法直接观测：对称、转动惯量小，最低转动态向基态跃迁波长 $28\mu m$，对应温度 $\sim 510K$
 
-    示踪分子：分子云中的 $H_2$ 与 $CO,HCN,NH_3,H_2O$ 分子成协。如 $CO$ 分子辐射强度与 $H_2$ 的柱密度存在经验关系。
+    示踪分子：分子云中的 $H_2$ 与 $CO,HCN,NH_3,H_2O$ 分子成协。如 $CO$ 分子辐射强度与 $H_2$ 的柱密度存在经验关系。$^{12}CO$ 丰度只有 H₂ 的 $10^{-4}\sim 10^{-5}$，却是第二丰富的成分，是研星际分子的关键探针。
 
 4. 分子云：
 
     主要特征：低温（利于分子存在），紫外和光学波段光学厚（尘埃）
 
-    - 巨分子云：狭长纤维状结构 (filamentary structures)
+    - 巨分子云 (Giant Molecular Clouds, GMC)：
+
+        质量 $>10^4M_\odot$
+        
+        狭长纤维状结构 (filamentary structures)
 
     - 博克球状体 (Bok Globules)：
 
