@@ -752,3 +752,58 @@ The general rules of stellar evolution:
     - mass-loss: stellar wind
     - the luminosity remains approximately constant in spite of internal changes
     - Wolf-Rayet stars ($>20M_\odot$): O main-sequence star -> blue supergiant -> red supergiant -> WR star
+
+- Eddington luminosity:
+
+    the theoretical limit at which the radiation pressure exceed the body's gravitational attraction, i.e., a body emitting radiation at greater than the Eddington luminosity would break up from its own photon pressure.
+
+    the radiation pressure
+    $$
+    P_\text{rad}=\frac{1}{3}aT^4
+    $$
+    $$
+    \mathrm{d}P_\text{rad}=\frac{4}{3}aT^3\mathrm{d}T=\frac{4}{3}aT^3\left(-\frac{3\kappa L}{64\pi^2acr^4T^3}\mathrm{d}M\right)
+    $$
+
+    the gravitational pressure
+    $$
+    \mathrm{d}P=-\frac{GM}{4\pi r^4}\mathrm{d}M
+    $$
+
+    the Eddington limit
+    $$
+    \frac{\mathrm{d}P_\text{rad}}{\mathrm{d}P}=\frac{\kappa L}{4\pi cGM}<1
+    $$
+    $$
+    \Rightarrow L<\frac{4\pi cGM}{\kappa}
+    $$
+    $$
+    L_\text{Edd}=\frac{4\pi cGM}{\kappa}=3.2\times 10^4\left(\frac{M}{M_\odot}\right)\left(\frac{\kappa_\text{es}}{\kappa}\right)L_\odot
+    $$
+
+- The initial mass function
+
+    - the number of stars formed at a given time, volume, with masses in the range $(m,m+\mathrm{d}m)$ as a function solely of $m$.
+        $$
+        \mathrm{d}n=\Phi(m)\mathrm{d}m
+        $$
+        $$
+        \Phi(m)\propto m^{-2.35}
+        $$
+    
+    - amount of mass locked up in stars with masses in the interval $(m,m+\mathrm{d}m)$
+        $$
+        m\mathrm{d}n=\zeta(m)\mathrm{d}m
+        $$
+        $$
+        \zeta(m)\propto m^{-1.35}
+        $$
+
+### White dwarfs, neutron stars and black holes
+
+1. white dwarfs
+
+    - luminosity & spectra: intrinsically faint, hot stars
+    - structure: isothemal degenerate C/O core + thin non-degenerate surface layer of H or He
+    - The Chandrasekhar mass
+    - Observed mass-radius relation
