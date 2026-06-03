@@ -71,6 +71,8 @@
     \mathrm{d}U=\delta W+\delta Q
     $$
 
+    其中 $W$ 为外界对系统做功， $Q$ 是系统吸收热量。
+
 2. 内能（态函数） $U$
     
     焓（态函数） $H=U+pV$ （等压过程系统吸热等于焓变）
@@ -242,13 +244,38 @@
     $$
     \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V
     $$
+    $$
+    \mathrm{d}U=T\mathrm{d}S+\sum Y_i\mathrm{d}y_i
+    $$
+    ::: info derivation
+    热力学第一定律 $\mathrm{d}U=\delta Q+\delta W$
 
-7. 熵增原理
-    ::: tip 注
-    热源默认足够大，温度不变。
+    对可逆过程有 $\delta W=-p\mathrm{d}V$
 
-    物体则温度会变。
+    结合熵的微分式 $\delta Q=T\mathrm{d}S$
+    $$
+    \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V
+    $$
+
+    广义形式，外界对系统做功为 $\delta W=\sum Y_i\mathrm{d}y_i$
     :::
+    ::: tip 理解
+    热力学基本方程从可逆过程中推导出来，但是结果只与状态量有关，与过程量无关，所以适用于不可逆过程。
+
+    对于不可逆过程，$T\mathrm{d}S>\delta Q$, $\sum Y_i\mathrm{d}y_i<\delta W$, $T\mathrm{d}S+\sum Y_i\mathrm{d}y_i=\delta Q+\delta W=\mathrm{d}U$
+    :::
+
+7. 熵增原理：
+
+    系统经过绝热过程， $\mathrm{d}S\ge 0$
+
+    孤立系统自发过程朝着熵增加的方向进行，平衡时熵最大。
+
+::: tip 注
+热源默认足够大，温度不变。
+
+物体则温度会变。
+:::
 
 8. 理想气体的熵 （理想气体的 $T\mathrm{d}S$ 方程）：
 
@@ -256,30 +283,36 @@
         $$
         \mathrm{d}S=\frac{C_V}{T}\mathrm{d}T+\frac{nR}{V}\mathrm{d}V
         $$
+        $$
+        S=\int\frac{C_V}{T}\mathrm{d}T+nR\ln V+S_0
+        $$
         ::: info derivation
         $$
-        \mathrm{d}U=C_V\mathrm{d}T
-        $$
-        $$
-        \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V
-        $$
-        $$
+        \left.\begin{array}{l}
+        \mathrm{d}U=C_V\mathrm{d}T \\
+        \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V \\
         pV=nRT
+        \end{array}\right\}\Rightarrow
+        \mathrm{d}S=\frac{\mathrm{d}U+p\mathrm{d}V}{T}=\frac{C_V}{T}\mathrm{d}T+\frac{nR}{V}\mathrm{d}V
         $$
         :::
     - $(T,p)$:
         $$
         \mathrm{d}S=\frac{C_p}{T}\mathrm{d}T-nR\frac{\mathrm{d}p}{p}
         $$
+        $$
+        S=\int\frac{C_p}{T}\mathrm{d}T-nR\ln p+S_0
+        $$
         ::: info derivation
         $$
         pV=nRT \Rightarrow \frac{\mathrm{d}p}{p}+\frac{\mathrm{d}V}{V}=\frac{\mathrm{d}T}{T}
         $$
         $$
-        \mathrm{d}U=C_V\mathrm{d}T
-        $$
-        $$
-        \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V
+        \begin{align}
+        \mathrm{d}S&=\frac{C_V}{T}\mathrm{d}T+\frac{nR}{V}\mathrm{d}V \\
+        &=\frac{C_V}{T}\mathrm{d}T+\frac{nR}{T}\mathrm{d}T-\frac{nR}{p}\mathrm{d}p \\
+        &=\frac{C_p}{T}\mathrm{d}T-\frac{nR}{p}\mathrm{d}p
+        \end{align}
         $$
         :::
 
@@ -333,16 +366,88 @@
     $$
     T\mathrm{d}S=C_V\mathrm{d}T+T\left(\frac{\partial p}{\partial T}\right)_V\mathrm{d}V=C_V\mathrm{d}T+\frac{T\alpha}{\kappa}\mathrm{d}V
     $$
+    这就是第一个 $T\mathrm{d}S$ 方程 $S(T,V)$
 
-    对于其他两个方程，类似方式可证
+    通过变换得到第二个 $T\mathrm{d}S$ 方程 $S(T,p)$ ：
+
+    1. 由迈耶 (Mayer) 方程
+        $$
+        \begin{align}
+        C_p-C_V&=\left[p+\left(\frac{\partial U}{\partial V}\right)_T\right]\left(\frac{\partial V}{\partial T}\right)_p \\
+        &=T\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial V}{\partial T}\right)_p
+        \end{align}
+        $$
+    2. 变量代换
+        $$
+        \mathrm{d}V=\left(\frac{\partial V}{\partial T}\right)_p\mathrm{d}T+\left(\frac{\partial V}{\partial p}\right)_T\mathrm{d}p
+        $$
+        $$
+        \begin{align}
+        T\mathrm{d}S&=C_V\mathrm{d}T+T\left(\frac{\partial p}{\partial T}\right)_V\mathrm{d}V \\
+        &=C_V\mathrm{d}T+T\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial V}{\partial T}\right)_p\mathrm{d}T+T\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial V}{\partial p}\right)_T\mathrm{d}p \\
+        &=C_p\mathrm{d}T-T\left(\frac{\partial V}{\partial T}\right)_p\mathrm{d}p=C_p\mathrm{d}T-TV\alpha\mathrm{d}p
+        \end{align}
+        $$
+
+    同理可以得到第三 $T\mathrm{d}S$ 方程
     :::
 
-10. 
+10. 气体经过节流绝热膨胀由 $(V_i,p_i)$ 变为 $(V_f,p_f)$ ，对于小压强差 $\Delta p=p_f-p_i$ ，温差为
+    $$
+    \Delta T=\frac{V}{C_p}(T\alpha-1)\Delta p
+    $$
+    ::: info derivation
+    气体节流绝热过程为等焓过程
+    $$
+    H=U+pV\Rightarrow \mathrm{d}H=\mathrm{d}U+p\mathrm{d}V+V\mathrm{d}p=T\mathrm{d}S+V\mathrm{d}p=0
+    $$
+    需要得到温度和压强的关系，考虑第二 $T\mathrm{d}S$ 方程 $S(T,p)$
+    $$
+    T\mathrm{d}S=C_p\mathrm{d}T-TV\alpha\mathrm{d}p
+    $$
+    $$
+    \mathrm{d}H=C_p\mathrm{d}T+(V-TV\alpha)\mathrm{d}p=0
+    $$
+    $$
+    \Delta T=\frac{V}{C_p}(T\alpha-1)\Delta p
+    $$
+    :::
+    其中焦耳-汤姆孙系数
+    $$
+    \mu_\text{JT}\equiv \left(\frac{\partial T}{\partial p}\right)_H=\frac{V}{C_p}(T\alpha-1)
+    $$
+    当 $\mu_\text{JT}$ 为正数，气体节流绝热膨胀降温，称为“正效应”，反之则气体变热，称为“负效应”。
+
+11. 理想气体的绝热线是等熵线（绝热线特指可逆绝热）
+
+    ::: info derivation
+    $$
+    S_2-S_1=\int_{T_1}^{T_2}C_V\frac{\mathrm{d}T}{T}+NR\ln\left(\frac{V_2}{V_1}\right)
+    $$
+    绝热过程视 $C_V$ 为常数
+    $$
+    \begin{align}
+    S_2-S_1&=C_V\ln\frac{T_2}{T_1}+NR\ln\frac{V_2}{V_1} \\
+    &=C_V\ln\frac{p_2V_2}{p_1V_1}+NR\ln\frac{V_2}{V_1} \\
+    &=C_V\ln\frac{p_2}{p_1}+(C_V+NR)\ln\frac{V_2}{V_1} \\
+    &=C_V\ln\frac{p_2}{p_1}+C_p\ln\frac{V_2}{V_1} \\
+    &=C_V\ln\frac{p_2}{p_1}+\gamma C_V\ln\frac{V_2}{V_1} \\
+    &=C_V\ln\frac{p_2V_2^\gamma}{p_1V_1^\gamma}
+    \end{align}
+    $$
+    绝热过程有 $pV^\gamma=\text{const}$ ，于是有 $\Delta S=0$ ，绝热过程为等熵过程。
+    :::
+
+12. 
 | 过程 | 热力学特征 | 不变的状态函数 | 熵变 ($\Delta S$) | 温度变化 （理想气体） |
 | :---: | :---: | :---: | :---: | :---: |
 | **绝热自由膨胀** | 向真空膨胀，$Q=0, W=0$ | **内能 $U$** | 增加 ($>0$) | 不变 |
 | **绝热节流膨胀** | 稳流通过多孔塞，$Q=0$ | **焓 $H$** | 增加 ($>0$) | 不变 |
 | **绝热可逆膨胀** | 准静态，无摩擦，$Q=0$ | **熵 $S$** | 不变 ($=0$) | 降低 |
+
+13. 计算熵变：
+
+    选定系统，确定初末状态，构造可逆过程，按可逆过程的 $\Delta S=\int\dfrac{\delta Q}{T}$ 计算
 
 ### 热力学势与麦克斯韦关系
 
