@@ -199,11 +199,11 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 
     星际分子谱线多为纯转动谱线，因为温度太低。
 
-    $^{12}CO$ 的最强辐射源来自转动能级的 $J=1\rightarrow 0$ 跃迁，波长 $2.6mm$
+    $^{12}CO$ 的最强辐射源来自转动能级的 $J=1\rightarrow 0$ 跃迁，波长 $2.6mm$ （ CO 与 H₂ 的碰撞可以激发）
 
     H₂ 通常无法直接观测：对称、转动惯量小，最低转动态向基态跃迁波长 $28\mu m$，对应温度 $\sim 510K$
 
-    示踪分子：分子云中的 $H_2$ 与 $CO,HCN,NH_3,H_2O$ 分子成协。如 $CO$ 分子辐射强度与 $H_2$ 的柱密度存在经验关系。$^{12}CO$ 丰度只有 H₂ 的 $10^{-4}\sim 10^{-5}$，却是第二丰富的成分，是研星际分子的关键探针。
+    示踪分子：分子云中的 $H_2$ 与 $CO,HCN,NH_3,H_2O$ 分子成协。如 $CO$ 分子辐射强度与 $H_2$ 的柱密度存在经验关系。$^{12}CO$ 丰度只有 H₂ 的 $10^{-4}\sim 10^{-5}$，却是第二丰富的成分，是研究星际分子的关键探针。
 
 4. 分子云：
 
@@ -213,7 +213,7 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 
         质量 $>10^4M_\odot$
         
-        狭长纤维状结构 (filamentary structures)
+        内部不均匀，狭长纤维状结构 (filamentary structures)
 
     - 博克球状体 (Bok Globules)：
 
@@ -240,16 +240,26 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 
     - 光学观测：发射线谱，允许线和禁戒线，颜色偏红 ($H\alpha\ 656.3nm$)
     - 射电观测：H，N和C等的离子复合为高激发态原子（里徳伯原子）退激发谱线
+
+      （重要性：不受尘埃消光影响、谱线测速度距离）
       
       射电连续谱：热轫致辐射
   
 3. 大小： Strömgren 半径
 
     斯特隆根球 (Strömgren sphere) ：O，B星周围气体云质量够大，消耗中心恒星紫外光子，形成HI区内球状HII区
+    $$
+    R_S=\left(\frac{3}{4\pi}\frac{S_*}{n^2\beta_2}\right)^{1/3}
+    $$
+    UV flux: $S_*$
+
+    Hydrogen recombination coefficient: $\beta(T_e)\approx 2\times10^{-16}T_e^{-3/4} [m^3 s^{-1}]$
 
 4. 云际冕气：
 
-    形成：星系喷泉 (Galactic Fountain)
+    红移 $z\sim 0$, 高温，稀薄
+
+    形成：星系喷泉 (Galactic Fountain)， IGM 流入
 
 #### HI
 
@@ -260,8 +270,8 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
   
 2. 观测：
 
-    - HI 的 21cm 谱线： 电子与质子自旋平行与反平行跃迁，受尘埃影响小
-    - 星际吸收线：窄而固定的吸收线
+    - HI 的 21cm 谱线： 电子与质子自旋平行与反平行跃迁，受尘埃消光影响小
+    - 星际吸收线：星际冷中性气体云，窄而固定的吸收线
 
     星际 HI 两相可以相互靠近，观测无亮背景 HI 云出现窄线宽分量（cold HI）和宽肩分量（warm HI）
   
