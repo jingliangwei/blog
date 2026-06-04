@@ -317,7 +317,7 @@
         :::
 
 
-9. $T\mathrm{d}S$ 方程：
+9. $T\mathrm{d}S$ 方程（一般气体）：
     $$
     T\mathrm{d}S=C_V\mathrm{d}T+T\left(\frac{\partial p}{\partial T}\right)_V\mathrm{d}V=C_V\mathrm{d}T+\frac{T\alpha}{\kappa}\mathrm{d}V
     $$
@@ -391,6 +391,11 @@
 
     同理可以得到第三 $T\mathrm{d}S$ 方程
     :::
+
+    一般气体的内能微分
+    $$
+    \mathrm{d}U=C_V\mathrm{d}T+\left[T\left(\frac{\partial p}{\partial T}\right)_V-p\right]\mathrm{d}V
+    $$
 
 10. 气体经过节流绝热膨胀由 $(V_i,p_i)$ 变为 $(V_f,p_f)$ ，对于小压强差 $\Delta p=p_f-p_i$ ，温差为
     $$
