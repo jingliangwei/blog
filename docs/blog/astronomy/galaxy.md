@@ -280,7 +280,7 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 ![Life-cycle of ISM](./galaxy_fig/1.png)
 
 - 重子循环：气体（星系际介质->星系->恒星->恒星风，超新星爆发->星系际空间）
-- 星际元素贫化 interstellar elemental depletions
+- 星际元素贫化 interstellar elemental depletions （分子云内气体重元素丰度偏低）
 
 ### 星际尘埃
 
@@ -302,7 +302,7 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 #### 尘埃与星云关系
 
 - 暗星云：尘埃消光
-- 分子云：尘埃利于分子形成，保护分子
+- 分子云：尘埃利于分子形成；有效吸收和屏蔽光学和紫外辐射，保护分子
 - 反射星云：尘埃散射星光
 - 发射星云：尘埃红外辐射
 
@@ -312,17 +312,17 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 
     ::: info 尘埃的红外辐射
     分两类：
-    - $\lambda\ge 60\mu m$ 约占 65%：大尺度尘埃，远红外黑体辐射；
-    - $\lambda< 60\mu m$ 约占 35%：小尺度（PAHs, polycyclic aromatic hydrocarbons）多环芳香烃，近、中红外的随机热辐射。
+    - $\lambda\ge 60\mu m$ 约占 65%：大尺度（大于 $25$nm）尘埃，远红外黑体辐射；
+    - $\lambda< 60\mu m$ 约占 35%：小尺度尘埃与单个光子碰撞加热（PAHs, polycyclic aromatic hydrocarbons）多环芳香烃，近、中红外的随机热辐射。
     :::
 
     实际观测星际尘埃的辐射谱：
 
       - 远红外连续谱：大尺度尘埃热平衡辐射，黑体谱
 
-      - 中红外连续谱：小尺度尘埃非平衡辐射，宽连续谱，叠加显著红外 PAHs 振动谱带
+      - 中红外连续谱：小尺度尘埃非热平衡辐射，宽连续谱，叠加显著红外 PAHs 振动谱带
 
-2. 尘埃吸收和散射：
+2. 尘埃吸收+散射：
 
     - 星际消光 interstellar extinction ：星光强度减弱
 
@@ -334,6 +334,18 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
     - 消光比率 $R$： $R_V=A_V/E(B-V)=A_V/(A_B-A_V)$
     - 消光曲线 $A(\lambda)/A_V\sim \lambda$
     :::
+
+    - 消光曲线可以给出：尘埃颗粒的大小
+
+        记尘埃颗粒大小为 $r$ ，入射光波长为 $\lambda$
+        - $r\gg\lambda$ ，消光几乎为常数，简单挡住光（几何光学）
+        - $r\ll\lambda$ ，消光几率 $\sigma\propto 1/\lambda$
+        - $r\sim\lambda$ ，消光最强
+
+    - 一些星际低密度区或稀疏星际介质中，小尘埃比例高，紫外消光强，消光曲线陡峭， $R_V$ 小
+
+        星际高密度区或分子云，大尘埃占主导，紫外消光平缓， $R_V$ 大
+
 
 3. 尘埃的偏振：
 
