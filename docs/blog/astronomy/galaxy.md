@@ -387,10 +387,10 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 
 1. 观测：
 
-    - 直接观测：X射线热轫致辐射谱、X射线特征谱（高次电离离子）
+    - 直接观测：X射线热轫致辐射连续谱、X射线特征谱线（高次电离离子）
     - 间接观测：
 
-        1. Sunyaev-Zel'dovich 效应：逆康普顿散射，黑体谱康普顿化
+        1. Sunyaev-Zel'dovich 效应：逆康普顿散射，CMB 黑体谱康普顿化，只与视线方向电子数密度和温度有关
         2. 快速射电暴等暂现源的色散与时间延迟现象
 
 2. 来源：
@@ -415,11 +415,21 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 3. HI 等冷气体观测：
 
     - 类星体等天体光谱的吸收线（ Ly$\alpha$ forest ）
-    - Gunn-Perterson 效应： G-P吸收槽
+    - Gunn-Perterson 效应：
+        
+        当星系际的 HI 密度足够高，强烈吸收紫外光子，对 Ly$\alpha$ 发射线的短波端连续谱压低，形成 G-P吸收槽
+
+4. 暖热星系际介质 (warm-hot intergalactic medium, WHIM) HII
+
+    宇宙网 cosmic web ，节点 nodes ，细丝 filaments ，墙 walls ，空洞 voids
 
 #### CGM（星系周介质）
 
 - CGM：星系光学结构与IGM之间
+
+    冕状结构 Galactic Corona
+
+    外流 outflow ，内流 inflow
 
 ## 恒星、星团与星族
 
