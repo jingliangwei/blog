@@ -480,6 +480,20 @@
         $$
 
         最大功定理：系统在等温过程中，自由能的减少是系统对外做功的最大值
+        ::: info derivation
+        热力学第二定律
+        $$
+        T\mathrm{d}S\ge \mathrm{d}U-\delta W
+        $$
+        等温过程
+        $$
+        \mathrm{d}(TS)\ge \mathrm{d}U-\delta W
+        $$
+        $$
+        -\delta W\le -\mathrm{d}(U-TS) = -\mathrm{d}F
+        $$
+        即系统对外做功 $-\delta W$ 最大取自由能的减少值 $-\mathrm{d}F$
+        :::
     
     - 焓作为热力学函数：
 
@@ -499,9 +513,20 @@
         \mathrm{d}G=-S\mathrm{d}T+V\mathrm{d}p
         $$
 
+        跟自由能类似：对于等温等压过程，吉布斯自由能的减少是系统对外做功（除了体积变化做功）的最大值
+        ::: info derivation
+        热二
+        $$
+        T\mathrm{d}\ge\mathrm{d}U-\delta W=\mathrm{d}U-p\mathrm{d}(-V)-\delta W_1
+        $$
+        $$
+        -\delta W_1\le-\mathrm{d}(U-TS+pV)
+        $$
+        :::
+
 2. 热力学势与热力学基本方程组：
 
-    - 热力学势：
+    - 热力学势：（特性函数，知道其中之一可以得到其他热力学函数）
 
         - $U=U(S,V)$ 等熵等容过程，系统的不可逆/自发过程 $\mathrm{d}U<0$
         - $H=H(S,p)$ 等熵等压过程，系统的不可逆/自发过程 $\mathrm{d}H<0$
@@ -534,7 +559,17 @@
         \mathrm{d}U=\left(\frac{\partial U}{\partial T}\right)_V\mathrm{d}T+\left(\frac{\partial U}{\partial V}\right)_T\mathrm{d}V=C_V\mathrm{d}T+\left[T\left(\frac{\partial p}{\partial T}\right)_V-p\right]\mathrm{d}V
         $$
         ::: info derivation
-        $S(T,V)$ -> $\mathrm{d}U$
+        $$
+        \left\{\begin{array}{l}
+        S=S(T,V) \\
+        \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V
+        \end{array}\right.
+        \Rightarrow
+        \mathrm{d}U=T\left(\frac{\partial S}{\partial T}\right)_V\mathrm{d}T+\left[T\left(\frac{\partial S}{\partial V}\right)_T-p\right]\mathrm{d}V
+        $$
+        $$
+        \left(\frac{\partial U}{\partial V}\right)_T=T\left(\frac{\partial S}{\partial V}\right)_T-p=T\left(\frac{\partial p}{\partial T}\right)_V-p
+        $$
         :::
 
     - 焓态方程
@@ -545,13 +580,24 @@
         \mathrm{d}H=\left(\frac{\partial H}{\partial T}\right)_p\mathrm{d}T+\left(\frac{\partial H}{\partial p}\right)_T\mathrm{d}p=C_p\mathrm{d}T+\left[V-T\left(\frac{\partial V}{\partial T}\right)_p\right]\mathrm{d}p
         $$
         ::: info derivation
-        $S(T,p)$ -> $\mathrm{d}H$
+        $$
+        \left\{\begin{array}{l}
+        S=S(T,p) \\
+        \mathrm{d}H=T\mathrm{d}S+V\mathrm{d}p
+        \end{array}\right.
+        \Rightarrow
+        \mathrm{d}H=T\left(\frac{\partial S}{\partial T}\right)_p\mathrm{d}T+\left[T\left(\frac{\partial S}{\partial p}\right)_T+V\right]\mathrm{d}p
+        $$
+        $$
+        \left(\frac{\partial H}{\partial p}\right)_T=T\left(\frac{\partial S}{\partial p}\right)_T+V=-T\left(\frac{\partial V}{\partial T}\right)_p+V
+        $$
         :::
 
     - 熵
         $$
         \mathrm{d}S=\frac{C_V}{T}\mathrm{d}T+\left(\frac{\partial p}{\partial T}\right)_V\mathrm{d}V
         $$
+        与第一 $T\mathrm{d}S$ 方程一致
 
     - 热容
         $$
@@ -593,6 +639,60 @@
     \left(\frac{\partial p}{\partial V}\right)_T=-\frac{\left(\dfrac{\partial T}{\partial V}\right)_p}{\left(\dfrac{\partial T}{\partial p}\right)_V}
     $$
 :::
+
+5. 辐射理论：
+
+    - 辐射压强与能量密度
+        $$
+        p=\frac{1}{3}u
+        $$
+    - 能量密度
+        $$
+        u=aT^4
+        $$
+        ::: info derivation
+        $$
+        U(T,V)=u(T)V
+        $$
+        $$
+        \left(\frac{\partial U}{\partial V}\right)_T=T\left(\frac{\partial p}{\partial T}\right)_V-p
+        $$
+        $$
+        u(T)=\frac{T}{3}\frac{\partial u}{\partial T}-\frac{u}{3}
+        $$
+        $$
+        T\frac{\mathrm{d}u}{\mathrm{d}T}=4u
+        $$
+        $$
+        u=aT^4
+        $$
+        :::
+    - 熵
+        $$
+        S=\frac{4}{3}aVT^3
+        $$
+        ::: info derivation
+        $$
+        \left\{\begin{array}{l}
+        U=aT^4V \\
+        p=\dfrac{1}{3}aT^4
+        \end{array}\right.
+        $$
+        $$
+        \begin{align}
+        \mathrm{d}S&=\frac{\mathrm{d}U+p\mathrm{d}V}{T} \\
+        &=\frac{1}{T}\mathrm{d}(aT^4V)+\frac{1}{3T}aT^4\mathrm{d}V \\
+        &=\frac{1}{T}4aT^3V\mathrm{d}T+\frac{1}{T}aT^4\mathrm{d}V+\frac{1}{3}aT^3\mathrm{d}V \\
+        &=4aT^2V\mathrm{d}T+\frac{4a}{3}T^3\mathrm{d}V \\
+        &=\frac{4a}{3}\mathrm{d}(T^3V)
+        \end{align}
+        $$
+        当 $V=0$ 有 $S=0$
+        $$
+        S=\frac{4}{3}aVT^3
+        $$
+        :::
+    - 吉布斯函数 $G=U+pV-TS=0$
 
 ### 相变
 
