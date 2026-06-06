@@ -441,12 +441,14 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
 3. 质量
 4. 金属性
 
-    金属丰度
+    - 金属丰度
     $$
     [Fe/H]_X=\log_{10}[\frac{(N_{Fe}/N_H)_X}{(N_{Fe}/N_H)_\odot}]
     $$
 
-    星系金属增丰循环：恒星形成->核合成->恒星死亡将金属释放回星际介质->下一代恒星从更富金属的气体中诞生...
+    - 观测到的恒星光谱（特别是主序星）主要是光球层的，其元素主要来自其诞生时的环境。恒星形成越晚，越年轻，其金属丰度越高
+
+    - 星系金属增丰循环：恒星形成->核合成->恒星死亡将金属释放回星际介质->下一代恒星从更富金属的气体中诞生...
 
 ### 星团
 
@@ -470,7 +472,7 @@ reference: [Formation of the first stars](https://arxiv.org/abs/1807.06248)
     2. 观测某一星团时，沿视线方向前景和背景中不属于该星团的恒星
 
 - 区分星团成员和场星：年龄、金属性、运动特征
-- 星系的恒星形成率 star formation rate (SFR)
+- 星系的恒星形成率 star formation rate (SFR)：导致同一星系形成两种不同星团
 - 星暴 starburst
 - “特殊”星团：
     - 星协 stellar association: 高光度年轻恒星组成，通常引力不束缚
@@ -521,6 +523,8 @@ stellar populations
             $$
             R_0=8.5 \text{kpc},V_0=220\text{km/s}
             $$
+        
+        - 高速星 high-velocity star 通常约定为相对太阳的空间速度大于 $50km/s$ 的恒星
 
     - 能量：表征束缚程度
 
