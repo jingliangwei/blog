@@ -696,24 +696,25 @@
 
 ### 相变
 
-1. 单元系/多元系，单相系/复相系
+1. 单元系/多元系，单相系（均匀系）/复相系
 
 2. 热力学平衡条件： 力学平衡，热平衡，相平衡，化学平衡
 
     - (亚)稳定平衡态时，
 
-        $(U,V)$ $S$ 最大
+        $(U,V)$ 不变 $S$ 最大
 
-        $(T,V)$ $F$ 最小
+        $(T,V)$ 不变 $F$ 最小
 
-        $(T,p)$ $G$ 最小
+        $(T,p)$ 不变 $G$ 最小
 
-        $(V,S)$ $U$ 最小
+        $(V,S)$ 不变 $U$ 最小
 
-        $(p,S)$ $H$ 最小
+        $(p,S)$ 不变 $H$ 最小
     
     - 均匀系，热动平衡条件
         $$
+        \delta S+\delta S_0=0\Rightarrow
         \left\{\begin{array}{l}
             T=T_0 \\
             p=p_0
@@ -721,6 +722,7 @@
         $$
         稳定平衡条件
         $$
+        \delta^2S+\delta^2S_0<0\Rightarrow
         \left\{\begin{array}{l}
             C_V>0 \\
             \kappa_T>0
@@ -738,42 +740,112 @@
         | $H=H(S,p,n)$ | $\mathrm{d}H=T\mathrm{d}S+V\mathrm{d}p+\mu\mathrm{d}n$ |
         | $F=F(T,V,n)$ | $\mathrm{d}F=-S\mathrm{d}T-p\mathrm{d}V+\mu\mathrm{d}n$ |
 
-        $\mu=\left(\dfrac{\partial G}{\partial n}\right)_{T,p}$ 为化学势
+        $\mu=\left(\dfrac{\partial G}{\partial n}\right)_{T,p}$ 为化学势，等于摩尔吉布斯函数 $g(T,p)\equiv G(T,p,n)/n$
 
         巨热力学势 $J=F-\mu n$
 
         | 巨热力学势 | 全微分 |
         |:---:|:---:|
-        | $J=J(T,V,n)$ | $\mathrm{d}J=-S\mathrm{d}T-p\mathrm{d}V-n\mathrm{d}\mu$ |
+        | $J=J(T,V,\mu)$ | $\mathrm{d}J=-S\mathrm{d}T-p\mathrm{d}V-n\mathrm{d}\mu$ |
+
+        3 组共轭的变量对 $(S,T),(-p,V),(\mu,n)$ 从吉布斯函数出发 $G(T,p,n)$ 通过勒让德变换可以得到其他热力学函数
 
 4. 单元系的复相平衡条件
 
-    $T^\alpha=T^\beta$ 热平衡条件
+    $$
+    \begin{align}
+    \delta S&=\delta S^\alpha+\delta S^\beta \\
+    &=\frac{1}{T^\alpha}[\delta U^\alpha+p^\alpha\delta V^\alpha-\mu^\alpha\mathrm{d}n^\alpha]+\frac{1}{T^\beta}[\delta U^\beta+p^\beta\delta V^\beta-\mu^\beta\mathrm{d}n^\beta] \\
+    &=\delta U^\alpha\left(\frac{1}{T^\alpha}-\frac{1}{T^\beta}\right)+\delta V^\alpha\left(\frac{p^\alpha}{T^\alpha}-\frac{p^\beta}{T^\beta}\right)-\delta n^\alpha\left(\frac{\mu^\alpha}{T^\alpha}-\frac{\mu^\beta}{T^\beta}\right) \\
+    &=0
+    \end{align}
+    $$
 
-    $p^\alpha=p^\beta$ 力学平衡条件
+    $T^\alpha=T^\beta$ 热平衡条件。若 $T^\alpha>T^\beta$ ，由 $\delta S>0\Rightarrow\delta U^\alpha<0$ 即 $\alpha$ 相放热；
 
-    $\mu^\alpha=\mu^\beta$ 相平衡条件
+    $p^\alpha=p^\beta$ 力学平衡条件。若 $p^\alpha>p^\beta$ ，由 $\delta S>0\Rightarrow\delta V^\alpha>0$ 即 $\alpha$ 相体积变大；
+
+    $\mu^\alpha=\mu^\beta$ 相平衡条件。若 $\mu^\alpha>\mu^\beta$ ，由 $\delta S>0\Rightarrow\delta n^\alpha<0$ 物质从 $\alpha$ 相转移到 $\beta$ 相。
 
 5. 单元系的复相平衡性质
 
     - 相图
 
-    - 克拉伯龙 (Clapeyron) 方程：
+    - 克拉伯龙 (Clapeyron) 方程（相变曲线斜率）：
 
         $$
         \frac{\mathrm{d}p}{\mathrm{d}T}=\frac{L}{T(V_m^\beta-V_m^\alpha)}
         $$
         相变潜热 $L=T(S_m^\beta-S_m^\alpha)$
 
+        ::: info derivation
+        从 $(T,p)\rightarrow(T+\mathrm{d}T,p+\mathrm{d}p)$
+
+        由于化学势 $\mu$ 相当于摩尔吉布斯函数，全微分为
+        $$
+        \mathrm{d}\mu=-S_m\mathrm{d}T+V_m\mathrm{d}p
+        $$
+        $$
+        \mathrm{d}\mu^\alpha=-S_m^\alpha\mathrm{d}T+V_m^\alpha\mathrm{d}p=-S_m^\beta\mathrm{d}T+V_m^\beta\mathrm{d}p=\mathrm{d}\mu^\beta
+        $$
+        $$
+        \frac{\mathrm{d}p}{\mathrm{d}T}=\frac{S_m^\beta-S_m^\alpha}{V_m^\beta-V_m^\alpha}=\frac{T(S_m^\beta-S_m^\alpha)}{T(V_m^\beta-V_m^\alpha)}=\frac{L}{T(V_m^\beta-V_m^\alpha)}
+        $$
+        :::
+
 6. 气液两相转变
 
     - 范德瓦耳斯等温线
+        $$
+        \left(p+\frac{a}{V^2}\right)(V-b)=RT
+        $$
+
+    - 麦克斯韦等面积法则
+
+    ![4-1](./thermodynamics_and_statistical_physics_fig/4-1.png)
+    ![4-2](./thermodynamics_and_statistical_physics_fig/4-2.png)
+
+    - 临界点
+        $$
+        \left\{\begin{array}{l}
+        \left(\dfrac{\partial p}{\partial V_m}\right)_{T_c}=0 \\
+        \left(\dfrac{\partial^2 p}{\partial V_m^2}\right)_{T_c}=0
+        \end{array}\right.\Rightarrow \left\{\begin{array}{l}
+        V_{mc}=3b \\
+        T_c=\dfrac{8a}{27Rb} \\
+        p_c=\dfrac{a}{27b^2}
+        \end{array}\right.
+        $$
 
 7. 表面相对相变的影响
 
     液相：$\alpha$ ，气相：$\beta$ ，表面：$\gamma$
 
     - 相平衡条件
+
+        $$
+        \begin{align}
+        \delta F&=\delta F^\alpha+\delta F^\beta+\delta F^\gamma \\
+        &=-p^\alpha\delta V^\alpha+\mu^\alpha\delta n^\alpha-p^\beta\delta V^\beta+\mu^\beta\delta n^\beta+\sigma\delta A \\
+        &=-(p^\alpha-p^\beta)\delta V^\alpha+(\mu^\alpha-\mu^\beta)\delta n^\alpha+\sigma\delta A \\
+        \end{align}
+        $$
+        假设液滴为球形，半径为 $r$
+        $$
+        \left\{\begin{array}{l}
+        V^\alpha=\dfrac{4\pi}{3}r^3 \\
+        A=4\pi r^2
+        \end{array}\right.\Rightarrow\left\{\begin{array}{l}
+        \delta V^\alpha=4\pi r^2\delta r \\
+        \delta A=8\pi r\delta r=\dfrac{2}{r}\delta V^\alpha
+        \end{array}\right.
+        $$
+        $$
+        \begin{align}
+        \delta F&=-(p^\alpha-p^\beta)\delta V^\alpha+(\mu^\alpha-\mu^\beta)\delta n^\alpha+\sigma\delta A \\
+        &=-\left(p^\alpha-p^\beta-\frac{2\sigma}{r}\right)\delta V^\alpha+(\mu^\alpha-\mu^\beta)\delta n^\alpha
+        \end{align}
+        $$
 
         $T^\alpha=T^\beta=T^\gamma$ 热平衡条件
 
@@ -793,8 +865,41 @@
         $$
 
         这里 $p$ 代表平液面时气液平衡的饱和蒸汽压， $p'$ 是弯曲液面时气液平衡的蒸汽压。
+
+        ::: info derivation
+        气液分界面为曲面时： $\mu^\alpha(p'+\frac{2\sigma}{r},T)=\mu^\beta(p',T)$
+
+        气液分界面为平面时： $\mu^\alpha(p,T)=\mu^\beta(p,T)$
+
+        - 对于液滴，对 $\mu^\alpha$ 在 $p$ 处展开：
+        $$
+        \begin{align}
+        \mu^\alpha\left(p'+\frac{2\sigma}{r},T\right)&=\mu^\alpha(p,T)+\left(p'-p+\frac{2\sigma}{r}\right)\frac{\partial\mu^\alpha}{\partial p} \\
+        &=\mu^\alpha(p,T)+\left(p'-p+\frac{2\sigma}{r}\right)V_m^\alpha
+        \end{align}
+        $$
+
+        - 对于气体，理想气体满足 $pV_m=RT$
+
+            等温过程 $\mathrm{d}\mu=V_m\mathrm{d}p$
+            $$
+            \mu^\beta(p,T)=\int V\mathrm{d}p=RT\int\frac{\mathrm{d}p}{p}=RT\ln p+\varphi(T)
+            $$
+            $$
+            \mu^\beta(p',T)=\mu^\beta(p,T)+RT\ln\frac{p'}{p}
+            $$
+        
+        代入平衡条件得
+        $$
+        \left(p'+\frac{2\sigma}{r}-p\right)V_m^\alpha=RT\ln \frac{p'}{p}
+        $$
+        一般情况下 $p'-p\ll\dfrac{2\sigma}{r}$
+        $$
+        \ln\frac{p'}{p}=\frac{2\sigma V_m^\alpha}{RTr}
+        $$
+        :::
     
-    - 液体中气泡的形成与平衡条件
+    - 液体中气泡的形成与平衡条件 （将上面的 $r$ 由 $-r$ 代替）
 
         $p^\beta=p^\alpha+\dfrac{2\sigma}{r}$ 力学平衡条件
 
@@ -804,21 +909,52 @@
 
         化学势在第 $n$ 级偏导存在突变，称为 $n$ 级相变。二级及以上为连续相变。
 
+        - 一级相变：
+
+            - $S_{m1}\neq S_{m2}$ 相变潜热 $L=T(S_2-S_1)$
+            - $V_{m1}\neq V_{m2}$ 体积突变
+        
+        - 二级相变：
+
+            在相变点 $C_p,\alpha,\kappa_T$ 突变，系统宏观态不突变
+
 8. 多元系的热力学函数与基本方程
 
     - 多元单相系
 
-        - 状态参量 $C_{\{T,p,V\}}^2,n_1,n_2,\cdots,n_k$ ($n_1+n_2+\cdots+n_k=n$)
+        - 状态参量
+            $$
+            \left\{\begin{array}{l}
+            T,p \\
+            V,p \\
+            T,V
+            \end{array}\right.,n_1,n_2,\cdots,n_k,\quad (n_1+n_2+\cdots+n_k=n)
+            $$
+
+        ::: info 齐次函数的 Euler 定理
+        若有齐次函数
+        $$
+        f(\lambda x_1,\lambda x_2,\cdots,\lambda x_k)=\lambda^m f(x_1,x_2,\cdots,x_k)
+        $$
+        则
+        $$
+        \sum_{i=1}^k x_i\frac{\partial f}{\partial x_i}=mf
+        $$
+        e.g., $f(x,y)=x^2+3y^2$ 有 $f(\lambda x,\lambda y)=\lambda^2 f(x,y)$
+        $$
+        x\frac{\partial f}{\partial x}+y\frac{\partial f}{\partial y}=x\cdot2x+y\cdot6y=2(x^2+3y^2)=2f(x,y)
+        $$
+        :::
 
         - 偏摩尔量函数
 
-            $v_i=\left(\dfrac{\partial V}{\partial n_i}\right)_{T,p,n_{j\neq i}}$
+            $v_i=\left(\dfrac{\partial V}{\partial n_i}\right)_{T,p,n_{j\neq i}}\quad V=\sum_{i=1}^k n_iv_i$
 
-            $u_i=\left(\dfrac{\partial U}{\partial n_i}\right)_{T,p,n_{j\neq i}}$
+            $u_i=\left(\dfrac{\partial U}{\partial n_i}\right)_{T,p,n_{j\neq i}}\quad U=\sum_{i=1}^k n_iu_i$
 
-            $s_i=\left(\dfrac{\partial S}{\partial n_i}\right)_{T,p,n_{j\neq i}}$
+            $s_i=\left(\dfrac{\partial S}{\partial n_i}\right)_{T,p,n_{j\neq i}}\quad S=\sum_{i=1}^k n_is_i$
 
-            $\mu_i=\left(\dfrac{\partial G}{\partial n_i}\right)_{T,p,n_{j\neq i}}$
+            $\mu_i=\left(\dfrac{\partial G}{\partial n_i}\right)_{T,p,n_{j\neq i}}\quad G=\sum_{i=1}^k n_i\mu_i$
 
         - 热力学基本方程
 
@@ -839,6 +975,18 @@
             $$
             S\mathrm{d}T-V\mathrm{d}p+\sum_{i=1}^k n_i\mathrm{d}\mu_i=0
             $$
+            $k+2$ 个强度量 $T,p,\mu_i$ 之间存在一个关系，只有 $k+1$ 个自由度
+            ::: info derivation
+            $$
+            \left.\begin{array}{r}
+            \displaystyle\mathrm{d}G=-S\mathrm{d}T+V\mathrm{d}p+\sum_{i=1}^k\mu_i\mathrm{d}n_i \\
+            \displaystyle G=\sum_{i=1}^k n_i\mu_i\Rightarrow\mathrm{d}G=\sum_{i=1}^k \mu_i\mathrm{d}n_1+\sum_{i=1}^k n_i\mathrm{d}\mu_i
+            \end{array}\right\}
+            $$
+            $$
+            \Rightarrow S\mathrm{d}T-V\mathrm{d}p+\sum_{i=1}^k n_i\mathrm{d}\mu_i=0
+            $$
+            :::
     
     - 多元复相系
 
@@ -847,7 +995,7 @@
             \mathrm{d}U=T\mathrm{d}S-p\mathrm{d}V+\sum_{i=1}^k\sum_{\alpha}\mu_i^\alpha\mathrm{d}n_i^\alpha
             $$
 
-        - 平衡条件
+        - 平衡条件（同一组元在各相的化学势相等）
             $$
             \left\{\begin{array}{l}
                 \mu_1^\alpha=\mu_1^\beta=\cdots=\mu_1^\varphi=\lambda_1, \\
@@ -859,15 +1007,84 @@
         
         - 吉布斯相律
 
-            体系独立强度量个数 $k-\varphi+2$
+            - 平衡条件：
+
+                热平衡 $T^\alpha=T^\beta=\cdots=T^\varphi=T$
+
+                力学平衡 $p^\alpha=p^\beta=\cdots=p^\varphi=p$
+
+                相平衡 $\mu_i^\alpha=\mu_i^\beta=\cdots=\mu_i^\varphi=\lambda_i$
+
+            - 对 $\alpha$ 相，独立变量有 $k+1$ 个：
+
+                $k+2$ 个强度量 $(T,p,x_1,x_2,\cdots,x_k)$ 加上一个约束条件 $\sum_{i=1}^k x_i^\alpha=1$
+
+            - 对于多元复相系（ $k$ 个组元， $\varphi$ 个相），体系独立强度量个数 $k-\varphi+2$ ：
+
+                $(k+1)\varphi$ 个强度量，加上上面平衡条件，相当于 $(k+2)(\varphi-1)$ 个约束条件
+
+                独立强度量个数 $f=(k+1)\varphi-(k+2)(\varphi-1)=k-\varphi+2$
+            ::: info e.g.
+            - 对于单元系 $k=1$
+                - $\varphi=1$, $f=2$, 独立变量 $(T,p)$
+                - $\varphi=2$, $f=1$, $(T,p)$ 满足克拉伯龙方程
+                - $\varphi=3$, $f=0$, 三相点，无独立变量
+            - 对于二元系 $k=2$ （例如盐的水溶液）
+                - $\varphi=1$, $f=3$, 独立变量 $(T,p,x)$
+                - $\varphi=2$ （有蒸汽相）, $f=2$, 两个独立变量
+                - $\varphi=3$ （水蒸气、冰、溶液）, $f=1$, 一个独立变量 $x$
+                - $\varphi=4$ （水蒸气、冰、溶液、盐）, $f=0$, 无独立变量
+            :::
 
 9. 化学平衡条件
+
+    - 化学反应式
+        $$
+        2H_2O-2H_2-O_2=0
+        $$
+        $$
+        \sum_i \nu_i A_i=0
+        $$
+        式中 $A_i$ 是 $i$ 组元的化学式， $\nu_i$ 是 $i$ 组元的系数。
+
+    - 赫斯 (Hess) 定律：同一反应不同过程反应热相同（焓变相同）
 
     - 化学平衡条件
         $$
         \sum_i \nu_i\mu_i=0
         $$
         $\nu_i$ 为各组分物质的量
+    
+    - 反应度 $\varepsilon$
+
+        初态 $n_1^0,n_2^0,\cdots,n_k^0$
+
+        终态 $n_i=n_i^0+\nu_i\Delta n\quad (i=1,2,\cdots,k)$
+
+        任何组元 $n_i\ge 0$ 给出 $\Delta n$ 的上下限 $\Delta n_a$, $\Delta n_b$ 即 $\Delta n_b\le\Delta n\le \Delta n_a$
+
+        反应度
+        $$
+        \varepsilon=\frac{\Delta n-\Delta n_b}{\Delta n_a-\Delta n_b}
+        $$
+
+        由化学平衡条件给出的 $\Delta n$ 如果超过上述范围，反应因组元的耗尽而停止，反应度为 $0$ 或 $1$
+    
+    - 理想气体化学平衡
+
+        化学势 $\mu_i=RT(\varphi_i+\ln p_i)$ 代入化学平衡条件
+        $$
+        RT\sum_i \nu_i[\varphi_i+\ln p_i]=0
+        $$
+        定义定压平衡常量 $K_p$
+        $$
+        \ln K_p=-\sum_i \nu_i\varphi_i
+        $$
+        化学平衡条件写为
+        $$
+        K_p=\prod_i p_i^{\nu_i}
+        $$
+        给出了平衡时各组元的分压关系，称为质量作用定律
     
     - 萨哈公式
         $$
