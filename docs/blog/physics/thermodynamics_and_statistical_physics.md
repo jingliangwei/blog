@@ -1129,7 +1129,36 @@ $$
 
     $\mu$ 空间/相空间
 
+    ::: info e.g.
+    1. 三维空间运动自由粒子
+
+        $\mu$ 空间：3 个坐标轴 $x,y,z$ 加 3 个动量轴 $p_x,p_y,p_z$ 组成的 6 维空间
+
+        等能面方程
+        $$
+        \varepsilon=\frac{1}{2m}(p_x^2+p_y^2+p_z^2)
+        $$
+    
+    2. 一维线性谐振子
+
+        $\mu$ 空间： $(x,p_x)$
+
+        Hamiltonian:
+        $$
+        H=\frac{p_x^2}{2m}+\frac{1}{2}kx^2=\frac{p_x^2}{2m}+\frac{1}{2}m\omega^2x^2\quad \left(\omega=\sqrt{\frac{k}{m}}\right)
+        $$
+
+        等能面方程
+        $$
+        \varepsilon=\frac{p_x^2}{2m}+\frac{1}{2}m\omega^2 x^2
+        $$
+    :::
+
 4. 粒子运动的量子描述
+
+    - 不确定关系 $\Delta q\Delta p\approx h$
+
+        普朗克常数 $\hbar=h/2\pi,h=6.626\times 10^{-34}J\cdot s$
 
     - 量子相格：
 
@@ -1137,9 +1166,55 @@ $$
 
         自由度为 $r$ 粒子 $\Delta q_1\cdots\Delta q_r\Delta p_1\cdots\Delta p_r\approx h^r$
     
+    ::: info e.g.
+    - 线性谐振子的能级
+        $$
+        \varepsilon_n=\hbar\omega(n+\frac{1}{2})\quad n=0,1,2,\cdots
+        $$
+    :::
+    
     - 粒子可达相体积 $\Omega$
 
     - 粒子微观状态数 $W=\dfrac{\Omega}{h^r}$
+
+    ::: info e.g.
+    1. 三维空间自由粒子
+
+        相体积 $\Omega$
+        $$
+        \begin{align}
+        \Omega&=\int_{H\le\varepsilon}\mathrm{d}\omega=\iiint_{V}\mathrm{d}x\mathrm{d}y\mathrm{d}z\iiint_{H\le\varepsilon}\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z \\
+        &=V\cdot\frac{4}{3}\pi(\sqrt{2m\varepsilon})^3 \\
+        &=\frac{4}{3}\pi V(2m\varepsilon)^{3/2}
+        \end{align}
+        $$
+
+        等能面包含微观状态数 $W$
+        $$
+        W=\frac{\Omega}{h^3}=\frac{4}{3}\pi V\left(\frac{2m\varepsilon}{h^2}\right)^{3/2}
+        $$
+    
+    2. 一维线性谐振子
+
+        等能面
+        $$
+        \varepsilon=\frac{p_x^2}{2m}+\frac{1}{2}m\omega^2 x^2
+        $$
+        是一个椭圆
+        $$
+        \frac{p_x^2}{2m\varepsilon}+\frac{x^2}{2\varepsilon/m\omega^2}=1
+        $$
+
+        相体积 $\Omega$
+        $$
+        \Omega=\pi\cdot\sqrt{2m\varepsilon}\cdot\sqrt{\frac{2\varepsilon}{m\omega^2}}=\frac{2\pi\varepsilon}{\omega}
+        $$
+
+        等能面包含的微观状态数 $W$
+        $$
+        W=\frac{\Omega}{h}=\frac{2\pi\varepsilon}{\omega h}
+        $$
+    :::
 
     - 态密度 $D(\varepsilon)$
 
@@ -1150,10 +1225,24 @@ $$
             \mathrm{d}W=g\frac{\mathrm{d}\Omega(\varepsilon)}{h^r}=D(\varepsilon)\mathrm{d}\varepsilon
             $$
             其中 $g$ 是粒子内部自由度带来的简并度。
+    
+    ::: info e.g.
+    1. 三维空间自由粒子
+
+        1. $\Omega(\varepsilon)=\frac{4}{3}\pi V(2m\varepsilon)^{3/2}$
+        2. $\mathrm{d}\Omega=2\pi V(2m)^{3/2}\varepsilon^{1/2}\mathrm{d}\varepsilon$
+        3. $\mathrm{d}W=\dfrac{\mathrm{d}\Omega}{h^3}=\dfrac{2\pi V(2m)^{3/2}\varepsilon^{1/2}}{h^3}\mathrm{d}\varepsilon=D(\varepsilon)\mathrm{d}\varepsilon$
+    
+    2. 一维线性谐振子
+
+        1. $\Omega(\varepsilon)=\dfrac{2\pi}{\omega}\varepsilon$
+        2. $\mathrm{d}\Omega=\dfrac{2\pi}{\omega}\mathrm{d}\varepsilon$
+        3. $\mathrm{d}W=\dfrac{\mathrm{d}\Omega}{h}=\dfrac{2\pi}{\omega h}\mathrm{d}\varepsilon=D(\varepsilon)\mathrm{d}\varepsilon$
+    :::
 
 5. 系统微观状态的描述
 
-    - 全同粒子 vs 近独立粒子
+    - 全同粒子，近独立粒子
 
     - 费米子（自旋半整数），玻色子（自旋整数），复合粒子
 
@@ -1163,12 +1252,55 @@ $$
         - 波尔兹曼系统：可分辨的全同粒子，个体量子态上粒子数不受限制
         - 玻色系统：不可分辨的全同粒子，个体量子态上粒子数不受限制
         - 费米系统：不可分辨的全同粒子，个体量子态上粒子数最多只能为 1 个粒子
+    
+    ::: info e.g.
+    例如一个有两个粒子组成，粒子量子态有 3 个的系统：
+
+    1. 波尔兹曼系统
+
+        | 微观态 | 量子态1 | 量子态2 | 量子态3 |
+        |:---|:---|:---|:---|
+        | 1 | AB | | |
+        | 2 | | AB | |
+        | 3 | | | AB |
+        | 4 | A | B | |
+        | 5 | B | A | |
+        | 6 | | A | B |
+        | 7 | | B | A |
+        | 8 | A | | B |
+        | 9 | B | | A |
+    
+    2. 玻色系统
+
+        | 微观态 | 量子态1 | 量子态2 | 量子态3 |
+        |:---|:---|:---|:---|
+        | 1 | AA | | |
+        | 2 | | AA | |
+        | 3 | | | AA |
+        | 4 | A | A | |
+        | 5 | | A | A |
+        | 6 | A | | A |
+
+    3. 费米系统
+
+        | 微观态 | 量子态1 | 量子态2 | 量子态3 |
+        |:---|:---|:---|:---|
+        | 1 | A | A | |
+        | 2 | | A | A |
+        | 3 | A | | A |
+    :::
+    ::: tip 不同粒子对应不同系统
+    1. 经典系统：$\mu$ 空间的分布 + 每个粒子序号
+    2. 波尔兹曼系统：$\mu$ 空间相格粒子分布 + 每个粒子序号
+    3. 玻色系统：$\mu$ 空间相格粒子分布
+    4. 费米系统：$\mu$ 空间相格粒子分布 + 每个相格最多一个粒子
+    :::
 
 6. 等概率原理：处于平衡态的孤立系统，系统的各个可能的微观状态出现的概率是相等的。
 
 7. 分布与微观状态数
 
-    - 分布：
+    - 分布：宏观态是 $N,E,V$ 平衡态，每个能级上粒子数分布 $\{a_l\}$
         
         能级 $\varepsilon_1,\varepsilon_2,\cdots,\varepsilon_l$
 
@@ -1178,24 +1310,81 @@ $$
 
         （约束条件： $\sum_l a_l=N,\quad\sum_l a_l\varepsilon_l=E$）
 
-    - 不同系统的微观状态数
+    - 不同系统在给定分布 $\{a_l\}$ 下的微观状态数
 
         - 波尔兹曼系统：
             $$
             \Omega_{M.B.}=\frac{N!}{\prod_l a_l!}\prod_l \omega_l^{a_l}
             $$
+            ::: info derivation
+            1. 在能级 $\varepsilon_l$ 上，给定 $a_l$ 个粒子在 $\omega_l$ 个简并态上分布有 $\omega_l^{a_l}$ 种可能；总共有 $\prod_l\omega_l^{a_l}$ 种可能；
+            2. 考虑不同能级之间的粒子可分辨：先将所有 $N$ 个粒子全排列（ $N!$ 种可能），然后排除同一能级内的全排列（ $\prod_l a_l!$ 种可能）
+
+            所以有 $\Omega_\text{M.B.}=\frac{N!}{\prod_l a_l!}\prod_l\omega_l^{a_l}$
+            :::
         - 玻色系统：
             $$
             \Omega_{B.E.}=\prod_l \frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}
             $$
+            ::: info derivation
+            1. 考虑在能级 $\varepsilon_l$ 上，用字符串代表可能分布（数字代表简并态，`o`代表粒子）
+
+                `12oo3ooo4oo...`, `1oo4o23ooo...`, `12oo3ooo4oo...`, `13ooo2oo4oo...` ...
+
+                固定第一个数字为简并态 1 ，将后面数字加粒子全排列有 $(a_l+\omega_l-1)!$ 种可能
+
+            2. 粒子不可分辨，扣除粒子之间全排列 $a_l!$ ；简并态编号顺序需要固定（否则会重复计数，见上面后两个分布例子），扣除编号全排列 $(\omega_l-1)!$
+
+            所以有 $\Omega_\text{B.E.}=\prod_l\frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}$
+            :::
         - 费米系统：
             $$
             \Omega_{F.D.}=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!}
             $$
+            ::: info derivation
+            1. 在能级 $\varepsilon_l$ 上，由于粒子不可分辨，每个简并态最多一个粒子，相当于从 $\omega_l$ 个简并态挑出 $a_l$ 个来分布粒子，有 $C_{\omega_l}^{a_l}=\frac{\omega_l!}{a_l!(\omega_l-a_l)!}$ 种可能
+
+            所以 $\Omega_\text{F.D.}=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!}$
+            :::
+        ::: info 经典极限条件
+        在玻色系统和费米系统中，任意能级上的粒子数均远远小于能级的简并度，即
+        $$
+        \frac{a_l}{\omega_l}\ll 1
+        $$
+        称为经典极限条件 / 非简并性条件。
+
+        此时有
+        $$
+        \begin{align}
+        \Omega_\text{B.E.}&=\prod_l\frac{(\omega_l+a_l-1)!}{a_l!(\omega_1-1)!} \\
+        &=\prod_l\frac{(\omega_l+a_l-1)(\omega_l+a_l-2)\cdots\omega_l}{a_l!} \\
+        &\approx\prod_l\frac{\omega_l^{a_l}}{a_l!}=\frac{\Omega_\text{M.B.}}{N!}
+        \end{align}
+        $$
+        $$
+        \begin{align}
+        \Omega_\text{F.D.}&=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!} \\
+        &=\prod_l\frac{\omega_l(\omega_l-1)\cdots(\omega_l-a_l+1)}{a_l!} \\
+        &\approx\prod_l\frac{\omega_l^{a_l}}{a_l!}=\frac{\Omega_\text{M.B.}}{N!}
+        \end{align}
+        $$
+        在玻色和费米系统中， $a_l$ 个粒子占据在能级 $\varepsilon_l$ 上的 $\omega_l$ 个量子态本来存在关联，但在经典极限条件下，可以忽略，这时全同性的影响只表现在因子 $1/N!$ 上
+        :::
         - 经典系统：
             $$
             \Omega_{cl}=\frac{N!}{\prod_l a_l!}\prod_l \left(\frac{\Delta \omega_l}{h_0^r}\right)^{a_l}
             $$
+            ::: info derivation
+            把 $\mu$ 空间划分为体积元 $\Delta \omega_l$ ，$\varepsilon_l$ 代表处在 $\Delta \omega_l$ 内粒子的能量， $\Delta \omega_l$ 内粒子的运动状态数为 $\Delta \omega_l/h_0^r$
+
+            $N$ 个粒子的经典分布 $\{a_l\}$:
+            - 体积元 $\Delta\omega_1,\Delta\omega_2,\cdots,\Delta \omega_l$
+            - 能级 $\varepsilon_1,\varepsilon_2,\cdots,\varepsilon_l$
+            - 简并度 $\dfrac{\Delta\omega_1}{h_0^r},\dfrac{\Delta\omega_2}{h_0^r},\cdots,\dfrac{\Delta\omega_l}{h_0^r}$
+            - 粒子数 $a_1,a_2,\cdots,a_l$
+
+            粒子可分辨，处在一个相格内粒子数不受限制，所以经典系统满足波尔兹曼系统统计规律
+            :::
 
 ### 波尔兹曼分布
 
