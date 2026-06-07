@@ -1407,6 +1407,60 @@ $$
     $$
     :::
 
+    ::: info derivation
+    $$
+    \Omega_{M.B.}=\frac{N!}{\prod_l a_l!}\prod_l \omega_l^{a_l}
+    $$
+    微观状态数取极值
+    $$
+    \delta \ln\Omega=0
+    $$
+    $$
+    \ln\Omega=\ln[N!\prod_l\frac{\omega_l^{a_l}}{a_l!}]=\ln N!+\sum_la_l\ln\omega_l-\sum_l\ln a_l!
+    $$
+    假设 $N\gg1,a_l\gg1,\omega_l\gg1$ ，使用 Stirling 公式
+    $$
+    \begin{align}
+    \ln\Omega&\approx N(\ln N-1)-\sum_l a_l(\ln a_l-1)+\sum_l a_l\ln\omega_l \\
+    &=N\ln N-\sum_l a_l\ln a_l+\sum_l a_l\ln\omega_l\qquad (\text{using }N=\sum_l a_l)
+    \end{align}
+    $$
+    对 $a_l$ 取变分
+    $$
+    \begin{align}
+    \delta \ln \Omega&=-\sum_l\ln a_l\,\delta a_l-\sum_l\delta a_l+\sum_l\delta a_l\ln\omega_l \\
+    &\approx-\sum_l\ln(\frac{a_l}{\omega_l})\delta a_l=0
+    \end{align}
+    $$
+    并且满足
+    $$
+    \delta N=\sum_l\delta a_l=0,\quad\delta E=\sum_l\delta a_l\varepsilon_l=0
+    $$
+    使用拉格朗日乘数法，取未定因子 $\alpha,\beta$
+    $$
+    \alpha\delta N=\sum_l\alpha\delta a_l=0,\quad\beta\delta E=\sum_l\beta\delta a_l\varepsilon_l=0
+    $$
+    从 $\delta\ln\Omega=0$ 中减去前两式
+    $$
+    \delta\ln\Omega-\alpha\delta N-\beta\delta E=-\sum_l[\ln(\frac{a_l}{\omega_l})+\alpha+\beta\varepsilon_l]\delta a_l=0
+    $$
+    $$
+    \Rightarrow \ln(\frac{a_l}{\omega_l})+\alpha+\beta\varepsilon_l=0
+    $$
+    $$
+    a_l=\omega_l e^{-\alpha-\beta\varepsilon_l}
+    $$
+    :::
+    ::: info 注：
+    - $\ln\Omega$ 取极大值不仅要求 $\delta\ln\Omega=0$ 还要 $\delta^2\ln\Omega<0$
+        $$
+        \delta^2\ln\Omega=-\delta\left[\sum_l\ln(\frac{a_l}{\omega_l})\delta a_l\right]=-\sum_l\frac{(\delta a_l)^2}{a_l}<0
+        $$
+        满足取极大值条件
+    - 最概然分布 $\neq$ 平衡时的分布，但当粒子数 $N$ 很大时，误差很小
+    - Stirling 公式有近似范围（要求 $a_l\gg1$ ），这点实际上往往不满足，不过推导结果是正确的，与之后用别法结果相同
+    :::
+
     经典统计的波尔兹曼分布：
     $$
     a_l=\frac{\Delta\omega_l}{h_0^r} e^{-\alpha-\beta\varepsilon_l}
@@ -1422,6 +1476,30 @@ $$
         $$
         N=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1},\quad E=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
         $$
+        ::: info derivation
+        $$
+        \Omega_\text{B.E.}=\prod_l\frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}
+        $$
+        $$
+        \ln\Omega=\sum_l[\ln(\omega_l+a_l-1)!-\ln a_l!-\ln(\omega_l-1)!]
+        $$
+        假设 $N\gg1,a_l\gg1,\omega_l\gg1$ ，使用 Stirling 公式
+        $$
+        \ln\Omega\approx\sum_l[(\omega_l+a_l)\ln(\omega_l+a_l)-a_l\ln a_l-\omega_l\ln\omega_l]
+        $$
+        $$
+        \delta\ln\Omega=\sum_l[\ln(\omega_l+a_l)-\ln a_l]\delta a_l
+        $$
+        $$
+        \delta\ln\Omega-\alpha\delta N-\beta\delta E=\sum_l[\ln(\omega_l+a_l)-\ln a_l-\alpha-\beta\varepsilon_l]\delta a_l=0
+        $$
+        $$
+        \ln(\omega_l+a_l)-\ln a_l-\alpha-\beta\varepsilon_l=0
+        $$
+        $$
+        a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}
+        $$
+        :::
     - 费米分布：
         $$
         a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
@@ -1429,12 +1507,37 @@ $$
         $$
         N=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}+1},\quad E=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}+1}
         $$
+        ::: info derivation
+        $$
+        \Omega_\text{F.D.}=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!}
+        $$
+        $$
+        \ln\Omega=\sum_l[\omega_l\ln\omega_l-(\omega_l-a_l)\ln(\omega_l-a_l)-a_l\ln a_l]
+        $$
+        $$
+        \delta\ln\Omega=\sum_l[\ln(\omega_l-a_l)-\ln a_l]\delta a_l
+        $$
+        与玻色分布只有一个符号的区别 $(\omega_l+a_l)\rightarrow(\omega_l-a_l)$
+        :::
+    ::: info 经典极限条件
+    如果参数 $\alpha$ 满足 $e^\alpha\gg1$ 即
+    $$
+    \frac{a_l}{\omega_l}\ll1
+    $$
+    则有
+    $$
+    \Omega_\text{B.E.}=\Omega_\text{F.D.}\Rightarrow\frac{\Omega_\text{M.B.}}{N!}
+    $$
+    $$
+    a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}\mp1}\Rightarrow a_l=\omega_le^{-\alpha-\beta\varepsilon_l}
+    $$
+    :::
     
     - 定域：束缚在一定范围内
 
         定域粒子：被限制在一定范围内，可由位置来区别的粒子
 
-        定域系统：由定域粒子组成的系统
+        定域系统：由定域粒子组成的系统，遵从波尔兹曼分布
 
 2. 宏观热力学量的表达
 
@@ -1444,15 +1547,58 @@ $$
         $$
         N=\sum_l a_l=e^{-\alpha}\sum_l \omega_l e^{-\beta\varepsilon_l}\equiv e^{-\alpha}Z_1
         $$
+        将能级的相格数/简并度按波尔兹曼权重求和
+
+        ::: info 注
+        $e^{-\beta\varepsilon_l}$ 粒子处在能级 $\varepsilon_l$ 上一个量子态的概率（未归一化）
+
+        $Z_1=\sum_l\omega_le^{-\beta\varepsilon_l}$ 概率的归一化常数
+
+        $p_l=e^{-\beta\varepsilon_l}/Z_1$ 粒子处在能级 $\varepsilon_l$ 上一个量子态的概率
+        :::
+
+        系统总的配分函数是单个粒子配分函数的乘积
     - 内能 $U$
         $$
         U=-N\frac{\partial}{\partial \beta}\ln Z_1
         $$
+        ::: info derivation
+        $$
+        \begin{align}
+        U&=\sum_l a_l\varepsilon_l=e^{-\alpha}\sum_l\varepsilon_l\omega_l e^{-\beta\epsilon_l} \\
+        &=\frac{N}{Z_1}\sum_l\varepsilon_l\omega_le^{-\beta\varepsilon_l} \\
+        &=\frac{N}{Z_1}\frac{\partial}{\partial \beta}\left[-\sum_l\omega_le^{-\beta\varepsilon_l}\right] \\
+        &=-\frac{N}{Z_1}\frac{\partial}{\partial\beta}Z_1 \\
+        &=-N\frac{\partial}{\partial\beta}\ln Z_1
+        \end{align}
+        $$
+        :::
 
     - 广义力 $Y=\sum_l a_lf_l$
         $$
         Y=-\frac{N}{\beta}\frac{\partial}{\partial y}\ln Z_1
         $$
+        ::: info derivation
+        $$
+        \begin{align}
+        Y&=\sum_l a_lf_l=\sum_l a_l\frac{\partial\varepsilon_l}{\partial y}=\sum_l\frac{\partial\varepsilon_l}{\partial y}\omega_l e^{-\alpha-\beta\varepsilon_l} \\
+        &=e^{-\alpha}\sum_l\frac{\partial\varepsilon_l}{\partial y}\omega_l e^{-\beta\varepsilon_l(y)} \\
+        &=e^{-\alpha}\cdot\left(-\frac{1}{\beta}\frac{\partial}{\partial y}\right)\left[\sum_l\omega_le^{-\beta\varepsilon_l(y)}\right] \\
+        &=\frac{N}{Z_1}\cdot\left(-\frac{1}{\beta}\frac{\partial}{\partial y}\right)Z_1 \\
+        &=-\frac{N}{\beta}\frac{\partial}{\partial y}\ln Z_1
+        \end{align}
+        $$
+        :::
+        ::: info e.g.
+        令 $y=V$ 为粒子运动空间/系统体积
+        $$
+        -p=Y=-\frac{N}{\beta}\frac{\partial}{\partial V}\ln Z_1
+        $$
+        $$
+        p=\frac{N}{\beta}\frac{\partial}{\partial V}\ln Z_1
+        $$
+        :::
+
     - 做功 $\delta W$
         $$
         \delta W=\sum_l a_l\mathrm{d}\varepsilon_l
@@ -1461,69 +1607,337 @@ $$
         $$
         \delta Q=\sum_l \epsilon_l\mathrm{d}a_l
         $$
-    - 熵的全微分
+        ::: info derivation
+        做功
+        $$
+        \delta W=Y\mathrm{d}y=\mathrm{d}y\sum_l\frac{\partial\varepsilon_l}{\partial y}a_l=\sum_l a_l\mathrm{d}\varepsilon_l
+        $$
+        内能增量
+        $$
+        \mathrm{d}U=\mathrm{d}\sum_l\varepsilon_l a_l=\sum_l a_l\mathrm{d}\varepsilon_l+\sum_l\varepsilon_l\mathrm{d}a_l
+        $$
+        传热
+        $$
+        \delta Q=\mathrm{d}U-\delta W=\sum_l\varepsilon_l \mathrm{d}a_l
+        $$
+        :::
+
+    -   $\beta$ 的物理含义
+        $$
+        \beta=\frac{1}{kT}
+        $$
+        ::: info derivation
+        熵的定义
         $$
         \mathrm{d}S=\frac{\delta Q}{T}=\frac{1}{T}(\mathrm{d}U-Y\mathrm{d}y)
         $$
+        对于变分 $\delta Q$ ，有积分因子 $1/T$
+        
+        考虑 $\beta(\mathrm{d}U-Y\mathrm{d}y)$
+        $$
+        \begin{align}
+        \beta(\mathrm{d}U-Y\mathrm{d}y)&=\beta\left(\mathrm{d}(-N\frac{\partial}{\partial\beta}\ln Z_1)-(-\frac{N}{\beta}\frac{\partial}{\partial y}\ln Z_1)\mathrm{d}y\right) \\
+        &=\beta\left(\frac{N}{\beta}\frac{\partial \ln Z_1}{\partial y}\mathrm{d}y-N\mathrm{d}(\frac{\partial\ln Z_1}{\partial\beta})\right) \\
+        &=N\left(\frac{\partial \ln Z_1}{\partial y}\mathrm{d}y-\beta\mathrm{d}(\frac{\partial\ln Z_1}{\partial\beta})\right) \\
+        &=N\left(\mathrm{d}(\ln Z_1)-\frac{\partial\ln Z_1}{\partial\beta}\mathrm{d}\beta-\beta\mathrm{d}(\frac{\partial\ln Z_1}{\partial\beta})\right) \\
+        &=N\mathrm{d}\left(\ln Z_1-\beta\frac{\partial\ln Z_1}{\partial \beta}\right)
+        \end{align}
+        $$
+        故 $\beta$ 也是过程量 $\delta Q$ 的积分因子，则
+        $$
+        \beta=\frac{1}{kT}
+        $$
+        其中 $k$ 为波尔兹曼 (Boltzmann) 常数
+        :::
+
+    - 熵
         $$
         S=Nk\left(\ln Z_1-\beta\frac{\partial \ln Z_1}{\partial \beta}\right)
         $$
-        $\beta$ 的物理含义
+        ::: info derivation
+        由上面推导有
         $$
-        \beta(\mathrm{d}U-Y\mathrm{d}y)=N\mathrm{d}\left(\ln Z_1-\beta\frac{\partial\ln Z_1}{\partial \beta}\right)
+        \mathrm{d}S=Nk\mathrm{d}\left(\ln Z_1-\beta\frac{\partial \ln Z_1}{\partial \beta}\right)
         $$
-        $$
-        \beta=\frac{1}{\kappa T}
-        $$
-    - 熵的统计意义
+        :::
+
+    - 熵的统计意义 （波尔兹曼关系）
         $$
         S=k\ln\Omega_{M.B.}
         $$
+        经典极限条件下
         $$
-        S_{B.E.}=S_{F.D.}=k\ln\Omega_{M.B.}-k\ln N!
+        \lim_\text{经典}S_{B.E.}=\lim_\text{经典}S_{F.D.}=k\ln\Omega_{M.B.}-k\ln N!
         $$
+        ::: info derivation
+        $$
+        \Omega_\text{M.B.}=\frac{N!}\prod_l\frac{\omega_l^{a_l}}{a_l!}
+        $$
+        $$
+        \begin{align}
+        \ln\Omega_\text{M.B.}&=\ln N!+\sum_l a_l\ln\omega_l-\sum_l\ln a_l! \\
+        &\approx N\ln N+\sum_l a_l\ln\omega_l-\sum_la_l\ln a_l \\
+        &=N\ln N+\sum_l a_l\ln\frac{\omega_l}{a_l} \\
+        &=N\ln N+\sum_l a_l(\alpha+\beta\varepsilon_l) \\
+        &=N(\ln N+\alpha)+\beta\sum_l a_l\varepsilon_l \\
+        &=N\ln Z_1+\beta U \\
+        &=N\left(\ln Z_1-\beta\frac{\partial\ln Z_1}{\partial \beta}\right)
+        \end{align}
+        $$
+        :::
     - 自由能 $F$
         $$
         F=-NkT\ln Z_1
         $$
+        ::: info derivation
+        $$
+        \begin{align}
+        F&=U-TS \\
+        &=-N\frac{\partial}{\partial\beta}\ln Z_1-TNk\left(\ln Z_1-\beta\frac{\partial\ln Z_1}{\partial \beta}\right) \\
+        &=-NkT\ln Z_1
+        \end{align}
+        $$
+        :::
+
+    ::: tip 波尔兹曼理论求热力学函数流程
+    1. 能级分布 $\varepsilon_l,\omega_l$
+    2. 配分函数 $Z_1$
+    3. 求热力学函数（内能，熵等）
+    4. 确定系统平衡性质
+    :::
 
 3. 经典统计中热力学函数的表达式
 
+    简并度
     $$
     \omega_l\rightarrow\frac{\Delta\omega_l}{h_0^r}
     $$
+    能级连续，求和改为积分
     $$
     \sum_l\Delta\omega_l\rightarrow\int\mathrm{d}\omega
+    $$
+    配分函数
+    $$
+    Z_1=\int e^{-\beta\varepsilon_l}\frac{\mathrm{d}\omega}{h_0^r}
     $$
 
 4. 理想气体物态方程
 
+    用近独立粒子波尔兹曼系统描述，单粒子配分函数
     $$
-    U=\frac{3}{2}NkT
+    \begin{align}
+    Z_1&=\int e^{-\beta\varepsilon}\frac{\mathrm{d}\omega}{h^3} \\
+    &=\frac{1}{h^3}\int\mathrm{d}x\mathrm{d}y\mathrm{d}z\int e^{-\frac{\beta}{2m}(p_x^2+p_y^2+p_z^2)}\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z \\
+    &=\frac{V}{h^3}\left(\frac{2\pi m}{\beta}\right)^{3/2}
+    \end{align}
     $$
+    系统压强
+    $$
+    \begin{align}
+    p&=\frac{N}{\beta}\frac{\partial \ln Z_1}{\partial V} \\
+    &=\frac{N}{\beta}\frac{\partial}{\partial V}\left[\ln V-\frac{3}{2}\ln \beta+\frac{3}{2}\ln\left(\frac{2\pi m}{h^2}\right)\right] \\
+    &=\frac{N}{\beta}\frac{1}{V}=\frac{NkT}{V}=\frac{nRT}{V}\qquad(R=N_Ak)
+    \end{align}
+    $$
+    对应物态方程 $pV=nRT$
+
+    系统能量
+    $$
+    \begin{align}
+    U&=-N\frac{\partial\ln Z_1}{\partial\beta} \\
+    &=-N\frac{\partial}{\partial\beta}\left[\ln V-\frac{3}{2}\ln \beta+\frac{3}{2}\ln\left(\frac{2\pi m}{h^2}\right)\right] \\
+    &=\frac{3}{2}\frac{N}{\beta}=\frac{3}{2}NkT
+    \end{align}
+    $$
+
+    理想气体物态方程简单源于能量与空间位置无关。对于双原子分子或者多原子分子理想气体，自由度增加，但是能量仍然与空间位置无关，物态方程不变。
+
+    - 理想气体的经典极限条件
+        $$
+        e^\alpha=\frac{Z_1}{N}=\frac{V}{Nh^3}\left(\frac{2\pi m}{\beta}\right)^{3/2}=\frac{V}{N}\left(\frac{2\pi m}{h^2\beta}\right)^{3/2}\gg 1
+        $$
+        故经典极限条件在以下三种情况更容易满足
+        1. $N/V$ 越小，即气体越稀薄
+        2. 温度越高（ $\beta$ 越小）
+        3. 分子质量 $m$ 越大
+
+        经典极限条件的其他表述
+        $$
+        e^\alpha\gg1\Rightarrow\left(\frac{V}{N}\right)^{1/3}\gg h\left(\frac{1}{2\pi mkT}\right)^{1/2}
+        $$
+        分子热运动平均能量 $\varepsilon_{th}\sim kT$
+        $$
+        2mkT=2m\varepsilon_{th}=p_{th}^2
+        $$
+        $$
+        h\left(\frac{1}{2\pi mkT}\right)^{1/2}=\frac{h}{\sqrt{\pi}p_{th}}\sim\lambda_{th}
+        $$
 
 5. 麦克斯韦速度分布律
 
     $$
-    f_\bar{v}(v_x,v_y,v_z)=\left(\frac{m}{2\pi kT}\right)^{3/2}e^{-\frac{m}{2kT}(v_x^2+v_y^2+v_z^2)}
+    f_{\vec{v}}(v_x,v_y,v_z)=\left(\frac{m}{2\pi kT}\right)^{3/2}e^{-\frac{m}{2kT}(v_x^2+v_y^2+v_z^2)}
     $$
+
+    速率分布律
+    $$
+    f_v(v,\theta,\varphi)=v^2\sin\theta\left(\frac{m}{2\pi kT}\right)^{3/2}e^{\frac{-m}{2kT}v^2}
+    $$
+    $$
+    f(v)=\sqrt{\frac{2}{\pi}}\left(\frac{m}{kT}\right)^{3/2}v^2e^{\frac{-m}{2kT}v^2}
+    $$
+
+    ::: info derivation
+    能量
+    $$
+    \varepsilon=\frac{1}{2m}(p_x^2+p_y^2+p_z^2)+\varepsilon'
+    $$
+    配分函数
+    $$
+    Z_1=\int e^{-\beta\varepsilon}\frac{\mathrm{d}w}{h^r}=\int e^{\frac{-\beta}{2m}(p_x^2+p_y^2+p_z^2)}\frac{\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z}{h^3}\int e^{-\beta\varepsilon'}\frac{\mathrm{d}w'}{h^{r-3}}=Z_1^SZ_1'
+    $$
+    其中 $Z_1^S=V\left(\dfrac{2\pi m}{\beta h^2}\right)^{3/2}$ 为单原子粒子的配分函数
+
+    $Z_1'$ 为其他自由度积分得到的归一化常数
+
+    粒子在 $(p_x,p_y,p_z)$ 的 $\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z$ 相体积内的概率
+    $$
+    \begin{align}
+    &f(p_x,p_y,p_z)\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z \\
+    ={}&\frac{1}{Z_1}\int e^{-\beta\varepsilon}\frac{\mathrm{d}x\mathrm{d}y\mathrm{d}z}{h^3}\frac{\mathrm{d}w'}{h^{r-3}}\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z \\
+    ={}&e^{\frac{-\beta}{2m}(p_x^2+p_y^2+p_z^2)}\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z\frac{1}{Z_1}\int\frac{\mathrm{d}x\mathrm{d}y\mathrm{d}z}{h^3}\int e^{-\beta\varepsilon'}\frac{\mathrm{d}w'}{h^{r-3}} \\
+    ={}&e^{\frac{-\beta}{2m}(p_x^2+p_y^2+p_z^2)}\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z\frac{V}{Z_1^S h^3} \\
+    ={}&\left(\frac{\beta}{2\pi m}\right)^{3/2}e^{\frac{-\beta}{2m}(p_x^2+p_y^2+p_z^2)}\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z
+    \end{align}
+    $$
+    概率密度为
+    $$
+    \begin{align}
+    f(p_x,p_y,p_z)&=\left(\frac{\beta}{2\pi m}\right)^{3/2}e^{\frac{-\beta}{2m}(p_x^2+p_y^2+p_z^2)} \\
+    &=\left(\frac{1}{2\pi mkT}\right)^{3/2}e^{\frac{-1}{2mkT}(p_x^2+p_y^2+p_z^2)}
+    \end{align}
+    $$
+    变量代换
+    $$
+    f_{\vec{p}}(p_x,p_y,p_z)\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z=f_{\vec{v}}(v_x,v_y,v_z)\mathrm{d}v_x\mathrm{d}v_y\mathrm{d}v_z
+    $$
+    $$
+    \mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z=\mathrm{d}(mv_x)\mathrm{d}(mv_y)\mathrm{d}(mv_z)=m^3\mathrm{d}v_x\mathrm{d}v_y\mathrm{d}v_z
+    $$
+    $$
+    \Rightarrow f_{\vec{v}}(v_x,v_y,v_z)=m^3f_{\vec{p}}(p_x,p_y,p_z)=\left(\frac{m}{2\pi kT}\right)^{3/2}e^{\frac{-m}{2kT}(v_x^2+v_y^2+v_z^2)}
+    $$
+    同样变量代换
+    $$
+    \mathrm{d}v_x\mathrm{d}v_y\mathrm{d}v_z=v^2\sin\theta\mathrm{d}v\mathrm{d}\theta\mathrm{d}\varphi
+    $$
+    $$
+    \Rightarrow f_v(v,\theta,\varphi)=v^2\sin\theta f_{\vec{v}}(v_x,v_y,v_z)=v^2\sin\theta\left(\frac{m}{2\pi kT}\right)^{3/2}e^{\frac{-m}{2kT}v^2}
+    $$
+
+    $$
+    f(v)=\int \mathrm{d}\theta\mathrm{d}\varphi f_v(v,\theta,\varphi)=\sqrt{\frac{2}{\pi}}\left(\frac{m}{kT}\right)^{3/2}v^2e^{\frac{-m}{2kT}v^2}
+    $$
+    :::
 
     - 最概然速率 $v_m$
         $$
         v_m=\sqrt{\frac{2kT}{m}}
         $$
+        ::: info derivation
+        $$
+        \left.\frac{\mathrm{d}f(v)}{\mathrm{d}v}\right|_{v=v_m}=0
+        $$
+        :::
     - 平均速率 $\bar{v}$
         $$
         \bar{v}=\sqrt{\frac{8kT}{\pi m}}
         $$
+        ::: info derivation
+        $$
+        \bar{v}=\int_0^\infty vf(v)\mathrm{d}v
+        $$
+        :::
     - 方均根速率 $v_s$
         $$
-        v_s=\sqrt{\bar{v^2}}=\sqrt{\frac{3kT}{m}}
+        v_s=\sqrt{\overline{v^2}}=\sqrt{\frac{3kT}{m}}
         $$
+        ::: info derivation
+        $$
+        \overline{v^2}=\int_0^\infty v^2f(v)\mathrm{d}v
+        $$
+        :::
+    
+    有 $v_m<\bar{v}<v_s$
 
 6. 能量均分定理
 
     对于处在温度 $T$ 的平衡状态的经典系统粒子能量中每一个平方项的平均值等于 $\dfrac{1}{2}kT$
+
+    ::: info derivation
+    记动能平方项 $\dfrac{1}{2}a_ip_i^2$ （系数 $a_i$ 为正，可能是 $q_i$ 的函数，但与 $p_i$ 无关）
+
+    可以计算得到
+    $$
+    \overline{\frac{1}{2}a_ip_i^2}=\frac{1}{2\beta}=\frac{1}{2}kT
+    $$
+
+    对于势能
+    $$
+    \varepsilon_p=\frac{1}{2}\sum_{i=1}^{r'}b_i q_i^2+\varepsilon_q^1(q_{r'+1},\cdots,q_r)
+    $$
+    对势能的平方项 $\dfrac{1}{2}b_iq_i^2$ （系数 $b_i$ 为正，可能是 $q_{r'+1},\cdots,q_r(r'<r)$ 的函数，但与 $q_1,\cdots,q_{r'}$ 无关） 也有
+    $$
+    \overline{\frac{1}{2}b_1q_1^2}=\frac{1}{2}kT
+    $$
+    :::
+
+    ::: info 应用
+    1. 单原子分子理想气体
+        $$
+        \varepsilon=\frac{1}{2m}(p_x^2+p_y^2+p_z^2)
+        $$
+        分子平均能量
+        $$
+        \bar{\varepsilon}=\frac{3}{2}kT
+        $$
+        $$
+        U=\frac{3}{2}NkT
+        $$
+        $$
+        C_V=\frac{\mathrm{d}U}{\mathrm{d}T}=\frac{3}{2}Nk
+        $$
+        $$
+        C_p=C_V+nR=C_V+Nk=\frac{5}{2}Nk
+        $$
+    2. 双原子分子
+        $$
+        \begin{align}
+        \varepsilon={}&\frac{1}{2m}(p_x^2+p_y^2+p_z^2) \quad\text{质心平动动能} \\
+        &+\frac{1}{2I}(p_\theta^2+\frac{1}{\sin^2\theta}p_\varphi^2) \quad\text{绕质心转动动能} \\
+        &+\frac{1}{2\mu}p_r^2+u(r) \quad\text{相对动能，势能}
+        \end{align}
+        $$
+        若为刚性双原子（不考虑相对运动）
+        $$
+        \bar{\varepsilon}=\frac{5}{2}KT\Rightarrow U=\frac{5}{2}NkT
+        $$
+        $$
+        C_V=\frac{5}{2}Nk,\quad C_p=\frac{7}{2}Nk
+        $$
+    3. 固体
+
+        原子在平衡位置做简谐振动
+        $$
+        \varepsilon=\sum_{x,y,z}\left(\frac{1}{2m}p_i^2+\frac{1}{2}m\omega_i^2q_i^2\right)
+        $$
+        $$
+        \bar{\varepsilon}=3kT\Rightarrow U=3NkT
+        $$
+        $$
+        C_V=3Nk
+        $$
+    :::
 
 7. 理想气体的内能，热容与化学势
 
@@ -1532,6 +1946,11 @@ $$
         $$
         S=\frac{3}{2}Nk\ln T+Nk\ln\frac{V}{N}+\frac{3}{2}Nk\left[\frac{5}{3}+\ln\frac{2\pi mk}{h^2}\right]
         $$
+        ::: info derivation
+        $$
+        S=Nk(\ln Z_1-\beta\frac{\partial}{\partial\beta}\ln Z_1)-k\ln N!
+        $$
+        :::
     - 化学势
         $$
         \mu=kT\ln\left[\frac{N}{V}\left(\frac{h^2}{2\pi mkT}\right)^{3/2}\right]
