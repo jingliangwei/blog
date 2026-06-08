@@ -6,8 +6,8 @@
 
     1. 赫歇尔的银河系
 
-        ![Herschel's Milky Way](./galaxy_fig/Herschel's1.png)
-        ![Herschel's Milky Way in real Milky Way](./galaxy_fig/Herschel's2.png)
+        ![Herschel's Milky Way](./galaxy_fig/Herschel1.png)
+        ![Herschel's Milky Way in real Milky Way](./galaxy_fig/Herschel2.png)
 
         - 模型中的分叉？（盘内尘埃消光）
         - 太阳在模型中心附近？（假设恒星光度一致，光度距离有误）
@@ -16,7 +16,7 @@
     
     2. 卡普坦的银河系
 
-        ![Kapteyn's Milky Way](./galaxy_fig/Kapteyn's.png)
+        ![Kapteyn's Milky Way](./galaxy_fig/Kapteyn.png)
 
         通过三角视差法和自行测距
 
@@ -25,7 +25,7 @@
     
     3. 沙普利的银河系
 
-        ![Shapley's Milky Way](./galaxy_fig/Shapley's.png)
+        ![Shapley's Milky Way](./galaxy_fig/Shapley.png)
 
         球状星团为银河系子系统，通过星团内造父变星、天琴 RR 变星测距
 
