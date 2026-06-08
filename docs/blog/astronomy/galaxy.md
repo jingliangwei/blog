@@ -2,6 +2,35 @@
 
 - 近代的银河系模型：
 
+    - 伽利略第一个用望远镜观测，发现银河由无数恒星组成。
+
+    1. 赫歇尔的银河系
+
+        ![Herschel's Milky Way](./galaxy_fig/Herschel's1.png)
+        ![Herschel's Milky Way in real Milky Way](./galaxy_fig/Herschel's2.png)
+
+        - 模型中的分叉？（盘内尘埃消光）
+        - 太阳在模型中心附近？（假设恒星光度一致，光度距离有误）
+        - 所有恒星光度一致？分布均匀？
+        - 宇宙透明？看到了银河最外沿的恒星？
+    
+    2. 卡普坦的银河系
+
+        ![Kapteyn's Milky Way](./galaxy_fig/Kapteyn's.png)
+
+        通过三角视差法和自行测距
+
+        - 假设宇宙透明？
+        - 银河系直径太小，太阳位于中心附近
+    
+    3. 沙普利的银河系
+
+        ![Shapley's Milky Way](./galaxy_fig/Shapley's.png)
+
+        球状星团为银河系子系统，通过星团内造父变星、天琴 RR 变星测距
+
+        - 银河系直径太大，太阳距离银心太远
+
     观测：望远镜，可以分辨银河系内的恒星
 
     理论：构造模型需要天体的准确距离，星光的传播情况
@@ -12,9 +41,10 @@
 
     宇宙没有中心，由无数的星系构成，银河系不过是宇宙中一个普通的星系。（现代宇宙学的奠基）
 
-> A galaxy is a massive, gravitationally bound system that consists of stars and stellar remnants, an interstellar medium of gas dust, and an important but poorly understood component tentatively dubbed dark matter.
->
->(From Wikipedia)
+- 典型星系定义
+    > A galaxy is a massive, gravitationally bound system that consists of stars and stellar remnants, an interstellar medium of gas dust, and an important but poorly understood component tentatively dubbed dark matter.
+    >
+    >(From Wikipedia)
 
 ## 星际介质与星系际介质
 
@@ -613,6 +643,8 @@ stellar populations
         $$
 
         移动星团方法 the moving cluster method / 星群视差 group parallaxes
+        
+        ![移动星团方法](./galaxy_fig/moving_clustero.png)
     
 2. 宇宙距离阶梯：
 
@@ -769,3 +801,73 @@ stellar populations
 
         在更大尺度：呈纤维状结构 cosmic web
 
+#### 气体晕
+
+- 银盘外稀薄气体的分布区域，从恒星晕到暗晕外侧。其外层对应 CGM
+
+- 成分复杂，以热气体为主，也有冷气体和暖气体。无分子气体（温度高、尘埃少，不适合分子存在）
+
+- 费米气泡 Fermi Bubbles
+
+    形成：双极风 Bipolar galactic wind
+
+### 核球
+
+#### 基本性质
+
+- 核球是银盘中心隆起的恒星和星际介质聚集区，光度占银河系总光度的 $15\%-20\%$ 。但是光学观测较暗（受尘埃消光严重）
+
+- 核球的恒星：
+    - 分布相当致密。数密度 $\sim1600ly^{-3}$ （盘星 $\sim0.1ly^{-3}$ ）
+        
+        核心部分恒星间距 $\sim 800 AU(\sim0.01ly)$ ，而银河系恒星之间的平均距离 $\sim5ly$
+    - 速度弥散较大 $(100-150km/s)$ ，无序随机运动主导
+    - 主要为年老恒星，年龄分布范围大
+    - 金属丰度分布范围大
+    （观测恒星主要在近红外波段，受尘埃消光小。尘埃自身辐射在中远红外）
+
+- 核球的气体：星际介质丰富
+
+- 核球包含三种星族：
+    - central bulge：速度弥散低，银河系早期快速塌缩形成的“经典核球”
+    - inner bulge：对应棒状结构。盘的长期演化（棒不稳定性）形成的“伪核球”
+    - interlopers：来自银晕、厚盘的“闯入者”，速度弥散高
+
+- 核球形状：非旋转（非轴对称）椭球体，接近三轴棒状结构，三轴比例 1:0.4:0.3 ，长轴长度 ~3.5kpc ，长轴与太阳-银心连线夹角为 $20-25^\circ$
+
+    证据：
+    1. 核球左侧更厚
+    2. 银经 $l=0$ 方向 HI 云视向速度有两个极值 -53km/s, +135km/s
+
+#### 银心
+
+有超大质量黑洞 人马座 A star (Sgr A*)
+
+---
+
+M87 是 AGN 中心黑洞
+
+- 类星体 QSOs （光度最高的 AGN，看起来整个星系就像一个恒星）：
+    - 能谱多波段，并且光度很高
+    - 光学谱线有强发射线
+    - 可能机制：黑洞吸积
+
+- 活动星系：星系辐射存在由星系核活动主导的、非恒星热辐射的成分
+
+    几乎所有大质量星系中心都存在超大质量黑洞，都经历过核活动阶段
+
+- 银河系未来：50 亿年后会与 M31 并合为一个新的椭圆星系
+
+- 哈勃星系型态分类（哈勃音叉图）
+
+    - 早型星系：椭圆星系、透镜状星系
+
+        晚型星系：旋涡星系
+
+        （不代表不同型态星系之间的直接演化关系）
+
+    - 星系型态影响因素：
+        1. 初始条件（先天因素）：云块物质初始质量、角动量
+        2. 所处环境（后天因素）：近距离伴星系、是否属于某个星系团
+    
+    - 星系型态越晚，颜色越蓝
