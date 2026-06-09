@@ -1703,7 +1703,6 @@ $$
     1. 能级分布 $\varepsilon_l,\omega_l$
     2. 配分函数 $Z_1$
     3. 求热力学函数（内能，熵等）
-    4. 确定系统平衡性质
     :::
 
 3. 经典统计中热力学函数的表达式
@@ -1970,7 +1969,7 @@ $$
     
     1. 平均总粒子数 $\bar{N}$
         $$
-        \bar{N}=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}=-\frac{\partial}{\partial\alpha}\ln\Xi
+        \bar{N}=\sum_l a_l=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}=-\frac{\partial}{\partial\alpha}\ln\Xi
         $$
         巨配分函数 $\Xi$
         $$
@@ -1979,18 +1978,53 @@ $$
         $$
         \ln\Xi=-\sum_l\omega_l\ln(1-e^{-\alpha-\beta\varepsilon_l})
         $$
+        ::: info derivation
+        $$
+        \begin{align}
+        -\frac{\partial}{\partial\alpha}\ln\Xi&=\frac{\partial}{\partial\alpha}\left[\sum_l\omega_l\ln(1-e^{-\alpha-\beta\varepsilon_l})\right] \\
+        &=\sum_l\omega_l\frac{-e^{-\alpha-\beta\varepsilon_l}\cdot(-1)}{1-e^{-\alpha-\beta\varepsilon_l}} \\
+        &=\sum_l\omega_l\frac{e^{-\alpha-\beta\varepsilon_l}}{1-e^{-\alpha-\beta\varepsilon_l}} \\
+        &=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1} \\
+        &=\bar{N}
+        \end{align}
+        $$
+        :::
     
     2. 内能 $U$
         $$
         U=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}=-\frac{\partial}{\partial\beta}\ln\Xi
         $$
+        ::: info derivation
+        $$
+        \begin{align}
+        -\frac{\partial}{\partial\beta}\ln\Xi&=\frac{\partial}{\partial\beta}\left[\sum_l\omega_l\ln(1-e^{-\alpha-\beta\varepsilon_l})\right] \\
+        &=\sum_l\omega_l\frac{-e^{-\alpha-\beta\varepsilon_l}\cdot(-\varepsilon_l)}{1-e^{-\alpha-\beta\varepsilon_l}} \\
+        &=\sum_l\omega_l\frac{\varepsilon_le^{-\alpha-\beta\varepsilon_l}}{1-e^{-\alpha-\beta\varepsilon_l}} \\
+        &=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha-\beta\varepsilon_l}-1} \\
+        &=U
+        \end{align}
+        $$
+        :::
     
     3. 广义力 $Y$
         $$
         Y=-\frac{1}{\beta}\frac{\partial}{\partial y}\ln\Xi
         $$
+        ::: info derivation
         $$
-        p=-\frac{1}{\beta}\frac{\partial}{\partial -V}\ln\Xi
+        \begin{align}
+        Y&=\sum_l\frac{\partial\varepsilon_l}{\partial y}a_l \\
+        &=\sum_l\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}\frac{\partial\varepsilon_l}{\partial y} \\
+        &=\frac{\partial}{\partial\varepsilon_l}[-\ln\Xi]\frac{1}{\beta}\frac{\partial\varepsilon_l}{\partial y} \\
+        &=-\frac{1}{\beta}\frac{\partial}{\partial y}\ln\Xi
+        \end{align}
+        $$
+        :::
+        $$
+        \begin{align}
+        p&=-\frac{1}{\beta}\frac{\partial}{\partial -V}\ln\Xi \\
+        &=\frac{1}{\beta}\frac{\partial}{\partial V}\ln\Xi
+        \end{align}
         $$
     
     4. 熵 $S$
@@ -2035,7 +2069,29 @@ $$
 
     巨热力势 $J=U-TS-\mu\bar{N}=-kT\ln\Xi$
 
+    ::: tip 在玻色系统和费米系统中求热力学函数流程
+    1. 能级分布 $\varepsilon_l,\omega_l$
+    2. 巨配分函数 $\Xi,\ln\Xi$
+    3. 求热力学函数（内能，熵等）
+    :::
+
 2. 弱简并理想玻色气体与费米气体
+
+    ::: info derivation
+    $$
+    \omega_l\rightarrow D(\varepsilon)\mathrm{d}\varepsilon=g\frac{2\pi V}{h^3}(2m)^{3/2}\varepsilon^{1/2}\mathrm{d}\varepsilon
+    $$
+    $$
+    U=\sum_l\frac{\varepsilon_l\omega_l}{e^{\alpha+\beta\varepsilon_l}\pm1}\rightarrow g\frac{2\pi V}{h^3}(2m)^{3/2}\int_0^\infty\frac{\varepsilon^{3/2}}{e^{\alpha+\beta\varepsilon}\pm 1}\mathrm{d}\varepsilon
+    $$
+    $$
+    U=\frac{3}{2}NkT\left[1\pm\frac{1}{4\sqrt{2}}\frac{1}{g}\frac{N}{V}(\frac{h^2}{2\pi mkT})^{3/2}\right]
+    $$
+    对非相对论粒子
+    $$
+    pV=\frac{2}{3}U
+    $$
+    :::
 
     物态方程
     $$
@@ -2056,6 +2112,16 @@ $$
         \mu<\varepsilon_0
         $$
         化学势随温度的降低而升高
+        ::: info derivation
+        玻色分布
+        $$
+        a_l=\frac{\omega_l}{e^{\alpha+\beta\varepsilon_l}-1}=\frac{\omega_l}{e^{\frac{\varepsilon_l-\mu}{kT}}-1}
+        $$
+        满足约束
+        $$
+        N=\sum_la_l=\sum_l\frac{\omega_l}{e^{\frac{\varepsilon_l-\mu}{kT}}-1}
+        $$
+        :::
     
     2. 粒子数
         $$
@@ -2069,6 +2135,7 @@ $$
         $$
         n_{\varepsilon=0}(T)=n\left[1-\left(\frac{T}{T_c}\right)^{3/2}\right]
         $$
+        凝聚体能量动量为零，熵为零。
 
 4. 光子气体 （平衡辐射）
 
@@ -2090,12 +2157,37 @@ $$
             $$
             U(\omega,T)=\frac{V}{\pi^2 c^3}\frac{\hbar\omega^3}{e^{\hbar\omega/kT}-1}
             $$
+            ::: info derivation
+            等能面包含微观态数
+            $$
+            \begin{align}
+            \Omega(E)&=\int_{p_x^2+p_y^2+p_z^2=\frac{E^2}{c^2}}g\frac{\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}p_x\mathrm{d}p_y\mathrm{d}p_z}{h^3}\quad(g=2) \\
+            &=2V\int_{k_x^2+k_y^2+k_z^2=\frac{E^2}{\hbar^2 c^2}}\frac{\mathrm{d}k_x\mathrm{d}k_y\mathrm{d}k_z}{8\pi^3} \\
+            &=\left.\frac{V}{4\pi^3}\frac{4}{3}\pi|\vec{k}|^3\right|_{|\vec{k}|=\frac{E}{\hbar c}}=\frac{V}{3\pi^2 c^3}\left(\frac{E}{\hbar}\right)^3
+            \end{align}
+            $$
+            态密度
+            $$
+            D(\omega)\mathrm{d}\omega=\frac{V}{\pi^2c^3}\omega^2\mathrm{d}\omega
+            $$
+            在 $\omega$ 处光子数密度 $n(\omega,T)$
+            $$
+            \begin{align}
+            n(\omega,T)\mathrm{d}\omega&=a_\omega D(\omega)\mathrm{d}\omega \\
+            &=\frac{1}{e^{\hbar\omega/kT}-1}\frac{V}{\pi^2 c^3}\omega^2\mathrm{d}\omega
+            \end{align}
+            $$
+            能量
+            $$
+            U(\omega,T)=\hbar\omega n(\omega,T)=\frac{V}{\pi^2 c^3}\frac{\hbar\omega^3}{e^{\hbar\omega/kT}-1}
+            $$
+            :::
     
     3. 平衡辐射经典公式
 
         - 红外极限 瑞利-金斯公式
             $$
-            U(\omega,T)\mathrm{d}\omega=\frac{V}{\pi^2 c^3}\frac{\hbar\omega^3}{e^{\hbar\omega/kT}-1}\mathrm{d}\omega
+            U(\omega,T)\mathrm{d}\omega=\frac{V}{\pi^2 c^3}\omega^2kT\mathrm{d}\omega
             $$
         - 紫外极限 维恩公式
             $$
@@ -2118,10 +2210,41 @@ $$
         p=\frac{1}{3}\frac{U}{V}
         $$
         $$
-        S=\frac{4}{45}\frac{\pi^2k^4V}{c^3\hbar^3}T^3V
+        S=\frac{4}{45}\frac{\pi^2k^4V}{c^3\hbar^3}T^3
         $$
+        ::: info derivation
+        $$
+        \begin{align}
+        \ln\Xi&=-\sum_l\omega_l\ln(1-e^{-\alpha-\beta\varepsilon_l}) \\
+        &=-\int D(\omega)\mathrm{d}\omega\ \ln(1-e^{-\alpha-\beta\varepsilon}) \\
+        &=-\int\frac{V}{\pi^2c^3}\omega^2\ln(1-e^{-\alpha-\beta\varepsilon})\mathrm{d}\omega \\
+        &=-\frac{V}{\pi^2c^3}\frac{1}{(\beta\hbar)^3}\int_0^\infty x^2\ln(1-e^{-x})\mathrm{d}x \\
+        &=\frac{\pi^2 V}{45c^3}\frac{1}{(\beta\hbar)^3}=\frac{\pi^2k^3T^3V}{45c^3\hbar^3}
+        \end{align}
+        $$
+        $$
+        U=-\frac{\partial}{\partial\beta}\ln\Xi=\frac{\pi^2k^4V}{15c^3\hbar^3}T^4
+        $$
+        $$
+        p=\frac{1}{\beta}\frac{\partial}{\partial V}\ln\Xi=\frac{\pi^2 k^4}{45c^3\hbar^3}T^4
+        $$
+        $$
+        \begin{align}
+        S&=k(\ln\Xi-\alpha\frac{\partial\ln\Xi}{\partial\alpha}-\beta\frac{\partial\ln\Xi}{\partial\beta}) \\
+        &=k(\ln\Xi-\beta\frac{\partial}{\partial\beta}\ln\Xi) \\
+        &=k(\ln\Xi+\beta U) \\
+        &=\frac{4}{45}\frac{\pi^2k^4V}{c^3\hbar^3}\cdot T^3
+        \end{align}
+        $$
+        :::
 
 5. 声子气体
+
+    - 固体热容理论：    
+
+        晶格热容（晶格振动）+电子热容（电子运动）
+
+        除非极低温度，电子热容很小
 
     - 声子：描述固体中原子核的运动，只是格波激发的量子
 
@@ -2129,7 +2252,7 @@ $$
 
         常温下，固体的摩尔热容 $C_V\approx 25$ J/mol K
 
-        能量均分定理 $\Rightarrow C_V=3N_Ak_B$
+        能量均分定理 $\overline{E}=3N_Ak_BT\Rightarrow C_V=3N_Ak_B$
     
     - Einstein 模型：
 
@@ -2142,6 +2265,24 @@ $$
 
         低温下， $C_V=3Nk_B\left(\frac{T_E}{T}\right)^2e^{-T_E/T}$
 
+        ::: info derivation
+        能量量子化
+        $$
+        \varepsilon_l=(n_l+\frac{1}{2})\hbar\omega_l
+        $$
+        与环境热平衡的谐振子平均能量
+        $$
+        \bar{\varepsilon}_l=\frac{\hbar\omega_l}{2}+\frac{\hbar\omega_l}{e^{\hbar\omega_l/k_BT}-1}
+        $$
+        晶体总能量（忽略零点能）假设所有原子以同一频率 $\omega_E$ 振动
+        $$
+        \overline{E}=\sum_{l=1}^{3N}\frac{\hbar\omega_l}{e^{\hbar\omega_E/k_BT}-1}=3N\frac{\hbar\omega_E}{\exp\left(\frac{\hbar\omega_E}{k_BT}\right)-1}
+        $$
+        $$
+        C_V=\frac{\partial\overline{E}}{\partial T}=3Nk_B\left(\frac{\hbar\omega_E}{k_BT}\right)^2\frac{\exp\left(\frac{\hbar\omega_E}{k_BT}\right)}{\left[\exp\left(\frac{\hbar\omega_E}{k_BT}\right)-1\right]^2}
+        $$
+        :::
+
     - Debye 模型：
 
         假设晶体为连续弹性介质，原子热运动为弹性波，频率上限 $\omega_D$ 为德拜频率
@@ -2152,9 +2293,19 @@ $$
         C_V=9Nk_B\left(\frac{T}{T_D}\right)^3\int_0^{T_D/T}\frac{x^4e^x}{(e^x-1)^2}\mathrm{d}x
         $$
 
-        低温下， $C_V=\frac{12}{5}\pi^4 Nk_B\left(\frac{T}{T_D}\right)^3$
+        低温下， $C_V=\dfrac{12}{5}\pi^4 Nk_B\left(\dfrac{T}{T_D}\right)^3$ （德拜 $T^3$ 定律）
 
 6. 自由电子气体
+
+    ::: info derivation
+    金属内自由电子组成强简并的费米气体 $e^\alpha\ll1$
+    $$
+    D(\varepsilon)\mathrm{d}\varepsilon=\frac{4\pi V}{h^3}(2m_e)^{3/2}\varepsilon^{1/2}\mathrm{d}\varepsilon
+    $$
+    $$
+    N=\int\frac{D(\varepsilon)\mathrm{d}\varepsilon}{e^{\alpha+\beta\varepsilon}+1}=\int\frac{4\pi V}{h^3}(2m_e)^{3/2}\frac{\varepsilon^{1/2}\mathrm{d}\varepsilon}{e^{\frac{\varepsilon-\mu}{kT}}+1}
+    $$
+    :::
 
     - $0K$ 时平均粒子数
         $$
@@ -2172,23 +2323,23 @@ $$
         \varepsilon_F=\mu(0)=\frac{h^2}{2m}\left(\frac{3N}{8\pi V}\right)^{2/3}=\frac{\hbar^2}{2m}\left(3\pi^2\frac{N}{V}\right)^{2/3}
         $$
 
-        费米动量
+        费米动量 ( $\varepsilon_F=p_F^2/2m_e$ )
         $$
         p_F=\sqrt{2m_e\mu(0)}=\sqrt[3]{3\pi^2\frac{N}{V}}\hbar
         $$
 
-        费米温度
+        费米温度 ( $kT_F=\varepsilon_F$ )
         $$
         kT_F=\mu(0)
         $$
 
         电子气体内能
         $$
-        U(0)=\frac{3N}{5}\mu(0)
+        U(0)=\frac{4\pi V}{h^3}(2m)^{3/2}\int_0^{\mu(0)}\varepsilon^{3/2}\mathrm{d}\varepsilon=\frac{3N}{5}\mu(0)
         $$
         费米简并压
         $$
-        p(0)=\frac{2}{5}\frac{N}{V}\mu(0)
+        p(0)=\frac{2}{3}\frac{U(0)}{V}=\frac{2}{5}\frac{N}{V}\mu(0)
         $$
 
     - $>0K$ 时
@@ -2204,7 +2355,7 @@ $$
         C_V=Nk\frac{\pi^2}{2}\frac{kT}{\mu(0)}\equiv r_0 T
         $$
 
-    低温下，金属的总定容热容
+    低温下，金属的总定容热容（晶格振动+自由电子气体）
     $$
     C_V=rT+AT^3
     $$
@@ -2213,6 +2364,27 @@ $$
 - 非相对论 $\varepsilon=\dfrac{p^2}{2m}$
 - 相对论 $\varepsilon=\sqrt{p^2c^2+m_0^2c^4}$
 - 极端相对论 $\varepsilon=cp$
+:::
+::: tip 粒子压强与能量密度的比例
+压强（粒子对器壁的动量转移）
+$$
+P=\frac{1}{3}\int n(p)p v(p)\,\mathrm{d}p
+$$
+这里因子 $1/3$ 来自各向同性 $\langle\cos^2\theta\rangle=1/3$ 的角度平均，只有法向动量对压强有贡献
+- 非相对论粒子
+    $$
+    \varepsilon=\frac{p^2}{2m},\quad v=\frac{p}{m}\Rightarrow pv=2\varepsilon
+    $$
+    $$
+    P=\frac{1}{3}\int n(p)2\varepsilon\,\mathrm{d}p=\frac{2}{3}u
+    $$
+- 极端相对论粒子（光子）
+    $$
+    \varepsilon=pc,\quad v=c\Rightarrow pv=\varepsilon
+    $$
+    $$
+    P=\frac{1}{3}\int n(p)\varepsilon\,\mathrm{d}p=\frac{1}{3}u
+    $$
 :::
 
 ### 系综理论
