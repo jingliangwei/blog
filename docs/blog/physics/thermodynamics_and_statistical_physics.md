@@ -2430,6 +2430,10 @@ $$
 
     $\bar{B}(t)=\sum_s\rho_s(t)B_s$
 
+- 最概然分布理论：宏观量是微观量在最概然分布下的数值
+
+    系综分布理论：宏观量是微观量在给定宏观条件下所有可能微观状态上的平均值
+
 1. 微正则系综
 
     - 等概率原理（微正则分布）：在 $E\rightarrow E+\Delta E$ 内所有可能微观态概率密度都相等
@@ -2457,6 +2461,28 @@ $$
             \beta=\left(\frac{\partial \ln \Omega(N,E,V)}{\partial E}\right)_{N,V}
             $$
             统计热平衡条件 $\beta_1=\beta_2$
+            ::: info derivation
+            子系统 $A_1:\Omega_1(N_1,E_1,V_1)$, $A_1:\Omega_2(N_2,E_2,V_2)$
+
+            复合系统 $A^{(0)}$ 的微观状态数
+            $$
+            \Omega^{(0)}(E_1,E_2)=\Omega_1(E_1)\Omega(E_2)
+            $$
+            孤立系统，能量守恒
+            $$
+            E_1+E_2=E^{(0)}=\text{const}\Rightarrow \frac{\partial E_2}{\partial E_1}=-1
+            $$
+            $$
+            \Omega^{(0)}(E_1,E^{(0)}-E_1)=\Omega_1(E_1)\Omega_2(E^{(0)}-E_1)
+            $$
+            热平衡对应概率最大 / 微观状态数最多的状态
+            $$
+            \frac{\partial\Omega^{(0)}}{\partial E_1}=\frac{\partial\Omega_1(E_1)}{\partial E_1}\Omega_2(E_2)+\Omega_1(E_1)\frac{\partial\Omega_2(E_2)}{\partial E_2}\frac{\partial E_2}{\partial E_1}=0
+            $$
+            $$
+            \Rightarrow \left(\frac{\ln\Omega_1(E_1)}{\partial E_1}\right)_{N_1,V_1}=\left(\frac{\partial\ln\Omega_2(E_2)}{\partial E_2}\right)_{N_2,V_2}
+            $$
+            :::
 
             波尔兹曼关系 $S=k\ln\Omega$
 
@@ -2483,6 +2509,25 @@ $$
             $$
             k=\frac{R}{N_A}
             $$
+            ::: info derivation
+            - N 个分子处于 V 容器内，微观态数
+                $$
+                \Omega(N,E,V)=C\cdot V^N
+                $$
+                $$
+                \gamma=\frac{p}{kT}=\frac{\partial\ln\Omega}{\partial V}=\frac{\partial(\ln C+\ln V^N)}{\partial V}=\frac{N}{V}
+                $$
+                $$
+                \Rightarrow pV=NkT
+                $$
+            - 由实验得到的理想气体状态方程
+                $$
+                pV=nRT=\frac{N}{N_A}RT
+                $$
+            $$
+            \Rightarrow k=\frac{R}{N_A}
+            $$
+            :::
         
         - 求热力学函数程序
 
