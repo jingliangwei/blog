@@ -27,7 +27,7 @@
 
 3. Radii:
 
-    - angular diameter
+    - angular diameter (difficult)
     - interferometry and eclipsing binaries
 
 4. Magnitude:
@@ -36,10 +36,13 @@
         $$
         \text{B-V}=-2.5\log\left(\frac{\text{flux in B}}{\text{flux in V}}\right)
         $$
+        the colour relation: $\text{B-V}=f(T_e)$
+
+        the observed $(\text{B-V})$ should be corrected for interstellar extinction to $(\text{B-V})_0$
 
     - absolute magnitude, apparent magnitude:
         $$
-        m-M=5\log d-5
+        m-M=5\log d \text{ (pc)}-5
         $$
 
     - bolometric magnitude （热星等）:
@@ -50,23 +53,32 @@
 5. Stellar spectral types, effective temperature: OBAFGKM
 
 6. The Hertzsprung-Russell diagram
+    
+    ![H-R diagram](./star_fig/H-R.png)
+
 7. Mass-luminosity relation
-8. Age: star clusters
+8. Age: isochrones of star clusters
+9. Metallicity: line spectrum
 
 ::: info star clusters
 - stars all at same distance
 - dynamically bound
 - same age
 - same initial chemical composition
-
-Open cluster & Globular cluster
-
-MS turn-off points: Globular cluster all old
-
-open cluster has the Hertzsprung gap
 :::
 
-9. Metallicity: spectrum
+::: info Open cluster & Globular cluster
+
+![open cluster](./star_fig/hr_open.png)
+
+![globular cluster](./star_fig/hr_globular.png)
+
+| Open cluster | Globular cluster |
+|:---|:---|
+| MS turn-off point varies massively | MS turn-off points in similar position |
+| Very massive and bright stars (in MS) | Horizontal branch |
+| The Hertzsprung gap between the MS and the giant branch | Variable RR Lyrae stars (in Horizontal branch) |
+:::
 
 ## The Equations of Stellar Structure
 
@@ -113,11 +125,54 @@ open cluster has the Hertzsprung gap
     $$
     :::
 
+    ::: info accuracy of hydrostatic assumption
+    - suppose there is a resultant force on the element
+        $$
+        \rho(r)a=\rho(r)g\beta
+        $$
+        hence there is an inward acceleration
+        $$
+        a=\beta g
+        $$
+        the spatial displacement $d$ after a time $t$ is
+        $$
+        d=\frac{1}{2}\beta gt^2
+        $$
+        The Sun is unlikely to have changed its properties significantly over the last $10^9$ years ( $3\times 10^{16}s$ ), which gives a upper limit for $\beta$
+        
+        ( $r=7\times10^{10}$ cm, $g=GM/r^2=2.5\times10^{4}$ cm s$^{-2}$ )
+        $$
+        d=\frac{1}{2}\beta gt^2\ll r\Rightarrow \beta\ll 6\times10^{-27}
+        $$
+    - The dynamical timescale
+
+        allow the star to collapse, i.e., set $d=r$
+        $$
+        t_d=\frac{1}{\sqrt{\beta}}\sqrt{\frac{2r^3}{GM}}\sim\sqrt{\frac{2r^3}{GM}}
+        $$
+        for the Sun, $t_d\sim 2000$ s.
+    :::
+    ::: info accuracy of spherical symmetry assumption
+    The centripetal force is given by $m\omega^2 r$
+
+    There will be no departure from spherical symmetry provided that
+    $$
+    m\omega^2 r\ll\frac{GMm}{r^2}\Rightarrow\omega^2\ll\frac{GM}{r^3}=\frac{2}{t_d^2}
+    $$
+    for the Sun, $\omega=2\pi/P$, where rotation period $P\sim 1$ month $\sim 2\times 10^6$ s, while $t_d\sim2000$ s.
+    :::
+
 2. **Equation of mass conservation**:
 
     $$
     \frac{\mathrm{d}M(r)}{\mathrm{d}r}=4\pi r^2\rho(r)
     $$
+    ::: info derivation
+    the mass in a shell $\delta r$ at $r$ is
+    $$
+    \delta M=\rho(r)4\pi r^2\delta r
+    $$
+    :::
 
 ::: info applications
 1. Minimun values for central pressure of a star:
