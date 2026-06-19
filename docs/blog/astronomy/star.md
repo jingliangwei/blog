@@ -285,7 +285,16 @@
 - Source of energy generation:
 
     - Cooling or Contraction
+
+        the thermal timescale
+        $$
+        t_\text{th}\sim\frac{GM_s^2}{L_sr_s}
+        $$
+
     - Chemical Reactions
+
+        chemical reactions such as the combustion of fossil fuels release $\sim5\times10^{-10}$ of the rest mass energy of the fuel
+
     - Nuclear Reactions (Fission / Fusion)
 
 3. **Equation of energy production**:
@@ -304,29 +313,57 @@
 
     - Conduction: by collisions of gas particles
     - Radiation: by photons
+
+        for the Sun: $P_g/P_r\sim10^4$
+        $$
+        \left\{\begin{array}{l}
+        P_g=nkT \\
+        P_r=\dfrac{1}{3}aT^4
+        \end{array}\right.\quad
+        \left\{\begin{array}{l}
+        \rho u_g=\dfrac{3}{2}nkT \\
+        \rho u_r=aT^4
+        \end{array}\right.
+        $$
+        $$
+        \Rightarrow \frac{\rho u_g}{\rho u_r}\sim 5\times 10^3
+        $$
+        this imply that conduction is more important than radiation for the Sun.
+
+        However, the mean free path of a photon $\sim10^{-2}$ m; while the mean free path of a particle $\sim10^{-10}$ m. Photons can move across temperature gradients more easily, hence larger transport of energy. So conduction is negligible, radiation transport in dominant.
+
     - Convection: by mass motions of the gas
 
         condition for occurrence of convection (Schwarzschild criterion):
         $$
         \frac{\mathrm{d}T}{\mathrm{d}r}>\frac{\gamma-1}{\gamma}\frac{T}{P}\frac{\mathrm{d}P}{\mathrm{d}r}=\left(\frac{\mathrm{d}T}{\mathrm{d}r}\right)_{\text{adia}}
         $$
+        can be satisfied in two ways: (1) the ratio of specific heats $\gamma$ is close to unity or (2) the temperature gradient is very steep.
         ::: info derivation
-        The density of the convective element should be lower than the surroundings
+        The density of the convective element ( $\delta$ ) should be lower than the surroundings ( $\Delta$ )
         $$
         \rho-\delta\rho<\rho-\Delta\rho
         $$
-        Assuming adiabatical
+        Assuming adiabatical and sub sound speed ( hence $\delta P=\Delta P$ )
         $$
         PV^\gamma=\text{const}\Rightarrow\frac{P}{\rho^\gamma}=\text{const}
         $$
         $$
-        \Rightarrow\delta \rho\approx\frac{\rho}{\gamma P}\delta P
+        \frac{\delta P}{P}-\gamma\frac{\delta \rho}{\rho}=0\Rightarrow\delta \rho\approx\frac{\rho}{\gamma P}\delta P
         $$
         $$
-        \frac{\rho}{\gamma P}\frac{\mathrm{d}P}{\mathrm{d}r}>\frac{\mathrm{d}\rho}{\mathrm{d}r}
+        \delta\rho>\Delta\rho\Rightarrow \frac{\rho}{\gamma P}\frac{\mathrm{d}P}{\mathrm{d}r}>\frac{\mathrm{d}\rho}{\mathrm{d}r}\Rightarrow\frac{1}{\gamma}>\frac{P}{\rho}\frac{\mathrm{d}\rho}{\mathrm{d}P}=\frac{\mathrm{d}\ln\rho}{\mathrm{d}\ln P}
+        $$
+        using
+        $$
+        P=\frac{\rho kT}{m}\Rightarrow\frac{\mathrm{d}P}{P}=\frac{\mathrm{d}\rho}{\rho}+\frac{\mathrm{d}T}{T} \Rightarrow 1=\frac{P}{\rho}\frac{\mathrm{d}\rho}{\mathrm{d}P}+\frac{P}{T}\frac{\mathrm{d}T}{\mathrm{d}P}
+        $$
+        the Schwarzschild criterion
+        $$
+        \frac{1}{\gamma}>1-\frac{P}{T}\frac{\mathrm{d}T}{\mathrm{d}P}\Rightarrow\frac{P}{T}\frac{\mathrm{d}T}{\mathrm{d}P}>\frac{\gamma-1}{\gamma}
         $$
         $$
-        P=\frac{\rho kT}{m}\Rightarrow 1=\frac{P}{\rho}\frac{\mathrm{d}\rho}{\mathrm{d}P}+\frac{P}{T}\frac{\mathrm{d}T}{\mathrm{d}P}
+        \frac{\mathrm{d}T}{\mathrm{d}r}>\frac{\gamma-1}{\gamma}\frac{T}{P}\frac{\mathrm{d}P}{\mathrm{d}r}=\left(\frac{\mathrm{d}T}{\mathrm{d}r}\right)_\text{adia}
         $$
         :::
 
