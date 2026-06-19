@@ -189,9 +189,21 @@
     $$
     P_c-P_s=\int_0^{M_s}\frac{GM}{4\pi r^4}\mathrm{d}M>\int_0^{M_s}\frac{GM}{4\pi r_s^4}\mathrm{d}M=\frac{GM_s^2}{8\pi r_s^4}
     $$
+    for the Sun: $r=7\times10^8$ m; $G=6.67\times 10^{-11}$ N m$^2$ kg$^{-2}$; $M_\odot=1.99\times10^{30}$ kg
+
+    $P_{c\odot}>4.5\times 10^{13}$ N m$^{-2}$ $=4.5\times 10^8$ atmospheres.
 
 2. The Virial theorem:
 
+    $$
+    \left\{\begin{array}{l}
+        \dfrac{\mathrm{d}P}{\mathrm{d}r}=-\dfrac{GM\rho}{r^2} \\
+        \dfrac{\mathrm{d}M}{\mathrm{d}r}=4\pi r^2\rho
+    \end{array}\right.
+    $$
+    $$
+    \Rightarrow \frac{\mathrm{d}P}{\mathrm{d}M}=-\frac{GM}{4\pi r^4}
+    $$
     $$
     \Rightarrow 4\pi r^3\mathrm{d}P=-\frac{GM}{r}\mathrm{d}M
     $$
@@ -212,6 +224,8 @@
     -\Omega=3\int_0^{V_s}P\mathrm{d}V=3\int_0^{M_s}\frac{P}{\rho}\mathrm{d}M
     $$
     for ideal gas $P=nkT=k\rho T/m$,
+
+    ( $n$ is the number of particles per m$^3$, $m$ is the average mass of particles )
     $$
     3\int_0^{M_s}\frac{kT}{m}\mathrm{d}M=-\Omega=\int_0^{M_s}\frac{GM}{r}\mathrm{d}M>\int_0^{M_s}\frac{GM}{r_s}\mathrm{d}M=\frac{GM_s^2}{2r_s}
     $$
@@ -219,7 +233,16 @@
     \overline{T}=\frac{\int_0^{M_s}T\mathrm{d}M}{M_s}>\frac{GM_sm}{6kr_s}
     $$
 
+    for the Sun: $k=1.38\times10^{-23}$ J K$^{-1}$; $m=\dfrac{1}{2}m_H=\dfrac{1}{2}\times1.67\times10^{-27}$ kg
+
+    $\overline{T}_\odot>2\times10^6$ K
+
 4. Physical state of stellar material: plasma (highly ionized gas)
+
+    the mean density of the Sun is
+    $$
+    \rho_\text{av}=\frac{3M_\odot}{4\pi r_\odot^3}=1.4\times10^3\text{ kg m}^{-3}
+    $$
 
 5. the radiation
 
@@ -229,21 +252,28 @@
     
     radiation v.s. gas pressure
     $$
-    \frac{P_r}{P_g}=\frac{aT^4/3}{kT\rho/m}\approx\frac{amT^3}{3k\left(\dfrac{3M_s}{4\pi r_s^3}\right)}=\frac{4\pi amr_s^3T^3}{9kM_s}\propto M_s^2
+    \frac{P_r}{P_g}=\frac{aT^4/3}{kT\rho/m}\approx\frac{ma\overline{T}_\odot^3}{3k\rho_\text{av}}\sim 10^{-4}
     $$
+    hence radiation pressure appears to be negligible for the Sun.
+
+    But $P_r$ becomes significant in higher mass stars
+    $$
+    \frac{P_r}{P_g}=\frac{aT^4/3}{kT\rho/m}\approx\frac{amT^3}{3k\left(\dfrac{3M_s}{4\pi r_s^3}\right)}=\frac{4\pi amr_s^3T^3}{9kM_s}
+    $$
+    from the Virial theorem $\overline{T}\propto\dfrac{M_s}{r_s}$ $\Rightarrow\dfrac{P_r}{P_g}\propto M_s^2$.
 
 6. Gravitational instability:
 
     using the Virial theorem $3\int_0^{V_s}P\mathrm{d}V+\Omega=0$
 
     $$
-    3\int_0^{V_s}nkT\mathrm{d}V=3\int_0^{V_s}\frac{\rho_0}{\mu m_H}kT\mathrm{d}V=3\frac{\rho_0}{\mu m_H}kT\frac{4\pi}{3}r_s^3=\frac{3M_s kT}{\mu m_H}
+    \text{gas pressure}=3\int_0^{V_s}nkT\mathrm{d}V=3\int_0^{V_s}\frac{\rho_0}{\mu m_H}kT\mathrm{d}V=3\frac{\rho_0}{\mu m_H}kT\frac{4\pi}{3}r_s^3=\frac{3M_s kT}{\mu m_H}
     $$
     $$
-    \int_0^{M_s}\frac{GM}{r}\mathrm{d}M=\int_0^{r_s}\frac{G\dfrac{4\pi}{3}\rho_0r^3}{r}4\pi r^2\rho_0\mathrm{d}r=\frac{3}{5}\frac{GM_s^2}{r_s}
+    \text{gravitation}=\int_0^{M_s}\frac{GM}{r}\mathrm{d}M=\int_0^{r_s}\frac{G\dfrac{4\pi}{3}\rho_0r^3}{r}4\pi r^2\rho_0\mathrm{d}r=\frac{3}{5}\frac{GM_s^2}{r_s}
     $$
 
-    Jeans criterions:
+    Jeans criterions ( gas pressure < gravitation ):
     $$
     M_s>\left(\frac{5kT}{G\mu m_H}\right)^{3/2}\left(\frac{3}{4\pi\rho_0}\right)^{1/2}\equiv M_J
     $$
