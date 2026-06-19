@@ -370,17 +370,28 @@
 - The characteristic timescales
 
     - The dynamical timescale (Newtonian timescale)
+
+        time for matter of a star of $M$ to fall freely
         $$
         t_d=\sqrt{\frac{2r^3}{GM}}
         $$
+        for the Sun $t_d\sim 2000$ s.
+
     - The thermal timescale (Kelvin-Helmholtz timescale)
+
+        time for a star to emit its entire reserve of thermal energy upon contraction provided it maintains constant luminosity
         $$
-        t_{th}=\frac{GM^2}{Lr}
+        t_\text{th}=\frac{GM^2}{Lr}
         $$
+        for the Sun $t_\text{th}\sim 30$ Myrs.
+
     - The nuclear timescale (Einstein timescale)
+
+        time for a star to consume all its available nuclear energy
         $$
-        t_{nuc}\sim\frac{\eta Mc^2}{L}
+        t_\text{nuc}\sim\frac{\eta Mc^2}{L}
         $$
+        for the Sun $t_\text{nuc}\sim3.29\times10^{18}$ s $\sim10^{11}$ yrs for H fusion of $\eta\sim 0.7\%$.
 
 4. **Equation of radiative transport**:
     $$
@@ -441,14 +452,36 @@ Solvable with 3 supplements:
     $$
     L_{conv}=4\pi r^2\alpha\rho v\frac{5k\delta T}{2m}=\frac{10\pi r^2\alpha\rho vk\delta T}{m}
     $$
+    ::: info derivation
+    Assuming a fraction $\alpha(\le 1)$ of the material is in the rising and falling columns and moving at speed $v$ (m s$^{-1}$).
 
-- Schwarzschild Criterion (convection versus radiation)
+    Hence the excess energy carried across radius is $L_{conv}=$ surface area $\times$ rate of mass transport across unit area $\times$ excess energy per unit mass
+    :::
+
+    ::: info how to deal with the convection region?
+    - solve the four differential equations
     $$
-    \nabla_{\text{conv}}\equiv\frac{P}{T}\frac{\mathrm{d}T}{\mathrm{d}P}
+    \begin{align}
+    \frac{\mathrm{d}r}{\mathrm{d}M}&=\frac{1}{4\pi r^2\rho} \\
+    \frac{\mathrm{d}P}{\mathrm{d}M}&=-\frac{GM}{4\pi r^4} \\
+    \frac{\mathrm{d}L}{\mathrm{d}M}&=\varepsilon \\
+    \frac{P}{T}\frac{\mathrm{d}T}{\mathrm{d}P}&=\frac{\gamma-1}{\gamma}
+    \end{align}
     $$
+    - calculate the $L_\text{rad}$ by
     $$
-    \nabla_{\text{rad}}\equiv\frac{\gamma-1}{\gamma}
+    \frac{\mathrm{d}T}{\mathrm{d}M}=-\frac{3\kappa L_\text{rad}}{64\pi^2acr^4T^3}
     $$
+    so $L_\text{conv}=L-L_\text{rad}$ must be positive if convection is occuring, otherwise convection will not occur.
+    :::
+
+- Stellar evolution
+
+    In the case of no bulk motions in the interior of the star, the rate of change of abundances of the different chemical elements
+    $$
+    \frac{\partial (C_{X,Y,Z})_M}{\partial t}=f(\rho,T,C_{X,Y,Z})
+    $$
+    $C_{X,Y,Z}$ is the chemical composition of stellar material in terms of mass fractions of hydrogen ( $X$ ), helium ( $Y$ ) and metals ( $Z$ ).
 
 ## The physics of stellar interiors
 
