@@ -943,7 +943,7 @@ $$
     $$
     \left\{\begin{array}{l}
     \dfrac{\mathrm{d}P(r)}{\mathrm{d}r}=-\dfrac{GM(r)\rho(r)}{r^2} \\
-    P=K\rho^\gamma=K\rho^{n+1/n}
+    P=K\rho^\gamma=K\rho^{(n+1)/n}
     \end{array}\right.
     $$
     $$
@@ -951,15 +951,166 @@ $$
     $$
     where
     $$
-    \xi\equiv \frac{r}{\alpha},\theta^n\equiv\frac{\rho}{\rho_c},\alpha\equiv\sqrt{\frac{(n+1)K}{4\pi G\rho_c^{n-1/n}}}
+    \xi\equiv \frac{r}{\alpha},\theta^n\equiv\frac{\rho}{\rho_c},\alpha\equiv\sqrt{\frac{(n+1)K}{4\pi G\rho_c^{(n-1)/n}}}
     $$
     This is Lane-Emden equation.
+    ::: info derivation
+    $$
+    \frac{\mathrm{d}P(r)}{\mathrm{d}r}=-\frac{GM(r)\rho(r)}{r^2}
+    $$
+    $$
+    \Rightarrow \frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{r^2}{\rho}\frac{\mathrm{d}P}{\mathrm{d}r}\right)=-G\frac{\mathrm{d}M}{\mathrm{d}r}
+    $$
+    $$
+    \Rightarrow \frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{r^2}{\rho}\frac{\mathrm{d}P}{\mathrm{d}r}\right)=-4\pi G\rho
+    $$
+    using
+    $$
+    P=K\rho^\gamma=K\rho^{(n+1)/n}
+    $$
+    $$
+    \frac{(n+1)K}{4\pi nG}\frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac{r^2}{\rho^{(n-1)/n}}\frac{\mathrm{d}\rho}{\mathrm{d}r}\right)=-\rho
+    $$
+    define two dimensionless variables
+    $$
+    \xi\equiv\frac{r}{\alpha},\quad\theta^n\equiv\frac{\rho}{\rho_c}
+    $$
+    $$
+    \frac{(n+1)K}{4\pi nG}\frac{1}{\alpha^2\xi^2}\frac{\mathrm{d}}{\mathrm{d}\alpha\xi}\left(\frac{\alpha^2\xi^2}{\rho_c^{(n-1)/n}\theta^{n-1}}\frac{\mathrm{d}\rho_c\theta^n}{\mathrm{d}\alpha\xi}\right)=-\rho_c\theta^n
+    $$
+    $$
+    \Rightarrow \frac{(n+1)K}{4\pi G\rho_c^{(n-1)/n}}\frac{1}{\alpha^2\xi^2}\frac{\mathrm{d}}{\mathrm{d}\xi}\left(\xi^2\frac{\mathrm{d}\theta}{\mathrm{d}\xi}\right)=-\theta^n
+    $$
+    let
+    $$
+    \alpha=\sqrt{\frac{(n+1)K}{4\pi G\rho_c^{(n-1)/n}}}
+    $$
+    $$
+    \Rightarrow \frac{1}{\xi^2}\frac{\mathrm{d}}{\mathrm{d}\xi}\left(\xi^2\frac{\mathrm{d}\theta}{\mathrm{d}\xi}\right)=-\theta^n
+    $$
+    :::
+    ::: info analytical solution
+    - $n=0$:
+    $$
+    \theta=1-\frac{\xi^2}{6}
+    $$
+    - $n=1$:
+    $$
+    \theta=\frac{\sin\xi}{\xi}
+    $$
+    - $n=5$:
+    $$
+    \theta=\frac{1}{\sqrt{1+\xi^2/3}}
+    $$
+    :::
+    ::: info numerical solution
+    Lane-Emden equation can be written as
+    $$
+    \frac{\mathrm{d}^2\theta}{\mathrm{d}\xi^2}=-\frac{2}{\xi}\frac{\mathrm{d}\theta}{\mathrm{d}\xi}-\theta^n
+    $$
+    step outwards in radius from the centre of the star
+    $$
+    \left\{\begin{array}{l}
+    \theta_{i+1}=\theta_i+\dfrac{\mathrm{d}\theta}{\mathrm{d}\xi}\Delta\xi \\
+    \left(\dfrac{\mathrm{d}\theta}{\mathrm{d}\xi}\right)_{i+1}=\left(\dfrac{\mathrm{d}\theta}{\mathrm{d}\xi}\right)_i+\dfrac{\mathrm{d}^2\theta}{\mathrm{d}\xi^2}\Delta\xi=\left(\dfrac{\mathrm{d}\theta}{\mathrm{d}\xi}\right)_i-\left(\dfrac{2}{\xi}\dfrac{\mathrm{d}\theta}{\mathrm{d}\xi}-\theta^n\right)\Delta\xi
+    \end{array}\right.
+    $$
+    $$
+    \frac{\mathrm{d}\theta}{\mathrm{d}\xi}=0,\theta=1\quad\text{at }\xi=0
+    $$
+    ![numerical solution](./star_fig/lane_emden.png)
+    ::: details python script
+    `python` script
+    ```py
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    def lane_emden_solve(n, xi_max=100.0, dxi=0.001, xi_start=1e-6):
+        """
+        Solve Lane-Emden equation
+        """
+        # initial values
+        theta = 1.0 - xi_start**2 / 6.0
+        phi = -xi_start / 3.0
+
+        xi_list = [xi_start]
+        theta_list = [theta]
+
+        # solve by steps
+        xi = xi_start
+        while xi < xi_max:
+            if abs(theta) > 1e100:
+                break
+
+            theta_new = theta + phi * dxi
+
+            try:
+                power = theta ** n
+            except OverflowError:
+                break
+
+            phi_new = phi + (- (2.0 / xi) * phi - power) * dxi
+
+            xi += dxi
+            theta, phi = theta_new, phi_new
+
+            xi_list.append(xi)
+            theta_list.append(theta)
+
+        return np.array(xi_list), np.array(theta_list)
+
+    # solve with n=0,1,2,...,9
+    n_values = list(range(10))
+    solutions = {}
+    for n in n_values:
+        xi, theta = lane_emden_solve(n)
+        solutions[n] = (xi, theta)
+
+    # plot the results
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    for n in n_values:
+        xi, theta = solutions[n]
+        ax.plot(xi, theta, label=f'n = {n}', alpha=0.9)
+
+    ax.set_xlim(0, 100)
+    ax.set_ylim(-0.4, 1.0)
+    ax.set_xlabel(r'$\xi$')
+    ax.set_ylabel(r'$\theta$')
+    ax.set_title(r"Lane-Emden Equation Solutions")
+    ax.legend(loc='upper right')
+    ax.axhline(0, linestyle='-', color='black', alpha=0.9)
+    ax.grid(True, linestyle='--', alpha=0.5)
+
+    plt.tight_layout()
+    plt.savefig('lane_emden.png', dpi=150)
+    plt.show()
+    ```
+    the initial value:
+    $$
+    \frac{\mathrm{d}^2\theta}{\mathrm{d}\xi^2}+\frac{2}{\xi}\frac{\mathrm{d}\theta}{\mathrm{d}\xi}=-\theta^n
+    $$
+    as $\xi\rightarrow 0$
+    $$
+    \theta''(0)+2\theta''(0)=-1
+    $$
+    $$
+    \Rightarrow \theta''(0)=-\frac{1}{3}
+    $$
+    therefore
+    $$
+    \theta(\xi)\approx \theta(0)+\theta'(0)\xi+\frac{\theta''(0)}{2!}\xi^2+\cdots\approx 1-\frac{1}{6}\xi^2+\cdots
+    $$
+    $$
+    \theta'(\xi)\approx \theta'(0)+\theta''(0)\xi+\cdots\approx-\frac{1}{3}\xi+\cdots
+    $$
+    :::
 
 - For $n=1.5$, in the case of non-relativistic degeneracy $P=K_1\rho^{5/3}$
     $$
     M_sR^3=\text{const}
     $$
-    For $n=3$, in the case of relativistic degeneracy $P=K_2\rho^{4/3}$
+    For $n=3$, in the case of relativistic degeneracy $P=K_2\rho^{4/3}$ (called the Eddington Standard Model)
     $$
     M_s=5.83\mu_e^{-2}M_\odot
     $$
