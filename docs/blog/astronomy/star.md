@@ -760,10 +760,19 @@ Solvable with 3 supplements:
         
         Energy production
         $$
-        Q_{\text{p-p}}=[4M(p)-M(^4He)]c^2=26.7MeV
+        Q_{\text{p-p}}=[4M(p)-M(^4He)]c^2=26.7\text{ MeV}
         $$
 
-        Neutrino emission
+        Neutrino emission:
+        - Electron neutrino $\nu_e$
+        - Muon neutrino $\nu_\mu$
+        - Tau neutrino $\mu_\tau$
+
+        The mean free path of a neutrino $\sim$ many light years, takes $\sim 2$ s from core to surface;
+
+        The mean free path of a photon $\sim10^{-2}$ m, takes $\sim 10^{5}-10^7$ years from core to surface;
+
+        The mean free path of a particle $\sim 10^{-10}$ m.
     
     - CNO cycle
 
@@ -808,12 +817,14 @@ Solvable with 3 supplements:
     
     the energy released
     $$
-    Q_{3\alpha}=[3M(^4He)-M(^{12}C)]c^2=7.275MeV
+    Q_{3\alpha}=[3M(^4He)-M(^{12}C)]c^2=7.275\text{ MeV}
     $$
     the rate of energy production
     $$
     \varepsilon_{3\alpha}\propto \rho^2 T^{40}
     $$
+
+![rate of energy release](./star_fig/rate_energy_release.png)
 
 9. Carbon burning ( $5\times10^8K$ )
 
@@ -841,6 +852,10 @@ $$
     the s-process and r-process: the neutron capture reactions proceeds more slowly or rapidly than the competing $\beta$ decays.
 
     - $\beta$ decay: $n^0\rightarrow p^++e^-+\nu_e$
+
+    ![s-process and r-process](./star_fig/r-s-process.png)
+
+![different stages of nuclear processes](./star_fig/nuclear_process.png)
 
 11. Abundances of nuclei:
 
