@@ -491,6 +491,17 @@ Solvable with 3 supplements:
     $$
     P=\frac{\mathfrak{R}\rho T}{\mu}+\frac{aT^4}{3}
     $$
+    ::: info derivation
+    The gas pressure
+    $$
+    P=nkT=\frac{\rho kT}{\mu m_H}=\frac{\mathfrak{R}\rho T}{\mu}
+    $$
+    $n$ is the number of particles per unit volume m$^3$
+
+    $\mu=$ mean molecular weight $=$ mean mass of particles in terms of H-atom ( $m_H$ )
+
+    $\mathfrak{R}=k/m_H$ is the gas constant $=8.26\times 10^3$ J K$^{-1}$ kg$^{-1}$.
+    :::
     $$
     \begin{align}
     P&=\frac{\mathfrak{R}\rho T}{\mu_e}+\frac{\mathfrak{R}\rho T}{\mu_i}+\frac{aT^4}{3} \\
@@ -498,19 +509,28 @@ Solvable with 3 supplements:
     \end{align}
     $$
 
-2. Mean molecular weight
+2. Mean molecular weight $\mu=\dfrac{\rho}{n}\dfrac{1}{m_H}$
     $$
     n=\frac{2X\rho}{m_H}+\frac{3Y\rho}{4m_H}+\frac{Z\rho}{2m_H}=\frac{\rho}{4m_H}(6X+Y+2)
     $$
     $$
     \mu=\frac{4}{6X+Y+2}
     $$
+    ::: info derivation
+    H gives $2$ particles per $m_H$
+
+    He gives $3/4$ particles per $m_H$ ( $1$ $\alpha$ particle + 2 electrons )
+
+    Heavier elements give $\sim 1/2$ particles per $m_H$
+
+    ( $^{12}$C has 1 nucleus + 6 electrons $=7/12$; $^{16}$O has 1 nucleus + 8 electrons $=9/16$ )
+    :::
 
 3. Equation of state of a degenerate gas
 
     - Non-relativistic degenerate gas
         $$
-        P=\frac{1}{20}\left(\frac{2}{\pi}\right)^{2/3}\frac{h^2n_e^{5/3}}{m_e}
+        P=\frac{1}{20}\left(\frac{3}{\pi}\right)^{2/3}\frac{h^2n_e^{5/3}}{m_e}
         $$
         $$
         P=\frac{h^2}{20m_e}\left(\frac{3}{\pi}\right)^{2/3}\left(\frac{1+X}{2m_H}\right)^{5/3}\rho^{5/3}
@@ -524,11 +544,132 @@ Solvable with 3 supplements:
         $$
     
     They are independent of temperature.
+    ::: info derivation 1
+    1. the volume of phase space
+    $$
+    V_\text{ph}=4\pi p^2V\delta p
+    $$
+    the number of states in $V_\text{ph}$
+    $$
+    N_p=\left\{\begin{array}{ll}
+    \dfrac{8\pi p^2V}{h^3} & p\le p_0 \\
+    0 & p>p_0
+    \end{array}\right.
+    $$
+    the number of particles per unit volume is
+    $$
+    n_e=\frac{\int_0^{p_0}N_p\mathrm{d}p}{V}=\frac{8\pi p_0^3}{3h^3}
+    $$
+    $$
+    p_0=\frac{h}{2}\left(\frac{3n_e}{\pi}\right)^{1/3}
+    $$
+    2. the pressure
+    $$
+    \begin{aligned}
+    P&=\dfrac{1}{3}\int_0^\infty\dfrac{N_p}{V}pv_p\mathrm{d}p=\dfrac{1}{3}\int_0^{p_0}\dfrac{8\pi p^2}{h^3}\dfrac{p}{m_e}\left(1+\dfrac{p^2}{m_e^2c^2}\right)^{-1/2}p\mathrm{d}p \\
+    &=\dfrac{8\pi}{3h^3m_e}\int_0^{p_0}p^4\left(1+\dfrac{p^2}{m_e^2c^2}\right)^{-1/2}\mathrm{d}p
+    \end{aligned}
+    $$
+    for non-relativistic, $p\ll m_ec$
+    $$
+    P=\frac{8\pi}{3h^3m_e}\int_0^{p_0}p^4\mathrm{d}p=\frac{8\pi p_0^5}{15h^3m_e}=\frac{1}{20}\left(\frac{3}{\pi}\right)^{2/3}\frac{h^2}{m_e}n_e^{5/3}
+    $$
+    for relativistic, $v_p\approx c$
+    $$
+    P=\frac{1}{3}\int_0^\infty\dfrac{N_p}{V}cp\mathrm{d}p=\frac{8\pi}{3h^3}\int_0^{p_0}cp^3\mathrm{d}p=\frac{2\pi cp_0^4}{3h^3}=\frac{1}{8}\left(\frac{3}{\pi}\right)^{1/3}hcn_e^{4/3}
+    $$
+    3. convert $n_e$ to mass density $\rho$
+
+        for each $m_H$ of H there is one electron; for He and heavier elements there is approximately $1/2$ electrons for each $m_H$
+        $$
+        n_e=\frac{\rho X}{m_H}+\frac{\rho(1-X)}{2m_H}=\frac{\rho(1+X)}{2m_H}
+        $$
+    $$
+    P=\left\{\begin{array}{ll}
+    \dfrac{h^2}{20m_e}\left(\dfrac{3}{\pi}\right)^{2/3}\left(\dfrac{1+X}{2m_H}\right)^{5/3}\rho^{5/3} & \text{non-relativistic} \\
+    \dfrac{hc}{8}\left(\dfrac{3}{\pi}\right)^{1/3}\left(\dfrac{1+X}{2m_H}\right)^{4/3}\rho^{4/3} & \text{relativistic}
+    \end{array}\right.
+    $$
+    :::
+    ::: info derivation 2
+    1. energy-momentum relation $\varepsilon(p)$
+    $$
+    \varepsilon=
+    \left\{\begin{array}{ll}
+    p^2/2m_e & \text{non-relativistic} \\
+    pc & \text{relativistic}
+    \end{array}\right.
+    $$
+    the density of states $D(\varepsilon)$
+    $$
+    D(\varepsilon)\mathrm{d}\varepsilon=\left\{\begin{array}{ll}
+    \mathrm{d}\left[2V\dfrac{\frac{4}{3}\pi(2m_e\varepsilon)^{3/2}}{h^3}\right]=\dfrac{4\pi V}{h^3}(2m_e)^{3/2}\varepsilon^{1/2}\mathrm{d}\varepsilon & \text{non-relativistic} \\
+    \mathrm{d}\left[2V\dfrac{\frac{4}{3}\pi(\varepsilon/c)^3}{h^3}\right]=\dfrac{8\pi V}{h^3c^3}\varepsilon^2\mathrm{d}\varepsilon & \text{relativistic}
+    \end{array}\right.
+    $$
+    2. completely degenerate gas:
+    $$
+    f=\left\{\begin{array}{ll}
+    1 & \varepsilon\le\varepsilon_F \\
+    0 & \varepsilon>\varepsilon_F
+    \end{array}\right.
+    $$
+    the total number of particles
+    $$
+    N=\int_0^{\varepsilon_F}D(\varepsilon)\mathrm{d}\varepsilon=\left\{\begin{array}{ll}
+    \dfrac{4\pi V}{h^3}(2m_e)^{3/2}\dfrac{2}{3}\varepsilon_F^{3/2}=\dfrac{8\pi V}{3h^3}(2m_e)^{3/2}\varepsilon_F^{3/2} & \text{non-relativistic} \\
+    \dfrac{8\pi V}{h^3c^3}\varepsilon_F^3/3=\dfrac{8\pi V}{3h^3c^3}\varepsilon_F^3 & \text{relativistic}
+    \end{array}\right.
+    $$
+    the Fermi energy
+    $$
+    \varepsilon_F=\left\{\begin{array}{ll}
+    \left(\dfrac{3h^3N}{8\pi V}\right)^{2/3}\dfrac{1}{2m_e}=\dfrac{h^2}{2m_e}\left(\dfrac{3}{8\pi}n_e\right)^{2/3} & \text{non-relativistic} \\
+    \left(\dfrac{3h^3c^3 N}{8\pi V}\right)^{1/3}=hc\left(\dfrac{3}{8\pi}n_e\right)^{1/3} & \text{relativistic}
+    \end{array}\right.
+    $$
+    the total energy
+    $$
+    \begin{aligned}
+    U&=\int_0^{\varepsilon_F}\varepsilon D(\varepsilon)\mathrm{d}\varepsilon=\left\{\begin{array}{ll}
+    \dfrac{4\pi V}{h^3}(2m_e)^{3/2}\dfrac{2}{5}\varepsilon_F^{5/2}=\dfrac{8\pi V}{5h^3}(2m_e)^{3/2}\varepsilon_F^{5/2} & \text{non-relativistic} \\
+    \dfrac{8\pi V}{h^3c^3}\varepsilon_F^4/4=\dfrac{2\pi V}{h^3c^3}\varepsilon_F^4 & \text{relativistic}
+    \end{array}\right. \\
+    &=\left\{\begin{array}{ll}
+    \dfrac{8\pi V}{5h^3}(2m_e)^{3/2}\dfrac{h^5}{(2m_e)^{5/2}}\left(\dfrac{3}{8\pi}n_e\right)^{5/3}=\dfrac{3h^2V}{10m_e}\left(\dfrac{3}{8\pi}\right)^{2/3}n_e^{5/3} & \text{non-relativistic} \\
+    \dfrac{2\pi V}{h^3c^3}h^4c^4\left(\dfrac{3}{8\pi}n_e\right)^{4/3}=\dfrac{3hcV}{4}\left(\dfrac{3}{8\pi}\right)^{1/3}n_e^{4/3} & \text{relativistic}
+    \end{array}\right.
+    \end{aligned}
+    $$
+    3. the pressure
+    $$
+    P=\left\{\begin{array}{ll}
+    \dfrac{2}{3}\dfrac{U}{V}=\dfrac{h^2}{20m_e}\left(\dfrac{3}{\pi}\right)^{2/3}n_e^{5/3} & \text{non-relativistic} \\
+    \dfrac{1}{3}\dfrac{U}{V}=\dfrac{hc}{8}\left(\dfrac{3}{\pi}\right)^{1/3}n_e^{4/3} & \text{relativistic}
+    \end{array}\right.
+    $$
+    4. convert $n_e$ to mass density $\rho$
+
+        for each $m_H$ of H there is one electron; for He and heavier elements there is approximately $1/2$ electrons for each $m_H$
+        $$
+        n_e=\frac{\rho X}{m_H}+\frac{\rho(1-X)}{2m_H}=\frac{\rho(1+X)}{2m_H}
+        $$
+    $$
+    P=\left\{\begin{array}{ll}
+    \dfrac{h^2}{20m_e}\left(\dfrac{3}{\pi}\right)^{2/3}\left(\dfrac{1+X}{2m_H}\right)^{5/3}\rho^{5/3} & \text{non-relativistic} \\
+    \dfrac{hc}{8}\left(\dfrac{3}{\pi}\right)^{1/3}\left(\dfrac{1+X}{2m_H}\right)^{4/3}\rho^{4/3} & \text{relativistic}
+    \end{array}\right.
+    $$
+    :::
 
 ### Opacity
 
 4. Opacity
 
+    - Three mechanisms:
+        1. Emission
+        2. Scattering
+        3. Absorption
     - Four processes: 
         1. Bound-bound absorption
         2. Bound-free absorption
@@ -538,6 +679,21 @@ Solvable with 3 supplements:
     - Approximate form
         $$
         \kappa=\kappa_0\rho^\alpha T^\beta
+        $$
+    
+    ![opacity](./star_fig/opacity.png)
+
+    - At high $T$: most atoms fully ionized, dominant mechanism is electron scattering
+        $$
+        \kappa=\kappa_0\quad\text{(curve c)}
+        $$
+    - At low $T$: most atons are not ionized, main mechaisms are bound-bound absorption and bound-free absorption
+        $$
+        \kappa=\kappa_0\rho^{1/2}T^4\quad\text{(curve a)}
+        $$
+    - At intermediate $T$: $\kappa$ peaks, Kramers opacity law
+        $$
+        \kappa=\kappa_0\rho T^{-3.5}\quad\text{(curve b)}
         $$
 
 ### Nuclear reactions
@@ -552,7 +708,9 @@ Solvable with 3 supplements:
     $$
     where $A$ is the baryon number.
 
-    fusion vs fission
+    fusion v.s. fission
+
+    ![binding energy](./star_fig/binding_energy.png)
 
 6. The occurrence of fusion reactions
 
@@ -562,6 +720,8 @@ Solvable with 3 supplements:
     $$
 
     the Gamow peak (Maxwell distribution + tunnelling probability)
+    
+    ![the Gamow peak](./star_fig/Gamow_peak.png)
 
 7. Hydrogen burning:
 
