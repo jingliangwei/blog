@@ -869,13 +869,13 @@ $$
     \frac{\mathrm{d}r}{\mathrm{d}M}&=\frac{1}{4\pi r^2\rho} \\
     \frac{\mathrm{d}P}{\mathrm{d}M}&=-\frac{GM}{4\pi r^4} \\
     \frac{\mathrm{d}L}{\mathrm{d}M}&=\varepsilon \\
-    \frac{\mathrm{d}T}{\mathrm{d}M}&=-\frac{3\kappa L}{64\pi^2acr^4T^3}
+    \frac{\mathrm{d}T}{\mathrm{d}M}&=-\frac{3\kappa L_\text{rad}}{64\pi^2acr^4T^3}
     \end{align}
 $$
 Three supplements:
 $$
 \begin{aligned}
-P&=\frac{\mathcal{R}\rho T}{\mu} \\
+P&=\frac{\mathfrak{R}\rho T}{\mu} \\
 \kappa &=\kappa_0 \rho^\alpha T^\beta \\
 \varepsilon &= \varepsilon_0\rho T^\eta
 \end{aligned}
@@ -913,6 +913,29 @@ $$
     $$
     L_s\propto T_s^{4a_3/(a_3-2a_1)}
     $$
+    ::: info derivation
+    Using
+    $$
+    \left\{\begin{array}{l}
+    r_s\propto M_s^{a_1} \\
+    L_s\propto M_s^{a_3}
+    \end{array}\right.
+    \Rightarrow
+    \left\{\begin{array}{l}
+    r_s^{1/a_1}\propto M_s \\
+    L_s^{1/a_3}\propto M_s
+    \end{array}\right.
+    \Rightarrow
+    r_s\propto L_s^{a_1/a_3}
+    $$
+    from luminosity - effective temperature relation
+    $$
+    L_s=4\pi r_s^2\sigma T^4
+    $$
+    $$
+    \Rightarrow L_s^{1-2a_1/a_3}\propto T^4\Rightarrow L_s\propto T^{4a_3/(a_3-2a_1)}
+    $$
+    :::
 
 ### polytropes model
 
