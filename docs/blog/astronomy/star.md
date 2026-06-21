@@ -1450,3 +1450,54 @@ The general rules of stellar evolution:
     1. WD + main-sequence star companion (cataclysmic variable systems)
     2. WD + red giant -> novae
     3. WD + WD merger ( double degenerates )
+
+## The lives of binary stars
+
+- Binaries are formed during the star formation process. If the cloud rotates faster than a critical rate, the cloud will fragment into binary protostars.
+- Three classes of binary:
+    - visual binaries
+    - spectroscopic binaries
+    - eclipsing binaries
+- the evolution of binary stars
+    - wide binaries
+
+        close binaries ( or interacting binaries ): fills Roche lobe
+    - detached binary
+
+        semi-detached binary
+
+        contact binary
+    ![mass transfer](./star_fig/mass_transfer.png)
+    - the Algol paradox: the less massive, the faster the evolution?
+
+        The progenitor of the subgiant was a more massive star when firstly left the MS and filled the Roche lobe. Later, the mass transfer made the masses of two stars in the binary reversed.
+        ![explanation of the algol paradox](./star_fig/algol_paradox.png)
+    - cataclysmic variables
+    - novae
+
+    - X-ray binary ( NS + MS, BH + MS )
+        - Energy source: gravitational potential of the accreting mass -> kinetic energy -> thermal energy -> X-rays
+            $$
+            L_x=\frac{GM\dot{M}}{R}=\eta \dot{M}c^2
+            $$
+            rate of energy production
+            $$
+            \eta=\frac{GM}{Rc^2}
+            $$
+        - High-Mass X-ray binaries ( O,B spectral type )
+
+            usually X-ray pulsars
+            ![HMXB](./star_fig/HMXB.png)
+            mechanism of radiation:
+            ![mechanism of radiation](./star_fig/mechanism_of_radiation.png)
+        - Low-Mass X-ray binaries ( A and later spectral type )
+
+            ![LMXB](./star_fig/LMXB.png)
+            explosion mechanism:
+            ![explosion mechanism](./star_fig/explosion_mechanism.png)
+    
+    - The fate of a close binary system:
+        - Massive stars paired ( $>11M_\odot$ )
+        ![massive stars paired](./star_fig/massive_stars_paired.png)
+        - Low mass binaries ( $<11M_\odot$ )
+        ![low mass binaries](./star_fig/low_mass_binaries.png)
