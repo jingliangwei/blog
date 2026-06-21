@@ -1180,15 +1180,19 @@ $$
 
 - Convection processes:
 
-    Mixing length theory of convection: mixing length $l$
+    - Mixing length theory of convection: mixing length $l$
 
-    $\alpha=\frac{l}{H_p}$ for the Sun $\alpha=1.6$
+    assume that the convective elements of a characteristic size $l$ rise or fall through a distance that is comparable with their size, before they exchange heat with their surroundings. as moving adiabatically and in pressure balance with their surroundings, they are accelerated freely by buoyancy force.
 
-    Convective overshooting
+    $\alpha=\dfrac{l}{H_p}$ for the Sun $\alpha=1.6$
+
+    - Convective overshooting
+
+    a rising convective element enters the non-convective region
 
 - Modelling star clusters:
 
-    Isochrones
+    Isochrones: a curve which traces the properties of stars as a function of mass for a given age. ( different to Evolutionary track )
 
 ## The evolution of stars
 
