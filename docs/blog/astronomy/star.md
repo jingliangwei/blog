@@ -1256,6 +1256,41 @@ The general rules of stellar evolution:
 
 ### For massive stars
 
+- a hook to the left in the H-R diagram:
+    - for stars $M>\sim1.1M_\odot$, the dominant nuclear reaction is CNO cycle in the core, the resulting steep temperature gradient is unstable to convection.
+    - using up all the hydrogen at the centre, the convectively mixed region stops energy production. Just outside the core, the temperature is too low for hydrogen to burning. The star is forced into a slow overall contraction due to no nuclear energy source.
+    - heating up the core so that a thin shell just outside the core boundary start burning hydrogen
+
+    The overall contraction causes a hook to the left before progress to the giant region is resumed once the shell has ignited.
+
+    ![hook in H-R diagram](./star_fig/hook_HR.png)
+
+    - the exhausted core consists of almost pure helium, cools down to a isothermal core. The isothermal core grows slowly in mass as the shell burning hydrogen into helium.
+
+- the Hertsprung gap:
+    - the core reaches the Schönberg-Chandrasekhar limit of about $10\%$ to $15\%$ of the mass of the star, at which point an isothermal core cannot support itself against gravity.
+
+    ( This instability only occurs in stars with $M\in[1.5M_\odot,6M_\odot]$. For lower mass, the core becomes degenerate before reaching the Schönberg-Chandrasekhar limit; for higher mass, the central temperature becomes hot enough for He-flash before reaching the Schönberg-Chandrasekhar limit. )
+
+    - in stars reaching the Schönberg-Chandrasekhar limit, the core begins to contract rapidly, with a rapid expansion of the whole star, hence a rapid transition to the giant branch, which accounts for the Hertsprung gap in H-R diagrams of the open clusters.
+
+    ![Hertsprung gap](./star_fig/Hertsprung_gap.png)
+
+- flash or not:
+    - if the core is not degenerate ( i.e., $M>1.5M_\odot$ ), helium ignites gently and there is no helium flash. ( temperature v.s. density, more mass, contract faster, temperature reach earlier, not degenerate. )
+    - for $M>8M_\odot$, the core is not degenerate and carbon can ignite quietly. At lower mass, a carbon flash occurs, as the core is degenerate.
+    - for $M>11M_\odot$, burning can proceed as far as iron. Onion skin structure, with successive shells containing the ashes of the various burning stages.
+    ![onion skin structure](./star_fig/onion_skin.png)
+    - for high-mass stars, there are rightward ( core exhaustion ) and leftward ( core ignition ) between MS and RGB, occur with only a slight systematic increase in luminosity.
+
+    ![rightward and leftward in H-R diagram](./star_fig/hook_HR.png)
+
+    - for very high-mass stars, the nuclear evolution in the centre is so quickly that the outer layers have no time to respond, there is only a relatively steady drift to the right on the H-R diagram.
+
+- Final Fate: Formation of an iron core. Once the core exceeds the Chandrasekhar limit ($\sim 1.4M_\odot$), it collapses, leading to a Type II supernova explosion. The remnant is a neutron star (if core mass $<\sim 3M_\odot$) or a black hole (if core mass $>\sim 3M_\odot$)
+
+---
+
 1. For high-mass stars ($M>\sim 8M\odot$):
 
     - Main sequence: core hydrogen burning with a well-mixed convective core
@@ -1271,9 +1306,12 @@ The general rules of stellar evolution:
 3. Differences for super-massive stars ($15M_\odot-25M_\odot$)
 
     - the electrons in their cores do not become degenrate until the final burning stages, when iron core is reached
-    - mass-loss: stellar wind
+    - mass-loss: stellar wind ( evidence: P-Cygni lines )
+    ![P-Cygni lines](./star_fig/P-Cygni.png)
     - the luminosity remains approximately constant in spite of internal changes
     - Wolf-Rayet stars ($>20M_\odot$): O main-sequence star -> blue supergiant -> red supergiant -> WR star
+
+---
 
 - Eddington luminosity:
 
@@ -1284,7 +1322,10 @@ The general rules of stellar evolution:
     P_\text{rad}=\frac{1}{3}aT^4
     $$
     $$
-    \mathrm{d}P_\text{rad}=\frac{4}{3}aT^3\mathrm{d}T=\frac{4}{3}aT^3\left(-\frac{3\kappa L}{64\pi^2acr^4T^3}\mathrm{d}M\right)
+    \begin{aligned}
+    \mathrm{d}P_\text{rad}&=\frac{4}{3}aT^3\mathrm{d}T=\frac{4}{3}aT^3\left(-\frac{3\kappa L}{64\pi^2acr^4T^3}\mathrm{d}M\right) \\
+    &=-\frac{\kappa L}{16\pi^2 cr^4}\mathrm{d}M
+    \end{aligned}
     $$
 
     the gravitational pressure
