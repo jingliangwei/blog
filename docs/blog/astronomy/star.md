@@ -1165,7 +1165,7 @@ $$
     ![model_sun](./star_fig/model_sun.png)
     ![element_sun](./star_fig/element_sun.png)
 
-    For different masses: the convective regions
+    For different masses: the convective regions ( "cloudy" areas )
     ![different_mass](./star_fig/different_mass.png)
 
 - The five sections on Main-sequence:
@@ -1197,48 +1197,62 @@ $$
 ## The evolution of stars
 
 The general rules of stellar evolution:
-1. The Russell-Vogt Theorem: the stellar evolution is mainly determined by the initial stellar mass and the initial chemical composition.
-2. The higher the mass, the shorter the lifetime of the star will be.
-3. The lower the mass, the higher will be the central density and the lower the central temperature in a given evolutionary phase.
-4. The higher the metallicity (keeping the initial He abundance fixed) the lower the luminosity and $T_\text{eff}$ will be, and the longer the evolutionary phases.
+1. The Russell-Vogt Theorem: the stellar evolution is mainly determined by the *initial stellar mass* and the *initial chemical composition*.
+2. The *higher the mass*, the *shorter the lifetime* of the star will be.
+3. The *lower the mass*, the *higher will be the central density* and the *lower the central temperature* in a given evolutionary phase.
+4. The *higher the metallicity* (keeping the initial He abundance fixed) the *lower the luminosity and $T_\text{eff}$* will be, and the *longer the evolutionary phases*.
 
 ### For $1M_\odot$ mass stars
 
-- The main-sequence phase
+![Evolutionary track of 1 M_sun](./star_fig/1M_sun.png)
+
+- The main-sequence phase ( 1 )
 
     H-burning (pp chain)
 
-    the core of the star is radiative
+    the core of the star is radiative ( nuclear reactions can use only the fuel locally )
 
-    H-exhaustion, the H-burning continues in a shell around the core, H envelope expands.
+    H-exhaustion, the H-burning continues in a shell around the core, H envelope expands ( 1->2 ).
 
-- The red-giant phase
+- The red-giant phase ( 2->3 )
 
     the outer layers reach $5000K$ and the envelopes become fully convective.
 
-    approaches the Hayashi line
+    approaches the Hayashi line ( a nearly vertical line on the H-R diagram that a fully convective star can exist in stable hydrostatic equilibrium )
 
-    shell H burning
+    shell H burning, very hot core + cool surface, large size but less mass, very bright.
 
-- The He-flash and core He-burning
+- The He-flash and core He-burning ( 3 )
 
-    He-flash: when the star reaches the tip of RGB.
+    He-flash: degenerate core, for $T\sim 10^8$ K, triple-reactions start, when the star reaches the tip of RGB.
 
-- The horizontal branch
+    after He-flash, the star sits in the *Red Clump* ( metal rich stars ) or the *Horizontal Branch* ( metal poor stars ).
+
+- The horizontal branch ( 4 )
 
     Core He burning and shell H burning
 
-- The AGB and thermal pulses
+    Mass-loss drives bluewards evolution
+
+    More metal rich stars appear towards red
+
+- The AGB ( 4->5 ) and thermal pulses
 
     Asymptotic giant branch: CO-core + shell H/He source -> expansion of the envelop
 
-    When the star moves to the tip of AGB, shell He flash -> stellar pulsation (thermal pulses) -> throw out the envelope of AGB -> planetary nebulae + very hot electron degeneracy CO core
+    When the star moves to the tip of AGB ( 5 ), shell He flash -> stellar pulsation (thermal pulses) -> throw out the envelope of AGB -> planetary nebulae + very hot electron degeneracy CO core
 
-- Planetary nebula
+- Planetary nebula ( 6 )
 
-- White dwarf:
+    Mass-loss is generally classified into two types of wind: Stellar wind + superwind
+
+    the existence of a superwind: the high density shells + relative paucity of very bright stats on the AGB
+
+- White dwarf ( 7 )
 
     CO core collapsed as a white drawf
+
+    white dwarf cools down -> black dwarf ( 8 )
 
 ### For massive stars
 
