@@ -1114,6 +1114,11 @@ $$
     $$
     M_s=5.83\mu_e^{-2}M_\odot
     $$
+    ::: info Chandrasekhar mass limit
+    for He,C,O,..., $\mu_e=2$, $M_\text{ch}=1.46M_\odot$
+
+    for Fe, $\mu_e=2.15$, $M_\text{ch}=1.26M_\odot$
+    :::
 
 - Minimum and maximum masses for stars:
 
@@ -1287,7 +1292,7 @@ The general rules of stellar evolution:
 
     - for very high-mass stars, the nuclear evolution in the centre is so quickly that the outer layers have no time to respond, there is only a relatively steady drift to the right on the H-R diagram.
 
-- Final Fate: Formation of an iron core. Once the core exceeds the Chandrasekhar limit ($\sim 1.4M_\odot$), it collapses, leading to a Type II supernova explosion. The remnant is a neutron star (if core mass $<\sim 3M_\odot$) or a black hole (if core mass $>\sim 3M_\odot$)
+- Final Fate: Formation of an iron core. Once the core exceeds the Chandrasekhar limit ($\sim 1.26M_\odot$), it collapses, leading to a Type II supernova explosion. The remnant is a neutron star (if core mass $<\sim 3M_\odot$) or a black hole (if core mass $>\sim 3M_\odot$)
 
 ---
 
@@ -1296,7 +1301,7 @@ The general rules of stellar evolution:
     - Main sequence: core hydrogen burning with a well-mixed convective core
     - Post-Main sequence: core hydrogen exhaustion -> overall stellar contraction (causing a "hook" to the left in the HR diagram) -> ignition of a hydrogen-burning shell -> envelope expansion -> star becomes a red supergiant (RSG)
     - Advenced burning: the non-degenerate core undergoes successive nuclear fusion stages: Helium -> Carbon -> Neon -> Oxygen -> Silicon burning, building an "onion-skin" structure
-    - Final Fate: Formation of an iron core. Once the core exceeds the Chandrasekhar limit ($\sim 1.4M_\odot$), it collapses, leading to a Type II supernova explosion. The remnant is a neutron star (if core mass $<\sim 3M_\odot$) or a black hole (if core mass $>\sim 3M_\odot$)
+    - Final Fate: Formation of an iron core. Once the core exceeds the Chandrasekhar limit ($\sim 1.26M_\odot$), it collapses, leading to a Type II supernova explosion. The remnant is a neutron star (if core mass $<\sim 3M_\odot$) or a black hole (if core mass $>\sim 3M_\odot$)
 
 2. Differences for stars of moderate mass ($\sim 1.5-6M_\odot$)
 
@@ -1369,7 +1374,7 @@ The general rules of stellar evolution:
     - formation: MS -> Red giant -> Planetary nebula -> White dwarf -> Black dwarf
     - luminosity & spectra: intrinsically faint, hot stars
     - structure: isothemal degenerate C/O core + thin non-degenerate surface layer of H or He
-    - The Chandrasekhar mass $1.4M_\odot$ ( the whire dwarf can be calculated as a polytrope with index $n=3$, relativistic degenerate gas $P=K_2\rho^{4/3}$ )
+    - The Chandrasekhar mass $1.46M_\odot$ ( the whire dwarf can be calculated as a polytrope with index $n=3$, relativistic degenerate gas $P=K_2\rho^{4/3}$ )
     - Observed mass-radius relation
 
 2. neutron stars
@@ -1416,3 +1421,32 @@ The general rules of stellar evolution:
         $$
         the LHS is called the mass function $f(m)$, give a lower limit on BH mass.
 
+### Supernovae
+
+![types of supernovae](./high_energy_astrophysics_fig/2-4.jpg)
+
+- Type Ia SNe are found in all types of galaxies. Other types of SNe are associated with the deaths of massive stars ( the collapse of the Fe core at end of evolution )
+
+#### Type II SNe
+
+- Fe core contracts and electrons become degenerate gas. When core mass $>M_\text{ch}\sim 1.26M_\odot$, core collapses.
+- Bounce of nuclear density neutron star initiates outward shock.
+- Shock must have further energy input. Likely this comes from neutrinos. Neutrino emission accounts for $99\%$ of the gravitational potential energy of collapsing core. Explosions are likely neutrino driven.
+- Typical Type II SNe have plateau phase as shock wave moves through star
+- Then enter tail-phase, luminosity source in radioactive $^{56}$Ni created explosively in SNe.
+
+#### Type Ia SNe
+
+- The Typical lightcurve for Type Ia SNe: the Phillips decline rate relation
+- WD reaches $M_\text{ch}=1.46M_\odot$ by accumulating mass from an accreting binary companion in a close interacting binary system.
+
+    -> C ignited under degenerate conditions
+
+    -> Thermonuclear runaway
+
+    -> Incineration and complete destruction of star
+
+- Three models for accreting matter:
+    1. WD + main-sequence star companion (cataclysmic variable systems)
+    2. WD + red giant -> novae
+    3. WD + WD merger ( double degenerates )
