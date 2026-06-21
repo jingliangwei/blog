@@ -1366,7 +1366,53 @@ The general rules of stellar evolution:
 
 1. white dwarfs
 
+    - formation: MS -> Red giant -> Planetary nebula -> White dwarf -> Black dwarf
     - luminosity & spectra: intrinsically faint, hot stars
     - structure: isothemal degenerate C/O core + thin non-degenerate surface layer of H or He
-    - The Chandrasekhar mass
+    - The Chandrasekhar mass $1.4M_\odot$ ( the whire dwarf can be calculated as a polytrope with index $n=3$, relativistic degenerate gas $P=K_2\rho^{4/3}$ )
     - Observed mass-radius relation
+
+2. neutron stars
+
+    - $1.4M_\odot$ NS has $R\sim10-15$ km, $\rho\sim 6\times10^{14}$ g cm$^{-3}$ ( nuclear density )
+    - formation: $p+e^-\rightarrow n+\nu_e$; as $\rho_n=4\times10^{11}$ g cm$^{-3}$, neutrons drip out from a nuclear; as $\rho_n=10^{14}$ g cm$^{-3}$, a nuclear is broken up, a neutron ocean forms
+    - relativistic treatment of the equation of state imposes upper limit on NS mass. Oppenheimer mass limit $\sim2-3M_\odot$
+    - Mass-radius: the more massive the NS, the smaller its radius
+    - Pulsating period $P\sim 1$ ms $-10$ s, increasing slowly
+    - strong magnetic field $B\sim 10^8-10^{12}$ G
+    - most of them are single stars.
+    - lighthouse effect
+    - magnetars
+
+3. black holes
+
+    - structure: singularity, event horizon ( $R_s$ ), photosphere ( $1.5R_s$ )
+    - gravitational redshift
+    - time delay
+    - No hair of BH: mass, angular momentum and charges
+    - Kerr BH
+    - determine BH mass ( $m_2$ ):
+
+        the Keplers law:
+        $$
+        G\frac{m_1m_2}{r^2}=m_1\frac{4\pi^2}{P^2}r_1=m_1\frac{4\pi^2}{P^2}r\frac{m_2}{m_1+m_2}
+        $$
+        $$
+        \Rightarrow \frac{r^3}{P^2}=\frac{G}{4\pi^2}(m_1+m_2)
+        $$
+        the radial velocity of the companion star $v_c$
+        $$
+        v_c=v_i\sin i=\frac{2\pi r_1}{P}\sin i=\frac{2\pi r}{P}\frac{m_2}{m_1+m_2}\sin i
+        $$
+        $$
+        \begin{aligned}
+        \Rightarrow v_c^3&=\frac{(2\pi)^3r^3}{P^3}\frac{m_2^3}{(m_1+m_2)^3}\sin^3i \\
+        &=\frac{(2\pi)^3}{P}\frac{G}{4\pi^2}(m_1+m_2)\frac{m_2^3}{(m_1+m_2)^3}\sin^3i \\
+        &=\frac{2\pi G}{P}\frac{m_2^3}{(m_1+m_2)^2}\sin^3i
+        \end{aligned}
+        $$
+        $$
+        \Rightarrow \frac{v_c^3P}{2\pi G}=\frac{m_2^3}{(m_1+m_2)^2}\sin^3 i
+        $$
+        the LHS is called the mass function $f(m)$, give a lower limit on BH mass.
+
