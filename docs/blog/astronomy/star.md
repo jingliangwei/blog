@@ -328,9 +328,9 @@
         $$
         \Rightarrow \frac{\rho u_g}{\rho u_r}\sim 5\times 10^3
         $$
-        this imply that conduction is more important than radiation for the Sun.
+        this imply that ~~conduction is more important than radiation for the Sun.~~
 
-        However, the mean free path of a photon $\sim10^{-2}$ m; while the mean free path of a particle $\sim10^{-10}$ m. Photons can move across temperature gradients more easily, hence larger transport of energy. So conduction is negligible, radiation transport in dominant.
+        However, the mean free path of a photon $\sim10^{-2}$ m; while the mean free path of a particle $\sim10^{-10}$ m. Photons can move across temperature gradients more easily, hence larger transport of energy. So <u>conduction is negligible, radiation transport in dominant.</u>
 
     - Convection: by mass motions of the gas
 
@@ -851,7 +851,7 @@ $$
 
     the s-process and r-process: the neutron capture reactions proceeds more slowly or rapidly than the competing $\beta$ decays.
 
-    - $\beta$ decay: $n^0\rightarrow p^++e^-+\nu_e$
+    - $\beta$ decay: $n^0\rightarrow p^++e^-+\bar{\nu}_e$
 
     ![s-process and r-process](./star_fig/r-s-process.png)
 
